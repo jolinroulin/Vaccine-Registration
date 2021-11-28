@@ -1,5 +1,5 @@
 
-package library.service.system;
+package Classes;
 
 public class Personnel extends Committee{
     private VaccinationCentre post;

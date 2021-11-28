@@ -155,9 +155,9 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="btnLecturer" min="-2" pref="368" max="-2" attributes="0"/>
+                                              <Component id="btnPersonnel" min="-2" pref="368" max="-2" attributes="0"/>
                                               <Component id="btnAdmin" min="-2" pref="368" max="-2" attributes="0"/>
-                                              <Component id="btnStudent" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
+                                              <Component id="btnUser" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -175,14 +175,14 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="btnAdmin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="btnLecturer" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnPersonnel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="btnStudent" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnUser" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="lblExit" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblBackground" alignment="0" pref="565" max="32767" attributes="0"/>
+                      <Component id="lblBackground" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -223,7 +223,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnLecturer">
+                <Component class="javax.swing.JButton" name="btnPersonnel">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="cc" red="ff" type="rgb"/>
@@ -240,10 +240,10 @@
                     <Property name="horizontalTextPosition" type="int" value="4"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLecturerActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPersonnelActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnStudent">
+                <Component class="javax.swing.JButton" name="btnUser">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -260,7 +260,7 @@
                     <Property name="horizontalAlignment" type="int" value="10"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStudentActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblExit">
@@ -361,7 +361,7 @@
                                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                                       <Component id="btnBack" min="-2" pref="129" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                      <Component id="btnLibrarianLogin" min="-2" pref="129" max="-2" attributes="0"/>
+                                      <Component id="btnAdminLogin" min="-2" pref="129" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
@@ -369,12 +369,12 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="txtLibrarianUsername" min="-2" pref="245" max="-2" attributes="0"/>
+                                              <Component id="txtAdminUsername" min="-2" pref="245" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="txtLibrarianPassword" min="-2" pref="245" max="-2" attributes="0"/>
+                                              <Component id="txtAdminPassword" min="-2" pref="245" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -395,16 +395,16 @@
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtLibrarianUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtAdminUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtLibrarianPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtAdminPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnLibrarianLogin" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="btnAdminLogin" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                                   <Component id="btnBack" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="67" max="32767" attributes="0"/>
@@ -435,14 +435,14 @@
                         <Property name="text" type="java.lang.String" value="Username: "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtLibrarianUsername">
+                    <Component class="javax.swing.JTextField" name="txtAdminUsername">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Cambria Math" size="24" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="txtLibrarianPassword">
+                    <Component class="javax.swing.JPasswordField" name="txtAdminPassword">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Cambria Math" size="24" style="0"/>
@@ -452,7 +452,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLibrarianPasswordActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAdminPasswordActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -466,7 +466,7 @@
                         <Property name="text" type="java.lang.String" value="Admin Login "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnLibrarianLogin">
+                    <Component class="javax.swing.JButton" name="btnAdminLogin">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -478,7 +478,7 @@
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLibrarianLoginActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminLoginActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnBack">
@@ -545,7 +545,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblBackground2" alignment="0" pref="565" max="32767" attributes="0"/>
+                      <Component id="lblBackground2" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
@@ -578,7 +578,7 @@
                                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                                       <Component id="btnBack1" min="-2" pref="129" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                      <Component id="btnLoginLecturer" min="-2" pref="129" max="-2" attributes="0"/>
+                                      <Component id="btnPersonnelLecturer" min="-2" pref="129" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
@@ -586,12 +586,12 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="txtLecUsername" min="-2" pref="245" max="-2" attributes="0"/>
+                                              <Component id="txtPersonnelUsername" min="-2" pref="245" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="txtLecPassword" min="-2" pref="245" max="-2" attributes="0"/>
+                                              <Component id="txtPersonnelPassword" min="-2" pref="245" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -612,16 +612,16 @@
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtLecUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPersonnelUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtLecPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPersonnelPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnLoginLecturer" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="btnPersonnelLecturer" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                                   <Component id="btnBack1" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="67" max="32767" attributes="0"/>
@@ -652,14 +652,14 @@
                         <Property name="text" type="java.lang.String" value="Username: "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtLecUsername">
+                    <Component class="javax.swing.JTextField" name="txtPersonnelUsername">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Cambria Math" size="24" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="txtLecPassword">
+                    <Component class="javax.swing.JPasswordField" name="txtPersonnelPassword">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Cambria Math" size="24" style="0"/>
@@ -669,7 +669,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLecPasswordActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPersonnelPasswordActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel9">
@@ -683,7 +683,7 @@
                         <Property name="text" type="java.lang.String" value="Personnel Login"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnLoginLecturer">
+                    <Component class="javax.swing.JButton" name="btnPersonnelLecturer">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -695,7 +695,7 @@
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginLecturerActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPersonnelLecturerActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnBack1">
@@ -762,7 +762,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblBackground3" alignment="0" pref="565" max="32767" attributes="0"/>
+                      <Component id="lblBackground3" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
@@ -793,7 +793,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                                      <Component id="btnStdBack" min="-2" pref="129" max="-2" attributes="0"/>
+                                      <Component id="btnUserBack" min="-2" pref="129" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                                       <Component id="btnUserLogin" min="-2" pref="129" max="-2" attributes="0"/>
                                   </Group>
@@ -803,14 +803,14 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="txtStdPassword" min="-2" pref="245" max="-2" attributes="0"/>
+                                              <Component id="txtUserPassword" min="-2" pref="245" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel12" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
-                                                  <Component id="txtStdUsername" min="-2" pref="245" max="-2" attributes="0"/>
+                                                  <Component id="txtUserUsername" min="-2" pref="245" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -828,17 +828,17 @@
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtStdUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtUserUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtStdPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtUserPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnUserLogin" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                                  <Component id="btnStdBack" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="btnUserBack" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="67" max="32767" attributes="0"/>
                           </Group>
@@ -868,14 +868,14 @@
                         <Property name="text" type="java.lang.String" value="Username: "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtStdUsername">
+                    <Component class="javax.swing.JTextField" name="txtUserUsername">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Cambria Math" size="24" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="txtStdPassword">
+                    <Component class="javax.swing.JPasswordField" name="txtUserPassword">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Cambria Math" size="24" style="0"/>
@@ -885,7 +885,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStdPasswordActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUserPasswordActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel12">
@@ -915,7 +915,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserLoginActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnStdBack">
+                    <Component class="javax.swing.JButton" name="btnUserBack">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -927,7 +927,7 @@
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStdBackActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserBackActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

@@ -57,11 +57,11 @@ public class MainPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblBackground = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnLibrarian = new javax.swing.JButton();
+        btnAdmin = new javax.swing.JButton();
         btnLecturer = new javax.swing.JButton();
         btnStudent = new javax.swing.JButton();
         lblExit = new javax.swing.JLabel();
-        jpLibrarian = new javax.swing.JPanel();
+        jpAdmin = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lblBackground1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -72,7 +72,7 @@ public class MainPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnLibrarianLogin = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jpLecturer = new javax.swing.JPanel();
+        jpPersonnel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         lblBackground2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -83,7 +83,7 @@ public class MainPage extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnLoginLecturer = new javax.swing.JButton();
         btnBack1 = new javax.swing.JButton();
-        jpStudent = new javax.swing.JPanel();
+        jpUser = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         lblBackground3 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -92,7 +92,7 @@ public class MainPage extends javax.swing.JFrame {
         txtStdUsername = new javax.swing.JTextField();
         txtStdPassword = new javax.swing.JPasswordField();
         jLabel12 = new javax.swing.JLabel();
-        btnStdLogin = new javax.swing.JButton();
+        btnUserLogin = new javax.swing.JButton();
         btnStdBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -144,24 +144,25 @@ public class MainPage extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         jLabel2.setText("Login As");
 
-        btnLibrarian.setBackground(new java.awt.Color(204, 255, 204));
-        btnLibrarian.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
-        btnLibrarian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AdminIcon.jpg"))); // NOI18N
-        btnLibrarian.setText("              Librarian");
-        btnLibrarian.setToolTipText("");
-        btnLibrarian.setActionCommand("               ");
-        btnLibrarian.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        btnLibrarian.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnLibrarian.addActionListener(new java.awt.event.ActionListener() {
+        btnAdmin.setBackground(new java.awt.Color(204, 255, 204));
+        btnAdmin.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
+        btnAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AdminIcon.jpg"))); // NOI18N
+        btnAdmin.setText("                Admin");
+        btnAdmin.setToolTipText("");
+        btnAdmin.setActionCommand("               ");
+        btnAdmin.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLibrarianActionPerformed(evt);
+                btnAdminActionPerformed(evt);
             }
         });
 
         btnLecturer.setBackground(new java.awt.Color(255, 204, 255));
         btnLecturer.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         btnLecturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/LecturerIcon.jpg"))); // NOI18N
-        btnLecturer.setText("                  Staff");
+        btnLecturer.setText("              Personnel");
+        btnLecturer.setActionCommand("           Personnel");
         btnLecturer.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnLecturer.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnLecturer.addActionListener(new java.awt.event.ActionListener() {
@@ -173,9 +174,10 @@ public class MainPage extends javax.swing.JFrame {
         btnStudent.setBackground(new java.awt.Color(204, 204, 255));
         btnStudent.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         btnStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/StudentIcon.png"))); // NOI18N
-        btnStudent.setText("               Student");
+        btnStudent.setText("                   User");
+        btnStudent.setActionCommand("               ");
+        btnStudent.setFocusable(false);
         btnStudent.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        btnStudent.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStudentActionPerformed(evt);
@@ -211,9 +213,9 @@ public class MainPage extends javax.swing.JFrame {
                                 .addGap(195, 195, 195)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnLibrarian, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 220, Short.MAX_VALUE))))
+                        .addGap(0, 211, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +223,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(btnLibrarian)
+                .addComponent(btnAdmin)
                 .addGap(40, 40, 40)
                 .addComponent(btnLecturer)
                 .addGap(45, 45, 45)
@@ -245,7 +247,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Main", jpMain);
 
-        jpLibrarian.setPreferredSize(new java.awt.Dimension(1438, 548));
+        jpAdmin.setPreferredSize(new java.awt.Dimension(1438, 548));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -273,7 +275,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
-        jLabel6.setText("Librarian Login ");
+        jLabel6.setText("Admin Login ");
 
         btnLibrarianLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLibrarianLogin.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
@@ -362,18 +364,18 @@ public class MainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jpLibrarianLayout = new javax.swing.GroupLayout(jpLibrarian);
-        jpLibrarian.setLayout(jpLibrarianLayout);
-        jpLibrarianLayout.setHorizontalGroup(
-            jpLibrarianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpAdminLayout = new javax.swing.GroupLayout(jpAdmin);
+        jpAdmin.setLayout(jpAdminLayout);
+        jpAdminLayout.setHorizontalGroup(
+            jpAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jpLibrarianLayout.setVerticalGroup(
-            jpLibrarianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jpAdminLayout.setVerticalGroup(
+            jpAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Librarian", jpLibrarian);
+        jTabbedPane1.addTab("Librarian", jpAdmin);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -401,7 +403,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
-        jLabel9.setText("Staff Login");
+        jLabel9.setText("Personnel Login");
 
         btnLoginLecturer.setBackground(new java.awt.Color(255, 255, 255));
         btnLoginLecturer.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
@@ -447,8 +449,8 @@ public class MainPage extends javax.swing.JFrame {
                                 .addComponent(txtLecPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(172, 172, 172)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,7 +481,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(lblBackground2, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(98, 98, 98)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,18 +492,18 @@ public class MainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jpLecturerLayout = new javax.swing.GroupLayout(jpLecturer);
-        jpLecturer.setLayout(jpLecturerLayout);
-        jpLecturerLayout.setHorizontalGroup(
-            jpLecturerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpPersonnelLayout = new javax.swing.GroupLayout(jpPersonnel);
+        jpPersonnel.setLayout(jpPersonnelLayout);
+        jpPersonnelLayout.setHorizontalGroup(
+            jpPersonnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jpLecturerLayout.setVerticalGroup(
-            jpLecturerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jpPersonnelLayout.setVerticalGroup(
+            jpPersonnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Lecturer", jpLecturer);
+        jTabbedPane1.addTab("Lecturer", jpPersonnel);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -529,20 +531,20 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
-        jLabel12.setText("Student Login");
+        jLabel12.setText("User Login");
 
-        btnStdLogin.setBackground(new java.awt.Color(255, 255, 255));
-        btnStdLogin.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        btnStdLogin.setText("Login");
-        btnStdLogin.setToolTipText("");
-        btnStdLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnUserLogin.setBackground(new java.awt.Color(255, 255, 255));
+        btnUserLogin.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        btnUserLogin.setText("Login");
+        btnUserLogin.setToolTipText("");
+        btnUserLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnStdLoginMouseClicked(evt);
+                btnUserLoginMouseClicked(evt);
             }
         });
-        btnStdLogin.addActionListener(new java.awt.event.ActionListener() {
+        btnUserLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStdLoginActionPerformed(evt);
+                btnUserLoginActionPerformed(evt);
             }
         });
 
@@ -563,24 +565,23 @@ public class MainPage extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(btnStdBack, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(86, 86, 86)
-                        .addComponent(btnStdLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtStdUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtStdUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -598,7 +599,7 @@ public class MainPage extends javax.swing.JFrame {
                     .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnStdLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnStdBack, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
@@ -612,7 +613,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(lblBackground3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -623,18 +624,18 @@ public class MainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jpStudentLayout = new javax.swing.GroupLayout(jpStudent);
-        jpStudent.setLayout(jpStudentLayout);
-        jpStudentLayout.setHorizontalGroup(
-            jpStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpUserLayout = new javax.swing.GroupLayout(jpUser);
+        jpUser.setLayout(jpUserLayout);
+        jpUserLayout.setHorizontalGroup(
+            jpUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jpStudentLayout.setVerticalGroup(
-            jpStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jpUserLayout.setVerticalGroup(
+            jpUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Student", jpStudent);
+        jTabbedPane1.addTab("Student", jpUser);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 130, 1500, 570));
 
@@ -642,9 +643,9 @@ public class MainPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrarianActionPerformed
+    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
         jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_btnLibrarianActionPerformed
+    }//GEN-LAST:event_btnAdminActionPerformed
 
     private void btnLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLecturerActionPerformed
         jTabbedPane1.setSelectedIndex(2);
@@ -735,7 +736,7 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStdPasswordActionPerformed
 
-    private void btnStdLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStdLoginActionPerformed
+    private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
         try {
             StudentDetails md = new StudentDetails();
             String studentUsername = txtStdUsername.getText();
@@ -760,7 +761,7 @@ public class MainPage extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnStdLoginActionPerformed
+    }//GEN-LAST:event_btnUserLoginActionPerformed
 
     private void btnStdBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStdBackActionPerformed
         jTabbedPane1.setSelectedIndex(0);
@@ -769,9 +770,9 @@ public class MainPage extends javax.swing.JFrame {
 
     
 
-    private void btnStdLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStdLoginMouseClicked
+    private void btnUserLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserLoginMouseClicked
 
-    }//GEN-LAST:event_btnStdLoginMouseClicked
+    }//GEN-LAST:event_btnUserLoginMouseClicked
 
     /**
      * @param args the command line arguments
@@ -809,15 +810,15 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdmin;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnLecturer;
-    private javax.swing.JButton btnLibrarian;
     private javax.swing.JButton btnLibrarianLogin;
     private javax.swing.JButton btnLoginLecturer;
     private javax.swing.JButton btnStdBack;
-    private javax.swing.JButton btnStdLogin;
     private javax.swing.JButton btnStudent;
+    private javax.swing.JButton btnUserLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -838,10 +839,10 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JPanel jpLecturer;
-    private javax.swing.JPanel jpLibrarian;
+    private javax.swing.JPanel jpAdmin;
     private javax.swing.JPanel jpMain;
-    private javax.swing.JPanel jpStudent;
+    private javax.swing.JPanel jpPersonnel;
+    private javax.swing.JPanel jpUser;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblBackground1;
     private javax.swing.JLabel lblBackground2;

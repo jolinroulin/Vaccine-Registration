@@ -107,7 +107,7 @@ public class MainPage extends javax.swing.JFrame {
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ApuLogo.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Cambria Math", 1, 44)); // NOI18N
-        jLabel1.setText("APU Library Service System");
+        jLabel1.setText("Vaccine Registration System");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,7 +118,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addContainerGap(397, Short.MAX_VALUE))
+                .addContainerGap(386, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

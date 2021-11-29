@@ -24,8 +24,8 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class PeopleDetails {
-    File FILEPATHCitizen =new File("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StudentData.txt");
-    File FILEPATHNonCitizen = null;
+    File FILEPATHCitizen =new File("Citizen.txt");
+    File FILEPATHNonCitizen = new File("NonCitizen.txt");
     
     public boolean addCitizenToTextFile(Citizen citizen){
         

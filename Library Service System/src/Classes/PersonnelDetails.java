@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class PersonnelDetails {
-    File FILEPATHMember =new File("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StaffData.txt");
+    File FILEPATHMember =new File("Personnel.txt");
     
     public boolean addMemberToTextFile(Personnel personnel){
         

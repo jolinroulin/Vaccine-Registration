@@ -5,7 +5,9 @@
  */
 package library.service.system;
 
+import Classes.Citizen;
 import Classes.DatePicker;
+import Classes.NonCitizen;
 import Classes.Student;
 import Classes.PeopleDetails;
 import javax.swing.JOptionPane;
@@ -57,6 +59,8 @@ public class RegisterStudent extends javax.swing.JFrame {
         btnClear = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         btnSelectDateStdDOB1 = new javax.swing.JToggleButton();
+        cmbPeopleType = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -86,8 +90,8 @@ public class RegisterStudent extends javax.swing.JFrame {
                 .addGap(274, 274, 274)
                 .addComponent(jLabel9)
                 .addGap(42, 42, 42)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(jLabel16)
                 .addGap(32, 32, 32))
         );
@@ -139,10 +143,10 @@ public class RegisterStudent extends javax.swing.JFrame {
         cmbStdGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
 
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel11.setText("Course:");
+        jLabel11.setText("Centre:");
 
         CmbStdSchoolProgram.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        CmbStdSchoolProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer Science ", "Software Engineering", "Cyber Security", "Interactive Media", "Networking" }));
+        CmbStdSchoolProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centre1", "Centre2", "Centre3" }));
 
         btnStdRegister.setText("Register");
         btnStdRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +168,11 @@ public class RegisterStudent extends javax.swing.JFrame {
                 btnSelectDateStdDOB1ActionPerformed(evt);
             }
         });
+
+        cmbPeopleType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Citizen", "NonCitizen" }));
+
+        jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel13.setText("Citizen/NonCitizen:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -197,9 +206,9 @@ public class RegisterStudent extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnSelectDateStdDOB1))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(141, 141, 141))))
+                                .addGap(132, 132, 132))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -212,11 +221,16 @@ public class RegisterStudent extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtStdMobileNumber)
-                            .addComponent(CmbStdSchoolProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtStdMobileNumber)
+                                .addComponent(CmbStdSchoolProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -256,7 +270,11 @@ public class RegisterStudent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(CmbStdSchoolProgram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnStdRegister)
                     .addComponent(btnClear))
@@ -314,12 +332,17 @@ public class RegisterStudent extends javax.swing.JFrame {
             String studentEmailAddress = txtStdEmail.getText();
             String studentMobileNumber = txtStdMobileNumber.getText();
             String studentSchoolOf = CmbStdSchoolProgram.getSelectedItem().toString();
+            String peopleType = cmbPeopleType.getSelectedItem().toString();
+            if(peopleType == "Citizen"){
+                Citizen citizen = new Citizen(studentID, studentPassword, studentName, studentDOB, studentID, peopleType, studentDOB, studentID);
+                PeopleDetails studentDetails = new PeopleDetails();
+                studentDetails.addCitizenToTextFile(citizen);
+            }else if (peopleType == "NonCitizen"){
+                NonCitizen nonCitizen = new NonCitizen(studentID, studentPassword, studentName, studentDOB, studentID, peopleType, studentDOB, studentID);
+                PeopleDetails studentDetails = new PeopleDetails();
 
-            Student student = new Student(studentID, studentName, studentGender, studentUsername, studentPassword, studentDOB, studentEmailAddress, studentMobileNumber,studentSchoolOf);
-
-            PeopleDetails studentDetails = new PeopleDetails();
-
-            studentDetails.addStudentToTextFile(student);
+                studentDetails.addNonCitizenToTextFile(nonCitizen);
+            }
 
             txtStdName.setText("");
             cmbStdGender.setSelectedIndex(0);
@@ -329,6 +352,7 @@ public class RegisterStudent extends javax.swing.JFrame {
             txtStdEmail.setText("");
             txtStdMobileNumber.setText("");
             CmbStdSchoolProgram.setSelectedIndex(0);
+            cmbPeopleType.setSelectedIndex(0);
         }
     }//GEN-LAST:event_btnStdRegisterActionPerformed
 
@@ -377,11 +401,13 @@ public class RegisterStudent extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JToggleButton btnSelectDateStdDOB1;
     private javax.swing.JButton btnStdRegister;
+    private javax.swing.JComboBox<String> cmbPeopleType;
     private javax.swing.JComboBox<String> cmbStdGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

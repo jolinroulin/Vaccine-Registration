@@ -96,7 +96,7 @@ public class AdminDetails {
         public boolean verifyUser(String adminUserId, String adminPassword) throws IOException{
         try {
             
-            String FILEPATH = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\LibrarianData.txt";
+            String FILEPATH = "Admin.txt";
             FileInputStream fileInputStream = new FileInputStream(FILEPATH);
             
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));

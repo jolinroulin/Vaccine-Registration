@@ -2,19 +2,19 @@
 package Classes;
 
 public class Personnel extends Committee{
-    private VaccinationCentre post;
-    public Personnel( int userId, String password, String name, String gender, 
-            String email, String dateOfBirth, String contactNo, String IC,VaccinationCentre post) {
+    private String centre;
+    public Personnel( String userId, String password, String name, String gender, 
+            String email, String dateOfBirth, String contactNo, String IC,String centre) {
         super(userId, name, gender, email, password, dateOfBirth, contactNo,IC);
-        this.post = post;
+        this.centre = centre;
     }
 
-    public VaccinationCentre getPost() {
-        return post;
+    public String getCentre() {
+        return centre;
     }
 
-    public void setPost(VaccinationCentre post) {
-        this.post = post;
+    public void setCentre(String centre) {
+        this.centre = centre;
     }
     
 }

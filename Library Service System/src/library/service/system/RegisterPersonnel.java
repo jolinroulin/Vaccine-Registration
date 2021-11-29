@@ -6,20 +6,21 @@
 package library.service.system;
 
 import Classes.DatePicker;
+import Classes.Personnel;
 import Classes.Staff;
-import Classes.StaffDetails;
+import Classes.PersonnelDetails;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author User
  */
-public class RegisterStaff extends javax.swing.JFrame {
+public class RegisterPersonnel extends javax.swing.JFrame {
 
     /**
      * Creates new form RegisterLecturer
      */
-    public RegisterStaff() {
+    public RegisterPersonnel() {
         initComponents();
     }
 
@@ -57,7 +58,6 @@ public class RegisterStaff extends javax.swing.JFrame {
         btnClear = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        cmbRole = new javax.swing.JComboBox<>();
         btnSelectDateStdDOB1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,7 +70,7 @@ public class RegisterStaff extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Adminpic.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
-        jLabel1.setText("Staff Registration");
+        jLabel1.setText("Personnel Registration");
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Close.png"))); // NOI18N
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -88,8 +88,8 @@ public class RegisterStaff extends javax.swing.JFrame {
                 .addGap(274, 274, 274)
                 .addComponent(jLabel9)
                 .addGap(42, 42, 42)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
                 .addComponent(jLabel16)
                 .addGap(32, 32, 32))
         );
@@ -111,7 +111,7 @@ public class RegisterStaff extends javax.swing.JFrame {
         jLabel10.setText("Gender:");
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel2.setText("Username:");
+        jLabel2.setText("IC:");
 
         jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel5.setText("Password:");
@@ -144,9 +144,14 @@ public class RegisterStaff extends javax.swing.JFrame {
 
         cmbLecGender.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmbLecGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
+        cmbLecGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbLecGenderActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel11.setText("School Of : ");
+        jLabel11.setText("Centre");
 
         CmbLecSchoolProgram.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         CmbLecSchoolProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer Science ", "Software Engineering", "Cyber Security", "Interactive Media", "Networking" }));
@@ -163,10 +168,6 @@ public class RegisterStaff extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel13.setText("Role:");
-
-        cmbRole.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lecturer ", "Student" }));
 
         btnSelectDateStdDOB1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         btnSelectDateStdDOB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Calender.png"))); // NOI18N
@@ -212,7 +213,7 @@ public class RegisterStaff extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnSelectDateStdDOB1))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                                         .addComponent(txtLecEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(141, 141, 141))))
                             .addComponent(jLabel12)
@@ -222,9 +223,8 @@ public class RegisterStaff extends javax.swing.JFrame {
                                     .addComponent(jLabel11))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtLecMobileNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                                    .addComponent(CmbLecSchoolProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(txtLecMobileNumber)
+                                    .addComponent(CmbLecSchoolProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jLabel13)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(334, 334, 334)
@@ -271,10 +271,8 @@ public class RegisterStaff extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(CmbLecSchoolProgram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addComponent(jLabel13)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -298,8 +296,13 @@ public class RegisterStaff extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSelectDateStdDOB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectDateStdDOB1ActionPerformed
+        DatePicker datePicker = new DatePicker(this);
+        txtLecDOB.setText(datePicker.setPickedDate());
+    }//GEN-LAST:event_btnSelectDateStdDOB1ActionPerformed
+
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        
+
         if(txtLecName.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please make sure the name is filled.");
         }
@@ -319,48 +322,46 @@ public class RegisterStaff extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please make sure the mobile number is filled.");
         }
         else {
-        String memberID = null;
-        String memberName = txtLecName.getText();
-        String memberGender = cmbLecGender.getSelectedItem().toString();
-        String memberUsername = txtLecUsername.getText();
-        String memberPassword = txtLecPassword.getText();
-        String memberDOB = txtLecDOB.getText();
-        String memberEmailAddress = txtLecEmail.getText();
-        String memberMobileNumber = txtLecMobileNumber.getText();
-        String memberSchoolOf = CmbLecSchoolProgram.getSelectedItem().toString();
-        String memberUserRole = cmbRole.getSelectedItem().toString();
-        
-        
-        Staff member = new Staff(memberID, memberName, memberGender, memberUsername, memberPassword, memberDOB, memberEmailAddress, memberMobileNumber,memberSchoolOf,memberUserRole);
-         
-        StaffDetails memberDetails = new StaffDetails();
-        
-        memberDetails.addMemberToTextFile(member);
-        
-        txtLecName.setText("");
-        cmbLecGender.setSelectedIndex(0);
-        txtLecUsername.setText("");
-        txtLecPassword.setText("");
-        txtLecDOB.setText("");
-        txtLecEmail.setText("");
-        txtLecMobileNumber.setText("");
-        CmbLecSchoolProgram.setSelectedIndex(0);
-        cmbRole.setSelectedIndex(0);
+            String personnelID = null;
+            String personnelName = txtLecName.getText();
+            String personnelGender = cmbLecGender.getSelectedItem().toString();
+            String personnelIC = txtLecUsername.getText();
+            String personnelPassword = txtLecPassword.getText();
+            String personnelDOB = txtLecDOB.getText();
+            String personnelEmail = txtLecEmail.getText();
+            String personnelContactNo = txtLecMobileNumber.getText();
+            String personnelCentre = CmbLecSchoolProgram.getSelectedItem().toString();
+            
+            Personnel personnel = new Personnel(personnelID,personnelPassword,personnelName,personnelGender,
+                    personnelEmail,personnelDOB,personnelContactNo,personnelIC,personnelCentre);
+
+            PersonnelDetails personnelrDetails = new PersonnelDetails();
+
+            personnelrDetails.addMemberToTextFile(personnel);
+
+            txtLecName.setText("");
+            cmbLecGender.setSelectedIndex(0);
+            txtLecUsername.setText("");
+            txtLecPassword.setText("");
+            txtLecDOB.setText("");
+            txtLecEmail.setText("");
+            txtLecMobileNumber.setText("");
+            CmbLecSchoolProgram.setSelectedIndex(0);
+            
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
-
-    private void btnSelectDateStdDOB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectDateStdDOB1ActionPerformed
-        DatePicker datePicker = new DatePicker(this);
-        txtLecDOB.setText(datePicker.setPickedDate());
-    }//GEN-LAST:event_btnSelectDateStdDOB1ActionPerformed
-
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-                setVisible(false);
-    }//GEN-LAST:event_jLabel16MouseClicked
 
     private void txtLecNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLecNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLecNameActionPerformed
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        setVisible(false);
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void cmbLecGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbLecGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbLecGenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,14 +380,22 @@ public class RegisterStaff extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterStaff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterStaff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterStaff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterStaff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -399,7 +408,7 @@ public class RegisterStaff extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterStaff().setVisible(true);
+                new RegisterPersonnel().setVisible(true);
             }
         });
     }
@@ -410,7 +419,6 @@ public class RegisterStaff extends javax.swing.JFrame {
     private javax.swing.JButton btnRegister;
     private javax.swing.JToggleButton btnSelectDateStdDOB1;
     private javax.swing.JComboBox<String> cmbLecGender;
-    private javax.swing.JComboBox<String> cmbRole;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

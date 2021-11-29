@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class LibrarianMain extends javax.swing.JFrame {
+public class AdminMain extends javax.swing.JFrame {
 
     /**
      * Creates new form LibrarianSite
      */
-    public LibrarianMain() {
+    public AdminMain() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -127,12 +127,12 @@ public class LibrarianMain extends javax.swing.JFrame {
 
         jMenu1.setBackground(new java.awt.Color(153, 102, 255));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Adminpic.png"))); // NOI18N
-        jMenu1.setText("Librarian");
+        jMenu1.setText("Admin");
         jMenu1.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
         jmiAddLibrarian.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jmiAddLibrarian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AddUser.png"))); // NOI18N
-        jmiAddLibrarian.setText("Add Librarian");
+        jmiAddLibrarian.setText("Add Admin");
         jmiAddLibrarian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiAddLibrarianActionPerformed(evt);
@@ -143,7 +143,7 @@ public class LibrarianMain extends javax.swing.JFrame {
 
         jmiViewLibrarian.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jmiViewLibrarian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
-        jmiViewLibrarian.setText("View Librarian");
+        jmiViewLibrarian.setText("View Admin");
         jmiViewLibrarian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiViewLibrarianActionPerformed(evt);
@@ -154,12 +154,12 @@ public class LibrarianMain extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Lecturerpic.png"))); // NOI18N
-        jMenu3.setText("Staff");
+        jMenu3.setText("Personnel");
         jMenu3.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
         AddLecturer.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         AddLecturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AddUser.png"))); // NOI18N
-        AddLecturer.setText("Add Staff");
+        AddLecturer.setText("Add Personnel");
         AddLecturer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddLecturerActionPerformed(evt);
@@ -170,7 +170,7 @@ public class LibrarianMain extends javax.swing.JFrame {
 
         ViewLecturer.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         ViewLecturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
-        ViewLecturer.setText("View Staff");
+        ViewLecturer.setText("View Personnel");
         ViewLecturer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewLecturerActionPerformed(evt);
@@ -320,7 +320,7 @@ public class LibrarianMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLecturerActionPerformed
-        new RegisterStaff().setVisible(true);
+        new RegisterPersonnel().setVisible(true);
     }//GEN-LAST:event_AddLecturerActionPerformed
 
     private void jmiViewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewBookActionPerformed
@@ -328,7 +328,7 @@ public class LibrarianMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiViewBookActionPerformed
 
     private void jmiAddLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddLibrarianActionPerformed
-        new RegisterLibrarian().setVisible(true);
+        new RegisterAdmin().setVisible(true);
     }//GEN-LAST:event_jmiAddLibrarianActionPerformed
 
     private void jmiViewLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewLibrarianActionPerformed
@@ -397,21 +397,23 @@ public class LibrarianMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LibrarianMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LibrarianMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LibrarianMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LibrarianMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LibrarianMain().setVisible(true);
+                new AdminMain().setVisible(true);
             }
         });
     }

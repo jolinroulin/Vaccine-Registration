@@ -4,10 +4,14 @@ package Classes;
 
 public class Admin extends Committee{
 
-    public Admin(int userId, String name, String gender, String email, 
+    public Admin(String userId, String name, String gender, String email, 
             String password, String dateOfBirth, String contactNo, String IC) {
         super(userId, name, gender, email, password, dateOfBirth, contactNo,IC);
     }
+    
+    /**
+     *
+     */
 
     
     /*Methods*/

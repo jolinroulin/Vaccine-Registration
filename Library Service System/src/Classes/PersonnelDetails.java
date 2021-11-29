@@ -23,10 +23,10 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class StaffDetails {
+public class PersonnelDetails {
     File FILEPATHMember =new File("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StaffData.txt");
     
-    public boolean addMemberToTextFile(Staff member){
+    public boolean addMemberToTextFile(Personnel personnel){
         
         try {
             
@@ -45,7 +45,7 @@ public class StaffDetails {
         }
         int id2 = id + 1 ;
             
-            String MemberData = id2 + " : " + member.getMemberName() + " : " + member.getMemberGender() + " : " + member.getMemberUsername() + " : " + member.getMemberPassword() + " : " + member.getMemberDOB() + " : " + member.getMemberEmail() + " : " + member.getMemberMobileNumber() + " : " + member.getMemberSchoolOf() ;
+            String MemberData = id2 + " : " + personnel.getPassword() + " : " + personnel.getName() + " : " + personnel.getGender() + " : " + personnel.getEmail() + " : " + personnel.getDateOfBirth() + " : " + personnel.getContactNo() + " : " + personnel.getIC() + " : " + personnel.getCentre() ;
             
             out = new PrintWriter(new BufferedWriter(new FileWriter(FILEPATHMember,true)));
             out.println(MemberData);
@@ -54,13 +54,13 @@ public class StaffDetails {
             
             JOptionPane.showMessageDialog(null, "Details are added. Your staff id is " + id2 + ".");
         } catch (IOException ex) {
-            Logger.getLogger(StaffDetails.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PersonnelDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
     }
     
-        public Staff findMemberFromTextFile(String memberId) throws IOException{
-            Staff member= null;
+        public Personnel findPersonnelFromTextFile(String memberId) throws IOException{
+            Personnel personnel= null;
         try {
             
             FileInputStream fileInputStream = new FileInputStream(FILEPATHMember);
@@ -70,18 +70,18 @@ public class StaffDetails {
             String readLine;
             
             while((readLine = bufferedReader.readLine()) != null){
-                String[] detailMember = readLine.split(" : ");
-                if(memberId.equals(detailMember[0])){
-                    member = new Staff();
-                    member.setMemberId(detailMember[0]);
-                    member.setMemberName(detailMember[1]);
-                    member.setMemberGender(detailMember[2]);
-                    member.setMemberUsername(detailMember[3]);
-                    member.setMemberPassword(detailMember[4]);
-                    member.setMemberDOB(detailMember[5]);
-                    member.setMemberEmail(detailMember[6]);
-                    member.setMemberMobileNumber(detailMember[7]);
-                    member.setMemberSchoolOf(detailMember[8]);
+                String[] detailPersonnel = readLine.split(" : ");
+                if(memberId.equals(detailPersonnel[0])){
+                    //personnel = new Personnel();
+                    personnel.setUserId(detailPersonnel[0]);
+                    personnel.setPassword(detailPersonnel[1]);
+                    personnel.setName(detailPersonnel[2]);
+                    personnel.setGender(detailPersonnel[3]);
+                    personnel.setEmail(detailPersonnel[4]);
+                    personnel.setDateOfBirth(detailPersonnel[5]);
+                    personnel.setContactNo(detailPersonnel[6]);
+                    personnel.setIC(detailPersonnel[7]);
+                    personnel.setCentre(detailPersonnel[8]);
                     JOptionPane.showMessageDialog(null, "Record is found");
                 }
             }
@@ -89,10 +89,10 @@ public class StaffDetails {
             } catch (FileNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Record is not found");     
             }
-        return member;
+        return personnel;
     }
 
-        public boolean verifyUser(String memberUsername, String memberPassword) throws IOException{
+        public boolean verifyUser(String personnelId, String personnelPassword) throws IOException{
         try {
             
             FileInputStream fileInputStream = new FileInputStream(FILEPATHMember);
@@ -102,13 +102,13 @@ public class StaffDetails {
             String readLine;
             
             while((readLine = bufferedReader.readLine()) != null){
-                String[] detailMember = readLine.split(" : ");
-                if(memberUsername.equals(detailMember[3]) && memberPassword.equals(detailMember[4])){
+                String[] detailPersonnel = readLine.split(" : ");
+                if(personnelId.equals(detailPersonnel[0]) && personnelPassword.equals(detailPersonnel[1])){
                     return true;
                 }
             }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(StaffDetails.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PersonnelDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
         return false;
     }

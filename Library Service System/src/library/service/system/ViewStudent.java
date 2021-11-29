@@ -7,7 +7,7 @@ package library.service.system;
 
 import Classes.DatePicker;
 import Classes.Student;
-import Classes.StudentDetails;
+import Classes.PeopleDetails;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

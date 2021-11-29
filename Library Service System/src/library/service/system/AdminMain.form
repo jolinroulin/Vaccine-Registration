@@ -28,7 +28,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Image/Adminpic.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Librarian"/>
+            <Property name="text" type="java.lang.String" value="Admin"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria Math" size="24" style="0"/>
             </Property>
@@ -42,7 +42,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Image/AddUser.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Add Librarian"/>
+                <Property name="text" type="java.lang.String" value="Add Admin"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiAddLibrarianActionPerformed"/>
@@ -58,7 +58,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Image/SearchUser.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="View Librarian"/>
+                <Property name="text" type="java.lang.String" value="View Admin"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiViewLibrarianActionPerformed"/>
@@ -71,7 +71,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Image/Lecturerpic.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Staff"/>
+            <Property name="text" type="java.lang.String" value="Personnel"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria Math" size="24" style="0"/>
             </Property>
@@ -85,7 +85,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Image/AddUser.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Add Staff"/>
+                <Property name="text" type="java.lang.String" value="Add Personnel"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddLecturerActionPerformed"/>
@@ -101,7 +101,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Image/SearchUser.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="View Staff"/>
+                <Property name="text" type="java.lang.String" value="View Personnel"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewLecturerActionPerformed"/>

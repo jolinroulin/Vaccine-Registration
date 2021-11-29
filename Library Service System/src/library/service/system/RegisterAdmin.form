@@ -145,7 +145,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria Math" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Username:"/>
+            <Property name="text" type="java.lang.String" value="IC Number:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -279,7 +279,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria Math" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Librarian Registration"/>
+                <Property name="text" type="java.lang.String" value="Admin Registration"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">

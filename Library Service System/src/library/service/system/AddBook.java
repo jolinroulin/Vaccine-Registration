@@ -9,7 +9,7 @@ import Classes.Book;
 import Classes.BookDetails;
 import Classes.DatePicker;
 import Classes.Librarian;
-import Classes.LibrarianDetails;
+import Classes.AdminDetails;
 import javax.swing.JOptionPane;
 
 /**

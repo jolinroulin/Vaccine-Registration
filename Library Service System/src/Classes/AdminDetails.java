@@ -23,17 +23,17 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class LibrarianDetails {
+public class AdminDetails {
     
-    File FILEPATHLibrarian =new File("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\LibrarianData.txt");    
+    File FILEPATHAdmin =new File("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\LibrarianData.txt");    
     
-    public boolean addLibrarianToTextFile(Librarian librarian){
+    public boolean addAdminToTextFile(Admin admin){
         
         try {
             
             PrintWriter out = null;
             
-        BufferedReader br = new BufferedReader(new FileReader(FILEPATHLibrarian));
+        BufferedReader br = new BufferedReader(new FileReader(FILEPATHAdmin));
         Object[] Lines = br.lines().toArray();
         int i =0;
         int id =0;
@@ -46,54 +46,54 @@ public class LibrarianDetails {
         }
         int id2 = id + 1 ;
             
-            String LibrarianData = id2 + " : " + librarian.getLibrarianName() + " : " + librarian.getLibrarianGender() + " : " + librarian.getLibrarianUsername() + " : " + librarian.getLibrarianPassword() + " : " + librarian.getLibrarianDOB() + " : " + librarian.getLibrarianEmail() + " : " + librarian.getLibrarianMobileNo();
+            String LibrarianData = id2 + " : " + admin.getName() + " : " + admin.getGender() + " : " + admin.getEmail() + " : " + admin.getPassword() + " : " + admin.getDateOfBirth() + " : " + admin.getContactNo() + " : " + admin.getIC();
             
-            out = new PrintWriter(new BufferedWriter(new FileWriter(FILEPATHLibrarian,true)));
+            out = new PrintWriter(new BufferedWriter(new FileWriter(FILEPATHAdmin,true)));
             out.println(LibrarianData);
             
             out.close();
             
             JOptionPane.showMessageDialog(null, "Details are added. Your librarian id is " + id2 + ".");
         } catch (IOException ex) {
-            Logger.getLogger(LibrarianDetails.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
     }
     
-    public Librarian findLibrarianFromTextFile(String librarianId) throws IOException{
-            Librarian librarian= null;
+    public Admin findLibrarianFromTextFile(Admin adminId) throws IOException{
+            Admin admin= null;
         try {
             
-            FileInputStream fileInputStream = new FileInputStream(FILEPATHLibrarian);
+            FileInputStream fileInputStream = new FileInputStream(FILEPATHAdmin);
             
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
             
             String readLine;
             
             while((readLine = bufferedReader.readLine()) != null){
-                String[] detailLibrarian = readLine.split(" : ");
-                if(librarianId.equals(detailLibrarian[0])){
-                    librarian = new Librarian();
-                    librarian.setLibrarianId(detailLibrarian[0]);
-                    librarian.setLibrarianName(detailLibrarian[1]);
-                    librarian.setLibrarianGender(detailLibrarian[2]);
-                    librarian.setLibrarianUsername(detailLibrarian[3]);
-                    librarian.setLibrarianPassword(detailLibrarian[4]);
-                    librarian.setLibrarianDOB(detailLibrarian[5]);
-                    librarian.setLibrarianEmail(detailLibrarian[6]);
-                    librarian.setLibrarianMobileNo(detailLibrarian[7]);
+                String[] detailAdmin = readLine.split(" : ");
+                if(adminId.equals(detailAdmin[0])){
+                    //admin = new Admin();
+                    admin.setUserId(detailAdmin[0]);
+                    admin.setName(detailAdmin[1]);
+                    admin.setGender(detailAdmin[2]);
+                    admin.setEmail(detailAdmin[3]);
+                    admin.setPassword(detailAdmin[4]);
+                    admin.setDateOfBirth(detailAdmin[5]);
+                    admin.setContactNo(detailAdmin[6]);
+                    admin.setIC(detailAdmin[7]);
                     JOptionPane.showMessageDialog(null, "Record exists");   
                 }
             }
             
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(LibrarianDetails.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
-        return librarian;
+        return admin;
     }
     
 
-        public boolean verifyUser(String librarianUsername, String librarianPassword) throws IOException{
+        public boolean verifyUser(String adminUserId, String adminPassword) throws IOException{
         try {
             
             String FILEPATH = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\LibrarianData.txt";
@@ -104,13 +104,13 @@ public class LibrarianDetails {
             String readLine;
             
             while((readLine = bufferedReader.readLine()) != null){
-                String[] detailLibrarian = readLine.split(" : ");
-                if(librarianUsername.equals(detailLibrarian[3]) && librarianPassword.equals(detailLibrarian[4])){
+                String[] adminInfo = readLine.split(" : ");
+                if(adminUserId.equals(adminInfo[3]) && adminPassword.equals(adminInfo[4])){
                     return true;
                 }
             }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(LibrarianDetails.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
         return false;
     }
@@ -137,7 +137,7 @@ public class LibrarianDetails {
             }
             
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(LibrarianDetails.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 

@@ -2,7 +2,7 @@
 package Classes;
 
 public class User {
-    private int userId;
+    private String userId;
     private String password;
     private String name;
     private String gender;
@@ -10,7 +10,7 @@ public class User {
     private String dateOfBirth;
     private String contactNo;
 
-    public User(int userId, String password,String name, String gender, String email,  String dateOfBirth, String contactNo) {
+    public User(String userId, String password,String name, String gender, String email,  String dateOfBirth, String contactNo) {
         this.userId = userId;
         this.name = name;
         this.gender = gender;
@@ -20,11 +20,11 @@ public class User {
         this.contactNo = contactNo;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -77,17 +77,5 @@ public class User {
     }
     
    
-    public void verifyLoginPeople(int userId, String password){
-        int userFlag = 0;
-        int passwordFlag = 1;               
-        for(int i=0; i<DataIO.allPersonnel.size(); i++){
-//            if(userId.equals(DataIO.allPersonnel.get(i).getUserId())){
-//                passwordFlag = 1;
-//            }
-            if(password.equals(DataIO.allPersonnel.get(i).getPassword())){
-                passwordFlag = 1;
-            } 
-        }
-    }
 }
 

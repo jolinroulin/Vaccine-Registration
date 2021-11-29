@@ -5,7 +5,7 @@
  */
 package library.service.system;
 
-import Classes.DataIO;
+
 import java.io.*;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -14,10 +14,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import Classes.LibrarianDetails;
+import Classes.AdminDetails;
 import Classes.People;
-import Classes.StaffDetails;
-import Classes.StudentDetails;
+import Classes.PersonnelDetails;
+import Classes.PeopleDetails;
 
 /**
  *
@@ -672,18 +672,17 @@ public class MainPage extends javax.swing.JFrame {
     private void btnAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginActionPerformed
 
         try {
-            LibrarianDetails ld = new LibrarianDetails();
-            String userId = txtAdminUsername.getText();
-            String password = txtAdminPassword.getText();
-            People found = DataIO.checkPeopleUserId(userId);
-            if(ld.verifyUser(librarianUsername,librarianPassword) == true){
+            AdminDetails ld = new AdminDetails();
+            String adminUserId = txtAdminUsername.getText();
+            String adminPassword = txtAdminPassword.getText();
+            if(ld.verifyUser(adminUserId,adminPassword) == true){
                 JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
                 setVisible(false);
                 
                 
                 String user = txtAdminUsername.getText();
                 
-                LibrarianMain lm = new LibrarianMain();
+                AdminMain lm = new AdminMain();
                 lm.setVisible(true);
                 this.setVisible(true);
                 this.setVisible(false);
@@ -707,20 +706,21 @@ public class MainPage extends javax.swing.JFrame {
 
     private void btnPersonnelLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonnelLecturerActionPerformed
         try {
-            StaffDetails md = new StaffDetails();
-            String memberUsername = txtPersonnelUsername.getText();
-            String memberPassword = txtPersonnelPassword.getText();
-            if(md.verifyUser(memberUsername,memberPassword) == true){
+            PersonnelDetails Id = new PersonnelDetails();
+            String librarianUsername = txtPersonnelUsername.getText();
+            String librarianPassword = txtPersonnelUsername.getText();
+            if(Id.verifyUser(librarianUsername,librarianPassword) == true){
                 JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
                 setVisible(false);
                 
+                
                 String user = txtPersonnelUsername.getText();
                 
-                StaffMain lm = new StaffMain();
+                AdminMain lm = new AdminMain();
                 lm.setVisible(true);
                 this.setVisible(true);
                 this.setVisible(false);
-                lm.usernameStaff(user);
+                lm.username(user);
 
             }
             else{
@@ -741,10 +741,11 @@ public class MainPage extends javax.swing.JFrame {
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
         try {
-            StudentDetails md = new StudentDetails();
+            PeopleDetails Id = new PeopleDetails();
             String studentUsername = txtUserUsername.getText();
             String studentPassword = txtUserPassword.getText();
-            if(md.verifyUser(studentUsername,studentPassword) == true){
+            if(studentUsername.substring(0,1)=="3"){
+                if(Id.verifyCitizenUser(studentUsername,studentPassword) == true){
                 JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
                 setVisible(false);
                 
@@ -755,12 +756,30 @@ public class MainPage extends javax.swing.JFrame {
                 this.setVisible(true);
                 this.setVisible(false);
                 sm.usernameStudent1(user);
-
                 
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
+                }
+            }else if(studentUsername.substring(0,1)=="4"){
+                if(Id.verifyNonCitizenUser(studentUsername,studentPassword) == true){
+                JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
+                setVisible(false);
+                
+                String user = txtUserUsername.getText();
+                
+                StudentMain sm = new StudentMain();
+                sm.setVisible(true);
+                this.setVisible(true);
+                this.setVisible(false);
+                sm.usernameStudent1(user);
+                
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
+                }
             }
-            else{
-                JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
-            }
+
         } catch (IOException ex) {
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
         }

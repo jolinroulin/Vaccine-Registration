@@ -10,11 +10,11 @@ import Classes.BookDetails;
 import Classes.Issue;
 import Classes.IssueDetails;
 import Classes.Librarian;
-import Classes.LibrarianDetails;
+import Classes.AdminDetails;
 import Classes.Staff;
-import Classes.StaffDetails;
+import Classes.PersonnelDetails;
 import Classes.Student;
-import Classes.StudentDetails;
+import Classes.PeopleDetails;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -561,7 +561,7 @@ public class BorrowBook extends javax.swing.JFrame {
     /*if(cmbUser.getSelectedItem().equals("Staff")){
             try {
             String memberId = txtUserId.getText();
-            StaffDetails memberDetails = new StaffDetails();
+            PersonnelDetails memberDetails = new PersonnelDetails();
             Staff member = memberDetails.findMemberFromTextFile(memberId);
 
             txtUserId.setText(member.getMemberId());
@@ -574,7 +574,7 @@ public class BorrowBook extends javax.swing.JFrame {
         else if (cmbUser.getSelectedItem().equals("Student")){
             try {
             String studentId = txtUserId.getText();
-            StudentDetails studentDetails = new StudentDetails();
+            PeopleDetails studentDetails = new PeopleDetails();
             Student student = studentDetails.findStudentFromTextFile(studentId);
 
             txtUserId.setText(student.getStudentId());

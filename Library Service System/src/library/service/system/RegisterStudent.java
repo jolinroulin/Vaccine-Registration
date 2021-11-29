@@ -7,7 +7,7 @@ package library.service.system;
 
 import Classes.DatePicker;
 import Classes.Student;
-import Classes.StudentDetails;
+import Classes.PeopleDetails;
 import javax.swing.JOptionPane;
 
 /**
@@ -317,7 +317,7 @@ public class RegisterStudent extends javax.swing.JFrame {
 
             Student student = new Student(studentID, studentName, studentGender, studentUsername, studentPassword, studentDOB, studentEmailAddress, studentMobileNumber,studentSchoolOf);
 
-            StudentDetails studentDetails = new StudentDetails();
+            PeopleDetails studentDetails = new PeopleDetails();
 
             studentDetails.addStudentToTextFile(student);
 

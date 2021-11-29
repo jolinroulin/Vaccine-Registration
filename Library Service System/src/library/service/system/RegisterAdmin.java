@@ -5,9 +5,10 @@
  */
 package library.service.system;
 
+import Classes.Admin;
 import Classes.DatePicker;
 import Classes.Librarian;
-import Classes.LibrarianDetails;
+import Classes.AdminDetails;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,12 +21,12 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class RegisterLibrarian extends javax.swing.JFrame {
+public class RegisterAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form RegisterLibrarian
      */
-    public RegisterLibrarian() {
+    public RegisterAdmin() {
         initComponents();
     }
     
@@ -65,14 +66,13 @@ public class RegisterLibrarian extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 552));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 550));
         jPanel1.setRequestFocusEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel2.setText("Username:");
+        jLabel2.setText("IC Number:");
 
         jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel4.setText("Name:");
@@ -127,7 +127,7 @@ public class RegisterLibrarian extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
-        jLabel1.setText("Librarian Registration");
+        jLabel1.setText("Admin Registration");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Adminpic.png"))); // NOI18N
 
@@ -345,20 +345,19 @@ public class RegisterLibrarian extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
         else {
-        String librarianID = null;
-        String librarianName = txtLName.getText();
-        String librarianGender = cmbLGender.getSelectedItem().toString();
-        String librarianUsername = txtLUsername.getText();
-        String librarianPassword = txtLPassword.getText();
-        String librarianDOB = txtLDOB.getText();
-        String librarianEmailAddress = txtLEmailAddress.getText();
-        String librarianMobileNumber = txtLMobileNumber.getText();
+        String adminID = null;
+        String adminName = txtLName.getText(); /*name*/
+        String adminGender = cmbLGender.getSelectedItem().toString();/*gender*/
+        String adminIC = txtLUsername.getText();/*IC*/
+        String adminPassword = txtLPassword.getText(); /*password*/
+        String adminDOB = txtLDOB.getText();/*DOB*/
+        String adminEmail = txtLEmailAddress.getText();/*email*/
+        String adminContactNo = txtLMobileNumber.getText();/*contactNo*/
+        Admin admin = new Admin(adminID,adminName,adminGender,adminEmail,adminPassword,adminDOB,adminContactNo,adminIC);        
         
-        Librarian librarian = new Librarian(librarianID, librarianName, librarianGender, librarianUsername, librarianPassword, librarianDOB, librarianEmailAddress, librarianMobileNumber);
-         
-        LibrarianDetails librarianDetails = new LibrarianDetails();
-        
-        librarianDetails.addLibrarianToTextFile(librarian);
+        AdminDetails adminDetails = new AdminDetails();
+      
+        adminDetails.addAdminToTextFile(admin);
 
         cmbLGender.setSelectedItem(0);
         txtLName.setText("");
@@ -401,20 +400,23 @@ public class RegisterLibrarian extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterLibrarian().setVisible(true);
+                new RegisterAdmin().setVisible(true);
             }
         });
     }

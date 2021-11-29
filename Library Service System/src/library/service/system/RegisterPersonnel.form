@@ -80,7 +80,7 @@
                                           <Component id="btnSelectDateStdDOB1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="19" max="32767" attributes="0"/>
                                           <Component id="txtLecEmail" min="-2" pref="201" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                                       </Group>
@@ -94,9 +94,8 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtLecMobileNumber" alignment="0" pref="201" max="32767" attributes="0"/>
+                                      <Component id="txtLecMobileNumber" alignment="0" max="32767" attributes="0"/>
                                       <Component id="CmbLecSchoolProgram" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cmbRole" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -159,11 +158,8 @@
                       <Component id="CmbLecSchoolProgram" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbRole" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="11" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -190,8 +186,8 @@
                       <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="266" max="-2" attributes="0"/>
-                      <EmptySpace pref="296" max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="294" max="-2" attributes="0"/>
+                      <EmptySpace pref="271" max="32767" attributes="0"/>
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
@@ -224,7 +220,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria Math" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Staff Registration"/>
+                <Property name="text" type="java.lang.String" value="Personnel Registration"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
@@ -263,7 +259,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria Math" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Username:"/>
+            <Property name="text" type="java.lang.String" value="IC:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -355,6 +351,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbLecGenderActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -364,7 +363,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria Math" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="School Of : "/>
+            <Property name="text" type="java.lang.String" value="Centre"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="CmbLecSchoolProgram">
@@ -411,24 +410,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria Math" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Role:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cmbRole">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Cambria Math" size="14" style="0"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Lecturer "/>
-                <StringItem index="1" value="Student"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JToggleButton" name="btnSelectDateStdDOB1">
           <Properties>

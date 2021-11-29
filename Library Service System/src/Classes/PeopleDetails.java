@@ -23,8 +23,9 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class StudentDetails {
-    File FILEPATHStudent =new File("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StudentData.txt");
+public class PeopleDetails {
+    File FILEPATHCitizen =new File("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StudentData.txt");
+    File FILEPATHNonCitizen = null;
     
     public boolean addStudentToTextFile(Student student){
         
@@ -53,7 +54,7 @@ public class StudentDetails {
             
             JOptionPane.showMessageDialog(null, "Details are added. Your student member id is " + id2 + ".");
         } catch (IOException ex) {
-            Logger.getLogger(StudentDetails.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
     }
@@ -86,15 +87,15 @@ public class StudentDetails {
             }
             
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(StudentDetails.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
         return student;
     }
 
-        public boolean verifyUser(String studentUsername, String studentPassword) throws IOException{
+        public boolean verifyCitizenUser(String studentUsername, String studentPassword) throws IOException{
         try {
             
-            FileInputStream fileInputStream = new FileInputStream(FILEPATHStudent);
+            FileInputStream fileInputStream = new FileInputStream(FILEPATHCitizen);
             
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
             
@@ -107,8 +108,28 @@ public class StudentDetails {
                 }
             }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(StudentDetails.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
         return false;
-    }    
+    }   
+        public boolean verifyNonCitizenUser(String studentUsername, String studentPassword) throws IOException{
+        try {
+            
+            FileInputStream fileInputStream = new FileInputStream(FILEPATHNonCitizen);
+            
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+            
+            String readLine;
+            
+            while((readLine = bufferedReader.readLine()) != null){
+                String[] detailStudent = readLine.split(" : ");
+                if(studentUsername.equals(detailStudent[3]) && studentPassword.equals(detailStudent[4])){
+                    return true;
+                }
+            }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        return false;
+    }
 }

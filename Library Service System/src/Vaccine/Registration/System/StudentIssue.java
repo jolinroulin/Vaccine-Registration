@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package library.service.system;
+package Vaccine.Registration.System;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,11 +24,14 @@ import javax.swing.table.TableRowSorter;
  *
  * @author User
  */
-public class StaffIssue extends javax.swing.JFrame {
+public class StudentIssue extends javax.swing.JFrame {
 
     /**
-     * Creates new form StaffIssue
+     * Creates new form StudentIssue
      */
+    void usernameStudent(String user){
+         lblStudentBorrow.setText(user);
+    }
     
     private void ImportIssueDetailsToTable() {
         String filepath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\IssueData.txt";
@@ -49,15 +52,13 @@ public class StaffIssue extends javax.swing.JFrame {
                 model.addRow(dataRow);
             }
         } catch (Exception ex) {
-            Logger.getLogger(StaffIssue.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RenewBook.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    void usernameStaff(String user){
-         lblStaffBorrow.setText(user);
-     } 
+
     
-    public StaffIssue() {
+    public StudentIssue() {
         initComponents();
         ImportIssueDetailsToTable();
     }
@@ -82,7 +83,7 @@ public class StaffIssue extends javax.swing.JFrame {
         jTableIssueBook = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
-        lblStaffBorrow = new javax.swing.JLabel();
+        lblStudentBorrow = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,11 +114,11 @@ public class StaffIssue extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(444, 444, 444)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblClose)
-                .addGap(30, 30, 30))
+                .addGap(28, 28, 28))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +151,7 @@ public class StaffIssue extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTableIssueBook);
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel2.setText("Staff");
+        jLabel2.setText("Student");
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -159,23 +160,23 @@ public class StaffIssue extends javax.swing.JFrame {
             }
         });
 
-        lblStaffBorrow.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        lblStaffBorrow.setText("  ");
-        lblStaffBorrow.addAncestorListener(new javax.swing.event.AncestorListener() {
+        lblStudentBorrow.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        lblStudentBorrow.setText("  ");
+        lblStudentBorrow.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                lblStaffBorrowAncestorAdded(evt);
+                lblStudentBorrowAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        lblStaffBorrow.addKeyListener(new java.awt.event.KeyAdapter() {
+        lblStudentBorrow.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                lblStaffBorrowKeyReleased(evt);
+                lblStudentBorrowKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                lblStaffBorrowKeyTyped(evt);
+                lblStudentBorrowKeyTyped(evt);
             }
         });
 
@@ -191,28 +192,28 @@ public class StaffIssue extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(462, 462, 462)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(lblStaffBorrow, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(lblStudentBorrow, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(lblStaffBorrow))
+                    .addComponent(lblStudentBorrow))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(btnRefresh)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -231,18 +232,7 @@ public class StaffIssue extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTableIssueBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableIssueBookMouseClicked
-        /*DefaultTableModel tblModel = (DefaultTableModel)jTableIssueBook.getModel();
 
-        //set data to textfield when row i selected
-        String tblIssueId = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 0).toString();
-        String tblUserId = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 1).toString();
-        String tblUserName = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 2).toString();
-        String tblBookId = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 3).toString();
-        String tblBookName = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 4).toString();
-        String tblIssuedate = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 5).toString();
-        String tblDueDate = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 6).toString();
-        String tblStatus = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 7).toString();
-        String tblFine = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 8).toString(); */
     }//GEN-LAST:event_jTableIssueBookMouseClicked
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -256,30 +246,29 @@ public class StaffIssue extends javax.swing.JFrame {
             if(fine > 0){
                 jTableIssueBook.setValueAt((i + fine), x , 8);
                 
-            }
-            JOptionPane.showMessageDialog(this, "Refreshed");
+            }JOptionPane.showMessageDialog(this, "Refreshed");
         }
     }//GEN-LAST:event_btnRefreshActionPerformed
 
-    private void lblStaffBorrowKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblStaffBorrowKeyReleased
-
-    }//GEN-LAST:event_lblStaffBorrowKeyReleased
+    private void lblStudentBorrowKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblStudentBorrowKeyReleased
+   
+    }//GEN-LAST:event_lblStudentBorrowKeyReleased
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
         setVisible(false);
     }//GEN-LAST:event_lblCloseMouseClicked
 
-    private void lblStaffBorrowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblStaffBorrowKeyTyped
-        
-    }//GEN-LAST:event_lblStaffBorrowKeyTyped
+    private void lblStudentBorrowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblStudentBorrowKeyTyped
+              // TODO add your handling code here:
+    }//GEN-LAST:event_lblStudentBorrowKeyTyped
 
-    private void lblStaffBorrowAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblStaffBorrowAncestorAdded
+    private void lblStudentBorrowAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblStudentBorrowAncestorAdded
         DefaultTableModel table = (DefaultTableModel) jTableIssueBook.getModel();
-        String search = lblStaffBorrow.getText();
+        String search = lblStudentBorrow.getText();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
         jTableIssueBook.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(search));// TODO add your handling code here:
-    }//GEN-LAST:event_lblStaffBorrowAncestorAdded
+        tr.setRowFilter(RowFilter.regexFilter(search));  // TODO add your handling code here:
+    }//GEN-LAST:event_lblStudentBorrowAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -298,20 +287,20 @@ public class StaffIssue extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StaffIssue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentIssue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StaffIssue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentIssue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StaffIssue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentIssue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StaffIssue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentIssue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StaffIssue().setVisible(true);
+                new StudentIssue().setVisible(true);
             }
         });
     }
@@ -326,6 +315,6 @@ public class StaffIssue extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableIssueBook;
     private javax.swing.JLabel lblClose;
-    private javax.swing.JLabel lblStaffBorrow;
+    private javax.swing.JLabel lblStudentBorrow;
     // End of variables declaration//GEN-END:variables
 }

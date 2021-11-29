@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package library.service.system;
+package Vaccine.Registration.System;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,7 +24,11 @@ import javax.swing.table.TableRowSorter;
  *
  * @author User
  */
-public class RenewBook extends javax.swing.JFrame {
+public class ReturnBook extends javax.swing.JFrame {
+
+    /**
+     * Creates new form ReturnBook
+     */
     
     private void ImportIssueDetailsToTable() {
         String filepath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\IssueData.txt";
@@ -49,16 +53,9 @@ public class RenewBook extends javax.swing.JFrame {
         }
     }
     
-
-    /**
-     * Creates new form Renew
-     */
-    public RenewBook() {
+    public ReturnBook() {
         initComponents();
         ImportIssueDetailsToTable();
-        
-
-        
     }
 
     /**
@@ -78,10 +75,10 @@ public class RenewBook extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableIssueBook = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        txtSearchIssue = new javax.swing.JTextField();
-        btnRenew = new javax.swing.JButton();
+        txtSearchIssueBook = new javax.swing.JTextField();
+        btnReturn = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
-        btnsaveData = new javax.swing.JButton();
+        btnSavedata = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -92,9 +89,9 @@ public class RenewBook extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Renew Book");
+        jLabel12.setText("Return Book");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/renew book.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/returnbook.png"))); // NOI18N
         jLabel13.setText("jLabel13");
 
         lblClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-close-window-30.png"))); // NOI18N
@@ -116,7 +113,7 @@ public class RenewBook extends javax.swing.JFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblClose)
-                .addGap(31, 31, 31))
+                .addGap(32, 32, 32))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,22 +148,22 @@ public class RenewBook extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel2.setText("Search:");
 
-        txtSearchIssue.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtSearchIssue.addActionListener(new java.awt.event.ActionListener() {
+        txtSearchIssueBook.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtSearchIssueBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchIssueActionPerformed(evt);
+                txtSearchIssueBookActionPerformed(evt);
             }
         });
-        txtSearchIssue.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchIssueBook.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchIssueKeyReleased(evt);
+                txtSearchIssueBookKeyReleased(evt);
             }
         });
 
-        btnRenew.setText("Renew");
-        btnRenew.addActionListener(new java.awt.event.ActionListener() {
+        btnReturn.setText("Return");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRenewActionPerformed(evt);
+                btnReturnActionPerformed(evt);
             }
         });
 
@@ -177,10 +174,10 @@ public class RenewBook extends javax.swing.JFrame {
             }
         });
 
-        btnsaveData.setText("Save Data");
-        btnsaveData.addActionListener(new java.awt.event.ActionListener() {
+        btnSavedata.setText("Save Data");
+        btnSavedata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsaveDataActionPerformed(evt);
+                btnSavedataActionPerformed(evt);
             }
         });
 
@@ -189,25 +186,25 @@ public class RenewBook extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(439, 439, 439)
+                .addComponent(jLabel2)
+                .addGap(44, 44, 44)
+                .addComponent(txtSearchIssueBook, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(70, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(452, 452, 452)
-                        .addComponent(jLabel2)
-                        .addGap(31, 31, 31)
-                        .addComponent(txtSearchIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(426, 426, 426)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnRefresh)
-                        .addGap(80, 80, 80)
-                        .addComponent(btnRenew)
-                        .addGap(63, 63, 63)
-                        .addComponent(btnsaveData)))
-                .addContainerGap(336, Short.MAX_VALUE))
+                        .addGap(86, 86, 86)
+                        .addComponent(btnReturn)
+                        .addGap(87, 87, 87)
+                        .addComponent(btnSavedata)
+                        .addGap(356, 356, 356))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,15 +213,15 @@ public class RenewBook extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtSearchIssue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearchIssueBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRenew)
+                    .addComponent(btnReturn)
                     .addComponent(btnRefresh)
-                    .addComponent(btnsaveData))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(btnSavedata))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,7 +241,7 @@ public class RenewBook extends javax.swing.JFrame {
 
     private void jTableIssueBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableIssueBookMouseClicked
         /*DefaultTableModel tblModel = (DefaultTableModel)jTableIssueBook.getModel();
-        
+
         //set data to textfield when row i selected
         String tblIssueId = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 0).toString();
         String tblUserId = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 1).toString();
@@ -254,94 +251,74 @@ public class RenewBook extends javax.swing.JFrame {
         String tblIssuedate = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 5).toString();
         String tblDueDate = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 6).toString();
         String tblStatus = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 7).toString();
-        String tblFine = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 8).toString(); */ 
-
+        String tblFine = tblModel.getValueAt(jTableIssueBook.getSelectedRow(), 8).toString(); */
     }//GEN-LAST:event_jTableIssueBookMouseClicked
 
-    private void txtSearchIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchIssueActionPerformed
+    private void txtSearchIssueBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchIssueBookActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchIssueActionPerformed
+    }//GEN-LAST:event_txtSearchIssueBookActionPerformed
 
-    private void txtSearchIssueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchIssueKeyReleased
-        DefaultTableModel table = (DefaultTableModel) jTableIssueBook.getModel();
-        String search = txtSearchIssue.getText();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
-        jTableIssueBook.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(search));
-    }//GEN-LAST:event_txtSearchIssueKeyReleased
-
-    private void btnRenewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRenewActionPerformed
-        LocalDate today = LocalDate.now();
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         int select = jTableIssueBook.getSelectedRow();
-        String olddate = jTableIssueBook.getModel().getValueAt(select, 6).toString();
-        String startdate = jTableIssueBook.getModel().getValueAt(select, 5).toString();
-        LocalDate solddate = LocalDate.parse(olddate);
-        LocalDate sstartdate = LocalDate.parse(startdate);
-        LocalDate renewdate = solddate.plusDays(14);
-        Duration differ = Duration.between(sstartdate.atStartOfDay(),solddate.atStartOfDay());
-        long differDays = differ.toDays();
-        Duration expire = Duration.between(today.atStartOfDay(), solddate.atStartOfDay());
-        long expireDays = expire.toDays();
+        String fine = jTableIssueBook.getModel().getValueAt(select, 8).toString();
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to Return this book? The fine is RM " + fine ,"Select",JOptionPane.YES_NO_OPTION);
+        if(a==0){
         
-        System.out.println(expireDays);
-        if(expireDays >= 1 ){
-        System.out.println(differDays);
-            if(differDays < 20){
-                jTableIssueBook.getModel().setValueAt( renewdate , select, 6); 
-                JOptionPane.showMessageDialog(this, "Successful Renew");
-            }else {
-                JOptionPane.showMessageDialog(this, "Renew Limits reach");
-            }
-        }else{
-            JOptionPane.showMessageDialog(this, "The due date is passed. Can't renew it. ");
-        }
-
-    }//GEN-LAST:event_btnRenewActionPerformed
+        jTableIssueBook.getModel().setValueAt("Returned", select, 7);
+        }        
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         for(int x = 0; x< jTableIssueBook.getRowCount();x++){
-        LocalDate today = LocalDate.now();
-        String duedate = jTableIssueBook.getValueAt(x, 6).toString();
-        LocalDate sduedate = LocalDate.parse(duedate);
-        Duration differ = Duration.between(sduedate.atStartOfDay(), today.atStartOfDay());
-        long fine = differ.toDays();
-        double i = 0.00;
-        System.out.println(i + fine);
-       
-        if(fine > 0){
+            LocalDate today = LocalDate.now();
+            String duedate = jTableIssueBook.getValueAt(x, 6).toString();
+            LocalDate sduedate = LocalDate.parse(duedate);
+            Duration differ = Duration.between(sduedate.atStartOfDay(), today.atStartOfDay());
+            long fine = differ.toDays();
+            double i = 0.00;
+            if(fine > 0){
                 jTableIssueBook.setValueAt((i + fine), x , 8);
                 
-        }
+            }
         }JOptionPane.showMessageDialog(null, "Refresh Done!");
-    
+                                  
     }//GEN-LAST:event_btnRefreshActionPerformed
+
+    private void txtSearchIssueBookKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchIssueBookKeyReleased
+        DefaultTableModel table = (DefaultTableModel) jTableIssueBook.getModel();
+        String search = txtSearchIssueBook.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
+        jTableIssueBook.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_txtSearchIssueBookKeyReleased
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
         setVisible(false);
     }//GEN-LAST:event_lblCloseMouseClicked
 
-    private void btnsaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveDataActionPerformed
-        
-                String filePath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\IssueData.txt";
+    private void btnSavedataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavedataActionPerformed
+         String filePath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\IssueData.txt";
                 File file = new File(filePath);
-            try {
-                FileWriter fw = new FileWriter(file);
-                BufferedWriter bw = new BufferedWriter(fw);
+            
+                try {
+                    FileWriter fw = new FileWriter(file);
+                    BufferedWriter bw = new BufferedWriter(fw);
 
-                for(int y = 0; y < jTableIssueBook.getRowCount(); y++){
-                    for(int j = 0; j < jTableIssueBook.getColumnCount(); j++){
-                        bw.write(jTableIssueBook.getValueAt(y,j).toString()+ " : " );
+                    for(int y = 0; y < jTableIssueBook.getRowCount(); y++){
+                        for(int j = 0; j < jTableIssueBook.getColumnCount(); j++){
+                            bw.write(jTableIssueBook.getValueAt(y,j).toString()+ " : " );
+                        }
+                        bw.newLine();
+                    }
+                    
+                    bw.close();
+                    fw.close();
+                    JOptionPane.showMessageDialog(null, "Data Saved");
                 }
-                bw.newLine();
-            }
-                JOptionPane.showMessageDialog(null, "Data Saved");
-            bw.close();
-            fw.close();
-        }
-        catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Fail");
-        }            // TODO add your handling code here:
-    }//GEN-LAST:event_btnsaveDataActionPerformed
+                catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Fail");
+                }        
+    }//GEN-LAST:event_btnSavedataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,29 +337,28 @@ public class RenewBook extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RenewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RenewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RenewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RenewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RenewBook().setVisible(true);
+                new ReturnBook().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRefresh;
-    private javax.swing.JButton btnRenew;
-    private javax.swing.JButton btnsaveData;
+    private javax.swing.JButton btnReturn;
+    private javax.swing.JButton btnSavedata;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -391,6 +367,6 @@ public class RenewBook extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableIssueBook;
     private javax.swing.JLabel lblClose;
-    private javax.swing.JTextField txtSearchIssue;
+    private javax.swing.JTextField txtSearchIssueBook;
     // End of variables declaration//GEN-END:variables
 }

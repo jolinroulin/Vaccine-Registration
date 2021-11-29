@@ -78,7 +78,7 @@
                                   <Component id="btnSelectDateStdDOB1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="19" max="32767" attributes="0"/>
                                   <Component id="txtStdEmail" min="-2" pref="201" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                               </Group>
@@ -104,7 +104,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtStdMobileNumber" alignment="0" pref="201" max="32767" attributes="0"/>
+                              <Component id="txtStdMobileNumber" alignment="0" max="32767" attributes="0"/>
                               <Component id="CmbStdSchoolProgram" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -219,7 +219,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria Math" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Student Registration"/>
+                <Property name="text" type="java.lang.String" value="Citizen/NonCitizen Registration"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">

@@ -93,6 +93,7 @@ public class MainPage extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         btnUserLogin = new javax.swing.JButton();
         btnUserBack = new javax.swing.JButton();
+        lblRegister = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -146,7 +147,7 @@ public class MainPage extends javax.swing.JFrame {
         btnAdmin.setBackground(new java.awt.Color(204, 255, 204));
         btnAdmin.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         btnAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AdminIcon.jpg"))); // NOI18N
-        btnAdmin.setText("                Committee");
+        btnAdmin.setText("                Personnel");
         btnAdmin.setToolTipText("");
         btnAdmin.setActionCommand("               ");
         btnAdmin.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -160,7 +161,7 @@ public class MainPage extends javax.swing.JFrame {
         btnPersonnel.setBackground(new java.awt.Color(255, 204, 255));
         btnPersonnel.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         btnPersonnel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/LecturerIcon.jpg"))); // NOI18N
-        btnPersonnel.setText("              Personnel");
+        btnPersonnel.setText("              Extra");
         btnPersonnel.setActionCommand("           Personnel");
         btnPersonnel.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnPersonnel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -279,7 +280,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
-        jLabel6.setText("Committee Login ");
+        jLabel6.setText("Personnel Login ");
 
         btnAdminLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnAdminLogin.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
@@ -521,7 +522,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel11.setBackground(new java.awt.Color(51, 153, 255));
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jLabel11.setText("Username: ");
+        jLabel11.setText("Email:");
 
         txtUserUsername.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
@@ -562,16 +563,28 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
+        lblRegister.setBackground(new java.awt.Color(255, 255, 255));
+        lblRegister.setFont(new java.awt.Font("Cambria Math", 3, 20)); // NOI18N
+        lblRegister.setForeground(new java.awt.Color(0, 51, 102));
+        lblRegister.setText("Register New Account?");
+        lblRegister.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        lblRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                RegisterClick(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(95, 95, 95)
                         .addComponent(btnUserBack, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
@@ -582,11 +595,19 @@ public class MainPage extends javax.swing.JFrame {
                                 .addComponent(txtUserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUserUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(33, 33, 33))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtUserUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(94, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -601,11 +622,13 @@ public class MainPage extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtUserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addGap(26, 26, 26)
+                .addComponent(lblRegister)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUserBack, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addComponent(btnUserBack, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -617,7 +640,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(lblBackground3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,16 +766,16 @@ public class MainPage extends javax.swing.JFrame {
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
         try {
             PeopleDetails Id = new PeopleDetails();
-            String studentUsername = txtUserUsername.getText();
+            String studentEmail = txtUserUsername.getText();
             String studentPassword = txtUserPassword.getText();
-            if(studentUsername.substring(0,1)=="3"){
-                if(Id.verifyCitizenUser(studentUsername,studentPassword) == true){
+//            if(studentUsername.substring(0,1)=="3"){
+                if(Id.verifyCitizenUser(studentEmail,studentPassword) || Id.verifyNonCitizenUser(studentEmail,studentPassword) ){
                 JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
                 setVisible(false);
                 
                 String user = txtUserUsername.getText();
                 
-                StudentMain sm = new StudentMain();
+                PeopleMain sm = new PeopleMain();
                 sm.setVisible(true);
                 this.setVisible(true);
                 this.setVisible(false);
@@ -762,24 +785,24 @@ public class MainPage extends javax.swing.JFrame {
                 else{
                     JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
                 }
-            }else if(studentUsername.substring(0,1)=="4"){
-                if(Id.verifyNonCitizenUser(studentUsername,studentPassword) == true){
-                JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
-                setVisible(false);
-                
-                String user = txtUserUsername.getText();
-                
-                StudentMain sm = new StudentMain();
-                sm.setVisible(true);
-                this.setVisible(true);
-                this.setVisible(false);
-                sm.usernameStudent1(user);
-                
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
-                }
-            }
+//            }else if(studentUsername.substring(0,1)=="4"){
+//                if(Id.verifyNonCitizenUser(studentUsername,studentPassword) == true){
+//                JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
+//                setVisible(false);
+//                
+//                String user = txtUserUsername.getText();
+//                
+//                StudentMain sm = new StudentMain();
+//                sm.setVisible(true);
+//                this.setVisible(true);
+//                this.setVisible(false);
+//                sm.usernameStudent1(user);
+//                
+//                }
+//                else{
+//                    JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
+//                }
+//            }
 
         } catch (IOException ex) {
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
@@ -800,6 +823,12 @@ public class MainPage extends javax.swing.JFrame {
     private void txtCommitteeUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommitteeUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCommitteeUsernameActionPerformed
+
+    private void RegisterClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterClick
+        // TODO add your handling code here:
+        RegisterUser ru = new RegisterUser();
+        ru.setVisible(true);
+    }//GEN-LAST:event_RegisterClick
 
     /**
      * @param args the command line arguments
@@ -876,6 +905,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblBackground3;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblRegister;
     private javax.swing.JPasswordField txtCommitteePassword;
     private javax.swing.JTextField txtCommitteeUsername;
     private javax.swing.JPasswordField txtPersonnelPassword;

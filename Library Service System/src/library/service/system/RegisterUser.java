@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class RegisterStudent extends javax.swing.JFrame {
+public class RegisterUser extends javax.swing.JFrame {
 
     /**
      * Creates new form RegisterStudent
      */
-    public RegisterStudent() {
+    public RegisterUser() {
         initComponents();
     }
 
@@ -41,12 +41,10 @@ public class RegisterStudent extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtStdUsername = new javax.swing.JTextField();
         txtStdName = new javax.swing.JTextField();
         txtStdDOB = new javax.swing.JTextField();
         txtStdEmail = new javax.swing.JTextField();
@@ -54,13 +52,14 @@ public class RegisterStudent extends javax.swing.JFrame {
         txtStdMobileNumber = new javax.swing.JTextField();
         cmbStdGender = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        CmbStdSchoolProgram = new javax.swing.JComboBox<>();
         btnStdRegister = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         btnSelectDateStdDOB1 = new javax.swing.JToggleButton();
         cmbPeopleType = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
+        lblIC = new javax.swing.JLabel();
+        txtUserIC = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -112,9 +111,6 @@ public class RegisterStudent extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel10.setText("Gender:");
 
-        jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel2.setText("Username:");
-
         jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel5.setText("Password:");
 
@@ -126,8 +122,6 @@ public class RegisterStudent extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel8.setText("Mobile Number:");
-
-        txtStdUsername.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
         txtStdName.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
@@ -143,10 +137,6 @@ public class RegisterStudent extends javax.swing.JFrame {
         cmbStdGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
 
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel11.setText("Centre:");
-
-        CmbStdSchoolProgram.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        CmbStdSchoolProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centre1", "Centre2", "Centre3" }));
 
         btnStdRegister.setText("Register");
         btnStdRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +146,11 @@ public class RegisterStudent extends javax.swing.JFrame {
         });
 
         btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
@@ -169,10 +164,21 @@ public class RegisterStudent extends javax.swing.JFrame {
             }
         });
 
+        cmbPeopleType.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmbPeopleType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Citizen", "NonCitizen" }));
+        cmbPeopleType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPeopleTypeActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel13.setText("Citizen/NonCitizen:");
+        jLabel13.setText("People Type:");
+
+        lblIC.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        lblIC.setText("IC Number:");
+
+        txtUserIC.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,107 +186,105 @@ public class RegisterStudent extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(273, 273, 273)
+                .addGap(121, 121, 121)
+                .addComponent(jLabel11)
+                .addGap(131, 131, 131)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel10))
+                                .addGap(97, 97, 97)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtStdUsername)
-                                            .addComponent(txtStdName)
-                                            .addComponent(txtStdPassword)
-                                            .addComponent(cmbStdGender, 0, 201, Short.MAX_VALUE)))
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSelectDateStdDOB1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(132, 132, 132))))
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7))
+                                        .addGap(54, 54, 54)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblIC)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtUserIC, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(25, 25, 25)
+                                .addComponent(btnSelectDateStdDOB1))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(173, 173, 173))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnClear)
-                                .addGap(52, 52, 52)))
-                        .addComponent(btnStdRegister))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtStdMobileNumber)
-                                .addComponent(CmbStdSchoolProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(118, 118, 118)
+                        .addComponent(btnClear)
+                        .addGap(87, 87, 87)
+                        .addComponent(btnStdRegister)))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtStdUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(btnSelectDateStdDOB1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(CmbStdSchoolProgram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnStdRegister)
-                    .addComponent(btnClear))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addGap(48, 48, 48))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11)
+                        .addGap(133, 133, 133))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(btnSelectDateStdDOB1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIC)
+                            .addComponent(txtUserIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnStdRegister)
+                            .addComponent(btnClear))
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel12)
+                        .addGap(48, 48, 48))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -307,9 +311,6 @@ public class RegisterStudent extends javax.swing.JFrame {
         if(txtStdName.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please make sure the name is filled.");
         }
-        else if(txtStdUsername.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please make sure the username is filled.");
-        }
         else if(txtStdPassword.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please make sure the password is filled.");
         }
@@ -322,36 +323,36 @@ public class RegisterStudent extends javax.swing.JFrame {
         else if(txtStdMobileNumber.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please make sure the mobile number is filled.");
         }
+        else if(txtUserIC.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please make sure the IC/Passport Number is filled.");
+        }
         else {
-            String studentID = null;
-            String studentName = txtStdName.getText();
-            String studentGender = cmbStdGender.getSelectedItem().toString();
-            String studentUsername = txtStdUsername.getText();
-            String studentPassword = txtStdPassword.getText();
-            String studentDOB = txtStdDOB.getText();
-            String studentEmailAddress = txtStdEmail.getText();
-            String studentMobileNumber = txtStdMobileNumber.getText();
-            String studentSchoolOf = CmbStdSchoolProgram.getSelectedItem().toString();
+            String peopleID = null;
+            String peopleName = txtStdName.getText();
+            String peopleGender = cmbStdGender.getSelectedItem().toString();
+            String peoplePassword = txtStdPassword.getText();
+            String peopleDOB = txtStdDOB.getText();
+            String peopleEmailAddress = txtStdEmail.getText();
+            String peopleMobileNumber = txtStdMobileNumber.getText();
+            String peopleIC = txtUserIC.getText();
             String peopleType = cmbPeopleType.getSelectedItem().toString();
-            if(peopleType == "Citizen"){
-                Citizen citizen = new Citizen(studentID, studentPassword, studentName, studentDOB, studentID, peopleType, studentDOB, studentID);
+            if(peopleType.equals("Citizen")){
+                Citizen citizen = new Citizen(peopleID,peoplePassword , peopleName, peopleGender, peopleEmailAddress, peopleDOB, peopleMobileNumber, peopleIC);
                 PeopleDetails studentDetails = new PeopleDetails();
                 studentDetails.addCitizenToTextFile(citizen);
-            }else if (peopleType == "NonCitizen"){
-                NonCitizen nonCitizen = new NonCitizen(studentID, studentPassword, studentName, studentDOB, studentID, peopleType, studentDOB, studentID);
+            }else if (peopleType.equals("NonCitizen")){
+                NonCitizen nonCitizen = new NonCitizen(peopleID,peoplePassword , peopleName, peopleGender, peopleEmailAddress, peopleDOB, peopleMobileNumber, peopleIC);
                 PeopleDetails studentDetails = new PeopleDetails();
-
                 studentDetails.addNonCitizenToTextFile(nonCitizen);
             }
 
             txtStdName.setText("");
             cmbStdGender.setSelectedIndex(0);
-            txtStdUsername.setText("");
+            txtUserIC.setText("");
             txtStdPassword.setText("");
             txtStdDOB.setText("");
             txtStdEmail.setText("");
             txtStdMobileNumber.setText("");
-            CmbStdSchoolProgram.setSelectedIndex(0);
             cmbPeopleType.setSelectedIndex(0);
         }
     }//GEN-LAST:event_btnStdRegisterActionPerformed
@@ -360,6 +361,28 @@ public class RegisterStudent extends javax.swing.JFrame {
         DatePicker datePicker = new DatePicker(this);
         txtStdDOB.setText(datePicker.setPickedDate());
     }//GEN-LAST:event_btnSelectDateStdDOB1ActionPerformed
+
+    private void cmbPeopleTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPeopleTypeActionPerformed
+        // TODO add your handling code here:
+        Object selected = cmbPeopleType.getSelectedItem();
+        if (selected.toString().equals("NonCitizen")){
+            lblIC.setText("Passport Number:");
+        }else{
+            lblIC.setText("IC Number:");
+        }
+    }//GEN-LAST:event_cmbPeopleTypeActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+        txtStdName.setText("");
+            cmbStdGender.setSelectedIndex(0);
+            txtUserIC.setText("");
+            txtStdPassword.setText("");
+            txtStdDOB.setText("");
+            txtStdEmail.setText("");
+            txtStdMobileNumber.setText("");
+            cmbPeopleType.setSelectedIndex(0);
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,26 +401,26 @@ public class RegisterStudent extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterStudent().setVisible(true);
+                new RegisterUser().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CmbStdSchoolProgram;
     private javax.swing.JButton btnClear;
     private javax.swing.JToggleButton btnSelectDateStdDOB1;
     private javax.swing.JButton btnStdRegister;
@@ -409,7 +432,6 @@ public class RegisterStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -418,11 +440,12 @@ public class RegisterStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblIC;
     private javax.swing.JTextField txtStdDOB;
     private javax.swing.JTextField txtStdEmail;
     private javax.swing.JTextField txtStdMobileNumber;
     private javax.swing.JTextField txtStdName;
     private javax.swing.JTextField txtStdPassword;
-    private javax.swing.JTextField txtStdUsername;
+    private javax.swing.JTextField txtUserIC;
     // End of variables declaration//GEN-END:variables
 }

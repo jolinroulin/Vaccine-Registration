@@ -336,7 +336,7 @@ public class AdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiViewLibrarianActionPerformed
 
     private void jmiAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddStudentActionPerformed
-        new RegisterStudent().setVisible(true);
+        new RegisterUser().setVisible(true);
     }//GEN-LAST:event_jmiAddStudentActionPerformed
 
     private void jmiViewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewStudentActionPerformed

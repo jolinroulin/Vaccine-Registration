@@ -52,7 +52,7 @@ public class PeopleDetails {
             
             out.close();
             
-            JOptionPane.showMessageDialog(null, "Details are added. Your student member id is " + id2 + ".");
+            JOptionPane.showMessageDialog(null, "Details are added. Your user id is " + id2 + ".");
         } catch (IOException ex) {
             Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -62,7 +62,7 @@ public class PeopleDetails {
         
         try {
             
-            PrintWriter out = null;
+        PrintWriter out = null;
             
         BufferedReader br = new BufferedReader(new FileReader(FILEPATHNonCitizen));
         Object[] Lines = br.lines().toArray();
@@ -83,7 +83,7 @@ public class PeopleDetails {
             
             out.close();
             
-            JOptionPane.showMessageDialog(null, "Details are added. Your student member id is " + id2 + ".");
+            JOptionPane.showMessageDialog(null, "Details are added. Your user id is " + id2 + ".");
         } catch (IOException ex) {
             Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -166,7 +166,7 @@ public class PeopleDetails {
             
             while((readLine = bufferedReader.readLine()) != null){
                 String[] detailStudent = readLine.split(" : ");
-                if(studentUsername.equals(detailStudent[3]) && studentPassword.equals(detailStudent[4])){
+                if(studentUsername.equals(detailStudent[4]) && studentPassword.equals(detailStudent[1])){
                     return true;
                 }
             }
@@ -186,7 +186,7 @@ public class PeopleDetails {
             
             while((readLine = bufferedReader.readLine()) != null){
                 String[] detailStudent = readLine.split(" : ");
-                if(studentUsername.equals(detailStudent[3]) && studentPassword.equals(detailStudent[4])){
+                if(studentUsername.equals(detailStudent[4]) && studentPassword.equals(detailStudent[1])){
                     return true;
                 }
             }

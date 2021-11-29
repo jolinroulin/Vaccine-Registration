@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
  */
 public class AdminDetails {
     
-    File FILEPATHAdmin =new File("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\LibrarianData.txt");    
+    File FILEPATHAdmin =new File("Admin.txt");    
     
     public boolean addAdminToTextFile(Admin admin){
         
@@ -60,7 +60,7 @@ public class AdminDetails {
         return true;
     }
     
-    public Admin findLibrarianFromTextFile(Admin adminId) throws IOException{
+    public Admin findAdminFromTextFile(Admin adminId) throws IOException{
             Admin admin= null;
         try {
             
@@ -93,7 +93,7 @@ public class AdminDetails {
     }
     
 
-        public boolean verifyUser(String adminUserId, String adminPassword) throws IOException{
+        public boolean findAdminFromTextFile(String adminUserId, String adminPassword) throws IOException{
         try {
             
             String FILEPATH = "Admin.txt";

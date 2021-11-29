@@ -89,7 +89,7 @@ public class RegisterPersonnel extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                 .addComponent(jLabel16)
                 .addGap(32, 32, 32))
         );
@@ -231,7 +231,7 @@ public class RegisterPersonnel extends javax.swing.JFrame {
                         .addComponent(btnClear)
                         .addGap(37, 37, 37)
                         .addComponent(btnRegister)))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +285,10 @@ public class RegisterPersonnel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,7 +340,7 @@ public class RegisterPersonnel extends javax.swing.JFrame {
 
             PersonnelDetails personnelrDetails = new PersonnelDetails();
 
-            personnelrDetails.addMemberToTextFile(personnel);
+            personnelrDetails.addPersonnelToTextFile(personnel);
 
             txtLecName.setText("");
             cmbLecGender.setSelectedIndex(0);

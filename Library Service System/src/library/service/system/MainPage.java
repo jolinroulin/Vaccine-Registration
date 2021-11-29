@@ -63,14 +63,14 @@ public class MainPage extends javax.swing.JFrame {
         btnPersonnel = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
         lblExit = new javax.swing.JLabel();
-        jpAdmin = new javax.swing.JPanel();
+        jpCommittee = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lblBackground1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtAdminUsername = new javax.swing.JTextField();
-        txtAdminPassword = new javax.swing.JPasswordField();
+        txtCommitteeUsername = new javax.swing.JTextField();
+        txtCommitteePassword = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         btnAdminLogin = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -149,7 +149,7 @@ public class MainPage extends javax.swing.JFrame {
         btnAdmin.setBackground(new java.awt.Color(204, 255, 204));
         btnAdmin.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         btnAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AdminIcon.jpg"))); // NOI18N
-        btnAdmin.setText("                Admin");
+        btnAdmin.setText("                Committee");
         btnAdmin.setToolTipText("");
         btnAdmin.setActionCommand("               ");
         btnAdmin.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -249,7 +249,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Main", jpMain);
 
-        jpAdmin.setPreferredSize(new java.awt.Dimension(1438, 548));
+        jpCommittee.setPreferredSize(new java.awt.Dimension(1438, 548));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -265,19 +265,24 @@ public class MainPage extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jLabel5.setText("Username: ");
 
-        txtAdminUsername.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-
-        txtAdminPassword.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        txtAdminPassword.setSelectionColor(new java.awt.Color(0, 0, 153));
-        txtAdminPassword.addActionListener(new java.awt.event.ActionListener() {
+        txtCommitteeUsername.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        txtCommitteeUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAdminPasswordActionPerformed(evt);
+                txtCommitteeUsernameActionPerformed(evt);
+            }
+        });
+
+        txtCommitteePassword.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        txtCommitteePassword.setSelectionColor(new java.awt.Color(0, 0, 153));
+        txtCommitteePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCommitteePasswordActionPerformed(evt);
             }
         });
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
-        jLabel6.setText("Admin Login ");
+        jLabel6.setText("Committee Login ");
 
         btnAdminLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnAdminLogin.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
@@ -316,15 +321,15 @@ public class MainPage extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtAdminUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCommitteeUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtCommitteePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,11 +339,11 @@ public class MainPage extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtAdminUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCommitteeUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCommitteePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,7 +360,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(lblBackground1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(110, 110, 110)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,18 +371,18 @@ public class MainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jpAdminLayout = new javax.swing.GroupLayout(jpAdmin);
-        jpAdmin.setLayout(jpAdminLayout);
-        jpAdminLayout.setHorizontalGroup(
-            jpAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpCommitteeLayout = new javax.swing.GroupLayout(jpCommittee);
+        jpCommittee.setLayout(jpCommitteeLayout);
+        jpCommitteeLayout.setHorizontalGroup(
+            jpCommitteeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jpAdminLayout.setVerticalGroup(
-            jpAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jpCommitteeLayout.setVerticalGroup(
+            jpCommitteeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Librarian", jpAdmin);
+        jTabbedPane1.addTab("Librarian", jpCommittee);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -665,22 +670,22 @@ public class MainPage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lblExitMouseClicked
 
-    private void txtAdminPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminPasswordActionPerformed
+    private void txtCommitteePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommitteePasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAdminPasswordActionPerformed
+    }//GEN-LAST:event_txtCommitteePasswordActionPerformed
 
     private void btnAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginActionPerformed
 
         try {
             AdminDetails ld = new AdminDetails();
-            String adminUserId = txtAdminUsername.getText();
-            String adminPassword = txtAdminPassword.getText();
-            if(ld.verifyUser(adminUserId,adminPassword) == true){
+            String adminUserId = txtCommitteeUsername.getText();
+            String adminPassword = txtCommitteePassword.getText();
+            if(ld.findAdminFromTextFile(adminUserId,adminPassword) == true){
                 JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
                 setVisible(false);
                 
                 
-                String user = txtAdminUsername.getText();
+                String user = txtCommitteeUsername.getText();
                 
                 AdminMain lm = new AdminMain();
                 lm.setVisible(true);
@@ -709,7 +714,7 @@ public class MainPage extends javax.swing.JFrame {
             PersonnelDetails Id = new PersonnelDetails();
             String librarianUsername = txtPersonnelUsername.getText();
             String librarianPassword = txtPersonnelUsername.getText();
-            if(Id.verifyUser(librarianUsername,librarianPassword) == true){
+            if(Id.findPersonnelFromTextFile(librarianUsername,librarianPassword) == true){
                 JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
                 setVisible(false);
                 
@@ -796,6 +801,10 @@ public class MainPage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnUserLoginMouseClicked
 
+    private void txtCommitteeUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommitteeUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCommitteeUsernameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -861,7 +870,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JPanel jpAdmin;
+    private javax.swing.JPanel jpCommittee;
     private javax.swing.JPanel jpMain;
     private javax.swing.JPanel jpPersonnel;
     private javax.swing.JPanel jpUser;
@@ -871,8 +880,8 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblBackground3;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JPasswordField txtAdminPassword;
-    private javax.swing.JTextField txtAdminUsername;
+    private javax.swing.JPasswordField txtCommitteePassword;
+    private javax.swing.JTextField txtCommitteeUsername;
     private javax.swing.JPasswordField txtPersonnelPassword;
     private javax.swing.JTextField txtPersonnelUsername;
     private javax.swing.JPasswordField txtUserPassword;

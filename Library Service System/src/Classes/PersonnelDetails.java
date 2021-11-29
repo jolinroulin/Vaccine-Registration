@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
 public class PersonnelDetails {
     File FILEPATHMember =new File("Personnel.txt");
     
-    public boolean addMemberToTextFile(Personnel personnel){
+    public boolean addPersonnelToTextFile(Personnel personnel){
         
         try {
             
@@ -92,7 +92,7 @@ public class PersonnelDetails {
         return personnel;
     }
 
-        public boolean verifyUser(String personnelId, String personnelPassword) throws IOException{
+        public boolean findPersonnelFromTextFile(String personnelId, String personnelPassword) throws IOException{
         try {
             
             FileInputStream fileInputStream = new FileInputStream(FILEPATHMember);

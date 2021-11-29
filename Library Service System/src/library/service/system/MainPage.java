@@ -9,13 +9,10 @@ package library.service.system;
 import java.io.*;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.BufferedReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import Classes.AdminDetails;
-import Classes.People;
 import Classes.PersonnelDetails;
 import Classes.PeopleDetails;
 
@@ -63,7 +60,7 @@ public class MainPage extends javax.swing.JFrame {
         btnPersonnel = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
         lblExit = new javax.swing.JLabel();
-        jpCommittee = new javax.swing.JPanel();
+        jpPersonnel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lblBackground1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -74,7 +71,7 @@ public class MainPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnAdminLogin = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jpPersonnel = new javax.swing.JPanel();
+        jpExtra = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         lblBackground2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -249,7 +246,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Main", jpMain);
 
-        jpCommittee.setPreferredSize(new java.awt.Dimension(1438, 548));
+        jpPersonnel.setPreferredSize(new java.awt.Dimension(1438, 548));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -371,18 +368,18 @@ public class MainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jpCommitteeLayout = new javax.swing.GroupLayout(jpCommittee);
-        jpCommittee.setLayout(jpCommitteeLayout);
-        jpCommitteeLayout.setHorizontalGroup(
-            jpCommitteeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpPersonnelLayout = new javax.swing.GroupLayout(jpPersonnel);
+        jpPersonnel.setLayout(jpPersonnelLayout);
+        jpPersonnelLayout.setHorizontalGroup(
+            jpPersonnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jpCommitteeLayout.setVerticalGroup(
-            jpCommitteeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jpPersonnelLayout.setVerticalGroup(
+            jpPersonnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Librarian", jpCommittee);
+        jTabbedPane1.addTab("Librarian", jpPersonnel);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -499,18 +496,18 @@ public class MainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jpPersonnelLayout = new javax.swing.GroupLayout(jpPersonnel);
-        jpPersonnel.setLayout(jpPersonnelLayout);
-        jpPersonnelLayout.setHorizontalGroup(
-            jpPersonnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpExtraLayout = new javax.swing.GroupLayout(jpExtra);
+        jpExtra.setLayout(jpExtraLayout);
+        jpExtraLayout.setHorizontalGroup(
+            jpExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jpPersonnelLayout.setVerticalGroup(
-            jpPersonnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jpExtraLayout.setVerticalGroup(
+            jpExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Lecturer", jpPersonnel);
+        jTabbedPane1.addTab("Lecturer", jpExtra);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -677,13 +674,12 @@ public class MainPage extends javax.swing.JFrame {
     private void btnAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginActionPerformed
 
         try {
-            AdminDetails ld = new AdminDetails();
-            String adminUserId = txtCommitteeUsername.getText();
-            String adminPassword = txtCommitteePassword.getText();
-            if(ld.findAdminFromTextFile(adminUserId,adminPassword) == true){
+            PersonnelDetails id = new PersonnelDetails();
+            String personnelUserId = txtCommitteeUsername.getText();
+            String personnelPassword = txtCommitteePassword.getText();
+            if(id.findPersonnelFromTextFile(personnelUserId,personnelPassword) == true){
                 JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
                 setVisible(false);
-                
                 
                 String user = txtCommitteeUsername.getText();
                 
@@ -870,7 +866,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JPanel jpCommittee;
+    private javax.swing.JPanel jpExtra;
     private javax.swing.JPanel jpMain;
     private javax.swing.JPanel jpPersonnel;
     private javax.swing.JPanel jpUser;

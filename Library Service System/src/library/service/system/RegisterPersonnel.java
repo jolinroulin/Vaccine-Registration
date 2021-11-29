@@ -5,10 +5,18 @@
  */
 package library.service.system;
 
+import Classes.Admin;
 import Classes.DatePicker;
+import Classes.Librarian;
+import Classes.AdminDetails;
 import Classes.Personnel;
-import Classes.Staff;
 import Classes.PersonnelDetails;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,11 +26,13 @@ import javax.swing.JOptionPane;
 public class RegisterPersonnel extends javax.swing.JFrame {
 
     /**
-     * Creates new form RegisterLecturer
+     * Creates new form RegisterLibrarian
      */
     public RegisterPersonnel() {
         initComponents();
     }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,84 +44,43 @@ public class RegisterPersonnel extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtLecUsername = new javax.swing.JTextField();
-        txtLecName = new javax.swing.JTextField();
-        txtLecDOB = new javax.swing.JTextField();
-        txtLecEmail = new javax.swing.JTextField();
-        txtLecPassword = new javax.swing.JTextField();
-        txtLecMobileNumber = new javax.swing.JTextField();
-        cmbLecGender = new javax.swing.JComboBox<>();
+        txtLEmailAddress = new javax.swing.JTextField();
+        txtLName = new javax.swing.JTextField();
+        txtLUsername = new javax.swing.JTextField();
+        txtLDOB = new javax.swing.JTextField();
+        txtLMobileNumber = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        CmbLecSchoolProgram = new javax.swing.JComboBox<>();
-        btnRegister = new javax.swing.JButton();
-        btnClear = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        cmbLGender = new javax.swing.JComboBox<>();
+        btnSelectDateStdDOB = new javax.swing.JToggleButton();
+        txtLPassword = new javax.swing.JTextField();
+        btnLRegister = new javax.swing.JToggleButton();
+        btnLClear = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        CmbVaccineCentre = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        btnSelectDateStdDOB1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 550));
+        jPanel1.setRequestFocusEnabled(false);
 
-        jPanel2.setBackground(new java.awt.Color(153, 51, 255));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Adminpic.png"))); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
-        jLabel1.setText("Personnel Registration");
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Close.png"))); // NOI18N
-        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(274, 274, 274)
-                .addComponent(jLabel9)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(32, 32, 32))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel2.setText("IC Number:");
 
         jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel4.setText("Name:");
-
-        jLabel10.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel10.setText("Gender:");
-
-        jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel2.setText("IC:");
 
         jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel5.setText("Password:");
@@ -125,59 +94,128 @@ public class RegisterPersonnel extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel8.setText("Mobile Number:");
 
-        txtLecUsername.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        txtLecName.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtLecName.addActionListener(new java.awt.event.ActionListener() {
+        txtLEmailAddress.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtLEmailAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLecNameActionPerformed(evt);
+                txtLEmailAddressActionPerformed(evt);
             }
         });
 
-        txtLecDOB.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        txtLecEmail.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        txtLecPassword.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        txtLecMobileNumber.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        cmbLecGender.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        cmbLecGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
-        cmbLecGender.addActionListener(new java.awt.event.ActionListener() {
+        txtLName.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtLName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbLecGenderActionPerformed(evt);
+                txtLNameActionPerformed(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel11.setText("Centre");
-
-        CmbLecSchoolProgram.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        CmbLecSchoolProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer Science ", "Software Engineering", "Cyber Security", "Interactive Media", "Networking" }));
-
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+        txtLUsername.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtLUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
+                txtLUsernameActionPerformed(evt);
             }
         });
 
-        btnClear.setText("Clear");
+        txtLDOB.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtLDOB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLDOBActionPerformed(evt);
+            }
+        });
+
+        txtLMobileNumber.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtLMobileNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLMobileNumberActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+
+        jLabel1.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
+        jLabel1.setText("Personnel Registration");
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Adminpic.png"))); // NOI18N
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Close.png"))); // NOI18N
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(272, 272, 272)
+                .addComponent(jLabel9)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(41, 41, 41))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
+        );
+
+        jLabel10.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel10.setText("Gender:");
+
+        cmbLGender.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        cmbLGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
+
+        btnSelectDateStdDOB.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        btnSelectDateStdDOB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Calender.png"))); // NOI18N
+        btnSelectDateStdDOB.setText("Select Date");
+        btnSelectDateStdDOB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSelectDateStdDOB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectDateStdDOBActionPerformed(evt);
+            }
+        });
+
+        txtLPassword.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtLPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLPasswordActionPerformed(evt);
+            }
+        });
+
+        btnLRegister.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        btnLRegister.setText("Register");
+        btnLRegister.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLRegisterActionPerformed(evt);
+            }
+        });
+
+        btnLClear.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        btnLClear.setText("Clear");
+        btnLClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLClearActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel12.setText("Centre:");
+
+        CmbVaccineCentre.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        CmbVaccineCentre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centre1", "Centre2", "Centre3" }));
 
         jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        btnSelectDateStdDOB1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        btnSelectDateStdDOB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Calender.png"))); // NOI18N
-        btnSelectDateStdDOB1.setText("Select Date");
-        btnSelectDateStdDOB1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSelectDateStdDOB1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelectDateStdDOB1ActionPerformed(evt);
-            }
-        });
+        jLabel13.setText("Mobile Number:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -185,186 +223,201 @@ public class RegisterPersonnel extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(273, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnLClear)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel10)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel13)
+                        .addComponent(jLabel12)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
+                        .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(380, 380, 380))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtLPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(25, 25, 25)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(txtLecUsername)
-                                                    .addComponent(txtLecName)
-                                                    .addComponent(txtLecPassword)
-                                                    .addComponent(cmbLecGender, 0, 201, Short.MAX_VALUE)))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtLecDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnSelectDateStdDOB1))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                                        .addComponent(txtLecEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(141, 141, 141))))
-                            .addComponent(jLabel12)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel11))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtLecMobileNumber)
-                                    .addComponent(CmbLecSchoolProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jLabel13)))
+                                        .addComponent(txtLDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnSelectDateStdDOB))
+                                    .addComponent(txtLUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbLGender, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(CmbVaccineCentre, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtLMobileNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(334, 334, 334)
-                        .addComponent(btnClear)
-                        .addGap(37, 37, 37)
-                        .addComponent(btnRegister)))
-                .addContainerGap(214, Short.MAX_VALUE))
+                        .addGap(118, 118, 118)
+                        .addComponent(btnLRegister)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbLGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtLUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtLPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtLDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(btnSelectDateStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtLecName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel13)
+                    .addComponent(txtLMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(cmbLecGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(CmbVaccineCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtLecUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtLecPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(btnSelectDateStdDOB1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLecDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(txtLecEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtLecMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(CmbLecSchoolProgram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel13)
-                .addGap(63, 63, 63)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClear)
-                    .addComponent(btnRegister))
-                .addGap(48, 48, 48))
+                    .addComponent(btnLClear)
+                    .addComponent(btnLRegister))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(42, 42, 42))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSelectDateStdDOB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectDateStdDOB1ActionPerformed
+    private void txtLEmailAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLEmailAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLEmailAddressActionPerformed
+
+    private void txtLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLNameActionPerformed
+
+    private void txtLUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLUsernameActionPerformed
+
+    private void txtLDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLDOBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLDOBActionPerformed
+
+    private void txtLMobileNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLMobileNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLMobileNumberActionPerformed
+
+    private void btnSelectDateStdDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectDateStdDOBActionPerformed
         DatePicker datePicker = new DatePicker(this);
-        txtLecDOB.setText(datePicker.setPickedDate());
-    }//GEN-LAST:event_btnSelectDateStdDOB1ActionPerformed
+        txtLDOB.setText(datePicker.setPickedDate());
+    }//GEN-LAST:event_btnSelectDateStdDOBActionPerformed
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+    private void txtLPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLPasswordActionPerformed
 
-        if(txtLecName.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please make sure the name is filled.");
+    private void btnLRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLRegisterActionPerformed
+        
+        if(txtLName.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
-        else if(txtLecUsername.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please make sure the username is filled.");
+        else if(txtLUsername.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
-        else if(txtLecPassword.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please make sure the password is filled.");
+        else if(txtLPassword.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
-        else if(txtLecDOB.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please make sure the DOB is filled.");
+        else if(txtLDOB.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
-        else if(txtLecEmail.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please make sure the email is filled.");
+        else if(txtLEmailAddress.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
-        else if(txtLecMobileNumber.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please make sure the mobile number is filled.");
+        else if(txtLMobileNumber.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
         else {
-            String personnelID = null;
-            String personnelName = txtLecName.getText();
-            String personnelGender = cmbLecGender.getSelectedItem().toString();
-            String personnelIC = txtLecUsername.getText();
-            String personnelPassword = txtLecPassword.getText();
-            String personnelDOB = txtLecDOB.getText();
-            String personnelEmail = txtLecEmail.getText();
-            String personnelContactNo = txtLecMobileNumber.getText();
-            String personnelCentre = CmbLecSchoolProgram.getSelectedItem().toString();
-            
-            Personnel personnel = new Personnel(personnelID,personnelPassword,personnelName,personnelGender,
-                    personnelEmail,personnelDOB,personnelContactNo,personnelIC,personnelCentre);
+        String personnelID = null;
+        String personnelName = txtLName.getText(); /*name*/
+        String personnelGender = cmbLGender.getSelectedItem().toString();/*gender*/
+        String personnelIC = txtLUsername.getText();/*IC*/
+        String personnelPassword = txtLPassword.getText(); /*password*/
+        String personnelDOB = txtLDOB.getText();/*DOB*/
+        String personnelEmail = txtLEmailAddress.getText();/*email*/
+        String personnelContactNo = txtLMobileNumber.getText();/*contactNo*/
+        String personnelCentre = CmbVaccineCentre.getSelectedItem().toString();
+        
+        Personnel personnel = new Personnel( personnelID, personnelPassword, personnelName, personnelGender, personnelEmail, personnelDOB, personnelContactNo, personnelIC, personnelCentre);        
+//        Personnel personnel = new Personnel(personnelID, personnelID, personnelName, personnelIC, personnelEmail, personnelIC, personnelContactNo, personnelIC, personnelCentre);        
+//        
+        PersonnelDetails personnelDetails = new PersonnelDetails();
+      
+        personnelDetails.addPersonnelToTextFile(personnel);
 
-            PersonnelDetails personnelrDetails = new PersonnelDetails();
-
-            personnelrDetails.addPersonnelToTextFile(personnel);
-
-            txtLecName.setText("");
-            cmbLecGender.setSelectedIndex(0);
-            txtLecUsername.setText("");
-            txtLecPassword.setText("");
-            txtLecDOB.setText("");
-            txtLecEmail.setText("");
-            txtLecMobileNumber.setText("");
-            CmbLecSchoolProgram.setSelectedIndex(0);
-            
+        cmbLGender.setSelectedItem(0);
+        txtLName.setText("");
+        txtLUsername.setText("");
+        txtLPassword.setText("");
+        txtLDOB.setText("");
+        txtLEmailAddress.setText("");
+        txtLMobileNumber.setText("");
+        CmbVaccineCentre.setSelectedItem(0);
         }
-    }//GEN-LAST:event_btnRegisterActionPerformed
+    }//GEN-LAST:event_btnLRegisterActionPerformed
 
-    private void txtLecNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLecNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLecNameActionPerformed
+    private void btnLClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLClearActionPerformed
+        cmbLGender.setSelectedItem(0);
+        txtLName.setText("");
+        txtLUsername.setText("");
+        txtLPassword.setText("");
+        txtLDOB.setText("");
+        txtLEmailAddress.setText("");
+        txtLMobileNumber.setText("");
+    }//GEN-LAST:event_btnLClearActionPerformed
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         setVisible(false);
-    }//GEN-LAST:event_jLabel16MouseClicked
-
-    private void cmbLecGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbLecGenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbLecGenderActionPerformed
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments
@@ -399,14 +452,6 @@ public class RegisterPersonnel extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -417,17 +462,16 @@ public class RegisterPersonnel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CmbLecSchoolProgram;
-    private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnRegister;
-    private javax.swing.JToggleButton btnSelectDateStdDOB1;
-    private javax.swing.JComboBox<String> cmbLecGender;
+    private javax.swing.JComboBox<String> CmbVaccineCentre;
+    private javax.swing.JButton btnLClear;
+    private javax.swing.JToggleButton btnLRegister;
+    private javax.swing.JToggleButton btnSelectDateStdDOB;
+    private javax.swing.JComboBox<String> cmbLGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -437,11 +481,11 @@ public class RegisterPersonnel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtLecDOB;
-    private javax.swing.JTextField txtLecEmail;
-    private javax.swing.JTextField txtLecMobileNumber;
-    private javax.swing.JTextField txtLecName;
-    private javax.swing.JTextField txtLecPassword;
-    private javax.swing.JTextField txtLecUsername;
+    private javax.swing.JTextField txtLDOB;
+    private javax.swing.JTextField txtLEmailAddress;
+    private javax.swing.JTextField txtLMobileNumber;
+    private javax.swing.JTextField txtLName;
+    private javax.swing.JTextField txtLPassword;
+    private javax.swing.JTextField txtLUsername;
     // End of variables declaration//GEN-END:variables
 }

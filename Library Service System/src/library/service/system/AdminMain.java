@@ -78,7 +78,7 @@ public class AdminMain extends javax.swing.JFrame {
         lblUser.setText("  ");
 
         jLabel5.setFont(new java.awt.Font("Monotype Corsiva", 1, 48)); // NOI18N
-        jLabel5.setText("WELCOME Librarian ");
+        jLabel5.setText("WELCOME Personnel");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,9 +94,9 @@ public class AdminMain extends javax.swing.JFrame {
                 .addContainerGap(391, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(781, Short.MAX_VALUE)
-                    .addComponent(jLabel5)
-                    .addGap(178, 178, 178)))
+                    .addContainerGap(795, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(128, 128, 128)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +117,7 @@ public class AdminMain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(152, 152, 152)
                     .addComponent(jLabel5)
-                    .addContainerGap(427, Short.MAX_VALUE)))
+                    .addContainerGap(437, Short.MAX_VALUE)))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 102, 255));
@@ -320,7 +320,7 @@ public class AdminMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLecturerActionPerformed
-        new RegisterPersonnel().setVisible(true);
+        new RegisterPerExtra().setVisible(true);
     }//GEN-LAST:event_AddLecturerActionPerformed
 
     private void jmiViewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewBookActionPerformed
@@ -328,11 +328,11 @@ public class AdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiViewBookActionPerformed
 
     private void jmiAddLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddLibrarianActionPerformed
-        new RegisterAdmin().setVisible(true);
+        new RegisterPersonnel().setVisible(true);
     }//GEN-LAST:event_jmiAddLibrarianActionPerformed
 
     private void jmiViewLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewLibrarianActionPerformed
-        new ViewLibrarian().setVisible(true);
+        new ViewPersonnel().setVisible(true);
     }//GEN-LAST:event_jmiViewLibrarianActionPerformed
 
     private void jmiAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddStudentActionPerformed

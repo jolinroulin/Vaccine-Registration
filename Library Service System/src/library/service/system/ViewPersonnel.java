@@ -30,19 +30,19 @@ import javax.swing.table.TableRowSorter;
  *
  * @author User
  */
-public class ViewLibrarian extends javax.swing.JFrame {
+public class ViewPersonnel extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewLibrarian
      */
-    private void ImportLibrarianDetailsToTable() {
-        String filepath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\LibrarianData.txt";
+    private void ImportPersonnelDetailsToTable() {
+        String filepath = "Personnel.txt";
         File file = new File(filepath);
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             
-            DefaultTableModel model = (DefaultTableModel) jTableLibrarian.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTablePersonnel.getModel();
             /*String[] columnsName = firstLine.split("|");
             String firstLine = br.readLine().trim();
             model.setColumnIdentifiers(columnsName);*/
@@ -54,20 +54,20 @@ public class ViewLibrarian extends javax.swing.JFrame {
                 model.addRow(dataRow);
             }
         } catch (Exception ex) {
-            Logger.getLogger(ViewLibrarian.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewPersonnel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    private void saveLibrarianData(){
-                String filePath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\LibrarianData.txt";
+    private void savePersonnelData(){
+            String filePath ="Personnel.txt";
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < jTableLibrarian.getRowCount(); i++){
-                for(int j = 0; j < jTableLibrarian.getColumnCount(); j++){
-                    bw.write(jTableLibrarian.getValueAt(i,j).toString()+ " : " );
+            for(int i = 0; i < jTablePersonnel.getRowCount(); i++){
+                for(int j = 0; j < jTablePersonnel.getColumnCount(); j++){
+                    bw.write(jTablePersonnel.getValueAt(i,j).toString()+ " : " );
                 }
                 bw.newLine();
             }
@@ -79,9 +79,9 @@ public class ViewLibrarian extends javax.swing.JFrame {
         }
     }
 
-    public ViewLibrarian() {
+    public ViewPersonnel() {
         initComponents();
-        ImportLibrarianDetailsToTable();
+        ImportPersonnelDetailsToTable();
     }
 
     /**
@@ -99,7 +99,7 @@ public class ViewLibrarian extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableLibrarian = new javax.swing.JTable();
+        jTablePersonnel = new javax.swing.JTable();
         txtSearchLibrarian = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -132,7 +132,7 @@ public class ViewLibrarian extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
-        jLabel3.setText("Librarian Details");
+        jLabel3.setText("Personnel Details");
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Close.png"))); // NOI18N
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -151,7 +151,7 @@ public class ViewLibrarian extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 414, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 411, Short.MAX_VALUE)
                 .addComponent(jLabel16)
                 .addGap(39, 39, 39))
         );
@@ -167,35 +167,35 @@ public class ViewLibrarian extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(jLabel3))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTableLibrarian.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePersonnel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Librarian Id", "Name", "Gender", "Username", "Password", "DOB", "Email", "Mobile No"
+                "Personnel Id", "Password", "Name", "Gender", "Email", "DOB", "Mobile No", "IC", "Centre"
             }
         ));
-        jTableLibrarian.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTablePersonnel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableLibrarianMouseClicked(evt);
+                jTablePersonnelMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableLibrarian);
-        if (jTableLibrarian.getColumnModel().getColumnCount() > 0) {
-            jTableLibrarian.getColumnModel().getColumn(0).setHeaderValue("Librarian Id");
-            jTableLibrarian.getColumnModel().getColumn(1).setHeaderValue("Name");
-            jTableLibrarian.getColumnModel().getColumn(2).setHeaderValue("Gender");
-            jTableLibrarian.getColumnModel().getColumn(3).setHeaderValue("Username");
-            jTableLibrarian.getColumnModel().getColumn(4).setHeaderValue("Password");
-            jTableLibrarian.getColumnModel().getColumn(5).setResizable(false);
-            jTableLibrarian.getColumnModel().getColumn(5).setHeaderValue("DOB");
-            jTableLibrarian.getColumnModel().getColumn(6).setResizable(false);
-            jTableLibrarian.getColumnModel().getColumn(6).setHeaderValue("Email");
-            jTableLibrarian.getColumnModel().getColumn(7).setResizable(false);
-            jTableLibrarian.getColumnModel().getColumn(7).setHeaderValue("Mobile No");
+        jScrollPane1.setViewportView(jTablePersonnel);
+        if (jTablePersonnel.getColumnModel().getColumnCount() > 0) {
+            jTablePersonnel.getColumnModel().getColumn(0).setHeaderValue("Librarian Id");
+            jTablePersonnel.getColumnModel().getColumn(1).setHeaderValue("Name");
+            jTablePersonnel.getColumnModel().getColumn(2).setHeaderValue("Gender");
+            jTablePersonnel.getColumnModel().getColumn(3).setHeaderValue("Username");
+            jTablePersonnel.getColumnModel().getColumn(4).setHeaderValue("Password");
+            jTablePersonnel.getColumnModel().getColumn(5).setResizable(false);
+            jTablePersonnel.getColumnModel().getColumn(5).setHeaderValue("DOB");
+            jTablePersonnel.getColumnModel().getColumn(6).setResizable(false);
+            jTablePersonnel.getColumnModel().getColumn(6).setHeaderValue("Email");
+            jTablePersonnel.getColumnModel().getColumn(7).setResizable(false);
+            jTablePersonnel.getColumnModel().getColumn(7).setHeaderValue("Mobile No");
         }
 
         txtSearchLibrarian.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
@@ -271,6 +271,11 @@ public class ViewLibrarian extends javax.swing.JFrame {
 
         cmbLGender.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmbLGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
+        cmbLGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbLGenderActionPerformed(evt);
+            }
+        });
 
         btnSelectDateStdDOB.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         btnSelectDateStdDOB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Calender.png"))); // NOI18N
@@ -432,10 +437,10 @@ public class ViewLibrarian extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchLibrarianActionPerformed
 
     private void txtSearchLibrarianKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchLibrarianKeyReleased
-        DefaultTableModel table = (DefaultTableModel) jTableLibrarian.getModel();
+        DefaultTableModel table = (DefaultTableModel) jTablePersonnel.getModel();
         String search = txtSearchLibrarian.getText();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
-        jTableLibrarian.setRowSorter(tr);
+        jTablePersonnel.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(search));
     }//GEN-LAST:event_txtSearchLibrarianKeyReleased
 
@@ -478,14 +483,14 @@ public class ViewLibrarian extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        DefaultTableModel tblModel = (DefaultTableModel)jTableLibrarian.getModel();
+        DefaultTableModel tblModel = (DefaultTableModel)jTablePersonnel.getModel();
         
-        if(jTableLibrarian.getSelectedRowCount()==1){
-            tblModel.removeRow(jTableLibrarian.getSelectedRow());
+        if(jTablePersonnel.getSelectedRowCount()==1){
+            tblModel.removeRow(jTablePersonnel.getSelectedRow());
             JOptionPane.showMessageDialog(this, "The data is deleted from the table.");
-            saveLibrarianData();
+            savePersonnelData();
         }else{
-            if (jTableLibrarian.getRowCount() == 0){
+            if (jTablePersonnel.getRowCount() == 0){
                 JOptionPane.showMessageDialog(this, "Table is Empty.");
             }else{
                 JOptionPane.showMessageDialog(this, "Please select single row for delete.");
@@ -493,18 +498,18 @@ public class ViewLibrarian extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void jTableLibrarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLibrarianMouseClicked
-        DefaultTableModel tblModel = (DefaultTableModel)jTableLibrarian.getModel();
+    private void jTablePersonnelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePersonnelMouseClicked
+        DefaultTableModel tblModel = (DefaultTableModel)jTablePersonnel.getModel();
         
         //set data to textfield when row i selected
-        String tblId = tblModel.getValueAt(jTableLibrarian.getSelectedRow(), 0).toString();
-        String tblName = tblModel.getValueAt(jTableLibrarian.getSelectedRow(), 1).toString();
-        String tblGender = tblModel.getValueAt(jTableLibrarian.getSelectedRow(), 2).toString();
-        String tblUsername = tblModel.getValueAt(jTableLibrarian.getSelectedRow(), 3).toString();
-        String tblPassword = tblModel.getValueAt(jTableLibrarian.getSelectedRow(), 4).toString();
-        String tblDOB = tblModel.getValueAt(jTableLibrarian.getSelectedRow(), 5).toString();
-        String tblEmail = tblModel.getValueAt(jTableLibrarian.getSelectedRow(), 6).toString();
-        String tblMobile = tblModel.getValueAt(jTableLibrarian.getSelectedRow(), 7).toString();
+        String tblId = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 0).toString();
+        String tblName = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 1).toString();
+        String tblGender = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 2).toString();
+        String tblUsername = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 3).toString();
+        String tblPassword = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 4).toString();
+        String tblDOB = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 5).toString();
+        String tblEmail = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 6).toString();
+        String tblMobile = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 7).toString();
         
         txtLId.setText(tblId);
         txtLName.setText(tblName);
@@ -514,11 +519,11 @@ public class ViewLibrarian extends javax.swing.JFrame {
         txtLDOB.setText(tblDOB);
         txtLEmailAddress.setText(tblEmail);
         txtLMobileNumber.setText(tblMobile);
-    }//GEN-LAST:event_jTableLibrarianMouseClicked
+    }//GEN-LAST:event_jTablePersonnelMouseClicked
 
     private void btnStudentUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentUpdateActionPerformed
-        DefaultTableModel tblModel = (DefaultTableModel)jTableLibrarian.getModel();
-        if(jTableLibrarian.getSelectedRowCount()==1){
+        DefaultTableModel tblModel = (DefaultTableModel)jTablePersonnel.getModel();
+        if(jTablePersonnel.getSelectedRowCount()==1){
             String tblId = txtLId.getText();
             String tblName = txtLName.getText();
             String tblGender = cmbLGender.getSelectedItem().toString();
@@ -528,25 +533,29 @@ public class ViewLibrarian extends javax.swing.JFrame {
             String tblEmail = txtLEmailAddress.getText();
             String tblMobile = txtLMobileNumber.getText();
 
-            tblModel.setValueAt(tblId,jTableLibrarian.getSelectedRow(), 0);
-            tblModel.setValueAt(tblName,jTableLibrarian.getSelectedRow(), 1);
-            tblModel.setValueAt(tblGender,jTableLibrarian.getSelectedRow(), 2);
-            tblModel.setValueAt(tblUsername,jTableLibrarian.getSelectedRow(), 3);
-            tblModel.setValueAt(tblPassword ,jTableLibrarian.getSelectedRow(), 4);
-            tblModel.setValueAt(tblDOB ,jTableLibrarian.getSelectedRow(), 5);
-            tblModel.setValueAt(tblEmail,jTableLibrarian.getSelectedRow(), 6);
-            tblModel.setValueAt(tblMobile,jTableLibrarian.getSelectedRow(), 7);
+            tblModel.setValueAt(tblId,jTablePersonnel.getSelectedRow(), 0);
+            tblModel.setValueAt(tblName,jTablePersonnel.getSelectedRow(), 1);
+            tblModel.setValueAt(tblGender,jTablePersonnel.getSelectedRow(), 2);
+            tblModel.setValueAt(tblUsername,jTablePersonnel.getSelectedRow(), 3);
+            tblModel.setValueAt(tblPassword ,jTablePersonnel.getSelectedRow(), 4);
+            tblModel.setValueAt(tblDOB ,jTablePersonnel.getSelectedRow(), 5);
+            tblModel.setValueAt(tblEmail,jTablePersonnel.getSelectedRow(), 6);
+            tblModel.setValueAt(tblMobile,jTablePersonnel.getSelectedRow(), 7);
 
             JOptionPane.showMessageDialog(this, "Update Successfully.");
-            saveLibrarianData();
+            savePersonnelData();
         }else{
-            if (jTableLibrarian.getRowCount() == 0){
+            if (jTablePersonnel.getRowCount() == 0){
                 JOptionPane.showMessageDialog(this, "Table is Empty.");
             }else{
                 JOptionPane.showMessageDialog(this, "Please select single row for update.");
             }
         }
     }//GEN-LAST:event_btnStudentUpdateActionPerformed
+
+    private void cmbLGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbLGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbLGenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -565,20 +574,21 @@ public class ViewLibrarian extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewLibrarian().setVisible(true);
+                new ViewPersonnel().setVisible(true);
             }
         });
     }
@@ -603,7 +613,7 @@ public class ViewLibrarian extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableLibrarian;
+    private javax.swing.JTable jTablePersonnel;
     private javax.swing.JTextField txtLDOB;
     private javax.swing.JTextField txtLEmailAddress;
     private javax.swing.JTextField txtLId;

@@ -30,7 +30,7 @@ public class PersonnelDetails {
         
         try {
             
-            PrintWriter out = null;
+        PrintWriter out = null;
             
         BufferedReader br = new BufferedReader(new FileReader(FILEPATHMember));
         Object[] Lines = br.lines().toArray();
@@ -103,7 +103,7 @@ public class PersonnelDetails {
             
             while((readLine = bufferedReader.readLine()) != null){
                 String[] detailPersonnel = readLine.split(" : ");
-                if(personnelId.equals(detailPersonnel[0]) && personnelPassword.equals(detailPersonnel[1])){
+                if(personnelId.equals(detailPersonnel[4]) && personnelPassword.equals(detailPersonnel[1])){
                     return true;
                 }
             }

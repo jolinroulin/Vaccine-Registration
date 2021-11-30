@@ -310,7 +310,7 @@ public class PersonnelMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiAddPeopleActionPerformed
 
     private void jmiViewPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewPeopleActionPerformed
-        new ViewStudent().setVisible(true);
+        new ViewPeople().setVisible(true);
     }//GEN-LAST:event_jmiViewPeopleActionPerformed
 
     private void jMenuLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLogOutMouseClicked
@@ -418,6 +418,6 @@ public class PersonnelMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiViewVaccine;
     private javax.swing.JLabel lbl;
     private javax.swing.JLabel lblBackground;
-    private javax.swing.JLabel lblUser;
+    public javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }

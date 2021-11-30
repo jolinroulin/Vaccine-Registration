@@ -103,26 +103,26 @@ public class PersonnelDetails {
         return personnel;
     }
 
-        public boolean findPersonnelFromTextFile(String personnelId, String personnelPassword) throws IOException{
-        try {
-            
-            FileInputStream fileInputStream = new FileInputStream(FILEPATHMember);
-            
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-            
-            String readLine;
-            
-            while((readLine = bufferedReader.readLine()) != null){
-                String[] detailPersonnel = readLine.split(" : ");
-                if(personnelId.equals(detailPersonnel[4]) && personnelPassword.equals(detailPersonnel[1])){
-                    return true;
-                }
-            }
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(PersonnelDetails.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        return false;
-    }
+//        public boolean findPersonnelFromTextFile(String personnelId, String personnelPassword) throws IOException{
+//        try {
+//            
+//            FileInputStream fileInputStream = new FileInputStream(FILEPATHMember);
+//            
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+//            
+//            String readLine;
+//            
+//            while((readLine = bufferedReader.readLine()) != null){
+//                String[] detailPersonnel = readLine.split(" : ");
+//                if(personnelId.equals(detailPersonnel[4]) && personnelPassword.equals(detailPersonnel[1])){
+//                    return true;
+//                }
+//            }
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(PersonnelDetails.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        return false;
+//    }
         
     public void validateCharacter(JTextField a, KeyEvent evt){   
     char c = evt.getKeyChar();
@@ -207,8 +207,6 @@ public class PersonnelDetails {
 //             while (model.getRowCount() > 0){
 //                    model.removeRow(0);
 //                }
-
-           
            try{
                BufferedReader br = new BufferedReader (new FileReader(FILEPATHMember)); 
                model.setColumnIdentifiers(columnsName);

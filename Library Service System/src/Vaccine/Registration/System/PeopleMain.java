@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class PeopleMain extends javax.swing.JFrame {
     
     void usernameStudent1(String user){
-         lblUserStudent.setText(user);
+         lblPeopleName.setText(user);
     }
     /**
      * Creates new form StudentMain
@@ -36,7 +36,7 @@ public class PeopleMain extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblBackground = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lblUserStudent = new javax.swing.JLabel();
+        lblPeopleName = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmiVaccineRegistration = new javax.swing.JMenu();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -54,7 +54,7 @@ public class PeopleMain extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Monotype Corsiva", 1, 48)); // NOI18N
         jLabel5.setText("WELCOME ");
 
-        lblUserStudent.setFont(new java.awt.Font("Monotype Corsiva", 0, 48)); // NOI18N
+        lblPeopleName.setFont(new java.awt.Font("Monotype Corsiva", 0, 48)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,7 +66,7 @@ public class PeopleMain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(219, 219, 219)
-                        .addComponent(lblUserStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblPeopleName, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(208, 208, 208)
                         .addComponent(jLabel5)))
@@ -82,7 +82,7 @@ public class PeopleMain extends javax.swing.JFrame {
                 .addGap(183, 183, 183)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblUserStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPeopleName, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -197,7 +197,7 @@ public class PeopleMain extends javax.swing.JFrame {
 
     private void MyIssueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyIssueMouseClicked
 
-        String user = lblUserStudent.getText();
+        String user = lblPeopleName.getText();
                 StudentIssue lm = new StudentIssue();
                 lm.setVisible(true);
                 lm.usernameStudent(user);
@@ -258,7 +258,7 @@ public class PeopleMain extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JMenu jmiVaccineRegistration;
     private javax.swing.JLabel lblBackground;
-    private javax.swing.JLabel lblUserStudent;
+    public javax.swing.JLabel lblPeopleName;
     // End of variables declaration//GEN-END:variables
 
 }

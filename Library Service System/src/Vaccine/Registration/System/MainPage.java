@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import Classes.PersonnelDetails;
 import Classes.PeopleDetails;
+import Classes.User;
 
 /**
  *
@@ -22,7 +23,7 @@ import Classes.PeopleDetails;
  */
 public class MainPage extends javax.swing.JFrame {
     
-    
+    User user = new User();
     private void ApuLogo(){
       ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Image/ApuLogo.png")));
         Image imgLogo1 = myimage.getImage();
@@ -32,7 +33,7 @@ public class MainPage extends javax.swing.JFrame {
         lblLogo.setIcon(i);  
     }
     
-
+    
     public MainPage() {
         initComponents();
         ApuLogo();
@@ -69,7 +70,7 @@ public class MainPage extends javax.swing.JFrame {
         txtCommitteeUsername = new javax.swing.JTextField();
         txtCommitteePassword = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        btnAdminLogin = new javax.swing.JButton();
+        btnPersonnelLogin = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jpExtra = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -261,7 +262,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(51, 153, 255));
         jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jLabel5.setText("Username: ");
+        jLabel5.setText("Personnel Id: ");
 
         txtCommitteeUsername.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         txtCommitteeUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -282,13 +283,13 @@ public class MainPage extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
         jLabel6.setText("Personnel Login ");
 
-        btnAdminLogin.setBackground(new java.awt.Color(255, 255, 255));
-        btnAdminLogin.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        btnAdminLogin.setText("Login");
-        btnAdminLogin.setToolTipText("");
-        btnAdminLogin.addActionListener(new java.awt.event.ActionListener() {
+        btnPersonnelLogin.setBackground(new java.awt.Color(255, 255, 255));
+        btnPersonnelLogin.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        btnPersonnelLogin.setText("Login");
+        btnPersonnelLogin.setToolTipText("");
+        btnPersonnelLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminLoginActionPerformed(evt);
+                btnPersonnelLoginActionPerformed(evt);
             }
         });
 
@@ -312,7 +313,7 @@ public class MainPage extends javax.swing.JFrame {
                         .addGap(96, 96, 96)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(86, 86, 86)
-                        .addComponent(btnAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnPersonnelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -344,7 +345,7 @@ public class MainPage extends javax.swing.JFrame {
                     .addComponent(txtCommitteePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPersonnelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
@@ -522,7 +523,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel11.setBackground(new java.awt.Color(51, 153, 255));
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jLabel11.setText("Email:");
+        jLabel11.setText("User Id:");
 
         txtUserUsername.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
@@ -694,31 +695,44 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCommitteePasswordActionPerformed
 
-    private void btnAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginActionPerformed
-
-        try {
-            PersonnelDetails id = new PersonnelDetails();
-            String personnelUserId = txtCommitteeUsername.getText();
-            String personnelPassword = txtCommitteePassword.getText();
-            if(id.findPersonnelFromTextFile(personnelUserId,personnelPassword) == true){
-                JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
-                setVisible(false);
-                
-                String user = txtCommitteeUsername.getText();
-                
-                PersonnelMain lm = new PersonnelMain();
-                lm.setVisible(true);
-                this.setVisible(true);
-                this.setVisible(false);
-                lm.username(user);
-            }
-            else{
+    private void btnPersonnelLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonnelLoginActionPerformed
+       
+       String personnelUserId = txtCommitteeUsername.getText();
+       String personnelPassword = txtCommitteePassword.getText();
+       
+        if(user.verifypersonnel(personnelUserId, personnelPassword)){
+            JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
+            setVisible(false);
+            PersonnelMain lm = new PersonnelMain();
+            lm.setVisible(true);
+            lm.lblUser.setText(user.getName());  
+        }else{
                 JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
             }
-        } catch (IOException ex) {
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAdminLoginActionPerformed
+
+        
+//        try {
+//            PersonnelDetails id = new PersonnelDetails();
+//            
+//            if(id.findPersonnelFromTextFile(personnelUserId,personnelPassword) == true){
+//                JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
+//                setVisible(false);
+//                
+//                String user = txtCommitteeUsername.getText();
+//                
+//                PersonnelMain lm = new PersonnelMain();
+//                lm.setVisible(true);
+//                this.setVisible(true);
+//                this.setVisible(false);
+//                lm.username(user);
+//            }
+//            else{
+//                JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
+//            }
+//        } catch (IOException ex) {
+//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }//GEN-LAST:event_btnPersonnelLoginActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         jTabbedPane1.setSelectedIndex(0);
@@ -729,6 +743,7 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPersonnelPasswordActionPerformed
 
     private void btnPersonnelLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonnelLecturerActionPerformed
+        
         try {
             PersonnelDetails Id = new PersonnelDetails();
             String librarianUsername = txtPersonnelUsername.getText();
@@ -764,35 +779,36 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserPasswordActionPerformed
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
-        try {
-            PeopleDetails Id = new PeopleDetails();
-            String studentEmail = txtUserUsername.getText();
-            String studentPassword = txtUserPassword.getText();
-//            if(studentUsername.substring(0,1)=="3"){
-                if(Id.verifyCitizenUser(studentEmail,studentPassword) || Id.verifyNonCitizenUser(studentEmail,studentPassword) ){
-                JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
-                setVisible(false);
-                
-                String user = txtUserUsername.getText();
-                
-                PeopleMain sm = new PeopleMain();
-                sm.setVisible(true);
-                this.setVisible(true);
-                this.setVisible(false);
-                sm.usernameStudent1(user);
-                
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
-                }
-//            }else if(studentUsername.substring(0,1)=="4"){
-//                if(Id.verifyNonCitizenUser(studentUsername,studentPassword) == true){
+        String peopleID = txtUserUsername.getText();
+         String peoplePassword = txtUserPassword.getText();
+        if(user.verifycitizen(peopleID, peoplePassword)){
+            JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
+            setVisible(false);
+            PersonnelMain lm = new PersonnelMain();
+            lm.setVisible(true);
+            lm.lblUser.setText(user.getName());  
+        }else if(user.verifynoncitizen(peopleID, peoplePassword)){
+        JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
+            setVisible(false);
+            PeopleMain pm = new PeopleMain();
+            pm.setVisible(true);
+            pm.lblPeopleName.setText(user.getName());  
+        }
+        else{
+                JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
+            }
+//        try {
+//            PeopleDetails Id = new PeopleDetails();
+//            String studentEmail = txtUserUsername.getText();
+//            String studentPassword = txtUserPassword.getText();
+////            if(studentUsername.substring(0,1)=="3"){
+//                if(Id.verifyCitizenUser(studentEmail,studentPassword) || Id.verifyNonCitizenUser(studentEmail,studentPassword) ){
 //                JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
 //                setVisible(false);
 //                
 //                String user = txtUserUsername.getText();
 //                
-//                StudentMain sm = new StudentMain();
+//                PeopleMain sm = new PeopleMain();
 //                sm.setVisible(true);
 //                this.setVisible(true);
 //                this.setVisible(false);
@@ -802,11 +818,9 @@ public class MainPage extends javax.swing.JFrame {
 //                else{
 //                    JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
 //                }
-//            }
-
-        } catch (IOException ex) {
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        } catch (IOException ex) {
+//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_btnUserLoginActionPerformed
 
     private void btnUserBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserBackActionPerformed
@@ -867,11 +881,11 @@ public class MainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdmin;
-    private javax.swing.JButton btnAdminLogin;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnPersonnel;
     private javax.swing.JButton btnPersonnelLecturer;
+    private javax.swing.JButton btnPersonnelLogin;
     private javax.swing.JButton btnUser;
     private javax.swing.JButton btnUserBack;
     private javax.swing.JButton btnUserLogin;

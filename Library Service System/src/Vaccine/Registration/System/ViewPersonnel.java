@@ -31,49 +31,49 @@ public class ViewPersonnel extends javax.swing.JFrame {
 
        PersonnelDetails p = new PersonnelDetails();
        
-    private void ImportPersonnelDetailsToTable() {
-        String filepath = "Personnel.txt";
-        File file = new File(filepath);
-
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            
-            DefaultTableModel model = (DefaultTableModel) jTablePersonnel.getModel();
-            /*String[] columnsName = firstLine.split("|");
-            String firstLine = br.readLine().trim();
-            model.setColumnIdentifiers(columnsName);*/
-
-            Object[] tableLines = br.lines().toArray();
-            for (int i = 0; i < tableLines.length; i++) {
-                String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split(" : ");
-                model.addRow(dataRow);
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(ViewPersonnel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    private void savePersonnelData(){
-            String filePath ="Personnel.txt";
-        File file = new File(filePath);
-        try {
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-
-            for(int i = 0; i < jTablePersonnel.getRowCount(); i++){
-                for(int j = 0; j < jTablePersonnel.getColumnCount(); j++){
-                    bw.write(jTablePersonnel.getValueAt(i,j).toString()+ " : " );
-                }
-                bw.newLine();
-            }
-            bw.close();
-            fw.close();
-        }
-        catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Fail");
-        }
-    }
+//    private void ImportPersonnelDetailsToTable() {
+//        String filepath = "Personnel.txt";
+//        File file = new File(filepath);
+//
+//        try {
+//            BufferedReader br = new BufferedReader(new FileReader(file));
+//            
+//            DefaultTableModel model = (DefaultTableModel) jTablePersonnel.getModel();
+//            /*String[] columnsName = firstLine.split("|");
+//            String firstLine = br.readLine().trim();
+//            model.setColumnIdentifiers(columnsName);*/
+//
+//            Object[] tableLines = br.lines().toArray();
+//            for (int i = 0; i < tableLines.length; i++) {
+//                String line = tableLines[i].toString().trim();
+//                String[] dataRow = line.split(" : ");
+//                model.addRow(dataRow);
+//            }
+//        } catch (Exception ex) {
+//            Logger.getLogger(ViewPersonnel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//    
+//    private void savePersonnelData(){
+//            String filePath ="Personnel.txt";
+//        File file = new File(filePath);
+//        try {
+//            FileWriter fw = new FileWriter(file);
+//            BufferedWriter bw = new BufferedWriter(fw);
+//
+//            for(int i = 0; i < jTablePersonnel.getRowCount(); i++){
+//                for(int j = 0; j < jTablePersonnel.getColumnCount(); j++){
+//                    bw.write(jTablePersonnel.getValueAt(i,j).toString()+ " : " );
+//                }
+//                bw.newLine();
+//            }
+//            bw.close();
+//            fw.close();
+//        }
+//        catch (IOException ex) {
+//            JOptionPane.showMessageDialog(null, "Fail");
+//        }
+//    }
 
     public ViewPersonnel() {
         initComponents();
@@ -469,7 +469,8 @@ public class ViewPersonnel extends javax.swing.JFrame {
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
         jTablePersonnel.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(search));
-        p.viewPersonnelTable(jTablePersonnel);
+//        jTablePersonnel.setModel(new DefaultTableModel());
+//        p.viewPersonnelTable(jTablePersonnel);
         
     }//GEN-LAST:event_txtSearchPersonnelKeyReleased
 

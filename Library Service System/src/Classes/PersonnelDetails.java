@@ -204,9 +204,9 @@ public class PersonnelDetails {
 
     public void viewPersonnelTable(JTable Personnel ){
         DefaultTableModel model = (DefaultTableModel)Personnel.getModel();
-    //         while (model.getRowCount() > 0){
-    //                model.removeRow(0);
-    //            }
+//             while (model.getRowCount() > 0){
+//                    model.removeRow(0);
+//                }
 
            
            try{
@@ -230,9 +230,9 @@ public class PersonnelDetails {
     
     public void searchPersonnel(JTable Customer, JTextField UserName){
     DefaultTableModel model = (DefaultTableModel)Customer.getModel();
-    while (model.getRowCount() > 0){
-        model.removeRow(0);
-    }
+//    while (model.getRowCount() > 0){
+//        model.removeRow(0);
+//    }
        try{
            BufferedReader br = new BufferedReader (new FileReader(FILEPATHMember));         
            model.setColumnIdentifiers(columnsName);
@@ -304,7 +304,7 @@ public void updateProfiles(JTextField ID,JTextField Password,JTextField Name,JCo
        lineArr = line.split(" : ");
        String userid = lineArr[0];
        if (ID.getText().equals(userid)){
-           tempArray.add (lineArr[0]+" : "+Password.getText()+" : " 
+           tempArray.add (ID.getText() + " : "+Password.getText()+" : " 
                    +  Name.getText()+" : " 
                    + Gender.getSelectedItem().toString()+" : "+ Email.getText()+" : "+DOB.getText()+" : "+ContactNo.getText()+" : "
                    +IC.getText()+" : "+VaccineCentre.getSelectedItem().toString());     

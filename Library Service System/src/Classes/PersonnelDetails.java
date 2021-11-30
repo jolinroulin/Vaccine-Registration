@@ -5,11 +5,14 @@
  */
 package Classes;
 
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,7 +20,11 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +32,8 @@ import javax.swing.JOptionPane;
  */
 public class PersonnelDetails {
     File FILEPATHMember =new File("Personnel.txt");
+    String[] columnsName = {"User ID","Password","Name","Gender","Email","DOB","Contact Number","IC","Vaccination Centre"};    
+    
     
     public boolean addPersonnelToTextFile(Personnel personnel){
         
@@ -112,4 +121,175 @@ public class PersonnelDetails {
             }
         return false;
     }
+        
+    public void validateCharacter(JTextField a, KeyEvent evt){   
+    char c = evt.getKeyChar();
+        
+        if (Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
+            a.setEditable(true);
+        }
+        else{
+             a.setEditable(false);
+        }
+    }
+
+    public void validateDigit(JTextField a, KeyEvent evt){
+         char c = evt.getKeyChar();
+
+            if (Character.isDigit(c)||Character.isISOControl(c)){
+                a.setEditable(true);
+            }
+            else{
+                 a.setEditable(false);             
+            }
+    }
+
+    public void validateDigitnCharacter(JTextField a, KeyEvent evt){
+         char c = evt.getKeyChar();
+
+            if (Character.isDigit(c)||Character.isLetter(c)||Character.isISOControl(c)||Character.isWhitespace(c)){
+                a.setEditable(true);
+            }
+            else{
+                 a.setEditable(false);             
+            }
+    }
+    private static final String EMAIL_PATTERN = 
+        "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+    public boolean validateEmailAdd(JTextField Email, JLabel invalid){
+        boolean isValidEmail = false;
+        if (!(Email.getText()).matches(EMAIL_PATTERN)) 
+        {
+            invalid.setForeground(Color.RED);
+            invalid.setText("!");
+        }
+        else{
+            invalid.setForeground(Color.GREEN);
+            invalid.setText("!");
+            isValidEmail = true;
+        }
+            return isValidEmail;
+    }
+
+    public boolean validateContactNumber(JTextField contactNumber, JLabel invalid, KeyEvent evt){  
+       boolean isValidContact = false;
+       String phnum = contactNumber.getText();
+       int length = phnum.length();
+       char c = evt.getKeyChar();
+       if (evt.getKeyChar()>='0' && evt.getKeyChar() <='9' ){
+           if (length>=10&length<12){
+               invalid.setForeground(Color.GREEN);
+               invalid.setText("!");
+               isValidContact = true;
+           }
+           else{
+               invalid.setForeground(Color.RED);
+                invalid.setText("!");
+           }
+       }
+       else{
+           if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE){
+               contactNumber.setEditable(true);
+           }
+           else{
+               contactNumber.setEditable(false);
+           }
+           }
+        return isValidContact;
+    }
+
+    public void viewPersonnelTable(JTable Personnel ){
+        DefaultTableModel model = (DefaultTableModel)Personnel.getModel();
+    //         while (model.getRowCount() > 0){
+    //                model.removeRow(0);
+    //            }
+
+           
+           try{
+               BufferedReader br = new BufferedReader (new FileReader(FILEPATHMember)); 
+               model.setColumnIdentifiers(columnsName);
+               String view;
+               while((view = br.readLine())!= null){
+               String[] usr = view.split (" : ");
+    //           String role = usr[4];
+               model.addRow(usr);
+    //           if(role.equals("Customer")){
+    //               
+    //           }          
+               }
+           }
+           catch(Exception ex){
+               Logger.getLogger(PersonnelDetails.class.getName()).log(Level.SEVERE, null, ex);
+           }       
+    }        
+      
+    
+    public void searchPersonnel(JTable Customer, JTextField UserName){
+    DefaultTableModel model = (DefaultTableModel)Customer.getModel();
+    while (model.getRowCount() > 0){
+        model.removeRow(0);
+    }
+       try{
+           BufferedReader br = new BufferedReader (new FileReader(FILEPATHMember));         
+           model.setColumnIdentifiers(columnsName);
+           String search;
+           while ((search = br.readLine())!= null){
+               String [] usr = search.split(" : ");
+//               String role = usr [4];
+               String name = usr[2];
+            if (name.equals(UserName.getText()) ){
+                   model.addRow(usr);
+               }
+//               if (id.equals(UserID.getText()) && role.equals("Customer")){
+//                   model.addRow(usr);
+//               }
+           }
+       }
+       catch(Exception ex){
+
+       }     
+    }
+    
+    String filePath = "Personnel.txt";
+
+public void deletePersonnel(JTextField UserID){
+        if (JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "WARNING",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
+        File newFile = new File(filePath);
+        String currentLine;
+        String usr[];
+        String removeTerm = UserID.getText();
+
+        try{
+            FileWriter fw = new FileWriter (filePath,true);
+            BufferedWriter bw = new BufferedWriter (fw);
+            PrintWriter pw = new PrintWriter(bw);
+            
+            FileReader fr = new FileReader(newFile);
+            BufferedReader br = new BufferedReader(fr);
+       
+            while ((currentLine = br.readLine())!=null ){
+                usr = currentLine.split(" : ");
+                if(!usr[2].equalsIgnoreCase(removeTerm)){
+                    new FileOutputStream(filePath).close();
+                    pw.println(currentLine);
+                }
+            }
+            pw.flush();
+            pw.close();
+            
+            File User = new File(filePath);
+            newFile.renameTo(User);
+            
+            JOptionPane.showMessageDialog(null,"Record is deleted");
+            UserID.setText(null);
+        }
+        catch(Exception ex) {
+
+        }  
+    }  
+}
+
 }

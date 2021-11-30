@@ -36,99 +36,99 @@ public class manageAppointment extends javax.swing.JFrame {
      */
     
     public void GetinfoStaff(){
-        String StaffId = txtUserId.getText();
-        boolean staffsearch = false;
-        
-        try {
-            FileReader fr = new FileReader("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StaffData.txt");
-            Scanner input = new Scanner(fr);
-            String[] line;
-            String stid;
-            String stusername;
-            
-            while(input.hasNext()){
-                line = input.nextLine().split(" : ");
-                stid = line[0];
-                stusername= line[3];
-                
-                if(StaffId.equals(stid)){
-                   staffsearch = true;
-                    txtUserName.setText(stusername);
-                }
-            }
-            if(!staffsearch){
-                JOptionPane.showMessageDialog(this, "Invalid Staff ID, Please Try Again! ");
-            }   
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, "Please try again");
-        }
+//        String StaffId = txtUserId.getText();
+//        boolean staffsearch = false;
+//        
+//        try {
+//            FileReader fr = new FileReader("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StaffData.txt");
+//            Scanner input = new Scanner(fr);
+//            String[] line;
+//            String stid;
+//            String stusername;
+//            
+//            while(input.hasNext()){
+//                line = input.nextLine().split(" : ");
+//                stid = line[0];
+//                stusername= line[3];
+//                
+//                if(StaffId.equals(stid)){
+//                   staffsearch = true;
+//                    txtUserName.setText(stusername);
+//                }
+//            }
+//            if(!staffsearch){
+//                JOptionPane.showMessageDialog(this, "Invalid Staff ID, Please Try Again! ");
+//            }   
+//        } catch (FileNotFoundException ex) {
+//            JOptionPane.showMessageDialog(this, "Please try again");
+//        }
     }
     
     public void GetinfoStudent(){
-        String StudentId = txtUserId.getText();
-        boolean studentsearch = false;
-        
-        try {
-            FileReader fr = new FileReader("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StudentData.txt");
-            Scanner input = new Scanner(fr);
-            String[] line;
-            String stuid;
-            String stuusername;
-            
-            while(input.hasNext()){
-                line = input.nextLine().split(" : ");
-                stuid = line[0];
-                stuusername= line[3];
-                
-                if(StudentId.equals(stuid)){
-                    studentsearch = true;
-                    txtUserName.setText(stuusername);
-                }
-            }
-            if(!studentsearch){
-                JOptionPane.showMessageDialog(this, "Invalid Student ID, Please Try Again! ");
-            }   
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, "Please try again");
-        }
+//        String StudentId = txtUserId.getText();
+//        boolean studentsearch = false;
+//        
+//        try {
+//            FileReader fr = new FileReader("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StudentData.txt");
+//            Scanner input = new Scanner(fr);
+//            String[] line;
+//            String stuid;
+//            String stuusername;
+//            
+//            while(input.hasNext()){
+//                line = input.nextLine().split(" : ");
+//                stuid = line[0];
+//                stuusername= line[3];
+//                
+//                if(StudentId.equals(stuid)){
+//                    studentsearch = true;
+//                    txtUserName.setText(stuusername);
+//                }
+//            }
+//            if(!studentsearch){
+//                JOptionPane.showMessageDialog(this, "Invalid Student ID, Please Try Again! ");
+//            }   
+//        } catch (FileNotFoundException ex) {
+//            JOptionPane.showMessageDialog(this, "Please try again");
+//        }
     }
     
     public void GetinfoBook(){
-        String BookId = txtBookId.getText();
-        boolean booksearch = false;
-        
-        try {
-            FileReader fr = new FileReader("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\BookData.txt");
-            Scanner input = new Scanner(fr);
-            String[] line;
-            String bookid;
-            String bookname;
-            
-            while(input.hasNext()){
-                line = input.nextLine().split(" : ");
-                bookid = line[0];
-                bookname= line[1];
-                
-                if(BookId.equals(bookid)){
-                    booksearch = true;
-                    txtBookName.setText(bookname);
-                }
-            }
-            if(!booksearch){
-                JOptionPane.showMessageDialog(this, "Invalid Book ID, Please Try Again! ");
-            }   
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, "Please try again");
-        }
+//        String BookId = txtBookId.getText();
+//        boolean booksearch = false;
+//        
+//        try {
+//            FileReader fr = new FileReader("C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\BookData.txt");
+//            Scanner input = new Scanner(fr);
+//            String[] line;
+//            String bookid;
+//            String bookname;
+//            
+//            while(input.hasNext()){
+//                line = input.nextLine().split(" : ");
+//                bookid = line[0];
+//                bookname= line[1];
+//                
+//                if(BookId.equals(bookid)){
+//                    booksearch = true;
+//                    txtBookName.setText(bookname);
+//                }
+//            }
+//            if(!booksearch){
+//                JOptionPane.showMessageDialog(this, "Invalid Book ID, Please Try Again! ");
+//            }   
+//        } catch (FileNotFoundException ex) {
+//            JOptionPane.showMessageDialog(this, "Please try again");
+//        }
     }
     
     public void getDate(){
-        LocalDate today = java.time.LocalDate.now();
-        LocalDate duedate = LocalDate.now().plusDays(14);
-        String stoday = String.valueOf(today);
-        String sduedate = String.valueOf(duedate);
-        txtBorrowDate.setText(stoday);
-        txtDueDate.setText(sduedate);
+//        LocalDate today = java.time.LocalDate.now();
+//        LocalDate duedate = LocalDate.now().plusDays(14);
+//        String stoday = String.valueOf(today);
+//        String sduedate = String.valueOf(duedate);
+//        txtBorrowDate.setText(stoday);
+//        txtDueDate.setText(sduedate);
     }
     
     public manageAppointment() {
@@ -246,7 +246,7 @@ public class manageAppointment extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelStatus)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -433,7 +433,7 @@ public class manageAppointment extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -441,8 +441,7 @@ public class manageAppointment extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(52, 52, 52))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

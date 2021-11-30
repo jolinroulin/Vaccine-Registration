@@ -6,19 +6,13 @@
 package Vaccine.Registration.System;
 
 import Classes.DatePicker;
-import Classes.Librarian;
-import Classes.AdminDetails;
+import Classes.PersonnelDetails;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -31,10 +25,12 @@ import javax.swing.table.TableRowSorter;
  * @author User
  */
 public class ViewPersonnel extends javax.swing.JFrame {
-
     /**
      * Creates new form ViewLibrarian
      */
+
+       PersonnelDetails p = new PersonnelDetails();
+       
     private void ImportPersonnelDetailsToTable() {
         String filepath = "Personnel.txt";
         File file = new File(filepath);
@@ -81,7 +77,9 @@ public class ViewPersonnel extends javax.swing.JFrame {
 
     public ViewPersonnel() {
         initComponents();
-        ImportPersonnelDetailsToTable();
+        p.viewPersonnelTable(jTablePersonnel);
+//        viewPersonnelTable(jTablePersonnel);
+//        ImportPersonnelDetailsToTable();
     }
 
     /**
@@ -100,7 +98,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePersonnel = new javax.swing.JTable();
-        txtSearchLibrarian = new javax.swing.JTextField();
+        txtSearchPersonnel = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -108,7 +106,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtLEmailAddress = new javax.swing.JTextField();
-        txtLName = new javax.swing.JTextField();
+        txtPName = new javax.swing.JTextField();
         txtLUsername = new javax.swing.JTextField();
         txtLDOB = new javax.swing.JTextField();
         txtLMobileNumber = new javax.swing.JTextField();
@@ -168,14 +166,6 @@ public class ViewPersonnel extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTablePersonnel.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Personnel Id", "Password", "Name", "Gender", "Email", "DOB", "Mobile No", "IC", "Centre"
-            }
-        ));
         jTablePersonnel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTablePersonnelMouseClicked(evt);
@@ -196,15 +186,15 @@ public class ViewPersonnel extends javax.swing.JFrame {
             jTablePersonnel.getColumnModel().getColumn(7).setHeaderValue("Mobile No");
         }
 
-        txtSearchLibrarian.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtSearchLibrarian.addActionListener(new java.awt.event.ActionListener() {
+        txtSearchPersonnel.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtSearchPersonnel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchLibrarianActionPerformed(evt);
+                txtSearchPersonnelActionPerformed(evt);
             }
         });
-        txtSearchLibrarian.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchPersonnel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchLibrarianKeyReleased(evt);
+                txtSearchPersonnelKeyReleased(evt);
             }
         });
 
@@ -233,10 +223,10 @@ public class ViewPersonnel extends javax.swing.JFrame {
             }
         });
 
-        txtLName.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtLName.addActionListener(new java.awt.event.ActionListener() {
+        txtPName.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtPName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLNameActionPerformed(evt);
+                txtPNameActionPerformed(evt);
             }
         });
 
@@ -327,7 +317,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
                     .addComponent(txtLEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbLGender, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtLUsername, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -335,15 +325,16 @@ public class ViewPersonnel extends javax.swing.JFrame {
                                 .addComponent(txtLPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSelectDateStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
                         .addComponent(jLabel2)
                         .addGap(43, 43, 43)
-                        .addComponent(txtSearchLibrarian, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(136, 136, 136))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60))
+                        .addComponent(txtSearchPersonnel, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
                 .addComponent(btnStudentUpdate)
@@ -364,11 +355,11 @@ public class ViewPersonnel extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtSearchLibrarian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSearchPersonnel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -416,25 +407,26 @@ public class ViewPersonnel extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchLibrarianActionPerformed
+    private void txtSearchPersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchPersonnelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchLibrarianActionPerformed
+    }//GEN-LAST:event_txtSearchPersonnelActionPerformed
 
-    private void txtSearchLibrarianKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchLibrarianKeyReleased
-        DefaultTableModel table = (DefaultTableModel) jTablePersonnel.getModel();
-        String search = txtSearchLibrarian.getText();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
-        jTablePersonnel.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(search));
-    }//GEN-LAST:event_txtSearchLibrarianKeyReleased
+    private void txtSearchPersonnelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchPersonnelKeyReleased
+       p.searchPersonnel(jTablePersonnel, txtSearchPersonnel);
+//        DefaultTableModel table = (DefaultTableModel) jTablePersonnel.getModel();
+//        String search = txtSearchPersonnel.getText();
+//        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
+//        jTablePersonnel.setRowSorter(tr);
+//        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_txtSearchPersonnelKeyReleased
 
     private void txtLEmailAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLEmailAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLEmailAddressActionPerformed
 
-    private void txtLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLNameActionPerformed
+    private void txtPNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLNameActionPerformed
+    }//GEN-LAST:event_txtPNameActionPerformed
 
     private void txtLUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLUsernameActionPerformed
         // TODO add your handling code here:
@@ -463,19 +455,22 @@ public class ViewPersonnel extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        DefaultTableModel tblModel = (DefaultTableModel)jTablePersonnel.getModel();
-        
-        if(jTablePersonnel.getSelectedRowCount()==1){
-            tblModel.removeRow(jTablePersonnel.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "The data is deleted from the table.");
-            savePersonnelData();
-        }else{
-            if (jTablePersonnel.getRowCount() == 0){
-                JOptionPane.showMessageDialog(this, "Table is Empty.");
-            }else{
-                JOptionPane.showMessageDialog(this, "Please select single row for delete.");
-            }
-        }
+        p.deletePersonnel(txtPName);
+        jTablePersonnel.setModel(new DefaultTableModel());
+        p.viewPersonnelTable(jTablePersonnel);
+//        DefaultTableModel tblModel = (DefaultTableModel)jTablePersonnel.getModel();
+//        
+//        if(jTablePersonnel.getSelectedRowCount()==1){
+//            tblModel.removeRow(jTablePersonnel.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, "The data is deleted from the table.");
+//            savePersonnelData();
+//        }else{
+//            if (jTablePersonnel.getRowCount() == 0){
+//                JOptionPane.showMessageDialog(this, "Table is Empty.");
+//            }else{
+//                JOptionPane.showMessageDialog(this, "Please select single row for delete.");
+//            }
+//        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void jTablePersonnelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePersonnelMouseClicked
@@ -483,7 +478,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
         
         //set data to textfield when row i selected
         String tblId = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 0).toString();
-        String tblName = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 1).toString();
+        String tblName = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 2).toString();
         String tblGender = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 2).toString();
         String tblUsername = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 3).toString();
         String tblPassword = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 4).toString();
@@ -491,7 +486,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
         String tblEmail = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 6).toString();
         String tblMobile = tblModel.getValueAt(jTablePersonnel.getSelectedRow(), 7).toString();
         
-        txtLName.setText(tblName);
+        txtPName.setText(tblName);
         cmbLGender.setSelectedItem(tblGender);
         txtLUsername.setText(tblUsername);
         txtLPassword.setText(tblPassword);
@@ -503,7 +498,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
     private void btnStudentUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentUpdateActionPerformed
         DefaultTableModel tblModel = (DefaultTableModel)jTablePersonnel.getModel();
         if(jTablePersonnel.getSelectedRowCount()==1){
-            String tblName = txtLName.getText();
+            String tblName = txtPName.getText();
             String tblGender = cmbLGender.getSelectedItem().toString();
             String tblUsername = txtLUsername.getText();
             String tblPassword = txtLPassword.getText();
@@ -561,7 +556,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+           
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -569,7 +564,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JToggleButton btnSelectDateStdDOB;
@@ -593,9 +588,9 @@ public class ViewPersonnel extends javax.swing.JFrame {
     private javax.swing.JTextField txtLDOB;
     private javax.swing.JTextField txtLEmailAddress;
     private javax.swing.JTextField txtLMobileNumber;
-    private javax.swing.JTextField txtLName;
     private javax.swing.JTextField txtLPassword;
     private javax.swing.JTextField txtLUsername;
-    private javax.swing.JTextField txtSearchLibrarian;
+    private javax.swing.JTextField txtPName;
+    private javax.swing.JTextField txtSearchPersonnel;
     // End of variables declaration//GEN-END:variables
 }

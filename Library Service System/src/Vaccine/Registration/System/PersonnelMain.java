@@ -326,7 +326,7 @@ public class PersonnelMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiManageVaccineActionPerformed
 
     private void jmiIssueBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiIssueBookActionPerformed
-        new BorrowBook().setVisible(true);
+        new manageAppointment().setVisible(true);
     }//GEN-LAST:event_jmiIssueBookActionPerformed
 
     private void jmiRenewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRenewActionPerformed

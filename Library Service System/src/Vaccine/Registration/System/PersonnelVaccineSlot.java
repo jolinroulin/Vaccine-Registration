@@ -46,8 +46,6 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabelICPassport = new javax.swing.JLabel();
         jLabelStatus = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jNewCentre = new javax.swing.JTextPane();
         jComboBoxState = new javax.swing.JComboBox<>();
         BtnAdd = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,6 +57,10 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
         btnAddSlots = new javax.swing.JButton();
         btnAddSlots2 = new javax.swing.JButton();
         btnAddSlots3 = new javax.swing.JButton();
+        txtJhrCentre = new javax.swing.JTextField();
+        txtNewCentre2 = new javax.swing.JTextField();
+        txtKLCentre = new javax.swing.JTextField();
+        txtPenangCentre = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -68,7 +70,7 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
         cmbNewStateCentre = new javax.swing.JComboBox<>();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel15 = new javax.swing.JLabel();
-        cmbNewStateCentre1 = new javax.swing.JComboBox<>();
+        cmbTime = new javax.swing.JComboBox<>();
         btnAddSlots1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -95,9 +97,6 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
         jLabelStatus.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabelStatus.setText("New Centre:");
 
-        jNewCentre.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jScrollPane3.setViewportView(jNewCentre);
-
         jComboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*None*", "Johor", "Kuala Lumpur", "Penang", " " }));
         jComboBoxState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +121,11 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
                 "Penang"
             }
         ));
+        jTablePenang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePenangMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTablePenang);
 
         jTableJohor.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
@@ -133,6 +137,11 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
                 "Johor"
             }
         ));
+        jTableJohor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableJohorMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableJohor);
 
         jTableKl.setModel(new javax.swing.table.DefaultTableModel(
@@ -143,6 +152,11 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
                 "Kuala Lumpur"
             }
         ));
+        jTableKl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableKlMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTableKl);
 
         btnAddSlots.setBackground(new java.awt.Color(204, 255, 255));
@@ -172,48 +186,68 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
             }
         });
 
+        txtJhrCentre.setFont(new java.awt.Font("Cambria Math", 0, 13)); // NOI18N
+        txtJhrCentre.setEnabled(false);
+        txtJhrCentre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJhrCentreActionPerformed(evt);
+            }
+        });
+
+        txtNewCentre2.setFont(new java.awt.Font("Cambria Math", 0, 13)); // NOI18N
+
+        txtKLCentre.setFont(new java.awt.Font("Cambria Math", 0, 13)); // NOI18N
+        txtKLCentre.setEnabled(false);
+
+        txtPenangCentre.setFont(new java.awt.Font("Cambria Math", 0, 13)); // NOI18N
+        txtPenangCentre.setEnabled(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabelICPassport)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
-                        .addComponent(jLabelStatus)
-                        .addGap(36, 36, 36))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnAdd)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(83, 83, 83)
+                .addComponent(txtJhrCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAddSlots)
-                .addGap(293, 293, 293)
+                .addGap(136, 136, 136)
+                .addComponent(txtKLCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddSlots2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtPenangCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAddSlots3)
-                .addGap(152, 152, 152))
+                .addGap(79, 79, 79))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabelICPassport)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelStatus))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(txtNewCentre2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnAdd))))
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,25 +255,25 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabelICPassport)
-                                .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelStatus))
-                            .addComponent(BtnAdd))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAddSlots)
-                            .addComponent(btnAddSlots2)
-                            .addComponent(btnAddSlots3)))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnAdd)
+                    .addComponent(jLabelStatus)
+                    .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelICPassport)
+                    .addComponent(txtNewCentre2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddSlots)
+                    .addComponent(btnAddSlots2)
+                    .addComponent(btnAddSlots3)
+                    .addComponent(txtJhrCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtKLCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPenangCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -266,7 +300,6 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
         });
 
         cmbNewStateCentre.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        cmbNewStateCentre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*None*", "Johor", "Kuala Lumpur", "Penang", " " }));
         cmbNewStateCentre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbNewStateCentreActionPerformed(evt);
@@ -276,11 +309,11 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel15.setText("New Time:");
 
-        cmbNewStateCentre1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        cmbNewStateCentre1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*None*", "9am", "12pm", "3pm", "6pm" }));
-        cmbNewStateCentre1.addActionListener(new java.awt.event.ActionListener() {
+        cmbTime.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        cmbTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*None*", "9am", "12pm", "3pm", "6pm" }));
+        cmbTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbNewStateCentre1ActionPerformed(evt);
+                cmbTimeActionPerformed(evt);
             }
         });
 
@@ -311,7 +344,7 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
                                 .addGap(239, 239, 239)
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                                .addComponent(cmbNewStateCentre1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(cmbNewStateSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(239, 239, 239)
@@ -351,7 +384,7 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(cmbNewStateCentre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(105, 105, 105))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -444,7 +477,9 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotsActionPerformed
-        // TODO add your handling code here:
+        c.deleteJohorCentre(txtJhrCentre);
+        jTableJohor.setModel(new DefaultTableModel());
+        c.viewJohorCentres(jTableJohor);
     }//GEN-LAST:event_btnAddSlotsActionPerformed
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
@@ -457,9 +492,9 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
 
     private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
         String state = jComboBoxState.getSelectedItem().toString();
-        String centre = jNewCentre.getText();
+        String centre = txtNewCentre2.getText();
         
-        if(state.equals("<None>")){
+        if(state.equals("*None*")){
             JOptionPane.showMessageDialog(null, "Please select the state.");
         }else if(centre.equals("")){
             JOptionPane.showMessageDialog(null, "Please enter the new centre.");
@@ -500,28 +535,79 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAddActionPerformed
 
     private void cmbNewStateSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewStateSlotsActionPerformed
-        // TODO add your handling code here:
+        String state = cmbNewStateSlots.getSelectedItem().toString();
+        if(state.equals("*None*")){
+            JOptionPane.showMessageDialog(null, "Please select the state.");
+        }else if(state.equals("Johor")){
+            try{
+               cmbNewStateCentre.removeAllItems();
+           c.fillComboBoxJohor(cmbNewStateCentre);
+           }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        }else if(state.equals("Kuala Lumpur")){
+           try{
+               cmbNewStateCentre.removeAllItems();
+           c.fillComboBoxKL(cmbNewStateCentre);
+           }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        }else if(state.equals("Penang")){
+           try{
+               cmbNewStateCentre.removeAllItems();
+           c.fillComboBoxPenang(cmbNewStateCentre);
+           }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+           
+        }
     }//GEN-LAST:event_cmbNewStateSlotsActionPerformed
 
     private void cmbNewStateCentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewStateCentreActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cmbNewStateCentreActionPerformed
 
-    private void cmbNewStateCentre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewStateCentre1ActionPerformed
+    private void cmbTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTimeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbNewStateCentre1ActionPerformed
+    }//GEN-LAST:event_cmbTimeActionPerformed
 
     private void btnAddSlots1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlots1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddSlots1ActionPerformed
 
     private void btnAddSlots2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlots2ActionPerformed
-        // TODO add your handling code here:
+        c.deleteKLCentre(txtKLCentre);
+        jTableKl.setModel(new DefaultTableModel());
+        c.viewKualaLumpurCentres(jTableKl);
     }//GEN-LAST:event_btnAddSlots2ActionPerformed
 
     private void btnAddSlots3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlots3ActionPerformed
-        // TODO add your handling code here:
+        c.deletePenangCentre(txtPenangCentre);
+        jTablePenang.setModel(new DefaultTableModel());
+        c.viewPenangCentres(jTablePenang);
     }//GEN-LAST:event_btnAddSlots3ActionPerformed
+
+    private void txtJhrCentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJhrCentreActionPerformed
+        
+    }//GEN-LAST:event_txtJhrCentreActionPerformed
+
+    private void jTableJohorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableJohorMouseClicked
+        DefaultTableModel tblModel = (DefaultTableModel)jTableJohor.getModel();
+        String tblID = tblModel.getValueAt(jTableJohor.getSelectedRow(), 0).toString();
+        txtJhrCentre.setText(tblID);
+    }//GEN-LAST:event_jTableJohorMouseClicked
+
+    private void jTableKlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableKlMouseClicked
+        DefaultTableModel tblModel = (DefaultTableModel)jTableKl.getModel();
+        String tbl = tblModel.getValueAt(jTableKl.getSelectedRow(), 0).toString();
+        txtKLCentre.setText(tbl);
+    }//GEN-LAST:event_jTableKlMouseClicked
+
+    private void jTablePenangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePenangMouseClicked
+        DefaultTableModel tblModel = (DefaultTableModel)jTablePenang.getModel();
+        String tblI = tblModel.getValueAt(jTablePenang.getSelectedRow(), 0).toString();
+        txtPenangCentre.setText(tblI);
+    }//GEN-LAST:event_jTablePenangMouseClicked
 
     /**
      * @param args the command line arguments
@@ -565,8 +651,8 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
     private javax.swing.JButton btnAddSlots2;
     private javax.swing.JButton btnAddSlots3;
     private javax.swing.JComboBox<String> cmbNewStateCentre;
-    private javax.swing.JComboBox<String> cmbNewStateCentre1;
     private javax.swing.JComboBox<String> cmbNewStateSlots;
+    private javax.swing.JComboBox<String> cmbTime;
     private javax.swing.JComboBox<String> jComboBoxState;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -579,14 +665,12 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelICPassport;
     private javax.swing.JLabel jLabelStatus;
-    private javax.swing.JTextPane jNewCentre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTableJohor;
@@ -594,5 +678,9 @@ public class PersonnelVaccineSlot extends javax.swing.JFrame {
     private javax.swing.JTable jTablePenang;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblClose;
+    private javax.swing.JTextField txtJhrCentre;
+    private javax.swing.JTextField txtKLCentre;
+    private javax.swing.JTextField txtNewCentre2;
+    private javax.swing.JTextField txtPenangCentre;
     // End of variables declaration//GEN-END:variables
 }

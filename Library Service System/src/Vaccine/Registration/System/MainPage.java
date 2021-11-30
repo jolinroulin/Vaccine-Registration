@@ -744,30 +744,6 @@ public class MainPage extends javax.swing.JFrame {
 
     private void btnPersonnelLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonnelLecturerActionPerformed
         
-        try {
-            PersonnelDetails Id = new PersonnelDetails();
-            String librarianUsername = txtPersonnelUsername.getText();
-            String librarianPassword = txtPersonnelUsername.getText();
-            if(Id.findPersonnelFromTextFile(librarianUsername,librarianPassword) == true){
-                JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
-                setVisible(false);
-                
-                
-                String user = txtPersonnelUsername.getText();
-                
-                PersonnelMain lm = new PersonnelMain();
-                lm.setVisible(true);
-                this.setVisible(true);
-                this.setVisible(false);
-                lm.username(user);
-
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_btnPersonnelLecturerActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed

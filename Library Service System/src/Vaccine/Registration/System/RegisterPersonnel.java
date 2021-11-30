@@ -205,7 +205,7 @@ public class RegisterPersonnel extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel12.setText("Centre:");
+        jLabel12.setText("Vaccination Centre:");
 
         CmbVaccineCentre.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         CmbVaccineCentre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centre1", "Centre2", "Centre3" }));
@@ -219,7 +219,7 @@ public class RegisterPersonnel extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(273, Short.MAX_VALUE)
+                .addContainerGap(254, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnLClear)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

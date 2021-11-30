@@ -38,9 +38,10 @@ public class PeopleMain extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         lblUserStudent = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jmiViewBook = new javax.swing.JMenu();
+        jmiVaccineRegistration = new javax.swing.JMenu();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         MyIssue = new javax.swing.JMenu();
+        jPeopleProfile = new javax.swing.JMenu();
         jMenuLogOut = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,25 +91,25 @@ public class PeopleMain extends javax.swing.JFrame {
         jMenuBar1.setForeground(new java.awt.Color(153, 102, 255));
         jMenuBar1.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
 
-        jmiViewBook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Book.png"))); // NOI18N
-        jmiViewBook.setText("View Book");
-        jmiViewBook.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmiViewBook.addMouseListener(new java.awt.event.MouseAdapter() {
+        jmiVaccineRegistration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Book.png"))); // NOI18N
+        jmiVaccineRegistration.setText("Vaccine Registration");
+        jmiVaccineRegistration.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmiVaccineRegistration.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmiViewBookMouseClicked(evt);
+                jmiVaccineRegistrationMouseClicked(evt);
             }
         });
-        jmiViewBook.addActionListener(new java.awt.event.ActionListener() {
+        jmiVaccineRegistration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiViewBookActionPerformed(evt);
+                jmiVaccineRegistrationActionPerformed(evt);
             }
         });
-        jmiViewBook.add(jSeparator4);
+        jmiVaccineRegistration.add(jSeparator4);
 
-        jMenuBar1.add(jmiViewBook);
+        jMenuBar1.add(jmiVaccineRegistration);
 
         MyIssue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/finetax.png"))); // NOI18N
-        MyIssue.setText("My Issue");
+        MyIssue.setText("Appointment");
         MyIssue.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         MyIssue.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -121,6 +122,21 @@ public class PeopleMain extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(MyIssue);
+
+        jPeopleProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
+        jPeopleProfile.setText("Profile");
+        jPeopleProfile.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jPeopleProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPeopleProfileMouseClicked(evt);
+            }
+        });
+        jPeopleProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPeopleProfileActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jPeopleProfile);
 
         jMenuLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Logout.png"))); // NOI18N
         jMenuLogOut.setText("LogOut");
@@ -167,17 +183,17 @@ public class PeopleMain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuLogOutActionPerformed
 
-    private void jmiViewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewBookActionPerformed
-        
-    }//GEN-LAST:event_jmiViewBookActionPerformed
+    private void jmiVaccineRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVaccineRegistrationActionPerformed
+
+    }//GEN-LAST:event_jmiVaccineRegistrationActionPerformed
 
     private void MyIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyIssueActionPerformed
         
     }//GEN-LAST:event_MyIssueActionPerformed
 
-    private void jmiViewBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiViewBookMouseClicked
-        new StudentSearhBook().setVisible(true);
-    }//GEN-LAST:event_jmiViewBookMouseClicked
+    private void jmiVaccineRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiVaccineRegistrationMouseClicked
+        new PeopleVaccineRegistration().setVisible(true);
+    }//GEN-LAST:event_jmiVaccineRegistrationMouseClicked
 
     private void MyIssueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyIssueMouseClicked
 
@@ -186,6 +202,15 @@ public class PeopleMain extends javax.swing.JFrame {
                 lm.setVisible(true);
                 lm.usernameStudent(user);
     }//GEN-LAST:event_MyIssueMouseClicked
+
+    private void jPeopleProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPeopleProfileMouseClicked
+        // TODO add your handling code here:
+        new PeopleProfile().setVisible(true);
+    }//GEN-LAST:event_jPeopleProfileMouseClicked
+
+    private void jPeopleProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPeopleProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPeopleProfileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,8 +254,9 @@ public class PeopleMain extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuLogOut;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu jPeopleProfile;
     private javax.swing.JPopupMenu.Separator jSeparator4;
-    private javax.swing.JMenu jmiViewBook;
+    private javax.swing.JMenu jmiVaccineRegistration;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblUserStudent;
     // End of variables declaration//GEN-END:variables

@@ -706,7 +706,7 @@ public class MainPage extends javax.swing.JFrame {
                 
                 String user = txtCommitteeUsername.getText();
                 
-                AdminMain lm = new AdminMain();
+                PersonnelMain lm = new PersonnelMain();
                 lm.setVisible(true);
                 this.setVisible(true);
                 this.setVisible(false);
@@ -740,7 +740,7 @@ public class MainPage extends javax.swing.JFrame {
                 
                 String user = txtPersonnelUsername.getText();
                 
-                AdminMain lm = new AdminMain();
+                PersonnelMain lm = new PersonnelMain();
                 lm.setVisible(true);
                 this.setVisible(true);
                 this.setVisible(false);
@@ -826,7 +826,7 @@ public class MainPage extends javax.swing.JFrame {
 
     private void RegisterClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterClick
         // TODO add your handling code here:
-        RegisterUser ru = new RegisterUser();
+        RegisterPeople ru = new RegisterPeople();
         ru.setVisible(true);
     }//GEN-LAST:event_RegisterClick
 

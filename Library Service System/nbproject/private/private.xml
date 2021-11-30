@@ -3,16 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Vaccine/Registration/System/MainPage.java</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/PeopleDetails.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/library/service/system/MainPage.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/library/service/system/StudentMain.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/library/service/system/ViewPersonnel.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/Personnel.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/Student.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Vaccine/Registration/System/PeopleMain.java</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/NonCitizen.txt</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/LibrarianData.txt</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/Admin.txt</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/library/service/system/AdminMain.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Vaccine/Registration/System/RegisterPersonnel.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Vaccine/Registration/System/RegisterUser.java</file>
         </group>
     </open-files>
 </project-private>

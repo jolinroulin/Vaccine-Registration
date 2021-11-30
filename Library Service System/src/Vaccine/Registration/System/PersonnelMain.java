@@ -21,6 +21,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
+    
     void username(String user){
          lblUser.setText(user);
      }

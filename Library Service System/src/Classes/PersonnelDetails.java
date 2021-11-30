@@ -18,8 +18,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -214,7 +216,7 @@ public class PersonnelDetails {
                while((view = br.readLine())!= null){
                String[] usr = view.split (" : ");
     //           String role = usr[4];
-               model.addRow(usr);
+                 model.addRow(usr);
     //           if(role.equals("Customer")){
     //               
     //           }          
@@ -291,5 +293,54 @@ public void deletePersonnel(JTextField UserID){
         }  
     }  
 }
+
+public void updateProfiles(JTextField ID,JTextField Password,JTextField Name,JComboBox Gender,JTextField Email,JTextField DOB,JTextField ContactNo ,JTextField IC,JComboBox  VaccineCentre){
+    ArrayList<String> tempArray = new ArrayList<>();                        
+    try (FileReader fr = new FileReader(filePath)){
+       BufferedReader br = new BufferedReader(fr);
+       String line;
+       String [] lineArr;
+    while ((line = br.readLine())!=null ){
+       lineArr = line.split(" : ");
+       String userid = lineArr[0];
+       if (ID.getText().equals(userid)){
+           tempArray.add (lineArr[0]+" : "+Password.getText()+" : " 
+                   +  Name.getText()+" : " 
+                   + Gender.getSelectedItem().toString()+" : "+ Email.getText()+" : "+DOB.getText()+" : "+ContactNo.getText()+" : "
+                   +IC.getText()+" : "+VaccineCentre.getSelectedItem().toString());     
+       }
+       else{
+           tempArray.add(line);
+       }
+       try(PrintWriter pr = new PrintWriter(filePath)){
+            for (String str: tempArray){
+                        pr.println(str);
+                    }
+                    pr.close();
+                    
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null,"File is not found!");
+                } 
+   }JOptionPane.showMessageDialog(null,"Your profile is updated!");
+    fr.close();
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null,"File is not found!");
+   }          
+}
+//
+//public void selectRow(JTable TableSearch,JTextField ,JTextField ln,JTextField cn,JTextField email,JTextField street,JTextField city,JTextField state,JTextField postcode,JTextField country){
+//    DefaultTableModel model = (DefaultTableModel)TableSearch.getModel();
+//    int selectedRowIndex = TableSearch.getSelectedRow();
+//
+//    ln.setText(model.getValueAt(selectedRowIndex,1).toString());
+//    fn.setText(model.getValueAt(selectedRowIndex,2).toString());
+//    cn.setText(model.getValueAt(selectedRowIndex,5).toString());
+//    email.setText(model.getValueAt(selectedRowIndex,6).toString());
+//    street.setText(model.getValueAt(selectedRowIndex,7).toString());
+//    city.setText(model.getValueAt(selectedRowIndex,8).toString());
+//    postcode.setText(model.getValueAt(selectedRowIndex,9).toString());
+//    state.setText(model.getValueAt(selectedRowIndex,10).toString());
+//    country.setText(model.getValueAt(selectedRowIndex,11).toString());
+//}
 
 }

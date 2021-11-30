@@ -5,6 +5,7 @@
  */
 package Classes;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
@@ -34,7 +35,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PersonnelDetails {
     File FILEPATHMember =new File("Personnel.txt");
-    String[] columnsName = {"User ID","Password","Name","Gender","Email","DOB","Contact Number","IC","Vaccination Centre"};    
+    String[] columnsName = {"User ID","Password","Name","Gender","Email","DOB","Contact Number","IC","Vaccination Centre","Status"};    
     
     
     public boolean addPersonnelToTextFile(Personnel personnel){
@@ -56,14 +57,14 @@ public class PersonnelDetails {
         }
         int id2 = id + 1 ;
             
-            String MemberData = id2 + " : " + personnel.getPassword() + " : " + personnel.getName() + " : " + personnel.getGender() + " : " + personnel.getEmail() + " : " + personnel.getDateOfBirth() + " : " + personnel.getContactNo() + " : " + personnel.getIC() + " : " + personnel.getCentre() ;
+            String MemberData = id2 + " : " + personnel.getPassword() + " : " + personnel.getName() + " : " + personnel.getGender() + " : " + personnel.getEmail() + " : " + personnel.getDateOfBirth() + " : " + personnel.getContactNo() + " : " + personnel.getIC() + " : " + personnel.getCentre()+ " : " + personnel.getState();
             
             out = new PrintWriter(new BufferedWriter(new FileWriter(FILEPATHMember,true)));
             out.println(MemberData);
             
             out.close();
             
-            JOptionPane.showMessageDialog(null, "Details are added. Your staff id is " + id2 + ".");
+            JOptionPane.showMessageDialog(null, "Details are added. Your personnel id is " + id2 + ".");
         } catch (IOException ex) {
             Logger.getLogger(PersonnelDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -292,7 +293,7 @@ public void deletePersonnel(JTextField UserID){
     }  
 }
 
-public void updateProfiles(JTextField ID,JTextField Password,JTextField Name,JComboBox Gender,JTextField Email,JTextField DOB,JTextField ContactNo ,JTextField IC,JComboBox  VaccineCentre){
+public void updateProfiles(JTextField ID,JTextField Password,JTextField Name,JComboBox Gender,JTextField Email,JTextField DOB,JTextField ContactNo ,JTextField IC,JComboBox  VaccineCentre,JComboBox state){
     ArrayList<String> tempArray = new ArrayList<>();                        
     try (FileReader fr = new FileReader(filePath)){
        BufferedReader br = new BufferedReader(fr);
@@ -305,7 +306,7 @@ public void updateProfiles(JTextField ID,JTextField Password,JTextField Name,JCo
            tempArray.add (ID.getText() + " : "+Password.getText()+" : " 
                    +  Name.getText()+" : " 
                    + Gender.getSelectedItem().toString()+" : "+ Email.getText()+" : "+DOB.getText()+" : "+ContactNo.getText()+" : "
-                   +IC.getText()+" : "+VaccineCentre.getSelectedItem().toString());     
+                   +IC.getText()+" : "+VaccineCentre.getSelectedItem().toString()+ " : "+ state.getSelectedItem().toString());     
        }
        else{
            tempArray.add(line);

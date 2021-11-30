@@ -13,8 +13,9 @@ public class User {
     private String email;
     private String dateOfBirth;
     private String contactNo;
+    private String state;
 
-    public User(String userId, String password,String name, String gender, String email,  String dateOfBirth, String contactNo) {
+    public User(String userId, String password,String name, String gender, String email,  String dateOfBirth, String contactNo,String state) {
         this.userId = userId;
         this.name = name;
         this.gender = gender;
@@ -22,6 +23,7 @@ public class User {
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.contactNo = contactNo;
+        this.state = state;
     }
 
     public User(){
@@ -82,6 +84,15 @@ public class User {
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
     }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+    
     public boolean verifypersonnel(String id, String password){
         try{
             FileReader fr = new FileReader("Personnel.txt");

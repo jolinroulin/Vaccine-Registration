@@ -45,7 +45,8 @@ public class PeopleDetails {
         }
         int id2 = id + 1 ;
             
-            String StudentData = id2 + " : " + citizen.getPassword() + " : " + citizen.getName() + " : " + citizen.getGender() + " : " + citizen.getEmail() + " : " + citizen.getDateOfBirth() + " : " + citizen.getContactNo() + " : " + citizen.getIC();
+            String StudentData = id2 + " : " + citizen.getPassword() + " : " + citizen.getName() + " : " + citizen.getGender() + " : " 
+                    + citizen.getEmail() + " : " + citizen.getDateOfBirth() + " : " + citizen.getContactNo() + " : " + citizen.getIC()+" : " + citizen.getState();
             
             out = new PrintWriter(new BufferedWriter(new FileWriter(FILEPATHCitizen,true)));
             out.println(StudentData);
@@ -76,7 +77,8 @@ public class PeopleDetails {
         }
         int id2 = id + 1 ;
             
-            String StudentData = id2 + " : " + nonCitizen.getPassword() + " : " + nonCitizen.getName() + " : " + nonCitizen.getGender() + " : " + nonCitizen.getEmail() + " : " + nonCitizen.getDateOfBirth() + " : " + nonCitizen.getContactNo() + " : " + nonCitizen.getPassport();
+            String StudentData = id2 + " : " + nonCitizen.getPassword() + " : " + nonCitizen.getName() + " : " + nonCitizen.getGender() 
+                    + " : " + nonCitizen.getEmail() + " : " + nonCitizen.getDateOfBirth() + " : " + nonCitizen.getContactNo() + " : " + nonCitizen.getPassport()+" : " + nonCitizen.getState();
             
             out = new PrintWriter(new BufferedWriter(new FileWriter(FILEPATHNonCitizen,true)));
             out.println(StudentData);

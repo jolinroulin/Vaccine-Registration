@@ -10,11 +10,11 @@ public class Committee extends User{
 
     private String IC;
 
-    public Committee(String userId, String name, String gender, String email, 
-           String password, String dateOfBirth, String contactNo,String IC) {
-        super(userId,password, name, gender, email, dateOfBirth, contactNo);
-        this.IC = IC;
+    public Committee(String IC,String userId, String password, String name, String gender, String email, String dateOfBirth, String contactNo, String state) {
+        super(userId, password, name, gender, email, dateOfBirth, contactNo, state);
     }
+
+
 
     public String getIC() {
         return IC;

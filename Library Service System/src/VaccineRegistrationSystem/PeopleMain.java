@@ -136,7 +136,7 @@ public class PeopleMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jmiVaccineRegistration);
 
-        MyIssue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/finetax.png"))); // NOI18N
+        MyIssue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/appointment.png"))); // NOI18N
         MyIssue.setText("Appointment");
         MyIssue.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         MyIssue.addMouseListener(new java.awt.event.MouseAdapter() {

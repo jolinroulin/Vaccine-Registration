@@ -17,7 +17,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -133,5 +135,59 @@ public class AppointmentSlots {
         }  
     }
     
+public void viewAvailableSlot(JLabel state, JComboBox centre, JComboBox cmbas) throws FileNotFoundException, IOException{
+//        cmbas.getSelectedItem();
+        String newState = state.getText();
+        String newCentre = centre.getSelectedItem().toString();
+        String filename = "Slot/" + newState + "/" + newCentre + ".txt";
+        File FILEPATH =new File(filename);
+        try {
+            Scanner scanner = new Scanner(FILEPATH);
+        while(scanner.hasNext()){
+            String[] lines = scanner.nextLine().split("/n");
+//            String[] lines = scanner.nextLine().split(" : ");
+            for(int i = 0; i < lines.length; i++){
+            String line = lines[i].toString();
+            cmbas.addItem(line);
+            }
+        }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "No Record in this centre!");
+        }
+}
+
+//        try{
+//        
+//        
+//        
+//
+//            BufferedReader br = new BufferedReader (new FileReader(FILEPATH)); 
+////            model.setColumnIdentifiers(columnsName);
+//            String view;
+//            while((view = br.readLine())!= null){
+//            String[] cj = view.split(" : ");
+//            cmbas.addItem(cj);
+//            }
+//        }catch (Exception ex){
+//            JOptionPane.showMessageDialog(null, "No Record in this Centre!");
+//        }
+//    public void fillComboBoxJohor(JComboBox cmbj){
+//        
+//        File file = new File(filePath1);
+//        
+//        try {
+//            Scanner scanner = new Scanner(file);
+//        while(scanner.hasNext()){
+//            String[] lines = scanner.nextLine().split(",");
+//            for(int i = 0; i < lines.length; i++){
+//            String line = lines[i].toString();
+//            cmbj.addItem(line);
+//            }
+//        }
+//        } catch (FileNotFoundException ex) {
+//            JOptionPane.showMessageDialog(null, "Error");
+//        }
+//        
+//    }
 
 }

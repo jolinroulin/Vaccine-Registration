@@ -18,7 +18,7 @@ public class PersonnelMain extends javax.swing.JFrame {
      */
     public PersonnelMain() {
         initComponents();
-        setLocationRelativeTo(null);
+//        setLocationRelativeTo(null);
     }
     
     
@@ -76,7 +76,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         lblUser.setFont(new java.awt.Font("Monotype Corsiva", 0, 48)); // NOI18N
         lblUser.setText("  ");
 
-        jLabel5.setFont(new java.awt.Font("Monotype Corsiva", 1, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jLabel5.setText("WELCOME ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -86,11 +86,14 @@ public class PersonnelMain extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(lblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
-                .addComponent(lbl)
-                .addGap(237, 237, 237)
-                .addComponent(lblUser)
-                .addContainerGap(391, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(lbl))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(lblUser)))
+                .addContainerGap(599, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(795, Short.MAX_VALUE)
@@ -104,14 +107,11 @@ public class PersonnelMain extends javax.swing.JFrame {
                 .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
                 .addGap(52, 52, 52))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(lbl))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(lblUser)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(194, 194, 194)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUser)
+                    .addComponent(lbl))
+                .addContainerGap(395, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(152, 152, 152)
@@ -179,7 +179,7 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuPeople);
 
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Renewbook.png"))); // NOI18N
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Centre.png"))); // NOI18N
         jMenu8.setText("Centre & Slot");
         jMenu8.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
@@ -215,12 +215,12 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu8);
 
-        jApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/borrowbook.png"))); // NOI18N
+        jApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/appointment.png"))); // NOI18N
         jApp.setText("Appointment");
         jApp.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
         jmiIManageAppointment.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmiIManageAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
+        jmiIManageAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/addappointment.png"))); // NOI18N
         jmiIManageAppointment.setText("Assign Appointment");
         jmiIManageAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,12 +241,12 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jApp);
 
-        jVaciine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Book.png"))); // NOI18N
+        jVaciine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/vaccine.png"))); // NOI18N
         jVaciine.setText("Vaccine");
         jVaciine.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
         jmiManageVaccine.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmiManageVaccine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/addbook.png"))); // NOI18N
+        jmiManageVaccine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Centre.png"))); // NOI18N
         jmiManageVaccine.setText("Manage Vaccine");
         jmiManageVaccine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

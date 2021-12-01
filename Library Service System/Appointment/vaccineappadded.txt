@@ -1,0 +1,2 @@
+A01001111 : Ray : 0178289922 : 0178289922 : Penang : Non Citizen : Batu Tinggi : 2021-12-06 : 9am
+01012299233 : Ken : 0178289922 : 0178289922 : Kuala Lumpur : Citizen  : Pavillion : 2021-12-06 : 12pm

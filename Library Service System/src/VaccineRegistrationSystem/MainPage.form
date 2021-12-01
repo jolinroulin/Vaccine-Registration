@@ -252,7 +252,7 @@
                       <Font name="Cambria Math" size="20" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Image/StudentIcon.png"/>
+                      <Image iconType="3" name="/Image/user.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="                   User"/>
                     <Property name="actionCommand" type="java.lang.String" value="               "/>

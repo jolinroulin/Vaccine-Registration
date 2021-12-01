@@ -172,7 +172,7 @@ public class MainPage extends javax.swing.JFrame {
 
         btnUser.setBackground(new java.awt.Color(204, 204, 255));
         btnUser.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
-        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/StudentIcon.png"))); // NOI18N
+        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/user.png"))); // NOI18N
         btnUser.setText("                   User");
         btnUser.setActionCommand("               ");
         btnUser.setFocusable(false);

@@ -91,7 +91,7 @@ public class PeopleMain extends javax.swing.JFrame {
         jMenuBar1.setForeground(new java.awt.Color(153, 102, 255));
         jMenuBar1.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
 
-        jmiVaccineRegistration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Book.png"))); // NOI18N
+        jmiVaccineRegistration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/vaccine.png"))); // NOI18N
         jmiVaccineRegistration.setText("Vaccine Registration");
         jmiVaccineRegistration.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jmiVaccineRegistration.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -192,7 +192,7 @@ public class PeopleMain extends javax.swing.JFrame {
     }//GEN-LAST:event_MyIssueActionPerformed
 
     private void jmiVaccineRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiVaccineRegistrationMouseClicked
-        new PeopleVaccineRegistration().setVisible(true);
+        new PeopleVRegistration().setVisible(true);
     }//GEN-LAST:event_jmiVaccineRegistrationMouseClicked
 
     private void MyIssueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyIssueMouseClicked

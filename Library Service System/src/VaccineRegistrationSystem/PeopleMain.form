@@ -23,7 +23,7 @@
         <Menu class="javax.swing.JMenu" name="jmiVaccineRegistration">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/Book.png"/>
+              <Image iconType="3" name="/Image/vaccine.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Vaccine Registration"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

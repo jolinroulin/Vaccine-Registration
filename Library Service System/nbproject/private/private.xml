@@ -3,25 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PersonnelAppointmentCompletion.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PersonnelMain.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PeopleMain.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/Appointment.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/Appointment/vaccineregistered.txt</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Image/AddUser.png</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PersonnelAddSlots.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/Slot/Kuala%20Lumpur/The%20Mines.txt</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Image/Close.png</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/AppointmentSlots.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Image/ApuLogo.png</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Image/Centre.png</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Image/Adminpic.png</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Image/AdminIcon.jpg</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PersonnelAddCentre.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/Centre.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PersonnelAssignAppointment.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/ViewPeople.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/PeopleDetails.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/People.java</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/MainPage.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PeopleVaccineRegistration.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/NonCitizen.txt</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/ViewPersonnel.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/Citizen.txt</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/PersonnelDetails.java</file>
         </group>
     </open-files>
 </project-private>

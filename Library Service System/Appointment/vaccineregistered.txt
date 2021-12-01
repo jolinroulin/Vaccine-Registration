@@ -1,4 +1,4 @@
 0123456789 : Ken : 0178289922 : Ken@mail.com : Johor : Citizen
-01012299233 : Ken : 0178289922 : Ken@mail.com : Johor : Citizen 
-A01001111 : Ray : 0178289922 : Ray@mail.com : Johor : Non Citizen
+01012299233 : Ken : 0178289922 : Ken@mail.com : Kuala Lumpur : Citizen 
+A01001111 : Ray : 0178289922 : Ray@mail.com : Penang : Non Citizen
 A01001111 : Ray : 0178289922 : Ray@mail.com : Johor : Non Citizen

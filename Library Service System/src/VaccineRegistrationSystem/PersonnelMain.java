@@ -321,7 +321,7 @@ public class PersonnelMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmiViewVaccineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewVaccineActionPerformed
-        new ViewBook().setVisible(true);
+//        new ViewBook().setVisible(true);
     }//GEN-LAST:event_jmiViewVaccineActionPerformed
 
     private void jmiAddpersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddpersonnelActionPerformed
@@ -355,11 +355,11 @@ public class PersonnelMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuLogOutMouseClicked
 
     private void jmiManageVaccineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiManageVaccineActionPerformed
-        new AddBook().setVisible(true);
+//        new AddBook().setVisible(true);
     }//GEN-LAST:event_jmiManageVaccineActionPerformed
 
     private void jmiIManageAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiIManageAppointmentActionPerformed
-        new manageAppointment().setVisible(true);
+//        new manageAppointment().setVisible(true);
     }//GEN-LAST:event_jmiIManageAppointmentActionPerformed
 
     private void jmiStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiStatisticsActionPerformed

@@ -8,7 +8,6 @@ package VaccineRegistrationSystem;
 import Classes.Citizen;
 import Classes.DatePicker;
 import Classes.NonCitizen;
-import Classes.Student;
 import Classes.PeopleDetails;
 import javax.swing.JOptionPane;
 

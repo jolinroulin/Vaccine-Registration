@@ -100,70 +100,70 @@ public class PeopleDetails {
         return true;
     }
     
-        public Student findCitizenFromTextFile(String studentId) throws IOException{
-            Student student= null;
-        try {
-            
-            FileInputStream fileInputStream = new FileInputStream(FILEPATHCitizen);
-            
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-            
-            String readLine;
-            
-            while((readLine = bufferedReader.readLine()) != null){
-                String[] detailStudent = readLine.split(" : ");
-                if(studentId.equals(detailStudent[0])){
-                    student = new Student();
-                    student.setStudentId(detailStudent[0]);
-                    student.setStudentName(detailStudent[1]);
-                    student.setStudentGender(detailStudent[2]);
-                    student.setStudentUsername(detailStudent[3]);
-                    student.setStudentPassword(detailStudent[4]);
-                    student.setStudentDOB(detailStudent[5]);
-                    student.setStudentEmail(detailStudent[6]);
-                    student.setStudentMobileNumber(detailStudent[7]);
-                    student.setStudentSchoolOf(detailStudent[8]);
-                    JOptionPane.showMessageDialog(null, "Record is found");
-                }  
-            }
-            
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        return student;
-    }
-        public Student findNonCitizenFromTextFile(String studentId) throws IOException{
-            Student student= null;
-        try {
-            
-            FileInputStream fileInputStream = new FileInputStream(FILEPATHNonCitizen);
-            
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-            
-            String readLine;
-            
-            while((readLine = bufferedReader.readLine()) != null){
-                String[] detailStudent = readLine.split(" : ");
-                if(studentId.equals(detailStudent[0])){
-                    student = new Student();
-                    student.setStudentId(detailStudent[0]);
-                    student.setStudentName(detailStudent[1]);
-                    student.setStudentGender(detailStudent[2]);
-                    student.setStudentUsername(detailStudent[3]);
-                    student.setStudentPassword(detailStudent[4]);
-                    student.setStudentDOB(detailStudent[5]);
-                    student.setStudentEmail(detailStudent[6]);
-                    student.setStudentMobileNumber(detailStudent[7]);
-                    student.setStudentSchoolOf(detailStudent[8]);
-                    JOptionPane.showMessageDialog(null, "Record is found");
-                }  
-            }
-            
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        return student;
-    }
+//        public Student findCitizenFromTextFile(String studentId) throws IOException{
+//            Student student= null;
+//        try {
+//            
+//            FileInputStream fileInputStream = new FileInputStream(FILEPATHCitizen);
+//            
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+//            
+//            String readLine;
+//            
+//            while((readLine = bufferedReader.readLine()) != null){
+//                String[] detailStudent = readLine.split(" : ");
+//                if(studentId.equals(detailStudent[0])){
+//                    student = new Student();
+//                    student.setStudentId(detailStudent[0]);
+//                    student.setStudentName(detailStudent[1]);
+//                    student.setStudentGender(detailStudent[2]);
+//                    student.setStudentUsername(detailStudent[3]);
+//                    student.setStudentPassword(detailStudent[4]);
+//                    student.setStudentDOB(detailStudent[5]);
+//                    student.setStudentEmail(detailStudent[6]);
+//                    student.setStudentMobileNumber(detailStudent[7]);
+//                    student.setStudentSchoolOf(detailStudent[8]);
+//                    JOptionPane.showMessageDialog(null, "Record is found");
+//                }  
+//            }
+//            
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        return student;
+//    }
+//        public Student findNonCitizenFromTextFile(String studentId) throws IOException{
+//            Student student= null;
+//        try {
+//            
+//            FileInputStream fileInputStream = new FileInputStream(FILEPATHNonCitizen);
+//            
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+//            
+//            String readLine;
+//            
+//            while((readLine = bufferedReader.readLine()) != null){
+//                String[] detailStudent = readLine.split(" : ");
+//                if(studentId.equals(detailStudent[0])){
+//                    student = new Student();
+//                    student.setStudentId(detailStudent[0]);
+//                    student.setStudentName(detailStudent[1]);
+//                    student.setStudentGender(detailStudent[2]);
+//                    student.setStudentUsername(detailStudent[3]);
+//                    student.setStudentPassword(detailStudent[4]);
+//                    student.setStudentDOB(detailStudent[5]);
+//                    student.setStudentEmail(detailStudent[6]);
+//                    student.setStudentMobileNumber(detailStudent[7]);
+//                    student.setStudentSchoolOf(detailStudent[8]);
+//                    JOptionPane.showMessageDialog(null, "Record is found");
+//                }  
+//            }
+//            
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        return student;
+//    }
 
         public boolean verifyCitizenUser(String studentUsername, String studentPassword) throws IOException{
         try {

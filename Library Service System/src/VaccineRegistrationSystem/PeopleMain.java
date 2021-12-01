@@ -239,9 +239,9 @@ public class PeopleMain extends javax.swing.JFrame {
 
     private void MyIssueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyIssueMouseClicked
 
-        String user = lblPeopleIC.getText();
-                StudentIssue lm = new StudentIssue();
-                lm.setVisible(true);
+//        String user = lblPeopleIC.getText();
+//                StudentIssue lm = new StudentIssue();
+//                lm.setVisible(true);
 //                lm.usernameStudent(user);
     }//GEN-LAST:event_MyIssueMouseClicked
 

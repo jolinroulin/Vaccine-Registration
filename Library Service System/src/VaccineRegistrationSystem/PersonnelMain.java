@@ -179,11 +179,11 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuPeople);
 
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Centre.png"))); // NOI18N
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Centre_1.png"))); // NOI18N
         jMenu8.setText("Centre & Slot");
         jMenu8.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
-        jmiRenew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/renew book.png"))); // NOI18N
+        jmiRenew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cslot.png"))); // NOI18N
         jmiRenew.setText("Add New Centre");
         jmiRenew.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jmiRenew.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,7 +198,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         });
         jMenu8.add(jmiRenew);
 
-        jmiRenew1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/renew book.png"))); // NOI18N
+        jmiRenew1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/centreslot.png"))); // NOI18N
         jmiRenew1.setText("Add New Slot");
         jmiRenew1.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jmiRenew1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -215,12 +215,12 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu8);
 
-        jApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/appointment.png"))); // NOI18N
+        jApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/addappointment.png"))); // NOI18N
         jApp.setText("Appointment");
         jApp.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
         jmiIManageAppointment.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmiIManageAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/addappointment.png"))); // NOI18N
+        jmiIManageAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/appointment.png"))); // NOI18N
         jmiIManageAppointment.setText("Assign Appointment");
         jmiIManageAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,7 +231,7 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jmilManageDate.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jmilManageDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
-        jmilManageDate.setText("Manage Appointment Date");
+        jmilManageDate.setText("Manage Appointment");
         jmilManageDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmilManageDateActionPerformed(evt);

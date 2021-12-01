@@ -402,7 +402,7 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                 setVisible(false);
                 PeopleMain hp = new PeopleMain();
                 hp.setVisible(true);
-                hp.lblPeopleName.setText(id);
+                hp.lblPeopleIC.setText(id);
                 hp.lblPeopleName.setText(name);
                 hp.lblVacStatusM.setText("Vaccination Registered");
             } catch (Exception ex) {

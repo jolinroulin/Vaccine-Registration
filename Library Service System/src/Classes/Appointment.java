@@ -6,12 +6,15 @@
 package Classes;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
-import javax.swing.JComboBox;
+import java.io.PrintWriter;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -171,6 +174,40 @@ public class Appointment {
         }            
     }
     
+  String filePath = "Appointment/vaccineregistered.txt";
+    public void removefromRegistered(JLabel UserID){
+        File newFile = new File(filePath);
+        String currentLine;
+        String usr[];
+        String removeTerm = UserID.getText();
+
+        try{
+            FileWriter fw = new FileWriter (filePath,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+            FileReader fr = new FileReader(newFile);
+            BufferedReader br = new BufferedReader(fr);
+
+            while ((currentLine = br.readLine())!=null ){
+                usr = currentLine.split(" : ");
+                if(!usr[0].equalsIgnoreCase(removeTerm)){
+                    new FileOutputStream(filePath).close();
+                    pw.println(currentLine);
+                }
+            }
+            pw.flush();
+            pw.close();
+
+            File User = new File(filePath);
+            newFile.renameTo(User);
+
+            UserID.setText(null);
+        }
+        catch(Exception ex) {
+            JOptionPane.showMessageDialog(null,"Error");
+        }
+}
     
     public String getStatus() {
         return status;

@@ -461,7 +461,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTimeActionPerformed
 
     private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
-        
+        try{
             String ic = lblIC.getText();
             String name = lblName.getText();
             String cn = lblContactNo.getText();
@@ -470,16 +470,24 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
             String peopletype = lblPeopleType.getText();
             String centre = cmbNewStateCentre.getSelectedItem().toString();
             String slot = cmbTime.getSelectedItem().toString();
-            
-            try{
+
             FileWriter Writer = new FileWriter("Appointment/vaccineappadded.txt", true);
             Writer.write(ic + " : " + name + " : " + cn + " : " + email + " : " + state + " : " + peopletype + " : "  + centre + " : " + slot);
             Writer.write(System.getProperty("line.separator"));
             Writer.close();
+            
+            
+            
             JOptionPane.showMessageDialog(null, "Assigned Successful");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error");
         }
+        
+        a.removefromRegistered(lblIC);
+        jTableRegistered.setModel(new DefaultTableModel());
+        try {
+            a.viewRegisteredPeopleTable(jTableRegistered);
+
 //        Date date = DateSlot.getDate();
 //        String time = cmbTime.getSelectedItem().toString();
 //        String state = lblState.getText();
@@ -505,6 +513,9 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
 //                JOptionPane.showMessageDialog(null, "Error!");
 //            }
 //        }
+        } catch (IOException ex) {
+            Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAddSlotActionPerformed
 
     private void jTableRegisteredMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRegisteredMouseClicked

@@ -56,7 +56,6 @@ public class MainPage extends javax.swing.JFrame {
         lblBackground = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnAdmin = new javax.swing.JButton();
-        btnPersonnel = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
         lblExit = new javax.swing.JLabel();
         jpPersonnel = new javax.swing.JPanel();
@@ -157,19 +156,6 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
-        btnPersonnel.setBackground(new java.awt.Color(255, 204, 255));
-        btnPersonnel.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
-        btnPersonnel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/LecturerIcon.jpg"))); // NOI18N
-        btnPersonnel.setText("              Extra");
-        btnPersonnel.setActionCommand("           Personnel");
-        btnPersonnel.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        btnPersonnel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnPersonnel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPersonnelActionPerformed(evt);
-            }
-        });
-
         btnUser.setBackground(new java.awt.Color(204, 204, 255));
         btnUser.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/user.png"))); // NOI18N
@@ -211,7 +197,6 @@ public class MainPage extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(195, 195, 195)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnPersonnel, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnUser, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 211, Short.MAX_VALUE))))
@@ -223,14 +208,12 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(btnAdmin)
-                .addGap(40, 40, 40)
-                .addComponent(btnPersonnel)
-                .addGap(45, 45, 45)
+                .addGap(118, 118, 118)
                 .addComponent(btnUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblExit)
                 .addGap(32, 32, 32))
-            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jpMainLayout = new javax.swing.GroupLayout(jpMain);
@@ -673,10 +656,6 @@ public class MainPage extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btnAdminActionPerformed
 
-    private void btnPersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonnelActionPerformed
-        jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_btnPersonnelActionPerformed
-
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
         jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_btnUserActionPerformed
@@ -880,7 +859,6 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnAdmin;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
-    private javax.swing.JButton btnPersonnel;
     private javax.swing.JButton btnPersonnelLecturer;
     private javax.swing.JButton btnPersonnelLogin;
     private javax.swing.JButton btnUser;

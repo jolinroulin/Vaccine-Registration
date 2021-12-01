@@ -6,7 +6,7 @@
 package Classes;
 
 
-import Vaccine.Registration.System.manageAppointment;
+import VaccineRegistrationSystem.manageAppointment;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

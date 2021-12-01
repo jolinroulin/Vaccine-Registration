@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vaccine.Registration.System;
+package VaccineRegistrationSystem;
 
 import Classes.Book;
 import Classes.BookDetails;
 import Classes.Issue;
 import Classes.IssueDetails;
 import Classes.Librarian;
-import Classes.AdminDetails;
 import Classes.DateAppointmentDetails;
 import Classes.DatePicker;
 import Classes.Staff;

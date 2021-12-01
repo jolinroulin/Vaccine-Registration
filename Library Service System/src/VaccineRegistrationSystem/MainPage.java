@@ -6,15 +6,10 @@
 package VaccineRegistrationSystem;
 
 
-import java.io.*;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import Classes.PersonnelDetails;
-import Classes.PeopleDetails;
 import Classes.User;
 
 /**
@@ -24,6 +19,7 @@ import Classes.User;
 public class MainPage extends javax.swing.JFrame {
     
     User user = new User();
+    
     private void ApuLogo(){
       ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Image/ApuLogo.png")));
         Image imgLogo1 = myimage.getImage();
@@ -760,9 +756,9 @@ public class MainPage extends javax.swing.JFrame {
         if(user.verifycitizen(peopleID, peoplePassword)){
             JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
             setVisible(false);
-            PersonnelMain lm = new PersonnelMain();
+            PeopleMain lm = new PeopleMain();
             lm.setVisible(true);
-            lm.lblUser.setText(user.getName());  
+            lm.lblPeopleName.setText(user.getName());  
         }else if(user.verifynoncitizen(peopleID, peoplePassword)){
         JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
             setVisible(false);

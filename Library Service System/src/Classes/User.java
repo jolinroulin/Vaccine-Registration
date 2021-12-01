@@ -26,6 +26,64 @@ public class User {
         this.state = state;
     }
 
+        public boolean verifypersonnel(String id, String password){
+        try{
+            FileReader fr = new FileReader("Personnel.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String record;
+            while ((record = br.readLine()) != null) {
+                String[] split = record.split(" : ");
+                if (id.equals(split[0]) && password.equals(split[1])) {
+                    userId = split[0];
+//                    password = split[1];
+                    name = split[2];
+                    return true;
+                }
+            }
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        return false;
+    }
+    
+        public boolean verifycitizen(String id, String password){
+        try{
+            FileReader fr = new FileReader("Citizen.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String record;
+            while ((record = br.readLine()) != null) {
+                String[] split = record.split(" : ");
+                if (id.equals(split[0]) && password.equals(split[1])) {
+                    userId = split[0];
+                    name = split[2];
+                    return true;
+                }
+            }           
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        return false;
+    }
+    
+    public boolean verifynoncitizen(String id, String password){
+        try{
+            FileReader fr = new FileReader("NonCitizen.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String record;
+            while ((record = br.readLine()) != null) {
+                String[] split = record.split(" : ");
+                if (id.equals(split[0]) && password.equals(split[1])) {
+                    userId = split[0];
+                    name = split[2];
+                    return true;
+                }
+            }         
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        return false;
+    }
+   
     public User(){
     }
 
@@ -93,64 +151,7 @@ public class User {
         this.state = state;
     }
     
-    public boolean verifypersonnel(String id, String password){
-        try{
-            FileReader fr = new FileReader("Personnel.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String record;
-            while ((record = br.readLine()) != null) {
-                String[] split = record.split(" : ");
-                if (id.equals(split[0]) && password.equals(split[1])) {
-                    userId = split[0];
-//                    password = split[1];
-                    name = split[2];
-                    return true;
-                }
-            }
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        return false;
-    }
-    
-        public boolean verifycitizen(String id, String password){
-        try{
-            FileReader fr = new FileReader("Citizen.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String record;
-            while ((record = br.readLine()) != null) {
-                String[] split = record.split(" : ");
-                if (id.equals(split[0]) && password.equals(split[1])) {
-                    userId = split[0];
-                    name = split[2];
-                    return true;
-                }
-            }           
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        return false;
-    }
-    
-    public boolean verifynoncitizen(String id, String password){
-        try{
-            FileReader fr = new FileReader("NonCitizen.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String record;
-            while ((record = br.readLine()) != null) {
-                String[] split = record.split(" : ");
-                if (id.equals(split[0]) && password.equals(split[1])) {
-                    userId = split[0];
-                    name = split[2];
-                    return true;
-                }
-            }         
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        return false;
-    }
-   
+
    
 }
 

@@ -33,8 +33,8 @@ public class User {
             String record;
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
-                if (id.equals(split[0]) && password.equals(split[1])) {
-                    userId = split[0];
+                if (id.equals(split[7]) && password.equals(split[1])) {
+                    userId = split[7];
 //                    password = split[1];
                     name = split[2];
                     return true;
@@ -53,8 +53,8 @@ public class User {
             String record;
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
-                if (id.equals(split[0]) && password.equals(split[1])) {
-                    userId = split[0];
+                if (id.equals(split[7]) && password.equals(split[1])) {
+                    userId = split[7];
                     name = split[2];
                     return true;
                 }
@@ -72,8 +72,8 @@ public class User {
             String record;
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
-                if (id.equals(split[0]) && password.equals(split[1])) {
-                    userId = split[0];
+                if (id.equals(split[7]) && password.equals(split[1])) {
+                    userId = split[7];
                     name = split[2];
                     return true;
                 }

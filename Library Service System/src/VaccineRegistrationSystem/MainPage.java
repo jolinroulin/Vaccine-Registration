@@ -519,7 +519,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel11.setBackground(new java.awt.Color(51, 153, 255));
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jLabel11.setText("User Id:");
+        jLabel11.setText("IC/ Passport:");
 
         txtUserUsername.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
@@ -637,7 +637,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(lblBackground3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

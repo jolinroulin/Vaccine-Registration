@@ -15,7 +15,7 @@ public class Appointment {
     private int appointmentId;
     private String vaccinationCentre;
     private Date date;
-    private String peopleName;
+    private User peopleName;
     private String IC;
     private String status;
     private String vaccineCode;

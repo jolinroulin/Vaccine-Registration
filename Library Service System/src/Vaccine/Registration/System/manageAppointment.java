@@ -11,10 +11,13 @@ import Classes.Issue;
 import Classes.IssueDetails;
 import Classes.Librarian;
 import Classes.AdminDetails;
+import Classes.DateAppointmentDetails;
 import Classes.Staff;
 import Classes.PersonnelDetails;
 import Classes.Student;
 import Classes.PeopleDetails;
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,6 +25,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,11 +34,14 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class manageAppointment extends javax.swing.JFrame {
+    public manageAppointment() {
+        initComponents();
+    }
 
     /**
      * Creates new form manageAppointment
      */
-    
+    /*
     public void GetinfoStaff(){
         String StaffId = txtUserId.getText();
         boolean staffsearch = false;
@@ -92,7 +99,7 @@ public class manageAppointment extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
-    
+    /*
     public void GetinfoBook(){
         String BookId = txtBookId.getText();
         boolean booksearch = false;
@@ -127,8 +134,8 @@ public class manageAppointment extends javax.swing.JFrame {
         LocalDate duedate = LocalDate.now().plusDays(14);
         String stoday = String.valueOf(today);
         String sduedate = String.valueOf(duedate);
-        txtBorrowDate.setText(stoday);
-        txtDueDate.setText(sduedate);
+    //    txtBorrowDate.setText(stoday);
+    //    txtDueDate.setText(sduedate);
     }
     
     public manageAppointment() {
@@ -136,7 +143,27 @@ public class manageAppointment extends javax.swing.JFrame {
         getDate();
         
     }
+   */
+    public void fillComboFromTxtFile() throws IOException{
+        
+        String filePath = "AppointmentDate.txt";
+        File file = new File(filePath);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length; i++){
+                String line = lines[i].toString();
+                cmbDateOption.addItem(line);
+            }
 
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(manageAppointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,7 +195,8 @@ public class manageAppointment extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         cmbTime = new javax.swing.JComboBox<>();
         cmbCentre1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        jButtonSubmit = new javax.swing.JButton();
+        cmbDateOption = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -280,10 +308,17 @@ public class manageAppointment extends javax.swing.JFrame {
         cmbCentre1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmbCentre1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centre1", "Centre2", "Centre3" }));
 
-        jButton1.setText("SUBMIT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSubmit.setText("SUBMIT");
+        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSubmitActionPerformed(evt);
+            }
+        });
+
+        cmbDateOption.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        cmbDateOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDateOptionActionPerformed(evt);
             }
         });
 
@@ -305,11 +340,16 @@ public class manageAppointment extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(55, 55, 55)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbCentre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(85, 85, 85))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbCentre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                                .addComponent(jButtonSubmit)
+                                .addGap(85, 85, 85))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(cmbDateOption, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,16 +362,18 @@ public class manageAppointment extends javax.swing.JFrame {
                     .addComponent(cmbCentre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel6)
-                        .addGap(32, 32, 32)
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(cmbDateOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(59, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(jButtonSubmit)
                         .addGap(44, 44, 44))))
         );
 
@@ -454,9 +496,27 @@ public class manageAppointment extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_lblCloseMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
+         //   DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>( yourStringArray );
+         //   cmbCentre1.setModel( model );
+        
+            String chosenCentre = cmbCentre1.getSelectedItem().toString();
+            String chosenDateAppointment = cmbDateOption.getSelectedItem().toString();
+            String chosenTIme = cmbTime.getSelectedItem().toString();
+ 
+
+            cmbCentre1.setSelectedIndex(0);
+            cmbDateOption.setSelectedIndex(0);
+            cmbTime.setSelectedIndex(0);
+    }//GEN-LAST:event_jButtonSubmitActionPerformed
+
+    private void cmbDateOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDateOptionActionPerformed
+        try {
+            fillComboFromTxtFile();
+        } catch (IOException ex) {
+            Logger.getLogger(manageAppointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cmbDateOptionActionPerformed
         
     /**
      * @param args the command line arguments
@@ -485,6 +545,12 @@ public class manageAppointment extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -496,8 +562,9 @@ public class manageAppointment extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCentre1;
+    private javax.swing.JComboBox<String> cmbDateOption;
     private javax.swing.JComboBox<String> cmbTime;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

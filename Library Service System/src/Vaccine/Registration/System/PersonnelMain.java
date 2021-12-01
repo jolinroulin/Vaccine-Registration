@@ -53,7 +53,8 @@ public class PersonnelMain extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jmiViewVaccine = new javax.swing.JMenuItem();
         jApp = new javax.swing.JMenu();
-        jmiIssueBook = new javax.swing.JMenuItem();
+        jmiIManageAppointment = new javax.swing.JMenuItem();
+        jmilManageDate = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jmiRenew = new javax.swing.JMenu();
         jmiStatistics = new javax.swing.JMenu();
@@ -207,15 +208,25 @@ public class PersonnelMain extends javax.swing.JFrame {
         jApp.setText("Appointment");
         jApp.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
-        jmiIssueBook.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmiIssueBook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
-        jmiIssueBook.setText("Manage Appointment");
-        jmiIssueBook.addActionListener(new java.awt.event.ActionListener() {
+        jmiIManageAppointment.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmiIManageAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
+        jmiIManageAppointment.setText("Manage Appointment");
+        jmiIManageAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiIssueBookActionPerformed(evt);
+                jmiIManageAppointmentActionPerformed(evt);
             }
         });
-        jApp.add(jmiIssueBook);
+        jApp.add(jmiIManageAppointment);
+
+        jmilManageDate.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmilManageDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
+        jmilManageDate.setText("Manage Appointment Date");
+        jmilManageDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmilManageDateActionPerformed(evt);
+            }
+        });
+        jApp.add(jmilManageDate);
 
         jMenuBar1.add(jApp);
 
@@ -325,9 +336,9 @@ public class PersonnelMain extends javax.swing.JFrame {
         new AddBook().setVisible(true);
     }//GEN-LAST:event_jmiManageVaccineActionPerformed
 
-    private void jmiIssueBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiIssueBookActionPerformed
+    private void jmiIManageAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiIManageAppointmentActionPerformed
         new manageAppointment().setVisible(true);
-    }//GEN-LAST:event_jmiIssueBookActionPerformed
+    }//GEN-LAST:event_jmiIManageAppointmentActionPerformed
 
     private void jmiRenewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRenewActionPerformed
         
@@ -349,6 +360,10 @@ public class PersonnelMain extends javax.swing.JFrame {
     private void jPeopleProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPeopleProfileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPeopleProfileActionPerformed
+
+    private void jmilManageDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmilManageDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,13 +423,14 @@ public class PersonnelMain extends javax.swing.JFrame {
     private javax.swing.JMenu jVaciine;
     private javax.swing.JMenuItem jmiAddPeople;
     private javax.swing.JMenuItem jmiAddpersonnel;
-    private javax.swing.JMenuItem jmiIssueBook;
+    private javax.swing.JMenuItem jmiIManageAppointment;
     private javax.swing.JMenuItem jmiManageVaccine;
     private javax.swing.JMenu jmiRenew;
     private javax.swing.JMenu jmiStatistics;
     private javax.swing.JMenuItem jmiViewPeople;
     private javax.swing.JMenuItem jmiViewPersonnel;
     private javax.swing.JMenuItem jmiViewVaccine;
+    private javax.swing.JMenuItem jmilManageDate;
     private javax.swing.JLabel lbl;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblUser;

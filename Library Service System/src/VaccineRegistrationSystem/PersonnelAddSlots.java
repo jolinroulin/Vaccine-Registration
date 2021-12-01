@@ -58,7 +58,6 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         btnAddSlot = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSlot = new javax.swing.JTable();
-        btnUpdateSlot = new javax.swing.JButton();
         btnDeleteSlots = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         lblState = new javax.swing.JLabel();
@@ -202,15 +201,6 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableSlot);
 
-        btnUpdateSlot.setBackground(new java.awt.Color(204, 204, 255));
-        btnUpdateSlot.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnUpdateSlot.setText("Edit");
-        btnUpdateSlot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateSlotActionPerformed(evt);
-            }
-        });
-
         btnDeleteSlots.setBackground(new java.awt.Color(255, 204, 204));
         btnDeleteSlots.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         btnDeleteSlots.setText("Delete");
@@ -220,19 +210,19 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
         jLabel16.setText("State:");
 
         lblState.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         lblState.setText("<State>");
 
-        jLabel17.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
         jLabel17.setText("Centre:");
 
         lblCentre.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         lblCentre.setText("<Centre>");
 
-        btnViewSlot1.setBackground(new java.awt.Color(204, 204, 255));
+        btnViewSlot1.setBackground(new java.awt.Color(204, 255, 255));
         btnViewSlot1.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         btnViewSlot1.setText("View");
         btnViewSlot1.addActionListener(new java.awt.event.ActionListener() {
@@ -250,11 +240,13 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(29, 29, 29)
                 .addComponent(cmbNewStateSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(193, 193, 193))
+                .addGap(71, 71, 71)
+                .addComponent(btnViewSlot1)
+                .addGap(55, 55, 55))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator1)
@@ -263,8 +255,8 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel16)
@@ -274,32 +266,24 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                         .addComponent(jLabel17)
                         .addGap(18, 18, 18)
                         .addComponent(lblCentre)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(704, 704, 704))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(btnUpdateSlot)
-                                .addGap(38, 38, 38)
-                                .addComponent(btnDeleteSlots)
-                                .addGap(39, 39, 39)
-                                .addComponent(btnAddSlot)))
-                        .addGap(47, 47, 47))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnDeleteSlots)
+                        .addGap(39, 39, 39)
+                        .addComponent(btnAddSlot))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGap(0, 33, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addComponent(btnViewSlot1)
-                                .addGap(86, 86, 86))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(40, 40, 40)
-                                .addComponent(DateSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(115, 115, 115)
-                                .addComponent(jLabel15)
-                                .addGap(34, 34, 34)
-                                .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(186, 186, 186))))))
+                        .addGap(0, 74, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addGap(40, 40, 40)
+                        .addComponent(DateSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel15)
+                        .addGap(34, 34, 34)
+                        .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139)))
+                .addGap(45, 45, 45))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,12 +295,11 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(cmbNewStateSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(btnViewSlot1)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                    .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewSlot1))
+                .addGap(34, 34, 34)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(DateSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,9 +312,8 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel15)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnUpdateSlot)
                             .addComponent(btnDeleteSlots)
                             .addComponent(btnAddSlot))))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -341,7 +323,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                     .addComponent(lblCentre))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(61, 61, 61))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -415,15 +397,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbNewStateSlotsActionPerformed
 
     private void cmbNewStateCentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewStateCentreActionPerformed
-//        String centre  = cmbNewStateCentre.getSelectedItem().toString();
-//        String state = cmbNewStateSlots.getSelectedItem().toString();
-//        lblState.setText(state);
-//        lblCentre.setText(centre);
-//        try {
-//            as.viewSlotTable(cmbNewStateSlots, cmbNewStateCentre, jTable1);
-//        } catch (IOException ex) {
-//            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
     }//GEN-LAST:event_cmbNewStateCentreActionPerformed
 
     private void cmbTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTimeActionPerformed
@@ -433,16 +407,22 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
         Date date = DateSlot.getDate();
         String time = cmbTime.getSelectedItem().toString();
-
-        if(date == null){
+        String state = lblState.getText();
+        String centre = lblCentre.getText();
+        if("*None*".equals(cmbNewStateSlots.getSelectedItem().toString())){
+            JOptionPane.showMessageDialog(null, "Please select the state.");
+        }else if(state.equals(" ") && centre.equals(" ") ){
+            JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
+        }else if(!centre.equals(cmbNewStateCentre.getSelectedItem().toString())){
+            JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
+        }else if(!state.equals(cmbNewStateSlots.getSelectedItem().toString())){
+            JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
+        }else if(date == null){
             JOptionPane.showMessageDialog(null, "Please select the date.");
         }else if(time.equals("*None*")){
             JOptionPane.showMessageDialog(null, "Please select the time.");
-        }else{
-            
+        }else{    
             as.addSlot(cmbNewStateSlots, cmbNewStateCentre, DateSlot, cmbTime);
-            String state = lblState.getText();
-            String centre = lblCentre.getText();
             try {
                 jTableSlot.setModel(new DefaultTableModel());
                 as.viewSlotTable(state, centre,jTableSlot);
@@ -453,21 +433,37 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAddSlotActionPerformed
 
-    private void btnUpdateSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSlotActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateSlotActionPerformed
-
     private void btnDeleteSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSlotsActionPerformed
-        // TODO add your handling code here:
+        String state = lblState.getText();
+        String centre = lblCentre.getText();
+        Date date = DateSlot.getDate();
+        String time = cmbTime.getSelectedItem().toString();
+
+        if("*None*".equals(cmbNewStateSlots.getSelectedItem().toString())){
+            JOptionPane.showMessageDialog(null, "Please select the state.");
+        }else if(state.equals(" ") && centre.equals(" ") ){
+            JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
+        }else if(!centre.equals(cmbNewStateCentre.getSelectedItem().toString())){
+            JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
+        }else if(!state.equals(cmbNewStateSlots.getSelectedItem().toString())){
+            JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
+        }else if(date == null){
+            JOptionPane.showMessageDialog(null, "Please select the date.");
+        }else if(time.equals("*None*")){
+            JOptionPane.showMessageDialog(null, "Please select the time.");
+        }else{        
+        as.deleteSlot(state, centre,DateSlot,cmbTime);
+        jTableSlot.setModel(new DefaultTableModel());
+        try {
+            as.viewSlotTable(state, centre,jTableSlot);
+        } catch (IOException ex) {
+            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
     }//GEN-LAST:event_btnDeleteSlotsActionPerformed
 
     private void cmbNewStateCentreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNewStateCentreItemStateChanged
-        
-//        try {
-//            as.viewSlotTable(cmbNewStateSlots, cmbNewStateCentre, jTable1);
-//        } catch (IOException ex) {
-//            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
     }//GEN-LAST:event_cmbNewStateCentreItemStateChanged
 
     private void cmbNewStateCentreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbNewStateCentreKeyPressed
@@ -498,24 +494,14 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     private void jTableSlotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSlotMouseClicked
         DefaultTableModel tblModel = (DefaultTableModel)jTableSlot.getModel();
         String date = tblModel.getValueAt(jTableSlot.getSelectedRow(), 0).toString();
-//        java.util.Date thedate;
-//        try {
-//            thedate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-//        } catch (ParseException ex) {
-//            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        Date thedate;
-//        try {
-//            thedate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-//        } catch (ParseException ex) {
-//            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        DateSlot.setDate(thedate);
-//        DateSlot.setText(tblID);
-//        String ds = DateSlot.getDate().toString();
-//        String  tblID = tblModel.getValueAt(jTableSlot.getSelectedRow(), 0).g;
-//        
-        
+        String time = tblModel.getValueAt(jTableSlot.getSelectedRow(), 1).toString();
+        try {
+            java.util.Date thedate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+            DateSlot.setDate(thedate);
+            cmbTime.setSelectedItem(time);
+        } catch (ParseException ex) {
+             Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jTableSlotMouseClicked
 
@@ -558,7 +544,6 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateSlot;
     private javax.swing.JButton btnAddSlot;
     private javax.swing.JButton btnDeleteSlots;
-    private javax.swing.JButton btnUpdateSlot;
     private javax.swing.JButton btnViewSlot1;
     private javax.swing.JComboBox<String> cmbNewStateCentre;
     private javax.swing.JComboBox<String> cmbNewStateSlots;

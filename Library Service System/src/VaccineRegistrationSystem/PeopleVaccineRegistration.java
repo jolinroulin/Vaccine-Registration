@@ -329,8 +329,7 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
         pm.setVisible(true);
         pm.lblPeopleIC.setText(ic);
         pm.lblPeopleName.setText(name);
-        pm.lblVacStatus.setText(status);
-        
+        pm.lblVacStatusM.setText(status);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
@@ -393,8 +392,9 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                 String phoneno = a.getContactNo();
                 String email = a.getEmail(); 
                 String state = a.getState();
+                String peopleType =a.getPeopleType();
                 
-                String filecontent = (id + " : " + name + " : " + phoneno + " : " + email + " : " + state);
+                String filecontent = (id + " : " + name + " : " + phoneno + " : " + email + " : " + state+ " : " + peopleType );
                 Writer.write(filecontent);
                 Writer.write(System.getProperty("line.separator"));
                 Writer.close();
@@ -402,8 +402,10 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                 setVisible(false);
                 PeopleMain hp = new PeopleMain();
                 hp.setVisible(true);
-                hp.lblVacStatus.setText("Vaccination Registered");
-            }catch(Exception ex){
+                hp.lblPeopleName.setText(id);
+                hp.lblPeopleName.setText(name);
+                hp.lblVacStatusM.setText("Vaccination Registered");
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error");
             }
         }else if(a.findNonCitizen(id, name)){
@@ -412,8 +414,9 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                 String phoneno = a.getContactNo();
                 String email = a.getEmail(); 
                 String state = a.getState();
+                String peopleType =a.getPeopleType();
                 
-                String filecontent = (id + " : " + name + " : " + phoneno + " : " + email + " : " + state);
+                String filecontent = (id + " : " + name + " : " + phoneno + " : " + email + " : " + state + " : " + peopleType);
                 Writer.write(filecontent);
                 Writer.write(System.getProperty("line.separator"));
                 Writer.close();
@@ -421,7 +424,9 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                 setVisible(false);
                 PeopleMain hp = new PeopleMain();
                 hp.setVisible(true);
-                hp.lblVacStatus.setText("Vaccination Registered");
+                hp.lblPeopleIC.setText(id);
+                hp.lblPeopleName.setText(name);
+                hp.lblVacStatusM.setText("Vaccination Registered");
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "Error");
             }

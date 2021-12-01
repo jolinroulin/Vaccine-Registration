@@ -5,6 +5,11 @@
  */
 package VaccineRegistrationSystem;
 
+import Classes.Appointment;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Asus
@@ -14,8 +19,14 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
     /**
      * Creates new form PersonnelAssignAppointment
      */
+    Appointment a = new Appointment();
     public PersonnelAssignAppointment() {
         initComponents();
+        try {
+            a.viewRegisteredPeopleTable(jTableRegistered);
+        } catch (IOException ex) {
+            Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -41,7 +52,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
         cmbTime = new javax.swing.JComboBox<>();
         btnAddSlot = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableSlot = new javax.swing.JTable();
+        jTableRegistered = new javax.swing.JTable();
         btnDeleteSlots = new javax.swing.JButton();
         btnViewSlot1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -155,8 +166,8 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
             }
         });
 
-        jTableSlot.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jTableSlot.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRegistered.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jTableRegistered.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -164,12 +175,12 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
 
             }
         ));
-        jTableSlot.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableRegistered.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableSlotMouseClicked(evt);
+                jTableRegisteredMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableSlot);
+        jScrollPane1.setViewportView(jTableRegistered);
 
         btnDeleteSlots.setBackground(new java.awt.Color(255, 204, 204));
         btnDeleteSlots.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
@@ -241,7 +252,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
+                                        .addGap(16, 16, 16)
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel7Layout.createSequentialGroup()
                                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,11 +261,10 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
                                                 .addGap(34, 34, 34)
                                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                                        .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(76, 76, 76)
-                                                        .addComponent(btnAddSlot))))
-                                            .addComponent(jLabel4)))))
+                                                    .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jLabel4))
+                                        .addGap(70, 70, 70)
+                                        .addComponent(btnAddSlot))))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,20 +285,23 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
                                 .addComponent(btnDeleteSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnViewSlot1)
-                        .addGap(60, 60, 60)))
+                        .addGap(64, 64, 64)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel16)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(btnViewSlot2))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57))
+                        .addComponent(btnViewSlot2)
+                        .addGap(158, 158, 158))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addGap(22, 22, 22)
@@ -316,18 +329,22 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
                     .addComponent(lblPeopleType))
                 .addGap(58, 58, 58)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel4)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(btnAddSlot))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(btnAddSlot))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel4)
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(btnDeleteSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -341,7 +358,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
+                        .addGap(116, 116, 116)
                         .addComponent(btnViewSlot1))))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
@@ -437,7 +454,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_btnAddSlotActionPerformed
 
-    private void jTableSlotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSlotMouseClicked
+    private void jTableRegisteredMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRegisteredMouseClicked
 //        DefaultTableModel tblModel = (DefaultTableModel)jTableSlot.getModel();
 //        String date = tblModel.getValueAt(jTableSlot.getSelectedRow(), 0).toString();
 //        String time = tblModel.getValueAt(jTableSlot.getSelectedRow(), 1).toString();
@@ -449,7 +466,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
 //            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 
-    }//GEN-LAST:event_jTableSlotMouseClicked
+    }//GEN-LAST:event_jTableRegisteredMouseClicked
 
     private void btnDeleteSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSlotsActionPerformed
 //        String state = lblState.getText();
@@ -558,7 +575,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTableSlot;
+    private javax.swing.JTable jTableRegistered;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblIC;

@@ -763,15 +763,15 @@ public class MainPage extends javax.swing.JFrame {
             lm.lblPeopleName.setText(user.getName());  
             lm.lblPeopleIC.setText(user.getIC());  
             if(!a.verifyNotRegistered(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Not Registered");
+                lm.lblVacStatusM.setText("Not Registered");
             }else if(a.verifyNotRegistered(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Vaccination Registered");
+                lm.lblVacStatusM.setText("Vaccination Registered");
             }else if(a.verifyAddedApp(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Appointment Added");
+                lm.lblVacStatusM.setText("Appointment Added");
             }else if(a.verifyCancelledApp(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Appointment Cancelled");
+                lm.lblVacStatusM.setText("Appointment Cancelled");
             }else if(a.verifyCompletedApp(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Vaccination Completed");
+                lm.lblVacStatusM.setText("Vaccination Completed");
             }
         } else if (user.verifynoncitizen(icpassportno, password)){
             JOptionPane.showMessageDialog(this, "Login Successful!");
@@ -780,14 +780,16 @@ public class MainPage extends javax.swing.JFrame {
             lm.setVisible(true);
             lm.lblPeopleName.setText(user.getName());  
             lm.lblPeopleIC.setText(user.getIC());
-            if(!a.verifyNotRegistered(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Not Registered");
-            }else if(a.verifyAddedApp(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Appointment Added");
+            if (!a.verifyNotRegistered(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Not Registered");
+            } else if (a.verifyNotRegistered(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Vaccination Registered");
+            } else if(a.verifyAddedApp(user.getIC(), user.getName())){
+                lm.lblVacStatusM.setText("Appointment Added");
             }else if(a.verifyCancelledApp(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Appointment Cancelled");
+                lm.lblVacStatusM.setText("Appointment Cancelled");
             }else if(a.verifyCompletedApp(user.getIC(), user.getName())){
-                lm.lblVacStatus.setText("Vaccination Completed");
+                lm.lblVacStatusM.setText("Vaccination Completed");
             }
         } else{
             JOptionPane.showMessageDialog(this, "Invalid IC/Passport No. and Password.");

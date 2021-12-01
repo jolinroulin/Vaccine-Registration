@@ -6,9 +6,15 @@
 package Classes;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Date;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +30,7 @@ public class Appointment {
     public String dob;
     public String state;
     public String username;
+    public String peopleType;
     
     public boolean verifyNotRegistered(String id, String name){
         try{
@@ -109,6 +116,7 @@ public class Appointment {
                     email = split[4];
                     dob = split[5];
                     state = split[8];
+                    peopleType = "Citizen";
                     return true;
                 }
             }
@@ -118,7 +126,7 @@ public class Appointment {
         return false;
     }
     
-        public boolean findNonCitizen(String id, String name) {
+    public boolean findNonCitizen(String id, String name) {
         try {
             FileReader fr = new FileReader("NonCitizen.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -133,6 +141,7 @@ public class Appointment {
                     email = split[4];
                     dob = split[5];
                     state = split[8];
+                    peopleType = "Non Citizen";
                     return true;
                 }
             }
@@ -142,6 +151,27 @@ public class Appointment {
         return false;
     }
 
+    String[] columnsName = {"IC","Name","Contact No","Email","State","People Type"};   
+    public void viewRegisteredPeopleTable(JTable t) throws FileNotFoundException, IOException{
+        DefaultTableModel model = (DefaultTableModel)t.getModel();
+
+        try{
+        String filename = "Appointment/vaccineregistered.txt";
+        File FILEPATH =new File(filename);
+ 
+            BufferedReader br = new BufferedReader (new FileReader(FILEPATH)); 
+            model.setColumnIdentifiers(columnsName);
+            String view;
+            while((view = br.readLine())!= null){
+            String[] cj = view.split(" : ");
+            model.addRow(cj);
+            }
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "No Record in this Centre!");
+        }            
+    }
+    
+    
     public String getStatus() {
         return status;
     }
@@ -204,6 +234,22 @@ public class Appointment {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPeopleType() {
+        return peopleType;
+    }
+
+    public void setPeopleType(String peopleType) {
+        this.peopleType = peopleType;
+    }
+
+    public String[] getColumnsName() {
+        return columnsName;
+    }
+
+    public void setColumnsName(String[] columnsName) {
+        this.columnsName = columnsName;
     }
 
     

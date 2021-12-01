@@ -38,10 +38,11 @@ public class PeopleMain extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblBackground = new javax.swing.JLabel();
-        lblPeopleName = new javax.swing.JLabel();
+        lblPeopleIC = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lblIC = new javax.swing.JLabel();
+        lblVacStatus = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        lblPeopleName = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmiVaccineRegistration = new javax.swing.JMenu();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -56,17 +57,19 @@ public class PeopleMain extends javax.swing.JFrame {
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/library background.jpg"))); // NOI18N
 
-        lblPeopleName.setFont(new java.awt.Font("Monotype Corsiva", 0, 48)); // NOI18N
+        lblPeopleIC.setFont(new java.awt.Font("Monotype Corsiva", 0, 48)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Monotype Corsiva", 1, 48)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         jLabel6.setText("Welcome Back");
 
-        lblIC.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
-        lblIC.setForeground(new java.awt.Color(51, 51, 255));
-        lblIC.setText("Not Registered");
+        lblVacStatus.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
+        lblVacStatus.setForeground(new java.awt.Color(51, 51, 255));
+        lblVacStatus.setText("Not Registered");
 
         jLabel18.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
         jLabel18.setText("Vaccination Status:");
+
+        lblPeopleName.setFont(new java.awt.Font("Monotype Corsiva", 0, 48)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,16 +83,17 @@ public class PeopleMain extends javax.swing.JFrame {
                         .addGap(122, 122, 122)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
-                            .addComponent(lblIC)))
+                            .addComponent(lblVacStatus)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(lblPeopleName, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(lblPeopleName, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(287, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(719, Short.MAX_VALUE)
-                    .addComponent(jLabel6)
-                    .addGap(347, 347, 347)))
+                        .addComponent(lblPeopleIC, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,18 +102,17 @@ public class PeopleMain extends javax.swing.JFrame {
                 .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(52, 52, 52))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(186, 186, 186)
+                .addGap(85, 85, 85)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPeopleName, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPeopleIC, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel18)
                 .addGap(33, 33, 33)
-                .addComponent(lblIC)
+                .addComponent(lblVacStatus)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(123, 123, 123)
-                    .addComponent(jLabel6)
-                    .addContainerGap(451, Short.MAX_VALUE)))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 102, 255));
@@ -205,8 +208,7 @@ public class PeopleMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuLogOutMouseClicked
 
     private void jMenuLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLogOutActionPerformed
-        
-        
+
     }//GEN-LAST:event_jMenuLogOutActionPerformed
 
     private void jmiVaccineRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVaccineRegistrationActionPerformed
@@ -221,16 +223,23 @@ public class PeopleMain extends javax.swing.JFrame {
         PeopleVaccineRegistration pv = new PeopleVaccineRegistration();
         new PeopleVaccineRegistration().setVisible(true);
         String name = lblPeopleName.getText();
+        String ic = lblPeopleIC.getText();
+        String status = lblVacStatus.getText();
         pv.setVisible(true);
         pv.lblName.setText(name);
-        this.setVisible(false);
+        pv.lblIC1.setText(ic);
+        pv.lblVacStatus.setText(status);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
+        if(!"Not Registered".equals(status)){
+            pv.btnRegister.setVisible(false);
+        }
+        
     }//GEN-LAST:event_jmiVaccineRegistrationMouseClicked
 
     private void MyIssueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyIssueMouseClicked
 
-        String user = lblPeopleName.getText();
+        String user = lblPeopleIC.getText();
                 StudentIssue lm = new StudentIssue();
                 lm.setVisible(true);
 //                lm.usernameStudent(user);
@@ -293,8 +302,9 @@ public class PeopleMain extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JMenu jmiVaccineRegistration;
     private javax.swing.JLabel lblBackground;
-    private javax.swing.JLabel lblIC;
+    public javax.swing.JLabel lblPeopleIC;
     public javax.swing.JLabel lblPeopleName;
+    public javax.swing.JLabel lblVacStatus;
     // End of variables declaration//GEN-END:variables
 
 }

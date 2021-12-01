@@ -81,7 +81,7 @@ public class PeopleDetails {
         int id2 = id + 1 ;
             
             String StudentData = id2 + " : " + nonCitizen.getPassword() + " : " + nonCitizen.getName() + " : " + nonCitizen.getGender() 
-                    + " : " + nonCitizen.getEmail() + " : " + nonCitizen.getDateOfBirth() + " : " + nonCitizen.getContactNo() + " : " + nonCitizen.getPassport()+" : " + nonCitizen.getState();
+                    + " : " + nonCitizen.getEmail() + " : " + nonCitizen.getDateOfBirth() + " : " + nonCitizen.getContactNo() + " : " + nonCitizen.getIC()+" : " + nonCitizen.getState();
             
             out = new PrintWriter(new BufferedWriter(new FileWriter(FILEPATHNonCitizen,true)));
             out.println(StudentData);

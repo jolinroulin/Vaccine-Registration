@@ -6,6 +6,7 @@
 package VaccineRegistrationSystem;
 
 
+import Classes.Appointment;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -19,6 +20,7 @@ import Classes.User;
 public class MainPage extends javax.swing.JFrame {
     
     User user = new User();
+    Appointment a = new Appointment();
     
     private void ApuLogo(){
       ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Image/ApuLogo.png")));
@@ -258,7 +260,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(51, 153, 255));
         jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jLabel5.setText("Personnel Id: ");
+        jLabel5.setText("Personnel IC: ");
 
         txtCommitteeUsername.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         txtCommitteeUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -751,24 +753,45 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserPasswordActionPerformed
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
-        String peopleID = txtUserUsername.getText();
-         String peoplePassword = txtUserPassword.getText();
-        if(user.verifycitizen(peopleID, peoplePassword)){
-            JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
+        String icpassportno = txtUserUsername.getText();
+         String password = txtUserPassword.getText();
+        if (user.verifycitizen(icpassportno, password)){
+            JOptionPane.showMessageDialog(this, "Login Successful!");
             setVisible(false);
             PeopleMain lm = new PeopleMain();
             lm.setVisible(true);
             lm.lblPeopleName.setText(user.getName());  
-        }else if(user.verifynoncitizen(peopleID, peoplePassword)){
-        JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
-            setVisible(false);
-            PeopleMain pm = new PeopleMain();
-            pm.setVisible(true);
-            pm.lblPeopleName.setText(user.getName());  
-        }
-        else{
-                JOptionPane.showMessageDialog(this, "Incorrect Credentials.Please Try Again!");
+            lm.lblPeopleIC.setText(user.getIC());  
+            if(!a.verifyNotRegistered(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Not Registered");
+            }else if(a.verifyNotRegistered(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Vaccination Registered");
+            }else if(a.verifyAddedApp(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Appointment Added");
+            }else if(a.verifyCancelledApp(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Appointment Cancelled");
+            }else if(a.verifyCompletedApp(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Vaccination Completed");
             }
+        } else if (user.verifynoncitizen(icpassportno, password)){
+            JOptionPane.showMessageDialog(this, "Login Successful!");
+            setVisible(false);
+            PeopleMain lm = new PeopleMain();
+            lm.setVisible(true);
+            lm.lblPeopleName.setText(user.getName());  
+            lm.lblPeopleIC.setText(user.getIC());
+            if(!a.verifyNotRegistered(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Not Registered");
+            }else if(a.verifyAddedApp(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Appointment Added");
+            }else if(a.verifyCancelledApp(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Appointment Cancelled");
+            }else if(a.verifyCompletedApp(user.getIC(), user.getName())){
+                lm.lblVacStatus.setText("Vaccination Completed");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Invalid IC/Passport No. and Password.");
+        }
 //        try {
 //            PeopleDetails Id = new PeopleDetails();
 //            String studentEmail = txtUserUsername.getText();

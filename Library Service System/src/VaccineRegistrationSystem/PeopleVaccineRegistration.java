@@ -5,7 +5,11 @@
  */
 package VaccineRegistrationSystem;
 
+import Classes.Appointment;
 import Classes.User;
+import java.io.FileWriter;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +17,7 @@ import Classes.User;
  */
 public class PeopleVaccineRegistration extends javax.swing.JFrame {
         User user = new User();
+        Appointment a = new Appointment();
     
     /**
      * Creates new form PeopleVaccineResgistration
@@ -44,12 +49,14 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         cmbTime = new javax.swing.JComboBox<>();
         btnDeleteSlots = new javax.swing.JButton();
-        btnViewSlot1 = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        lblIC = new javax.swing.JLabel();
+        lblVacStatus = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
+        lblIC1 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -149,12 +156,12 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
             }
         });
 
-        btnViewSlot1.setBackground(new java.awt.Color(204, 255, 255));
-        btnViewSlot1.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnViewSlot1.setText("Register");
-        btnViewSlot1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.setBackground(new java.awt.Color(204, 255, 255));
+        btnRegister.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewSlot1ActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
 
@@ -164,9 +171,9 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
         jLabel22.setText("Name: ");
 
-        lblIC.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
-        lblIC.setForeground(new java.awt.Color(51, 51, 255));
-        lblIC.setText("Not Registered");
+        lblVacStatus.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
+        lblVacStatus.setForeground(new java.awt.Color(51, 51, 255));
+        lblVacStatus.setText("Not Registered");
 
         lblName.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
         lblName.setText("lbl");
@@ -175,6 +182,17 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                 lblNameKeyReleased(evt);
             }
         });
+
+        lblIC1.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
+        lblIC1.setText("lbl");
+        lblIC1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lblIC1KeyReleased(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
+        jLabel23.setText("IC/ Passport No: ");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -206,19 +224,26 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                         .addGap(71, 71, 71))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel22))
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblName)
-                            .addComponent(lblIC))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnViewSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addGap(107, 107, 107)
+                                .addComponent(lblName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel23)
+                                .addGap(37, 37, 37)
+                                .addComponent(lblIC1)
+                                .addGap(136, 136, 136))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblVacStatus)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78))))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 877, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 95, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,11 +255,13 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
-                            .addComponent(lblName))
+                            .addComponent(lblName)
+                            .addComponent(lblIC1)
+                            .addComponent(jLabel23))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(lblIC))
+                            .addComponent(lblVacStatus))
                         .addGap(46, 46, 46)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
@@ -256,7 +283,7 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                                 .addGap(101, 101, 101))))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(btnViewSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -295,16 +322,20 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblClose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClose2MouseClicked
-        PersonnelMain pm = new PersonnelMain();
-        PeopleVaccineRegistration pv = new PeopleVaccineRegistration();
-        new PeopleVaccineRegistration().setVisible(true);
+        PeopleMain pm = new PeopleMain();
         String name = lblName.getText();
+        String ic = lblIC1.getText();
+        String status = lblVacStatus.getText();
         pm.setVisible(true);
-        pm.lblUser.setText(name);
+        pm.lblPeopleIC.setText(ic);
+        pm.lblPeopleName.setText(name);
+        pm.lblVacStatus.setText(status);
+        
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
         //        setVisible(false);
+       
     }//GEN-LAST:event_lblClose2MouseClicked
 
     private void cmbNewStateCentreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNewStateCentreItemStateChanged
@@ -352,8 +383,52 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
             //        }
     }//GEN-LAST:event_btnDeleteSlotsActionPerformed
 
-    private void btnViewSlot1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSlot1ActionPerformed
-        //        String state = cmbNewStateSlots.getSelectedItem().toString();
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        String id = lblIC1.getText();
+        String name = lblName.getText();
+
+        if(a.findCitizen(id, name)){
+            try{
+                FileWriter Writer = new FileWriter("Appointment/vaccineregistered.txt", true);
+                String phoneno = a.getContactNo();
+                String email = a.getEmail(); 
+                String state = a.getState();
+                
+                String filecontent = (id + " : " + name + " : " + phoneno + " : " + email + " : " + state);
+                Writer.write(filecontent);
+                Writer.write(System.getProperty("line.separator"));
+                Writer.close();
+                JOptionPane.showMessageDialog(null, "Register Successful!");
+                setVisible(false);
+                PeopleMain hp = new PeopleMain();
+                hp.setVisible(true);
+                hp.lblVacStatus.setText("Vaccination Registered");
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        }else if(a.findNonCitizen(id, name)){
+            try{
+                FileWriter Writer = new FileWriter("Appointment/vaccineregistered.txt", true);
+                String phoneno = a.getContactNo();
+                String email = a.getEmail(); 
+                String state = a.getState();
+                
+                String filecontent = (id + " : " + name + " : " + phoneno + " : " + email + " : " + state);
+                Writer.write(filecontent);
+                Writer.write(System.getProperty("line.separator"));
+                Writer.close();
+                JOptionPane.showMessageDialog(null, "Register Successful!");
+                setVisible(false);
+                PeopleMain hp = new PeopleMain();
+                hp.setVisible(true);
+                hp.lblVacStatus.setText("Vaccination Registered");
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        }
+            
+
+//        String state = cmbNewStateSlots.getSelectedItem().toString();
         //        String centre  = cmbNewStateCentre.getSelectedItem().toString();
         //        try {
             //            jTableSlot.setModel(new DefaultTableModel());
@@ -363,12 +438,16 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
             //        } catch (IOException ex) {
             //            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
             //        }
-    }//GEN-LAST:event_btnViewSlot1ActionPerformed
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void lblNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblNameKeyReleased
 
     
     }//GEN-LAST:event_lblNameKeyReleased
+
+    private void lblIC1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblIC1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIC1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -408,7 +487,7 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteSlots;
-    private javax.swing.JButton btnViewSlot1;
+    public javax.swing.JButton btnRegister;
     private javax.swing.JComboBox<String> cmbNewStateCentre;
     private javax.swing.JComboBox<String> cmbTime;
     private javax.swing.JLabel jLabel16;
@@ -416,6 +495,7 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -424,7 +504,8 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblClose2;
-    private javax.swing.JLabel lblIC;
+    public javax.swing.JLabel lblIC1;
     public javax.swing.JLabel lblName;
+    public javax.swing.JLabel lblVacStatus;
     // End of variables declaration//GEN-END:variables
 }

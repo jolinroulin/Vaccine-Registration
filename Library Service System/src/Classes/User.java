@@ -13,9 +13,11 @@ public class User {
     private String email;
     private String dateOfBirth;
     private String contactNo;
+    private String IC;
     private String state;
+    
 
-    public User(String userId, String password,String name, String gender, String email,  String dateOfBirth, String contactNo,String state) {
+    public User(String userId,String password,String name,String gender,   String email, String dateOfBirth,  String contactNo,String IC, String state) {
         this.userId = userId;
         this.name = name;
         this.gender = gender;
@@ -23,8 +25,13 @@ public class User {
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.contactNo = contactNo;
+        this.IC = IC;
         this.state = state;
+        
     }
+    
+
+
 
         public boolean verifypersonnel(String id, String password){
         try{
@@ -34,7 +41,7 @@ public class User {
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
                 if (id.equals(split[7]) && password.equals(split[1])) {
-                    userId = split[7];
+                    IC = split[7];
 //                    password = split[1];
                     name = split[2];
                     return true;
@@ -54,7 +61,7 @@ public class User {
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
                 if (id.equals(split[7]) && password.equals(split[1])) {
-                    userId = split[7];
+                    IC = split[7];
                     name = split[2];
                     return true;
                 }
@@ -73,7 +80,7 @@ public class User {
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
                 if (id.equals(split[7]) && password.equals(split[1])) {
-                    userId = split[7];
+                    IC = split[7];
                     name = split[2];
                     return true;
                 }
@@ -83,6 +90,7 @@ public class User {
         }
         return false;
     }
+    
    
     public User(){
     }
@@ -142,7 +150,15 @@ public class User {
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
     }
+    
+    public String getIC() {
+        return IC;
+    }
 
+    public void setIC(String IC) {
+        this.IC = IC;
+    }
+    
     public String getState() {
         return state;
     }

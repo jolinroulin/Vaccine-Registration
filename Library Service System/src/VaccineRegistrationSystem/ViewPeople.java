@@ -27,23 +27,32 @@ import javax.swing.table.TableRowSorter;
 public class ViewPeople extends javax.swing.JFrame {
 
     
-    private void ImportStudentDetailsToTable() {
-        String filepath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StudentData.txt";
+    private void ImportPeopleDetailsToTable() {
+        String filepath = "Citizen.txt";
         File file = new File(filepath);
-
+        String filepath1 = "NonCitizen.txt";
+        File file1 = new File(filepath);
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
-            DefaultTableModel model = (DefaultTableModel) jTableStudent.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTablePeople.getModel();
+            BufferedReader br1 = new BufferedReader(new FileReader(file1));
+            DefaultTableModel model1 = (DefaultTableModel) jTablePeople.getModel();
             /*String[] columnsName = firstLine.split(" : ");
             
             model.setColumnIdentifiers(columnsName);*/
-
             Object[] tableLines = br.lines().toArray();
             for (int i = 0; i < tableLines.length; i++) {
                 String line = tableLines[i].toString().trim();
                 String[] dataRow = line.split(" : ");
                 model.addRow(dataRow);
             }
+            Object[] tableLines1 = br.lines().toArray();
+            for (int i = 0; i < tableLines1.length; i++) {
+                String line = tableLines1[i].toString().trim();
+                String[] dataRow = line.split(" : ");
+                model1.addRow(dataRow);
+            }
+            
         } catch (Exception ex) {
             Logger.getLogger(ViewStaff.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -56,9 +65,9 @@ public class ViewPeople extends javax.swing.JFrame {
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < jTableStudent.getRowCount(); i++){
-                for(int j = 0; j < jTableStudent.getColumnCount(); j++){
-                    bw.write(jTableStudent.getValueAt(i,j).toString()+ " : " );
+            for(int i = 0; i < jTablePeople.getRowCount(); i++){
+                for(int j = 0; j < jTablePeople.getColumnCount(); j++){
+                    bw.write(jTablePeople.getValueAt(i,j).toString()+ " : " );
                 }
                 bw.newLine();
             }
@@ -74,7 +83,7 @@ public class ViewPeople extends javax.swing.JFrame {
      */
     public ViewPeople() {
         initComponents();
-        ImportStudentDetailsToTable();
+        ImportPeopleDetailsToTable();
     }
 
     /**
@@ -92,30 +101,28 @@ public class ViewPeople extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableStudent = new javax.swing.JTable();
-        txtSearchStudent = new javax.swing.JTextField();
+        jTablePeople = new javax.swing.JTable();
+        txtSearchPeople = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtStdEmailAddress = new javax.swing.JTextField();
+        txtStdContactNumber = new javax.swing.JTextField();
+        txtStdPassword = new javax.swing.JTextField();
         txtStdName = new javax.swing.JTextField();
-        txtStdUsername = new javax.swing.JTextField();
         txtStdDOB = new javax.swing.JTextField();
-        txtStdMobileNumber = new javax.swing.JTextField();
+        txtStdICPassport = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         cmbStdGender = new javax.swing.JComboBox<>();
         btnSelectDateStdDOB = new javax.swing.JToggleButton();
-        txtStdPassword = new javax.swing.JTextField();
+        txtStdEmail = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtStdId = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        CmbStdSchoolProgram = new javax.swing.JComboBox<>();
         btnDelete = new javax.swing.JButton();
-        btnStudentUpdate = new javax.swing.JButton();
+        btnPeopleUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -127,7 +134,7 @@ public class ViewPeople extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
-        jLabel3.setText("Student Details");
+        jLabel3.setText("People Details");
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Close.png"))); // NOI18N
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -146,14 +153,14 @@ public class ViewPeople extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 530, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 537, Short.MAX_VALUE)
                 .addComponent(jLabel16)
                 .addGap(39, 39, 39))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(7, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -164,34 +171,30 @@ public class ViewPeople extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTableStudent.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePeople.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Student Id", "Name", "Gender", "Username", "Password", "DOB", "Email", "Mobile No", "Course"
+                "People Id", "Password", "Name", "Gender", "E-mail", "Date of Birth", "Contact Number", "IC/Passport"
             }
         ));
-        jTableStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTablePeople.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableStudentMouseClicked(evt);
+                jTablePeopleMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableStudent);
-        if (jTableStudent.getColumnModel().getColumnCount() > 0) {
-            jTableStudent.getColumnModel().getColumn(6).setResizable(false);
-            jTableStudent.getColumnModel().getColumn(8).setResizable(false);
-        }
+        jScrollPane1.setViewportView(jTablePeople);
 
-        txtSearchStudent.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtSearchStudent.addActionListener(new java.awt.event.ActionListener() {
+        txtSearchPeople.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtSearchPeople.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchStudentActionPerformed(evt);
+                txtSearchPeopleActionPerformed(evt);
             }
         });
-        txtSearchStudent.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchPeople.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchStudentKeyReleased(evt);
+                txtSearchPeopleKeyReleased(evt);
             }
         });
 
@@ -199,24 +202,31 @@ public class ViewPeople extends javax.swing.JFrame {
         jLabel2.setText("Search:");
 
         jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel4.setText("Name:");
+        jLabel4.setText("Password:");
 
         jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel5.setText("Password:");
+        jLabel5.setText("E-mail:");
 
         jLabel6.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel6.setText("Date of Birth:");
 
         jLabel7.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel7.setText("Email Address:");
+        jLabel7.setText("Contact Number:");
 
         jLabel8.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel8.setText("Mobile Number:");
+        jLabel8.setText("IC/Passport:");
 
-        txtStdEmailAddress.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtStdEmailAddress.addActionListener(new java.awt.event.ActionListener() {
+        txtStdContactNumber.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtStdContactNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStdEmailAddressActionPerformed(evt);
+                txtStdContactNumberActionPerformed(evt);
+            }
+        });
+
+        txtStdPassword.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtStdPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStdPasswordActionPerformed(evt);
             }
         });
 
@@ -227,13 +237,6 @@ public class ViewPeople extends javax.swing.JFrame {
             }
         });
 
-        txtStdUsername.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtStdUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStdUsernameActionPerformed(evt);
-            }
-        });
-
         txtStdDOB.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         txtStdDOB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,18 +244,18 @@ public class ViewPeople extends javax.swing.JFrame {
             }
         });
 
-        txtStdMobileNumber.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtStdMobileNumber.addActionListener(new java.awt.event.ActionListener() {
+        txtStdICPassport.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtStdICPassport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStdMobileNumberActionPerformed(evt);
+                txtStdICPassportActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel9.setText("Username:");
+        jLabel9.setText("Gender:");
 
         jLabel10.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel10.setText("Gender:");
+        jLabel10.setText("Name:");
 
         cmbStdGender.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmbStdGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
@@ -267,15 +270,15 @@ public class ViewPeople extends javax.swing.JFrame {
             }
         });
 
-        txtStdPassword.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtStdPassword.addActionListener(new java.awt.event.ActionListener() {
+        txtStdEmail.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtStdEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStdPasswordActionPerformed(evt);
+                txtStdEmailActionPerformed(evt);
             }
         });
 
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel11.setText("Student Id:");
+        jLabel11.setText("People Id:");
 
         txtStdId.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         txtStdId.addActionListener(new java.awt.event.ActionListener() {
@@ -284,12 +287,6 @@ public class ViewPeople extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel12.setText("Course:");
-
-        CmbStdSchoolProgram.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        CmbStdSchoolProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer Science ", "Software Engineering", "Cyber Security", "Interactive Media", "Networking" }));
-
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,10 +294,10 @@ public class ViewPeople extends javax.swing.JFrame {
             }
         });
 
-        btnStudentUpdate.setText("Update");
-        btnStudentUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnPeopleUpdate.setText("Update");
+        btnPeopleUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStudentUpdateActionPerformed(evt);
+                btnPeopleUpdateActionPerformed(evt);
             }
         });
 
@@ -311,9 +308,6 @@ public class ViewPeople extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -327,49 +321,55 @@ public class ViewPeople extends javax.swing.JFrame {
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8))
-                                .addGap(30, 30, 30)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtStdId, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtStdEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(CmbStdSchoolProgram, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(txtStdId, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(txtStdICPassport, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtStdContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(199, 199, 199)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtStdUsername, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtStdDOB, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSelectDateStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(172, 172, 172)
-                                .addComponent(btnStudentUpdate)
-                                .addGap(63, 63, 63)
-                                .addComponent(btnDelete)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(164, 164, 164)
-                                .addComponent(jLabel2)
-                                .addGap(41, 41, 41)
-                                .addComponent(txtSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 68, Short.MAX_VALUE))
+                                        .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSelectDateStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(btnPeopleUpdate)
+                        .addGap(81, 81, 81)
+                        .addComponent(btnDelete)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(jLabel2)
+                        .addGap(41, 41, 41)
+                        .addComponent(txtSearchPeople, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 81, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSearchPeople, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(9, 9, 9)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -381,42 +381,38 @@ public class ViewPeople extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel10)
+                            .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtStdUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addGap(14, 14, 14)
+                            .addComponent(jLabel9)
+                            .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelectDateStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(btnSelectDateStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtStdEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStdContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStdICPassport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CmbStdSchoolProgram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDelete)
-                            .addComponent(btnStudentUpdate))
-                        .addGap(21, 21, 21))))
+                            .addComponent(btnPeopleUpdate)
+                            .addComponent(btnDelete))
+                        .addGap(62, 62, 62))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -424,12 +420,16 @@ public class ViewPeople extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -440,127 +440,136 @@ public class ViewPeople extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jLabel16MouseClicked
 
-    private void jTableStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableStudentMouseClicked
+    private void jTablePeopleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePeopleMouseClicked
         //set data to the textfile
-        DefaultTableModel tblModel = (DefaultTableModel)jTableStudent.getModel();
+        DefaultTableModel tblModel = (DefaultTableModel)jTablePeople.getModel();
 
         //set data to textfield when row i selected
-        String tblId = tblModel.getValueAt(jTableStudent.getSelectedRow(), 0).toString();
-        String tblName = tblModel.getValueAt(jTableStudent.getSelectedRow(), 1).toString();
-        String tblGender = tblModel.getValueAt(jTableStudent.getSelectedRow(), 2).toString();
-        String tblUsername = tblModel.getValueAt(jTableStudent.getSelectedRow(), 3).toString();
-        String tblPassword = tblModel.getValueAt(jTableStudent.getSelectedRow(), 4).toString();
-        String tblDOB = tblModel.getValueAt(jTableStudent.getSelectedRow(), 5).toString();
-        String tblEmail = tblModel.getValueAt(jTableStudent.getSelectedRow(), 6).toString();
-        String tblMobile = tblModel.getValueAt(jTableStudent.getSelectedRow(), 7).toString();
-        String tblSchoolOf = tblModel.getValueAt(jTableStudent.getSelectedRow(), 8).toString();
-
+        String tblId = tblModel.getValueAt(jTablePeople.getSelectedRow(), 0).toString();
+        String tblPassword = tblModel.getValueAt(jTablePeople.getSelectedRow(), 1).toString();
+        String tblName = tblModel.getValueAt(jTablePeople.getSelectedRow(), 2).toString();
+        String tblGender = tblModel.getValueAt(jTablePeople.getSelectedRow(), 3).toString();
+        String tblEmail = tblModel.getValueAt(jTablePeople.getSelectedRow(), 4).toString();
+        String tblDOB = tblModel.getValueAt(jTablePeople.getSelectedRow(), 5).toString();
+        String tblContactNo = tblModel.getValueAt(jTablePeople.getSelectedRow(), 6).toString();
+        String tblICPassport = tblModel.getValueAt(jTablePeople.getSelectedRow(), 7).toString();
+        
+      
         txtStdId.setText(tblId);
-        txtStdName.setText(tblName);
-        cmbStdGender.setSelectedItem(tblGender);
-        txtStdUsername.setText(tblUsername);
         txtStdPassword.setText(tblPassword);
+        cmbStdGender.setSelectedItem(tblGender);
+        txtStdName.setText(tblName);
+        txtStdEmail.setText(tblEmail);
         txtStdDOB.setText(tblDOB);
-        txtStdEmailAddress.setText(tblEmail);
-        txtStdMobileNumber.setText(tblMobile);
-        CmbStdSchoolProgram.setSelectedItem(tblSchoolOf);
+        txtStdContactNumber.setText(tblContactNo);
+        txtStdICPassport.setText(tblICPassport);
 
-    }//GEN-LAST:event_jTableStudentMouseClicked
 
-    private void txtSearchStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchStudentActionPerformed
+    }//GEN-LAST:event_jTablePeopleMouseClicked
+
+    private void txtSearchPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchPeopleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchStudentActionPerformed
+    }//GEN-LAST:event_txtSearchPeopleActionPerformed
 
-    private void txtSearchStudentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchStudentKeyReleased
-        DefaultTableModel table = (DefaultTableModel) jTableStudent.getModel();
-        String search = txtSearchStudent.getText();
+    private void txtSearchPeopleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchPeopleKeyReleased
+        DefaultTableModel table = (DefaultTableModel) jTablePeople.getModel();
+        String search = txtSearchPeople.getText();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(table);
-        jTableStudent.setRowSorter(tr);
+        jTablePeople.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(search));
-    }//GEN-LAST:event_txtSearchStudentKeyReleased
+    }//GEN-LAST:event_txtSearchPeopleKeyReleased
 
-    private void txtStdEmailAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdEmailAddressActionPerformed
+    private void txtStdContactNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdContactNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtStdEmailAddressActionPerformed
+    }//GEN-LAST:event_txtStdContactNumberActionPerformed
+
+    private void txtStdPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStdPasswordActionPerformed
 
     private void txtStdNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStdNameActionPerformed
 
-    private void txtStdUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStdUsernameActionPerformed
-
     private void txtStdDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdDOBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStdDOBActionPerformed
 
-    private void txtStdMobileNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdMobileNumberActionPerformed
+    private void txtStdICPassportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdICPassportActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtStdMobileNumberActionPerformed
+    }//GEN-LAST:event_txtStdICPassportActionPerformed
 
     private void btnSelectDateStdDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectDateStdDOBActionPerformed
         DatePicker datePicker = new DatePicker(this);
         txtStdDOB.setText(datePicker.setPickedDate());
     }//GEN-LAST:event_btnSelectDateStdDOBActionPerformed
 
-    private void txtStdPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdPasswordActionPerformed
+    private void txtStdEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtStdPasswordActionPerformed
+    }//GEN-LAST:event_txtStdEmailActionPerformed
 
     private void txtStdIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStdIdActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        DefaultTableModel tblModel = (DefaultTableModel)jTableStudent.getModel();
+        String tblId = txtStdId.getText();
+        if (tblId.substring(0,1)=="3"){
+            PeopleDetails x = new PeopleDetails();
+            x.deleteCitzenDetails(tblId);
+        }else if(tblId.substring(0,1)=="4"){
+            PeopleDetails x = new PeopleDetails();
+            x.deleteNonCitzenDetails(tblId);
+        }
+        /*DefaultTableModel tblModel = (DefaultTableModel)jTablePeople.getModel();
 
-        if(jTableStudent.getSelectedRowCount()==1){
-            tblModel.removeRow(jTableStudent.getSelectedRow());
+        if(jTablePeople.getSelectedRowCount()==1){
+            tblModel.removeRow(jTablePeople.getSelectedRow());
             JOptionPane.showMessageDialog(this, "The data is deleted from the table.");
             saveStudentDetails();
         }else{
-            if (jTableStudent.getRowCount() == 0){
+            if (jTablePeople.getRowCount() == 0){
                 JOptionPane.showMessageDialog(this, "Table is Empty.");
             }else{
                 JOptionPane.showMessageDialog(this, "Please select single row for delete.");
             }
         }
+        */
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnStudentUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentUpdateActionPerformed
-        DefaultTableModel tblModel = (DefaultTableModel)jTableStudent.getModel();
-        if(jTableStudent.getSelectedRowCount()==1){
+    private void btnPeopleUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeopleUpdateActionPerformed
+        DefaultTableModel tblModel = (DefaultTableModel)jTablePeople.getModel();
+        if(jTablePeople.getSelectedRowCount()==1){
         String tblId = txtStdId.getText();
-        String tblName = txtStdName.getText();
-        String tblGender = cmbStdGender.getSelectedItem().toString();
-        String tblUsername = txtStdUsername.getText();
         String tblPassword = txtStdPassword.getText();
+        String tblGender = cmbStdGender.getSelectedItem().toString();
+        String tblname = txtStdName.getText();
+        String tblEmail = txtStdEmail.getText();
         String tblDOB = txtStdDOB.getText();
-        String tblEmail = txtStdEmailAddress.getText();
-        String tblMobile = txtStdMobileNumber.getText();
-        String tblSchoolOf = CmbStdSchoolProgram.getSelectedItem().toString();
+        String tblContactNo = txtStdContactNumber.getText();
+        String tblIcPassport = txtStdICPassport.getText();
         
-        tblModel.setValueAt(tblId,jTableStudent.getSelectedRow(), 0);
-        tblModel.setValueAt(tblName,jTableStudent.getSelectedRow(), 1);
-        tblModel.setValueAt(tblGender,jTableStudent.getSelectedRow(), 2);
-        tblModel.setValueAt(tblUsername,jTableStudent.getSelectedRow(), 3);
-        tblModel.setValueAt(tblPassword ,jTableStudent.getSelectedRow(), 4);
-        tblModel.setValueAt(tblDOB ,jTableStudent.getSelectedRow(), 5);
-        tblModel.setValueAt(tblEmail,jTableStudent.getSelectedRow(), 6);
-        tblModel.setValueAt(tblMobile,jTableStudent.getSelectedRow(), 7);
-        tblModel.setValueAt(tblSchoolOf,jTableStudent.getSelectedRow(), 8);
+        if (tblId.substring(0,1).equals("3")){
+            PeopleDetails x = new PeopleDetails();
+            x.updateCitzenDetails(tblId, tblPassword, tblname, tblGender, tblEmail, tblDOB, tblContactNo, tblIcPassport);
+        }else if(tblId.substring(0,1).equals("4")){
+            PeopleDetails x = new PeopleDetails();
+            x.updateNonCitzenDetails(tblId, tblPassword, tblname, tblGender, tblEmail, tblDOB, tblContactNo, tblIcPassport);
+        }
+        
+        
+
         
         JOptionPane.showMessageDialog(this, "Update Successfully.");
-        saveStudentDetails();
+ 
         }else{
-            if (jTableStudent.getRowCount() == 0){
+            if (jTablePeople.getRowCount() == 0){
                 JOptionPane.showMessageDialog(this, "Table is Empty.");
             }else{
                 JOptionPane.showMessageDialog(this, "Please select single row for update.");
             }
         }          
-    }//GEN-LAST:event_btnStudentUpdateActionPerformed
+    }//GEN-LAST:event_btnPeopleUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -599,15 +608,13 @@ public class ViewPeople extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CmbStdSchoolProgram;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnPeopleUpdate;
     private javax.swing.JToggleButton btnSelectDateStdDOB;
-    private javax.swing.JButton btnStudentUpdate;
     private javax.swing.JComboBox<String> cmbStdGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -620,14 +627,14 @@ public class ViewPeople extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableStudent;
-    private javax.swing.JTextField txtSearchStudent;
+    private javax.swing.JTable jTablePeople;
+    private javax.swing.JTextField txtSearchPeople;
+    private javax.swing.JTextField txtStdContactNumber;
     private javax.swing.JTextField txtStdDOB;
-    private javax.swing.JTextField txtStdEmailAddress;
+    private javax.swing.JTextField txtStdEmail;
+    private javax.swing.JTextField txtStdICPassport;
     private javax.swing.JTextField txtStdId;
-    private javax.swing.JTextField txtStdMobileNumber;
     private javax.swing.JTextField txtStdName;
     private javax.swing.JTextField txtStdPassword;
-    private javax.swing.JTextField txtStdUsername;
     // End of variables declaration//GEN-END:variables
 }

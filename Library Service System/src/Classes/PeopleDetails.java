@@ -15,9 +15,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -196,5 +199,147 @@ public class PeopleDetails {
                 Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
         return false;
+    }
+    public void updateCitzenDetails(String id,String password,String name,String gender,String email,String DOB,String contactNo,String IC){
+        ArrayList<String> tempArray = new ArrayList<>();                          
+        try{
+            try (FileReader fr = new FileReader(FILEPATHCitizen)){
+               BufferedReader br = new BufferedReader(fr);
+               String line;
+               String [] lineArr;
+
+            while ((line = br.readLine())!=null ){
+               lineArr = line.split("\"");
+               String citizenId= lineArr[0];
+               
+               if (id.equals(citizenId)){
+                   tempArray.add (id + " : " + password + " : " + name + " : " + gender + " : " +
+                           email + " : " + DOB + " : " + contactNo + " : " + IC);
+               }
+               else{
+                   tempArray.add(line);
+               }
+           }
+            try(PrintWriter pr = new PrintWriter(FILEPATHCitizen)){
+                    for (String str: tempArray){
+                                pr.println(str);
+                            }
+                            pr.close();
+                            
+                        }catch(Exception ex){
+                        } 
+            fr.close();
+       }catch(Exception ex){ 
+           Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+       }          
+    }catch (Exception ex){
+        Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    public void updateNonCitzenDetails(String id,String password,String name,String gender,String email,String DOB,String contactNo,String passport){
+        ArrayList<String> tempArray = new ArrayList<>();                          
+        try{
+            try (FileReader fr = new FileReader(FILEPATHNonCitizen)){
+               BufferedReader br = new BufferedReader(fr);
+               String line;
+               String [] lineArr;
+
+            while ((line = br.readLine())!=null ){
+               lineArr = line.split("\"");
+               String nonCitizenId= lineArr[0];
+               
+               if (id.equals(nonCitizenId)){
+                   tempArray.add (id + " : " + password + " : " + name + " : " + gender + " : " +
+                           email + " : " + DOB + " : " + contactNo + " : " + passport);
+               }
+               else{
+                   tempArray.add(line);
+               }
+           }
+            try(PrintWriter pr = new PrintWriter(FILEPATHNonCitizen)){
+                    for (String str: tempArray){
+                                pr.println(str);
+                            }
+                            pr.close();
+                            
+                        }catch(Exception ex){
+                        } 
+            fr.close();
+       }catch(Exception ex){ 
+           Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+       }          
+    }catch (Exception ex){
+        Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    public void deleteCitzenDetails(String id){
+        ArrayList<String> tempArray = new ArrayList<>();                          
+        try{
+            try (FileReader fr = new FileReader(FILEPATHCitizen)){
+               BufferedReader br = new BufferedReader(fr);
+               String line;
+               String [] lineArr;
+
+            while ((line = br.readLine())!=null ){
+               lineArr = line.split("\"");
+               String CitizenId= lineArr[0];
+               
+               if (id.equals(CitizenId)){
+                   //do nothing
+               }
+               else{
+                   tempArray.add(line);
+               }
+           }
+            try(PrintWriter pr = new PrintWriter(FILEPATHNonCitizen)){
+                    for (String str: tempArray){
+                                pr.println(str);
+                            }
+                            pr.close();
+                            
+                        }catch(Exception ex){
+                        } 
+            fr.close();
+       }catch(Exception ex){ 
+           Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+       }          
+    }catch (Exception ex){
+        Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    public void deleteNonCitzenDetails(String id){
+        ArrayList<String> tempArray = new ArrayList<>();                          
+        try{
+            try (FileReader fr = new FileReader(FILEPATHNonCitizen)){
+               BufferedReader br = new BufferedReader(fr);
+               String line;
+               String [] lineArr;
+
+            while ((line = br.readLine())!=null ){
+               lineArr = line.split("\"");
+               String nonCitizenId= lineArr[0];
+               
+               if (id.equals(nonCitizenId)){
+                   //do nothing
+               }
+               else{
+                   tempArray.add(line);
+               }
+           }
+            try(PrintWriter pr = new PrintWriter(FILEPATHNonCitizen)){
+                    for (String str: tempArray){
+                                pr.println(str);
+                            }
+                            pr.close();
+                            
+                        }catch(Exception ex){
+                        } 
+            fr.close();
+       }catch(Exception ex){ 
+           Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+       }          
+    }catch (Exception ex){
+        Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }
 }

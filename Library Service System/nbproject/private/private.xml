@@ -3,30 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PersonnelMain.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/People.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/NonCitizen.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/PeopleDetails.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/RegisterPersonnel.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/DateAppointmentDetails.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/Committee.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/Citizen.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PersonnelVaccineSupply.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/RegisterPerExtra.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/ViewPersonnel.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/Citizen.txt</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/manageAppointment.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/KLCentres.txt</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/PersonnelDetails.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/RegisterPeople.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/AppointmentSlots.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/manageAppointmentDate.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/PersonnelAddCentre.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/Personnel.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/AddBook.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/NonCitizen.txt</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/User.java</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/Personnel.txt</file>
+            <file>file:/Users/shengkhaiooi/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/Classes/PeopleDetails.java</file>
+            <file>file:/Users/shengkhaiooi/Documents/GitHub/Vaccine-Registration/Library%20Service%20System/src/VaccineRegistrationSystem/ViewPeople.java</file>
         </group>
     </open-files>
 </project-private>

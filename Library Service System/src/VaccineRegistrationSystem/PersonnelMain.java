@@ -52,13 +52,13 @@ public class PersonnelMain extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jmiRenew = new javax.swing.JMenu();
         jmiRenew1 = new javax.swing.JMenu();
+        jApp = new javax.swing.JMenu();
+        jmiIManageAppointment = new javax.swing.JMenuItem();
+        jmilManageDate = new javax.swing.JMenuItem();
         jVaciine = new javax.swing.JMenu();
         jmiManageVaccine = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jmiViewVaccine = new javax.swing.JMenuItem();
-        jApp = new javax.swing.JMenu();
-        jmiIManageAppointment = new javax.swing.JMenuItem();
-        jmilManageDate = new javax.swing.JMenuItem();
         jmiStatistics = new javax.swing.JMenu();
         jPeopleProfile = new javax.swing.JMenu();
         jMenuLogOut = new javax.swing.JMenu();
@@ -180,7 +180,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         jMenuBar1.add(jMenuPeople);
 
         jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Renewbook.png"))); // NOI18N
-        jMenu8.setText("Centre");
+        jMenu8.setText("Centre & Slot");
         jMenu8.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
         jmiRenew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/renew book.png"))); // NOI18N
@@ -215,6 +215,32 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu8);
 
+        jApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/borrowbook.png"))); // NOI18N
+        jApp.setText("Appointment");
+        jApp.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+
+        jmiIManageAppointment.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmiIManageAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
+        jmiIManageAppointment.setText("Assign Appointment");
+        jmiIManageAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiIManageAppointmentActionPerformed(evt);
+            }
+        });
+        jApp.add(jmiIManageAppointment);
+
+        jmilManageDate.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmilManageDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
+        jmilManageDate.setText("Manage Appointment Date");
+        jmilManageDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmilManageDateActionPerformed(evt);
+            }
+        });
+        jApp.add(jmilManageDate);
+
+        jMenuBar1.add(jApp);
+
         jVaciine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Book.png"))); // NOI18N
         jVaciine.setText("Vaccine");
         jVaciine.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
@@ -241,32 +267,6 @@ public class PersonnelMain extends javax.swing.JFrame {
         jVaciine.add(jmiViewVaccine);
 
         jMenuBar1.add(jVaciine);
-
-        jApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/borrowbook.png"))); // NOI18N
-        jApp.setText("Appointment");
-        jApp.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-
-        jmiIManageAppointment.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmiIManageAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
-        jmiIManageAppointment.setText("Manage Appointment");
-        jmiIManageAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiIManageAppointmentActionPerformed(evt);
-            }
-        });
-        jApp.add(jmiIManageAppointment);
-
-        jmilManageDate.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmilManageDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
-        jmilManageDate.setText("Manage Appointment Date");
-        jmilManageDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmilManageDateActionPerformed(evt);
-            }
-        });
-        jApp.add(jmilManageDate);
-
-        jMenuBar1.add(jApp);
 
         jmiStatistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Statistics.png"))); // NOI18N
         jmiStatistics.setText("Statistics ");
@@ -326,18 +326,23 @@ public class PersonnelMain extends javax.swing.JFrame {
 
     private void jmiAddpersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddpersonnelActionPerformed
         new RegisterPersonnel().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jmiAddpersonnelActionPerformed
 
     private void jmiViewPersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewPersonnelActionPerformed
         new ViewPersonnel().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jmiViewPersonnelActionPerformed
 
     private void jmiAddPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddPeopleActionPerformed
         new RegisterPeople().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jmiAddPeopleActionPerformed
 
     private void jmiViewPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewPeopleActionPerformed
         new ViewPeople().setVisible(true);
+        new PersonnelAddCentre().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jmiViewPeopleActionPerformed
 
     private void jMenuLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLogOutMouseClicked
@@ -379,11 +384,14 @@ public class PersonnelMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiRenewActionPerformed
 
     private void jmiRenewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiRenewMouseClicked
-        new RenewBook().setVisible(true);// TODO add your handling code here:
+        new PersonnelAddCentre().setVisible(true);
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jmiRenewMouseClicked
 
     private void jmiRenew1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiRenew1MouseClicked
-        // TODO add your handling code here:
+    new PersonnelAddSlots().setVisible(true);
+        this.dispose();
+// TODO add your handling code here:
     }//GEN-LAST:event_jmiRenew1MouseClicked
 
     private void jmiRenew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRenew1ActionPerformed

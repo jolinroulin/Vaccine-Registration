@@ -76,8 +76,7 @@ public class Vaccine {
             JOptionPane.showMessageDialog(null, "Error");
         }
     }
-    
-    public void deleteVacSupply(String state, String centre, JTextField vacname, JTextField vaccode, JDateChooser expdate, JTextField quantity){
+      public void deleteVacSupply(String state, String centre, JTextField vacname, JTextField vaccode, JDateChooser expdate, JTextField quantity){
         if (JOptionPane.showConfirmDialog(null, "Are you sure to remove the Vaccine?", "WARNING",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
             String filePath = "Vaccine/" + state + "/" + centre + ".txt";
             File newFile = new File(filePath);
@@ -106,7 +105,8 @@ public class Vaccine {
 
                 File ct = new File(filePath);
                 newFile.renameTo(ct);
-
+//&& !slot[1].equalsIgnoreCase(removeTerm2)
+System.out.println(filePath);
                 JOptionPane.showMessageDialog(null,"Record is deleted");
                 vacname.setText("");
                 vaccode.setText("");
@@ -118,6 +118,47 @@ public class Vaccine {
             }  
         }  
     }
+//    public void deleteVacSupply(String state, String centre, JTextField vacname, JTextField vaccode, JDateChooser expdate, JTextField quantity){
+//        if (JOptionPane.showConfirmDialog(null, "Are you sure to remove the Vaccine?", "WARNING",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
+//            String filePath = "Vaccine/" + state + "/" + centre + ".txt";
+//            File newFile = new File(filePath);
+//            String currentLine;
+//            String slot[];
+//            String removeTerm = vacname.getText();
+//            String removeTerm2 = vaccode.getText();
+//
+//            try{
+//                FileWriter fw = new FileWriter (filePath,true);
+//                BufferedWriter bw = new BufferedWriter (fw);
+//                PrintWriter pw = new PrintWriter(bw);
+//
+//                FileReader fr = new FileReader(newFile);
+//                BufferedReader br = new BufferedReader(fr);
+//
+//                while ((currentLine = br.readLine())!=null ){
+//                    slot = currentLine.split(" : ");
+//                    if(!slot[0].equalsIgnoreCase(removeTerm) && !slot[1].equalsIgnoreCase(removeTerm2)){
+//                        new FileOutputStream(filePath).close();
+//                        pw.println(currentLine);
+//                    }
+//                }
+//                pw.flush();
+//                pw.close();
+//
+//                File ct = new File(filePath);
+//                newFile.renameTo(ct);
+//
+//                JOptionPane.showMessageDialog(null,"Record is deleted");
+//                vacname.setText("");
+//                vaccode.setText("");
+//                expdate.setDate(new Date());
+//                quantity.setText("");
+//            }
+//            catch(Exception ex) {
+//                JOptionPane.showMessageDialog(null, "Error");
+//            }  
+//        }  
+//    }
 
 
 }

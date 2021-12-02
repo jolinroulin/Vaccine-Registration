@@ -32,12 +32,12 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
     
     public PersonnelManageVaccine() {
         initComponents();
-       
-        try {
-            v.viewVaccineTable(lblCentre,lblState,jTableVacinneSupply);
-        } catch (IOException ex) {
-            Logger.getLogger(PersonnelManageVaccine.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//       
+//        try {
+//            v.viewVaccineTable(lblCentre,lblState,jTableVacinneSupply);
+//        } catch (IOException ex) {
+//            Logger.getLogger(PersonnelManageVaccine.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
     }
     
@@ -61,10 +61,9 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         cmbNewState = new javax.swing.JComboBox<>();
-        cmbNewStateCentre = new javax.swing.JComboBox<>();
-        btnAddSlot = new javax.swing.JButton();
+        cmbNewCentre = new javax.swing.JComboBox<>();
+        btnAdd = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
-        lblVacCode = new javax.swing.JLabel();
         btnViewSlot1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         txtAssSearch = new javax.swing.JTextField();
@@ -78,9 +77,6 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
         txtVacCode = new javax.swing.JTextField();
         dateVacExpDate = new com.toedter.calendar.JDateChooser();
         txtVacQuantity = new javax.swing.JTextField();
-        lblVacName = new javax.swing.JLabel();
-        lblExpiryDate = new javax.swing.JLabel();
-        lblQuantity = new javax.swing.JLabel();
         lblState = new javax.swing.JLabel();
         lblCentre = new javax.swing.JLabel();
 
@@ -166,34 +162,35 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
             }
         });
 
-        cmbNewStateCentre.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        cmbNewStateCentre.addItemListener(new java.awt.event.ItemListener() {
+        cmbNewCentre.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        cmbNewCentre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*None*" }));
+        cmbNewCentre.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbNewStateCentreItemStateChanged(evt);
+                cmbNewCentreItemStateChanged(evt);
             }
         });
-        cmbNewStateCentre.addActionListener(new java.awt.event.ActionListener() {
+        cmbNewCentre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbNewStateCentreActionPerformed(evt);
+                cmbNewCentreActionPerformed(evt);
             }
         });
-        cmbNewStateCentre.addKeyListener(new java.awt.event.KeyAdapter() {
+        cmbNewCentre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                cmbNewStateCentreKeyPressed(evt);
+                cmbNewCentreKeyPressed(evt);
             }
         });
 
-        btnAddSlot.setBackground(new java.awt.Color(255, 204, 153));
-        btnAddSlot.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnAddSlot.setText("Add");
-        btnAddSlot.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdd.setBackground(new java.awt.Color(255, 204, 153));
+        btnAdd.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAddSlotMouseClicked(evt);
+                btnAddMouseClicked(evt);
             }
         });
-        btnAddSlot.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSlotActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -205,9 +202,6 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
                 btnRemoveActionPerformed(evt);
             }
         });
-
-        lblVacCode.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblVacCode.setText("lblVacCode");
 
         btnViewSlot1.setBackground(new java.awt.Color(204, 255, 255));
         btnViewSlot1.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
@@ -279,17 +273,8 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
             }
         });
 
-        lblVacName.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblVacName.setText("lblVacName");
-
-        lblExpiryDate.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblExpiryDate.setText("lblExpiryDate");
-
-        lblQuantity.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblQuantity.setText("lblQuantity");
-
         lblState.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblState.setText("lblState");
+        lblState.setText(" ");
 
         lblCentre.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         lblCentre.setText("lblCentre");
@@ -310,12 +295,6 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
                                 .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(lblVacName)
-                                        .addGap(63, 63, 63)
-                                        .addComponent(lblVacCode)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblExpiryDate))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                                         .addComponent(jLabel19)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -324,23 +303,18 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
                                         .addComponent(jLabel14)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtVacName, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(68, 68, 68)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(57, 57, 57)
-                                        .addComponent(lblQuantity))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(68, 68, 68)
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel20)
-                                            .addComponent(jLabel21))
-                                        .addGap(44, 44, 44)
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(dateVacExpDate, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                                            .addComponent(txtVacQuantity))
-                                        .addGap(78, 78, 78)
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(btnAddSlot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))))))
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21))
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dateVacExpDate, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                                    .addComponent(txtVacQuantity))
+                                .addGap(78, 78, 78)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,7 +327,7 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbNewCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(116, 116, 116)
                                 .addComponent(btnViewSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -384,7 +358,7 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
                             .addComponent(lblCentre))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbNewCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnViewSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(29, 29, 29)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -394,13 +368,7 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
                     .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVacCode)
-                    .addComponent(lblVacName)
-                    .addComponent(lblExpiryDate)
-                    .addComponent(lblQuantity))
-                .addGap(27, 27, 27)
+                .addGap(79, 79, 79)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -408,7 +376,7 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
                             .addComponent(jLabel20)
                             .addComponent(txtVacName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(dateVacExpDate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnAddSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -467,22 +435,22 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
         
         if (state.equals("Johor")) {
             try {
-                cmbNewStateCentre.removeAllItems();
-                c.fillComboBoxJohor(cmbNewStateCentre);
+                cmbNewCentre.removeAllItems();
+                c.fillComboBoxJohor(cmbNewCentre);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Now, select the centre.!");
             }
         } else if (state.equals("Kuala Lumpur")) {
             try {
-                cmbNewStateCentre.removeAllItems();
-                c.fillComboBoxKL(cmbNewStateCentre);
+                cmbNewCentre.removeAllItems();
+                c.fillComboBoxKL(cmbNewCentre);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Now, select the centre.!");
             }
         } else if (state.equals("Penang")) {
             try {
-                cmbNewStateCentre.removeAllItems();
-                c.fillComboBoxPenang(cmbNewStateCentre);
+                cmbNewCentre.removeAllItems();
+                c.fillComboBoxPenang(cmbNewCentre);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Now, select the centre.!");
             }
@@ -493,7 +461,7 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
         String state = cmbNewState.getSelectedItem().toString();
         if(state.equals("*None*")){
             JOptionPane.showMessageDialog(null, "Please select the state.");
-            cmbNewStateCentre.removeAllItems();
+            cmbNewCentre.removeAllItems();
         }
 
     }//GEN-LAST:event_cmbNewStateActionPerformed
@@ -502,19 +470,19 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbNewStatePropertyChange
 
-    private void cmbNewStateCentreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNewStateCentreItemStateChanged
+    private void cmbNewCentreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNewCentreItemStateChanged
 
-    }//GEN-LAST:event_cmbNewStateCentreItemStateChanged
+    }//GEN-LAST:event_cmbNewCentreItemStateChanged
 
-    private void cmbNewStateCentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewStateCentreActionPerformed
+    private void cmbNewCentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewCentreActionPerformed
 
-    }//GEN-LAST:event_cmbNewStateCentreActionPerformed
+    }//GEN-LAST:event_cmbNewCentreActionPerformed
 
-    private void cmbNewStateCentreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbNewStateCentreKeyPressed
+    private void cmbNewCentreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbNewCentreKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbNewStateCentreKeyPressed
+    }//GEN-LAST:event_cmbNewCentreKeyPressed
 
-    private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
        String vacname = txtVacName.getText();
         String vaccode = txtVacCode.getText();
         Date expdate = dateVacExpDate.getDate();
@@ -524,13 +492,13 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
         
         if("*None*".equals(cmbNewState.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Please select the state.");
-        }else if("*None*".equals(cmbNewStateCentre.getSelectedItem().toString())){
+        }else if("*None*".equals(cmbNewCentre.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Please select the centre.");
         }else if(labelstate.equals(" ") && labelcentre.equals(" ") ){
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(!labelcentre.equals(cmbNewStateCentre.getSelectedItem().toString())){
+        }else if(!labelcentre.equals(cmbNewCentre.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(!labelstate.equals(cmbNewStateCentre.getSelectedItem().toString())){
+        }else if(!labelstate.equals(cmbNewState.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
         }else if(vacname.equals("")){
             JOptionPane.showMessageDialog(null, "Please enter the Vaccine Name.");
@@ -549,7 +517,7 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error");
             }
         }
-    }//GEN-LAST:event_btnAddSlotActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
 String state = lblState.getText();
@@ -557,15 +525,15 @@ String state = lblState.getText();
         String vacname = txtVacName.getText();
         String vaccode = txtVacCode.getText();
         Date expdate = dateVacExpDate.getDate();
-        int quantity = Integer.parseInt(txtVacQuantity.getText());
+//        int quantity = Integer.parseInt(txtVacQuantity.getText());
         
         if("*None*".equals(cmbNewState.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Please select the state.");
-        }else if("*None*".equals(cmbNewStateCentre.getSelectedItem().toString())){
+        }else if("*None*".equals(cmbNewCentre.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Please select the centre.");
         }else if(state.equals(" ") && centre.equals(" ") ){
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(!centre.equals(cmbNewStateCentre.getSelectedItem().toString())){
+        }else if(!centre.equals(cmbNewCentre.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
         }else if(!state.equals(cmbNewState.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
@@ -590,11 +558,11 @@ String state = lblState.getText();
 
     private void btnViewSlot1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSlot1ActionPerformed
         String state = cmbNewState.getSelectedItem().toString();
-        String centre = cmbNewStateCentre.getSelectedItem().toString();
+        String centre = cmbNewCentre.getSelectedItem().toString();
 
         if ("*None*".equals(cmbNewState.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Please select the state.");
-        } else if ("*None*".equals(cmbNewStateCentre.getSelectedItem().toString())) {
+        } else if ("*None*".equals(cmbNewCentre.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Please select the centre.");
         } else {
 //            panel.setVisible(true);
@@ -632,47 +600,6 @@ String state = lblState.getText();
         } catch (ParseException ex) {
             java.util.logging.Logger.getLogger(PersonnelManageVaccine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-//        DefaultTableModel tblModel = (DefaultTableModel)jTableRegistered.getModel();
-//        String ic = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 0).toString();
-//        String name = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 1).toString();
-//        String contactNo = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 2).toString();
-//        String email = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 3).toString();
-//        String state= tblModel.getValueAt(jTableRegistered.getSelectedRow(), 4).toString();
-//        String peopletype = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 5).toString();
-//
-//        showContent();
-//        try {
-//            lblIC.setText(ic);
-//            lblName.setText(name);
-//            lblContactNo.setText(contactNo);
-//            lblEmail.setText(email);
-//            lblState.setText(state);
-//            lblPeopleType.setText(peopletype);
-//            if(lblState.getText().equals("Johor")){
-//                try{
-//                    cmbNewStateCentre.removeAllItems();
-//                    c.fillComboBoxJohor(cmbNewStateCentre);
-//                }catch(Exception e){
-//                    JOptionPane.showMessageDialog(null, "Error.");
-//                }
-//            }else if(lblState.getText().equals("Kuala Lumpur")){
-//                try{
-//                    cmbNewStateCentre.removeAllItems();
-//                    c.fillComboBoxKL(cmbNewStateCentre);
-//                }catch(Exception e){
-//                    JOptionPane.showMessageDialog(null, "Error.");
-//                }
-//            }else if(lblState.getText().equals("Penang")){
-//                try{
-//                    cmbNewStateCentre.removeAllItems();
-//                    c.fillComboBoxPenang(cmbNewStateCentre);
-//                }catch(Exception e){
-//                    JOptionPane.showMessageDialog(null, "Error.");
-//                }
-//            }
-//        } catch (Exception ex) {
-//            java.util.logging.Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
     }//GEN-LAST:event_jTableVacinneSupplyMouseClicked
 
     private void txtVacNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVacNameActionPerformed
@@ -695,9 +622,9 @@ String state = lblState.getText();
         }
     }//GEN-LAST:event_txtVacQuantityKeyTyped
 
-    private void btnAddSlotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddSlotMouseClicked
+    private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddSlotMouseClicked
+    }//GEN-LAST:event_btnAddMouseClicked
 
     /**
      * @param args the command line arguments
@@ -735,11 +662,11 @@ String state = lblState.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddSlot;
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnViewSlot1;
+    private javax.swing.JComboBox<String> cmbNewCentre;
     private javax.swing.JComboBox<String> cmbNewState;
-    private javax.swing.JComboBox<String> cmbNewStateCentre;
     private com.toedter.calendar.JDateChooser dateVacExpDate;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -759,11 +686,7 @@ String state = lblState.getText();
     private javax.swing.JTable jTableVacinneSupply;
     private javax.swing.JLabel lblCentre;
     private javax.swing.JLabel lblClose;
-    private javax.swing.JLabel lblExpiryDate;
-    private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblState;
-    private javax.swing.JLabel lblVacCode;
-    private javax.swing.JLabel lblVacName;
     private javax.swing.JTextField txtAssSearch;
     private javax.swing.JTextField txtVacCode;
     private javax.swing.JTextField txtVacName;

@@ -14,6 +14,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -347,6 +350,147 @@ public class Appointment {
         this.columnsNameAdd = columnsName;
     }
 
+     String[] columnsName1 = {"IC/Passport No.","Name","Phone No.", "Email", "State", "People Type"};
+    public void viewSlotTable(JTable t) throws FileNotFoundException, IOException{DefaultTableModel model = (DefaultTableModel)t.getModel();
+
+        try{
+            String filename = "Appointment/vaccineregistered.txt";
+            File FILEPATH = new File(filename);
+
+            BufferedReader br = new BufferedReader (new FileReader(FILEPATH)); 
+            model.setColumnIdentifiers(columnsName1);
+            String view;
+            while((view = br.readLine())!= null){
+            String[] cj = view.split(" : ");
+            model.addRow(cj);
+            }
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Error.");
+        }
+
+    }
+    
+    String[] columnsName2 = {"IC/Passport No.)","Name","Phone No.", "Email", "State", "People Type", "Venue", "Date", "Time"};
+    public void viewAddedAppTable(JTable t) throws FileNotFoundException, IOException{DefaultTableModel model = (DefaultTableModel)t.getModel();
+
+        try{
+            String filename = "Appointment/vaccineappadded.txt";
+            File FILEPATH = new File(filename);
+
+            BufferedReader br = new BufferedReader (new FileReader(FILEPATH)); 
+            model.setColumnIdentifiers(columnsName2);
+            String view;
+            while((view = br.readLine())!= null){
+            String[] cj = view.split(" : ");
+            model.addRow(cj);
+            }
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Error.");
+        }
+
+    }
+    
+    String[] columnsName3 = {"IC/Passport No.","Name","Phone No.", "Email", "State", "People Type", "Venue", "Date", "Slot", "Vaccine", "Vaccine Code", "Expiry Date"};
+    public void viewCompletedAppTable(JTable t) throws FileNotFoundException, IOException{DefaultTableModel model = (DefaultTableModel)t.getModel();
+
+        try{
+            String filename = "Appointment/vaccineappcompleted.txt";
+            File FILEPATH = new File(filename);
+
+            BufferedReader br = new BufferedReader (new FileReader(FILEPATH)); 
+            model.setColumnIdentifiers(columnsName3);
+            String view;
+            while((view = br.readLine())!= null){
+            String[] cj = view.split(" : ");
+            model.addRow(cj);
+            }
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Error.");
+        }
+
+    }
+   
+    
+    public void modifyFile(JLabel id, JComboBox centre, JComboBox slot){
+        String theid = id.getText();
+        String thecentre = centre.getSelectedItem().toString();
+        String theslot = slot.getSelectedItem().toString();
+        
+        ArrayList<String> tempArray = new ArrayList<>();
+        
+        try{
+            try (FileReader fr = new FileReader("Appointment/vaccineappadded.txt")){
+                Scanner reader = new Scanner(fr);
+                String line;
+                String[] lineArr;
+                
+                while((line=reader.nextLine())!=null){
+                    lineArr = line.split(" : ");
+                    if(lineArr[0].equals(theid)){
+                        tempArray.add(lineArr[0] + " : " + lineArr[1] + " : " + lineArr[2] + " : " + lineArr[3] + " : " 
+                                + lineArr[4] + " : " + lineArr[5] + " : " + thecentre + " : " + theslot);
+                        JOptionPane.showMessageDialog(null, "Appointment Updated!");
+                    }else{
+                        tempArray.add(line);
+                    }
+                }
+                
+                fr.close();
+            }catch(Exception e){
+                
+            }
+        }catch(Exception e){
+            
+        }
+        
+        try{
+            try(PrintWriter pr = new PrintWriter("Appointment/vaccineappadded.txt")){
+                for(String str : tempArray){
+                    pr.println(str);
+                }
+                pr.close();
+            }catch(Exception e){
+                
+            }
+        }catch(Exception e){
+            
+        }
+    }
+    
+    public void removeFromAdded(JLabel UserID){
+        File newFile = new File(filePath2);
+        String currentLine;
+        String usr[];
+        String removeTerm = UserID.getText();
+
+        try{
+            FileWriter fw = new FileWriter (filePath2,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+            FileReader fr = new FileReader(newFile);
+            BufferedReader br = new BufferedReader(fr);
+
+            while ((currentLine = br.readLine())!=null ){
+                usr = currentLine.split(" : ");
+                if(!usr[0].equalsIgnoreCase(removeTerm)){
+                    new FileOutputStream(filePath2).close();
+                    pw.println(currentLine);
+                }
+            }
+            pw.flush();
+            pw.close();
+
+            File User = new File(filePath2);
+            newFile.renameTo(User);
+
+            UserID.setText(null);
+        }
+        catch(Exception ex) {
+            JOptionPane.showMessageDialog(null,"Error");
+        }
+    }
+    
     
     public void modify(){
         

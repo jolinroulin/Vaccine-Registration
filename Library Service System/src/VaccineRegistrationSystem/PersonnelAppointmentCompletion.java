@@ -5,6 +5,8 @@
  */
 package VaccineRegistrationSystem;
 
+import Classes.Appointment;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -18,8 +20,15 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
     /**
      * Creates new form PersonnelCancelAppointment
      */
+    Appointment va = new Appointment();
     public PersonnelAppointmentCompletion() {
         initComponents();
+         jTableToBeCompleted.setModel(new DefaultTableModel());
+        try {
+            va.viewCompletedAppTable(jTableToBeCompleted);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error.");
+        }
     }
 
     /**
@@ -39,7 +48,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableSlot = new javax.swing.JTable();
+        jTableToBeCompleted = new javax.swing.JTable();
         btnViewSlot1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -116,8 +125,8 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         jLabel14.setText("IC / Passport Number:");
 
-        jTableSlot.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jTableSlot.setModel(new javax.swing.table.DefaultTableModel(
+        jTableToBeCompleted.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jTableToBeCompleted.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -125,12 +134,12 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
 
             }
         ));
-        jTableSlot.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableToBeCompleted.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableSlotMouseClicked(evt);
+                jTableToBeCompletedMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableSlot);
+        jScrollPane1.setViewportView(jTableToBeCompleted);
 
         btnViewSlot1.setBackground(new java.awt.Color(204, 255, 255));
         btnViewSlot1.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
@@ -354,18 +363,33 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         //        setVisible(false);
     }//GEN-LAST:event_lblCloseMouseClicked
 
-    private void jTableSlotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSlotMouseClicked
-        //        DefaultTableModel tblModel = (DefaultTableModel)jTableSlot.getModel();
-        //        String date = tblModel.getValueAt(jTableSlot.getSelectedRow(), 0).toString();
-        //        String time = tblModel.getValueAt(jTableSlot.getSelectedRow(), 1).toString();
-        //        try {
-            //            java.util.Date thedate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-            //            DateSlot.setDate(thedate);
-            //            cmbTime.setSelectedItem(time);
-            //        } catch (ParseException ex) {
-            //            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
-    }//GEN-LAST:event_jTableSlotMouseClicked
+    private void jTableToBeCompletedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableToBeCompletedMouseClicked
+//        DefaultTableModel tblModel = (DefaultTableModel) jTableToBeCompleted.getModel();
+//        String id = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 0).toString();
+//        String name = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 1).toString();
+//        String phoneno = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 2).toString();
+//        String email = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 3).toString();
+//        String state = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 4).toString();
+//        String peopletype = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 5).toString();
+//        String centre = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 6).toString();
+//        String date = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 7).toString();
+//        String time = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 8).toString();
+//        String slot = date + ", " + time;
+//        String vac1 = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 9).toString();
+//        String vac2 = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 10).toString();
+//        String vac3 = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 11).toString();
+//        String vac = vac1 + " : " + vac2 + " : " + vac3;
+//
+//        lblIC.setText(id);
+//        lblName.setText(name);
+//        lblStatus.setText(state);
+//        lblContactNo.setText(phoneno);
+//        lblEmail.setText(email);
+//        lblPeopleType.setText(peopletype);
+//        lblCentre.setText(centre);
+//        lblSlot.setText(slot);
+//        lbl.setText(vac);
+    }//GEN-LAST:event_jTableToBeCompletedMouseClicked
 
     private void btnViewSlot1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSlot1ActionPerformed
         //        String state = cmbNewStateSlots.getSelectedItem().toString();
@@ -381,10 +405,10 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewSlot1ActionPerformed
 
     private void txtAssSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAssSearchKeyReleased
-        DefaultTableModel table = (DefaultTableModel) jTableSlot.getModel();
+        DefaultTableModel table = (DefaultTableModel) jTableToBeCompleted.getModel();
         String search = txtAssSearch.getText();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
-        jTableSlot.setRowSorter(tr);
+        jTableToBeCompleted.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(search));
     }//GEN-LAST:event_txtAssSearchKeyReleased
 
@@ -444,7 +468,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableSlot;
+    private javax.swing.JTable jTableToBeCompleted;
     private javax.swing.JLabel lblCentre;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblContactNo;

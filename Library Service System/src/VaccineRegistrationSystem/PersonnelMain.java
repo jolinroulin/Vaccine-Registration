@@ -54,7 +54,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         jmiRenew1 = new javax.swing.JMenu();
         jApp = new javax.swing.JMenu();
         jmiIManageAppointment = new javax.swing.JMenuItem();
-        jmilManageDate = new javax.swing.JMenuItem();
+        jmilManageApp = new javax.swing.JMenuItem();
         jVaciine = new javax.swing.JMenu();
         jmiManageVaccine = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -69,8 +69,9 @@ public class PersonnelMain extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/library background.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/mainpage.png"))); // NOI18N
 
         lbl.setFont(new java.awt.Font("Segoe Print", 0, 36)); // NOI18N
 
@@ -85,39 +86,31 @@ public class PersonnelMain extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(149, 149, 149)
                 .addComponent(lblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(lbl))
+                        .addGap(52, 52, 52)
+                        .addComponent(lbl)
+                        .addContainerGap(648, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(lblUser)))
-                .addContainerGap(599, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(795, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(128, 128, 128)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUser)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-                .addGap(52, 52, 52))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(194, 194, 194)
+                .addGap(152, 152, 152)
+                .addComponent(jLabel5)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblUser)
                     .addComponent(lbl))
-                .addContainerGap(395, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(152, 152, 152)
-                    .addComponent(jLabel5)
-                    .addContainerGap(437, Short.MAX_VALUE)))
+                .addContainerGap(393, Short.MAX_VALUE))
+            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 102, 255));
@@ -153,7 +146,7 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenuPeople.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Studentpic.png"))); // NOI18N
+        jMenuPeople.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/profile.png"))); // NOI18N
         jMenuPeople.setText("People");
         jMenuPeople.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
@@ -219,6 +212,11 @@ public class PersonnelMain extends javax.swing.JFrame {
         jApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/addappointment.png"))); // NOI18N
         jApp.setText("Appointment");
         jApp.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAppActionPerformed(evt);
+            }
+        });
 
         jmiIManageAppointment.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jmiIManageAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/appointment.png"))); // NOI18N
@@ -230,15 +228,15 @@ public class PersonnelMain extends javax.swing.JFrame {
         });
         jApp.add(jmiIManageAppointment);
 
-        jmilManageDate.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmilManageDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
-        jmilManageDate.setText("Manage Appointment");
-        jmilManageDate.addActionListener(new java.awt.event.ActionListener() {
+        jmilManageApp.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmilManageApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
+        jmilManageApp.setText("Manage Appointment");
+        jmilManageApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmilManageDateActionPerformed(evt);
+                jmilManageAppActionPerformed(evt);
             }
         });
-        jApp.add(jmilManageDate);
+        jApp.add(jmilManageApp);
 
         jMenuBar1.add(jApp);
 
@@ -336,20 +334,10 @@ public class PersonnelMain extends javax.swing.JFrame {
 //        new ViewBook().setVisible(true);
     }//GEN-LAST:event_jmiViewVaccineActionPerformed
 
-    private void jmiAddpersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddpersonnelActionPerformed
-        new RegisterPersonnel().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jmiAddpersonnelActionPerformed
-
     private void jmiViewPersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewPersonnelActionPerformed
         new ViewPersonnel().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jmiViewPersonnelActionPerformed
-
-    private void jmiAddPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddPeopleActionPerformed
-        new RegisterPeople().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jmiAddPeopleActionPerformed
 
     private void jmiViewPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewPeopleActionPerformed
         new ViewPeople().setVisible(true);
@@ -387,9 +375,10 @@ public class PersonnelMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPeopleProfileActionPerformed
 
-    private void jmilManageDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmilManageDateActionPerformed
+    private void jmilManageAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageAppActionPerformed
+        new PersonnelManageVaccine().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmilManageAppActionPerformed
 
     private void jmiRenewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRenewActionPerformed
 
@@ -414,6 +403,20 @@ public class PersonnelMain extends javax.swing.JFrame {
         //new PrintReport().setVisible(true);
         //this.dispose();
     }//GEN-LAST:event_jmiSummaryReportActionPerformed
+
+    private void jmiAddpersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddpersonnelActionPerformed
+        new RegisterPersonnel().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmiAddpersonnelActionPerformed
+
+    private void jAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAppActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAppActionPerformed
+
+    private void jmiAddPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddPeopleActionPerformed
+        new RegisterPeople().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmiAddPeopleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -482,7 +485,7 @@ public class PersonnelMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiViewPeople;
     private javax.swing.JMenuItem jmiViewPersonnel;
     private javax.swing.JMenuItem jmiViewVaccine;
-    private javax.swing.JMenuItem jmilManageDate;
+    private javax.swing.JMenuItem jmilManageApp;
     private javax.swing.JLabel lbl;
     private javax.swing.JLabel lblBackground;
     public javax.swing.JLabel lblUser;

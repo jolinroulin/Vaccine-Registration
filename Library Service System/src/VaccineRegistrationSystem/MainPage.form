@@ -137,25 +137,25 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                          <Component id="lblBackground" min="-2" pref="570" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="lblBackground" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="lblExit" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnAdmin" min="-2" pref="368" max="-2" attributes="0"/>
                                       <Component id="btnUser" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="211" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="231" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="332" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -184,7 +184,7 @@
                 <Component class="javax.swing.JLabel" name="lblBackground">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Image/j.jpg"/>
+                      <Image iconType="3" name="/Image/mainpage.png"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -229,7 +229,7 @@
                       <Font name="Cambria Math" size="20" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Image/user.png"/>
+                      <Image iconType="3" name="/Image/profile.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="                   User"/>
                     <Property name="actionCommand" type="java.lang.String" value="               "/>

@@ -137,7 +137,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/j.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/mainpage.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         jLabel2.setText("Login As");
@@ -158,7 +158,7 @@ public class MainPage extends javax.swing.JFrame {
 
         btnUser.setBackground(new java.awt.Color(204, 204, 255));
         btnUser.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
-        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/user.png"))); // NOI18N
+        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/profile.png"))); // NOI18N
         btnUser.setText("                   User");
         btnUser.setActionCommand("               ");
         btnUser.setFocusable(false);
@@ -182,21 +182,21 @@ public class MainPage extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(lblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160)
+                .addComponent(lblBackground)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblExit)
                         .addGap(31, 31, 31))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
+                        .addGap(90, 90, 90)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnUser, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 211, Short.MAX_VALUE))
+                        .addGap(0, 231, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(332, 332, 332)
+                        .addGap(227, 227, 227)
                         .addComponent(jLabel2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );

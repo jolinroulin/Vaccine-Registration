@@ -21,24 +21,46 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Asus
  */
-public class PersonnelAssignAppointment extends javax.swing.JFrame {
+public class PersonnelManageAppointment extends javax.swing.JFrame {
 
     /**
-     * Creates new form PersonnelAssignAppointment
+     * Creates new form PersonnelManageAppointment
      */
     Centre c =new Centre();
     Appointment a = new Appointment();
     AppointmentSlots as = new AppointmentSlots();
-    public PersonnelAssignAppointment() {
+    public PersonnelManageAppointment() {
         initComponents();
         hideContent();
         try {
-            a.viewRegisteredPeopleTable(jTableRegistered);
+            a.viewAddedPeopleTable(jTableAdded);
         } catch (IOException ex) {
             Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void hideContent() {
+//        jSeparator1.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel6.setVisible(false);
+        cmbNewStateCentre.setVisible(false);
+        btnviewSlot.setVisible(false);
+        jLabel15.setVisible(false);
+        cmbTime.setVisible(false);
+        btnAddSlot.setVisible(false);
+//        btnViewApp.setVisible(false);
+    }
 
+    public void showContent() {
+//        jSeparator1.setVisible(true);
+        jLabel4.setVisible(true);
+        jLabel6.setVisible(true);
+        cmbNewStateCentre.setVisible(true);
+        btnviewSlot.setVisible(true);
+        jLabel15.setVisible(true);
+        cmbTime.setVisible(true);
+        btnAddSlot.setVisible(true);
+//        btnViewApp.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,17 +76,10 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         lblClose = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        cmbNewStateCentre = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
-        cmbTime = new javax.swing.JComboBox<>();
         btnAddSlot = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableRegistered = new javax.swing.JTable();
-        btnViewApp = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        jTableAdded = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -75,11 +90,18 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
         lblPeopleType = new javax.swing.JLabel();
         txtAssSearch = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        btnviewSlot = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         lblContactNo = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
+        btn = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        cmbNewStateCentre = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        cmbTime = new javax.swing.JComboBox<>();
+        btnviewSlot = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -90,9 +112,9 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Assign Appointment");
+        jLabel12.setText("Manage Appointment");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/borrowbook.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
         jLabel13.setText("jLabel13");
 
         lblClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-close-window-30.png"))); // NOI18N
@@ -108,7 +130,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(509, Short.MAX_VALUE)
+                .addContainerGap(436, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
@@ -128,19 +150,99 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
                             .addComponent(jLabel12))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel14.setText("IC / Passport Number:");
+
+        btnAddSlot.setBackground(new java.awt.Color(255, 204, 153));
+        btnAddSlot.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnAddSlot.setText("Delete");
+        btnAddSlot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSlotActionPerformed(evt);
+            }
+        });
+
+        jTableAdded.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jTableAdded.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTableAdded.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAddedMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableAdded);
+
+        jLabel7.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        jLabel7.setText("Assigned Appointment Details");
+
+        jLabel19.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel19.setText("Name: ");
+
+        jLabel20.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel20.setText("PeopleType: ");
+
+        jLabel21.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel21.setText("State:");
+
+        lblIC.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        lblIC.setText("lblIC");
+
+        lblName.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        lblName.setText("lblName");
+
+        lblState.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        lblState.setText("lblStatus");
+
+        lblPeopleType.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        lblPeopleType.setText("lblPeopleType");
+
+        txtAssSearch.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtAssSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAssSearchKeyReleased(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel16.setText("Search:");
+
+        jLabel22.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel22.setText("Contact Number: ");
+
+        lblContactNo.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        lblContactNo.setText("lblContactNo");
+
+        jLabel23.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jLabel23.setText("Email:");
+
+        lblEmail.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        lblEmail.setText("lblEmail");
+
+        btn.setBackground(new java.awt.Color(255, 204, 153));
+        btn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btn.setText("Update");
+        btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel4.setText("Arrange Date and Time ");
 
         jLabel6.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         jLabel6.setText("Select Centre:");
-
-        jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jLabel14.setText("IC / Passport Number:");
 
         cmbNewStateCentre.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         cmbNewStateCentre.addItemListener(new java.awt.event.ItemListener() {
@@ -179,74 +281,6 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
             }
         });
 
-        btnAddSlot.setBackground(new java.awt.Color(255, 204, 153));
-        btnAddSlot.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnAddSlot.setText("Add");
-        btnAddSlot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSlotActionPerformed(evt);
-            }
-        });
-
-        jTableRegistered.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jTableRegistered.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jTableRegistered.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableRegisteredMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTableRegistered);
-
-        btnViewApp.setBackground(new java.awt.Color(255, 204, 204));
-        btnViewApp.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnViewApp.setText("View Assigned Appointment");
-        btnViewApp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewAppActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
-        jLabel7.setText("Registered People Details");
-
-        jLabel19.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jLabel19.setText("Name: ");
-
-        jLabel20.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jLabel20.setText("PeopleType: ");
-
-        jLabel21.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jLabel21.setText("State:");
-
-        lblIC.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblIC.setText("lblIC");
-
-        lblName.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblName.setText("lblName");
-
-        lblState.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblState.setText("lblStatus");
-
-        lblPeopleType.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblPeopleType.setText("lblPeopleType");
-
-        txtAssSearch.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtAssSearch.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtAssSearchKeyReleased(evt);
-            }
-        });
-
-        jLabel16.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jLabel16.setText("Search:");
-
         btnviewSlot.setBackground(new java.awt.Color(255, 204, 153));
         btnviewSlot.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         btnviewSlot.setText("View Slots");
@@ -256,30 +290,33 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jLabel22.setText("Contact Number: ");
-
-        lblContactNo.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblContactNo.setText("lblContactNo");
-
-        jLabel23.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jLabel23.setText("Email:");
-
-        lblEmail.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        lblEmail.setText("lblEmail");
-
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel21))
+                                .addGap(56, 56, 56)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblState)
+                                    .addComponent(lblIC)
+                                    .addComponent(lblName)
+                                    .addComponent(lblContactNo)
+                                    .addComponent(lblPeopleType)
+                                    .addComponent(lblEmail)))
+                            .addComponent(jLabel7)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,121 +328,102 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
                                             .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnviewSlot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAddSlot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(btnviewSlot))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel21))
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblState)
-                            .addComponent(lblIC)
-                            .addComponent(lblName)
-                            .addComponent(lblContactNo)
-                            .addComponent(lblPeopleType)
-                            .addComponent(lblEmail)))
+                        .addGap(125, 125, 125)
+                        .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
+                        .addComponent(btnAddSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(btnViewApp, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(jLabel7)
-                    .addContainerGap(970, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(jSeparator1)))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(lblIC))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(lblName))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(lblContactNo))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel23)
-                            .addComponent(lblEmail))
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel21)
-                            .addComponent(lblState))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(lblPeopleType))
-                        .addGap(36, 36, 36)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel4)
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnviewSlot))
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)
-                            .addComponent(btnAddSlot))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnViewApp, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGap(23, 23, 23)
-                    .addComponent(jLabel7)
-                    .addContainerGap(622, Short.MAX_VALUE)))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(lblIC))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(lblName))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(lblContactNo))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(lblEmail))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(lblState))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(lblPeopleType))
+                .addGap(39, 39, 39)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnviewSlot))
+                .addGap(47, 47, 47)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(67, 67, 67)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn)
+                    .addComponent(btnAddSlot))
+                .addGap(31, 31, 31))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(26, 26, 26))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -432,34 +450,6 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
         //        setVisible(false);
     }//GEN-LAST:event_lblCloseMouseClicked
 
-    private void cmbNewStateCentreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNewStateCentreItemStateChanged
-       
-//        try {
-//            cmbTime.removeAllItems();
-//            as.viewAvailableSlot(lblState, cmbNewStateCentre, cmbTime);
-//        } catch (IOException ex) {
-//            Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }//GEN-LAST:event_cmbNewStateCentreItemStateChanged
-
-    private void cmbNewStateCentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewStateCentreActionPerformed
-
-    }//GEN-LAST:event_cmbNewStateCentreActionPerformed
-
-    private void cmbNewStateCentreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbNewStateCentreKeyPressed
-
-//                try {
-//            cmbTime.removeAllItems();
-//            as.viewAvailableSlot(lblState, cmbNewStateCentre, cmbTime);
-//        } catch (IOException ex) {
-//            Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }//GEN-LAST:event_cmbNewStateCentreKeyPressed
-
-    private void cmbTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbTimeActionPerformed
-
     private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
         try{
             String ic = lblIC.getText();
@@ -470,109 +460,125 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
             String peopletype = lblPeopleType.getText();
             String centre = cmbNewStateCentre.getSelectedItem().toString();
             String slot = cmbTime.getSelectedItem().toString();
+            
 
             FileWriter Writer = new FileWriter("Appointment/vaccineappadded.txt", true);
             Writer.write(ic + " : " + name + " : " + cn + " : " + email + " : " + state + " : " + peopletype + " : "  + centre + " : " + slot);
             Writer.write(System.getProperty("line.separator"));
             Writer.close();
-            
+
             JOptionPane.showMessageDialog(null, "Assigned Successful");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error");
         }
-        
-        a.removefromRegistered(lblIC);
-        jTableRegistered.setModel(new DefaultTableModel());
+
+        a.removefromAddedApp(lblIC);
+        jTableAdded.setModel(new DefaultTableModel());
         try {
-            a.viewRegisteredPeopleTable(jTableRegistered);
+            
+            a.viewAddedPeopleTable(jTableAdded);
+
+   
         } catch (IOException ex) {
             Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAddSlotActionPerformed
 
-    private void jTableRegisteredMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRegisteredMouseClicked
-        DefaultTableModel tblModel = (DefaultTableModel)jTableRegistered.getModel();
-        String ic = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 0).toString();
-        String name = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 1).toString();
-        String contactNo = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 2).toString();
-        String email = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 3).toString();
-        String state= tblModel.getValueAt(jTableRegistered.getSelectedRow(), 4).toString();
-        String peopletype = tblModel.getValueAt(jTableRegistered.getSelectedRow(), 5).toString();
+    private void txtAssSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAssSearchKeyReleased
+        DefaultTableModel table = (DefaultTableModel) jTableAdded.getModel();
+        String search = txtAssSearch.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
+        jTableAdded.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_txtAssSearchKeyReleased
+
+    private void jTableAddedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAddedMouseClicked
+        DefaultTableModel tblModel = (DefaultTableModel)jTableAdded.getModel();
+        String ic = tblModel.getValueAt(jTableAdded.getSelectedRow(), 0).toString();
+        String name = tblModel.getValueAt(jTableAdded.getSelectedRow(), 1).toString();
+        String contactNo = tblModel.getValueAt(jTableAdded.getSelectedRow(), 2).toString();
+        String email = tblModel.getValueAt(jTableAdded.getSelectedRow(), 3).toString();
+        String state= tblModel.getValueAt(jTableAdded.getSelectedRow(), 4).toString();
+        String peopletype = tblModel.getValueAt(jTableAdded.getSelectedRow(), 5).toString();
+        String centre = tblModel.getValueAt(jTableAdded.getSelectedRow(), 6).toString();
+        String date = tblModel.getValueAt(jTableAdded.getSelectedRow(), 7).toString();
+        String time = tblModel.getValueAt(jTableAdded.getSelectedRow(), 8).toString();
+        String slot = date + " : " + time;
         
         showContent();
-         try {
+        try {
             lblIC.setText(ic);
-        lblName.setText(name);
-        lblContactNo.setText(contactNo);
-        lblEmail.setText(email);
-        lblState.setText(state);
-        lblPeopleType.setText(peopletype);
+            lblName.setText(name);
+            lblContactNo.setText(contactNo);
+            lblEmail.setText(email);
+            lblState.setText(state);
+            lblPeopleType.setText(peopletype);
             if(lblState.getText().equals("Johor")){
                 try{
                     cmbNewStateCentre.removeAllItems();
                     c.fillComboBoxJohor(cmbNewStateCentre);
+                    cmbNewStateCentre.setSelectedItem(centre);
                 }catch(Exception e){
                     JOptionPane.showMessageDialog(null, "Error.");
                 }
+                String getJohorCentre = cmbNewStateCentre.getSelectedItem().toString();
+                as.viewJohorSlots(getJohorCentre, cmbTime);
+                cmbTime.setSelectedItem(slot);
             }else if(lblState.getText().equals("Kuala Lumpur")){
                 try{
                     cmbNewStateCentre.removeAllItems();
                     c.fillComboBoxKL(cmbNewStateCentre);
+                    cmbNewStateCentre.setSelectedItem(centre);                    
                 }catch(Exception e){
                     JOptionPane.showMessageDialog(null, "Error.");
                 }
+                String getKLCentre = cmbNewStateCentre.getSelectedItem().toString();
+                as.viewKLSlots(getKLCentre, cmbTime);
+                cmbTime.setSelectedItem(slot);
             }else if(lblState.getText().equals("Penang")){
                 try{
                     cmbNewStateCentre.removeAllItems();
                     c.fillComboBoxPenang(cmbNewStateCentre);
+                    cmbNewStateCentre.setSelectedItem(centre);
                 }catch(Exception e){
                     JOptionPane.showMessageDialog(null, "Error.");
                 }
+                String getPenangCentre = cmbNewStateCentre.getSelectedItem().toString();
+                as.viewPenangSlots(getPenangCentre, cmbTime);
+                cmbTime.setSelectedItem(slot);
             }
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jTableRegisteredMouseClicked
+    }//GEN-LAST:event_jTableAddedMouseClicked
 
-    private void btnViewAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAppActionPerformed
- new PersonnelManageAppointment().setVisible(true);
- this.dispose();
-    }//GEN-LAST:event_btnViewAppActionPerformed
+    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActionPerformed
 
-    public void hideContent() {
-        jSeparator1.setVisible(false);
-        jLabel4.setVisible(false);
-        jLabel6.setVisible(false);
-        cmbNewStateCentre.setVisible(false);
-        btnviewSlot.setVisible(false);
-        jLabel15.setVisible(false);
-        cmbTime.setVisible(false);
-        btnAddSlot.setVisible(false);
-//        btnViewApp.setVisible(false);
-    }
+    private void cmbNewStateCentreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNewStateCentreItemStateChanged
 
-    public void showContent() {
-        jSeparator1.setVisible(true);
-        jLabel4.setVisible(true);
-        jLabel6.setVisible(true);
-        cmbNewStateCentre.setVisible(true);
-        btnviewSlot.setVisible(true);
-        jLabel15.setVisible(true);
-        cmbTime.setVisible(true);
-        btnAddSlot.setVisible(true);
-//        btnViewApp.setVisible(true);
-    }
-    private void txtAssSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAssSearchKeyReleased
-        DefaultTableModel table = (DefaultTableModel) jTableRegistered.getModel();
-        String search = txtAssSearch.getText();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
-        jTableRegistered.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(search));
-    }//GEN-LAST:event_txtAssSearchKeyReleased
+    }//GEN-LAST:event_cmbNewStateCentreItemStateChanged
+
+    private void cmbNewStateCentreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbNewStateCentreMouseClicked
+        cmbTime.removeAllItems();
+    }//GEN-LAST:event_cmbNewStateCentreMouseClicked
+
+    private void cmbNewStateCentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewStateCentreActionPerformed
+
+    }//GEN-LAST:event_cmbNewStateCentreActionPerformed
 
     private void cmbNewStateCentrePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cmbNewStateCentrePropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbNewStateCentrePropertyChange
+
+    private void cmbNewStateCentreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbNewStateCentreKeyPressed
+
+    }//GEN-LAST:event_cmbNewStateCentreKeyPressed
+
+    private void cmbTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTimeActionPerformed
 
     private void btnviewSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewSlotActionPerformed
         try {
@@ -582,10 +588,6 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
             Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnviewSlotActionPerformed
-
-    private void cmbNewStateCentreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbNewStateCentreMouseClicked
-        cmbTime.removeAllItems();
-    }//GEN-LAST:event_cmbNewStateCentreMouseClicked
 
     /**
      * @param args the command line arguments
@@ -604,30 +606,27 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelManageAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelManageAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelManageAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelManageAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonnelAssignAppointment().setVisible(true);
+                new PersonnelManageAppointment().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn;
     private javax.swing.JButton btnAddSlot;
-    private javax.swing.JButton btnViewApp;
     private javax.swing.JButton btnviewSlot;
     private javax.swing.JComboBox<String> cmbNewStateCentre;
     private javax.swing.JComboBox<String> cmbTime;
@@ -649,7 +648,7 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTableRegistered;
+    private javax.swing.JTable jTableAdded;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblContactNo;
     private javax.swing.JLabel lblEmail;

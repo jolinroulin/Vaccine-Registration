@@ -207,7 +207,65 @@ public class Appointment {
         catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error");
         }
-}
+
+    }
+    
+    
+    String[] columnsNameAdd = {"IC","Name","Contact No","Email","State","People Type","Centre","Date","Time"};   
+    public void viewAddedPeopleTable(JTable t) throws FileNotFoundException, IOException{
+        DefaultTableModel model = (DefaultTableModel)t.getModel();
+
+        try{
+        String filename = "Appointment/vaccineappadded.txt";
+        File FILEPATH =new File(filename);
+ 
+            BufferedReader br = new BufferedReader (new FileReader(FILEPATH)); 
+            model.setColumnIdentifiers(columnsNameAdd);
+            String view;
+            while((view = br.readLine())!= null){
+            String[] cj = view.split(" : ");
+            model.addRow(cj);
+            }
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "No Record in this Centre!");
+        }            
+    }
+    
+    
+    String filePath2 = "Appointment/vaccineappadded.txt";
+    public void removefromAddedApp(JLabel UserID){
+        File newFile = new File(filePath2);
+        String currentLine;
+        String usr[];
+        String removeTerm = UserID.getText();
+
+        try{
+            FileWriter fw = new FileWriter (filePath2,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+            FileReader fr = new FileReader(newFile);
+            BufferedReader br = new BufferedReader(fr);
+
+            while ((currentLine = br.readLine())!=null ){
+                usr = currentLine.split(" : ");
+                if(!usr[0].equalsIgnoreCase(removeTerm)){
+                    new FileOutputStream(filePath2).close();
+                    pw.println(currentLine);
+                }
+            }
+            pw.flush();
+            pw.close();
+
+            File User = new File(filePath2);
+            newFile.renameTo(User);
+
+            UserID.setText(null);
+        }
+        catch(Exception ex) {
+            JOptionPane.showMessageDialog(null,"Error");
+        }
+    }
     
     public String getStatus() {
         return status;
@@ -282,11 +340,11 @@ public class Appointment {
     }
 
     public String[] getColumnsName() {
-        return columnsName;
+        return columnsNameAdd;
     }
 
     public void setColumnsName(String[] columnsName) {
-        this.columnsName = columnsName;
+        this.columnsNameAdd = columnsName;
     }
 
     

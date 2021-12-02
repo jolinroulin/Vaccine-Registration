@@ -156,38 +156,57 @@ public void viewAvailableSlot(JLabel state, JComboBox centre, JComboBox cmbas) t
         }
 }
 
-//        try{
-//        
-//        
-//        
-//
-//            BufferedReader br = new BufferedReader (new FileReader(FILEPATH)); 
-////            model.setColumnIdentifiers(columnsName);
-//            String view;
-//            while((view = br.readLine())!= null){
-//            String[] cj = view.split(" : ");
-//            cmbas.addItem(cj);
-//            }
-//        }catch (Exception ex){
-//            JOptionPane.showMessageDialog(null, "No Record in this Centre!");
-//        }
-//    public void fillComboBoxJohor(JComboBox cmbj){
-//        
-//        File file = new File(filePath1);
-//        
-//        try {
-//            Scanner scanner = new Scanner(file);
-//        while(scanner.hasNext()){
-//            String[] lines = scanner.nextLine().split(",");
-//            for(int i = 0; i < lines.length; i++){
-//            String line = lines[i].toString();
-//            cmbj.addItem(line);
-//            }
-//        }
-//        } catch (FileNotFoundException ex) {
-//            JOptionPane.showMessageDialog(null, "Error");
-//        }
-//        
-//    }
+public void viewPenangSlots(String centre, JComboBox slot){
+        String filePath = "Slot/Penang/"+centre+".txt";
+        File file = new File(filePath);
+        try {
+            Scanner scanner = new Scanner(file);
 
+            while(scanner.hasNext()){
+                String[] lines = scanner.nextLine().split("\n");
+                for(int i = 0; i < lines.length; i++){
+                    String line = lines[i].toString();
+                    slot.addItem(line);
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "No Record.");
+        }
+    }
+
+    public void viewKLSlots(String centre, JComboBox slot){
+        String filePath = "Slot/Kuala Lumpur/"+centre+".txt";
+        File file = new File(filePath);
+        try {
+            Scanner scanner = new Scanner(file);
+
+            while(scanner.hasNext()){
+                String[] lines = scanner.nextLine().split("\n");
+                for(int i = 0; i < lines.length; i++){
+                    String line = lines[i].toString();
+                    slot.addItem(line);
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "No Record.");
+        }
+    }
+
+    public void viewJohorSlots(String centre, JComboBox slot){
+        String filePath = "Slot/Johor/"+centre+".txt";
+        File file = new File(filePath);
+        try {
+            Scanner scanner = new Scanner(file);
+
+            while(scanner.hasNext()){
+                String[] lines = scanner.nextLine().split("\n");
+                for(int i = 0; i < lines.length; i++){
+                    String line = lines[i].toString();
+                    slot.addItem(line);
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "No Record.");
+        }
+    }
 }

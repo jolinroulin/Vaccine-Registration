@@ -311,82 +311,8 @@ public void updateNonCitizen(JTextField ID,JTextField Password,JTextField Name,J
    }          
 }
 
-//    public void updateCitzenDetails(String id,String password,String name,String gender,String email,String DOB,String contactNo,String IC){
-//        ArrayList<String> tempArray = new ArrayList<>();                          
-//        try{
-//            try (FileReader fr = new FileReader(FILEPATHCitizen)){
-//               BufferedReader br = new BufferedReader(fr);
-//               String line;
-//               String [] lineArr;
-//
-//            while ((line = br.readLine())!=null ){
-//               lineArr = line.split(" : ");
-//               String citizenId= lineArr[0];
-//               
-//               if (id.equals(citizenId)){
-//                   tempArray.add (id + " : " + password + " : " + name + " : " + gender + " : " +
-//                           email + " : " + DOB + " : " + contactNo + " : " + IC);
-//               }
-//               else{
-//                   tempArray.add(line);
-//               }
-//           }
-//            try(PrintWriter pr = new PrintWriter(FILEPATHCitizen)){
-//                    for (String str: tempArray){
-//                                pr.println(str);
-//                            }
-//                            pr.close();
-//                            
-//                        }catch(Exception ex){
-//                        } 
-//            fr.close();
-//       }catch(Exception ex){ 
-//           Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
-//       }          
-//    }catch (Exception ex){
-//        Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
-//    }
-//    }
-//    public void updateNonCitzenDetails(String id,String password,String name,String gender,String email,String DOB,String contactNo,String passport){
-//        ArrayList<String> tempArray = new ArrayList<>();                          
-//        try{
-//            try (FileReader fr = new FileReader(FILEPATHNonCitizen)){
-//               BufferedReader br = new BufferedReader(fr);
-//               String line;
-//               String [] lineArr;
-//
-//            while ((line = br.readLine())!=null ){
-//               lineArr = line.split("\"");
-//               String nonCitizenId= lineArr[0];
-//               
-//               if (id.equals(nonCitizenId)){
-//                   tempArray.add (id + " : " + password + " : " + name + " : " + gender + " : " +
-//                           email + " : " + DOB + " : " + contactNo + " : " + passport);
-//               }
-//               else{
-//                   tempArray.add(line);
-//               }
-//           }
-//            try(PrintWriter pr = new PrintWriter(FILEPATHNonCitizen)){
-//                    for (String str: tempArray){
-//                                pr.println(str);
-//                            }
-//                            pr.close();
-//                            
-//                        }catch(Exception ex){
-//                        } 
-//            fr.close();
-//       }catch(Exception ex){ 
-//           Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
-//       }          
-//    }catch (Exception ex){
-//        Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
-//    }
-//    }
-
-
+String filePath = "Citizen.txt";
 public void deleteCitizen(JTextField UserID){
-    String filePath = "Citizen.txt";
         if (JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "WARNING",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
         File newFile = new File(filePath);
@@ -404,44 +330,7 @@ public void deleteCitizen(JTextField UserID){
        
             while ((currentLine = br.readLine())!=null ){
                 usr = currentLine.split(" : ");
-                if(!usr[2].equalsIgnoreCase(removeTerm)){
-                    new FileOutputStream(filePath).close();
-                    pw.println(currentLine);
-                }
-            }
-            pw.flush();
-            pw.close();
-            
-            File User = new File(filePath);
-            newFile.renameTo(User);
-            
-            JOptionPane.showMessageDialog(null,"Record is deleted");
-            UserID.setText(null);
-        }
-        catch(Exception ex) {
-
-        }  
-    }  }
-public void deleteNonCitizen(JTextField UserID){
-    String filePath = "NonCitizen.txt";
-        if (JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "WARNING",
-        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
-        File newFile = new File(filePath);
-        String currentLine;
-        String usr[];
-        String removeTerm = UserID.getText();
-
-        try{
-            FileWriter fw = new FileWriter (filePath,true);
-            BufferedWriter bw = new BufferedWriter (fw);
-            PrintWriter pw = new PrintWriter(bw);
-            
-            FileReader fr = new FileReader(newFile);
-            BufferedReader br = new BufferedReader(fr);
-       
-            while ((currentLine = br.readLine())!=null ){
-                usr = currentLine.split(" : ");
-                if(!usr[2].equalsIgnoreCase(removeTerm)){
+                if(!usr[0].equalsIgnoreCase(removeTerm)){
                     new FileOutputStream(filePath).close();
                     pw.println(currentLine);
                 }
@@ -461,4 +350,42 @@ public void deleteNonCitizen(JTextField UserID){
     }  
 }
 
+String filePath1 = "NonCitizen.txt";
+public void deleteNonCitizen(JTextField UserID){
+        if (JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "WARNING",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
+        File newFile = new File(filePath1);
+        String currentLine;
+        String usr[];
+        String removeTerm = UserID.getText();
+
+        try{
+            FileWriter fw = new FileWriter (filePath1,true);
+            BufferedWriter bw = new BufferedWriter (fw);
+            PrintWriter pw = new PrintWriter(bw);
+            
+            FileReader fr = new FileReader(newFile);
+            BufferedReader br = new BufferedReader(fr);
+       
+            while ((currentLine = br.readLine())!=null ){
+                usr = currentLine.split(" : ");
+                if(!usr[0].equalsIgnoreCase(removeTerm)){
+                    new FileOutputStream(filePath1).close();
+                    pw.println(currentLine);
+                }
+            }
+            pw.flush();
+            pw.close();
+            
+            File User = new File(filePath1);
+            newFile.renameTo(User);
+            
+            JOptionPane.showMessageDialog(null,"Record is deleted");
+            UserID.setText(null);
+        }
+        catch(Exception ex) {
+
+        }  
+    }  
+}
 }

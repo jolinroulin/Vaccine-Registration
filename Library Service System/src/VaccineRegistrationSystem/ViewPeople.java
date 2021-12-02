@@ -129,7 +129,7 @@ public class ViewPeople extends javax.swing.JFrame {
 
             },
             new String [] {
-                "People Id", "Password", "Name", "Gender", "E-mail", "Date of Birth", "Contact Number", "IC/Passport"
+
             }
         ));
         jTablePeople.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -471,6 +471,7 @@ public class ViewPeople extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
 
+    
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         String tblId = txtId.getText();
         if (tblId.substring(0, 1).equals("2")) {
@@ -478,11 +479,32 @@ public class ViewPeople extends javax.swing.JFrame {
             jTablePeople.setModel(new DefaultTableModel());
             pd.viewPeopleTable(jTablePeople);
             pd.viewNonTable(jTablePeople);
+
+            txtId.setText("");
+            txtPassword.setText("");
+            txtName.setText("");
+            cmbGender.setSelectedIndex(0);
+            txtEmail.setText("");
+            txtDOB.setText("");
+            txtContactNumber.setText("");
+            txtICPassport.setText("");
+            cmbState.setSelectedIndex(0);
+
         } else if (tblId.substring(0, 1).equals("3")) {
             pd.deleteNonCitizen(txtId);
             jTablePeople.setModel(new DefaultTableModel());
             pd.viewPeopleTable(jTablePeople);
             pd.viewNonTable(jTablePeople);
+
+            txtId.setText("");
+            txtPassword.setText("");
+            txtName.setText("");
+            cmbGender.setSelectedIndex(0);
+            txtEmail.setText("");
+            txtDOB.setText("");
+            txtContactNumber.setText("");
+            txtICPassport.setText("");
+            cmbState.setSelectedIndex(0);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -497,18 +519,42 @@ public class ViewPeople extends javax.swing.JFrame {
         String tblDOB = txtDOB.getText();
         String tblContactNo = txtContactNumber.getText();
         String tblIcPassport = txtICPassport.getText();
-        
-        if (tblId.substring(0,1).equals("2")){
-            pd.updateCitizen(txtId, txtPassword, txtName, cmbGender, txtEmail, txtDOB, txtContactNumber,txtICPassport, cmbState);
+
+        if (tblId.substring(0, 1).equals("2")) {
+            pd.modifyCitizenDetails(txtId, txtPassword, txtName, cmbGender, txtEmail, txtDOB, txtContactNumber, txtICPassport, cmbState);
             jTablePeople.setModel(new DefaultTableModel());
-        pd.viewPeopleTable(jTablePeople);
-        pd.viewNonTable(jTablePeople);
-        }else if(tblId.substring(0,1).equals("3")){
-            pd.updateNonCitizen(txtId, txtPassword, txtName, cmbGender, txtEmail, txtDOB, txtContactNumber,txtICPassport, cmbState);
+
+            txtId.setText("");
+            txtPassword.setText("");
+            txtName.setText("");
+            cmbGender.setSelectedIndex(0);
+            txtEmail.setText("");
+            txtDOB.setText("");
+            txtContactNumber.setText("");
+            txtICPassport.setText("");
+            cmbState.setSelectedIndex(0);
+
+            pd.viewPeopleTable(jTablePeople);
+            pd.viewNonTable(jTablePeople);
+        } else if (tblId.substring(0, 1).equals("3")) {
+            pd.modifyNonCitizenDetails(txtId, txtPassword, txtName, cmbGender, txtEmail, txtDOB, txtContactNumber, txtICPassport, cmbState);
             jTablePeople.setModel(new DefaultTableModel());
-        pd.viewPeopleTable(jTablePeople);
-        pd.viewNonTable(jTablePeople);
+            
+            txtId.setText("");
+            txtPassword.setText("");
+            txtName.setText("");
+            cmbGender.setSelectedIndex(0);
+            txtEmail.setText("");
+            txtDOB.setText("");
+            txtContactNumber.setText("");
+            txtICPassport.setText("");
+            cmbState.setSelectedIndex(0);
+            
+            pd.viewPeopleTable(jTablePeople);
+            pd.viewNonTable(jTablePeople);
         }
+        
+        
                  
     }//GEN-LAST:event_btnPeopleUpdateActionPerformed
 

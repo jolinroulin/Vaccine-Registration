@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -243,73 +244,97 @@ public void viewNonTable(JTable Personnel ){
                Logger.getLogger(PersonnelDetails.class.getName()).log(Level.SEVERE, null, ex);
            }       
     }   
-public void updateCitizen(JTextField ID,JTextField Password,JTextField Name,JComboBox Gender,JTextField Email,JTextField DOB,JTextField ContactNo ,JTextField IC,JComboBox state){
-    ArrayList<String> tempArray = new ArrayList<>();                        
-    try (FileReader fr = new FileReader(FILEPATHCitizen)){
-       BufferedReader br = new BufferedReader(fr);
-       String line;
-       String [] lineArr;
-    while ((line = br.readLine())!=null ){
-       lineArr = line.split(" : ");
-       String userid = lineArr[0];
-       if (ID.getText().equals(userid)){
-           tempArray.add (ID.getText() + " : "+Password.getText()+" : " 
-                   +  Name.getText()+" : " 
-                   + Gender.getSelectedItem().toString()+" : "+ Email.getText()+" : "+DOB.getText()+" : "+ContactNo.getText()+" : "
-                   +IC.getText()+" : "+ state.getSelectedItem().toString());     
-       }
-       else{
-           tempArray.add(line);
-       }
-       try(PrintWriter pr = new PrintWriter(FILEPATHCitizen)){
-            for (String str: tempArray){
-                        pr.println(str);
-                    }
-                    pr.close();
-                    
-                }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null,"File is not found!");
-                } 
-   }JOptionPane.showMessageDialog(null,"Your profile is updated!");
-    fr.close();
-   }catch(Exception ex){
-       JOptionPane.showMessageDialog(null,"File is not found!");
-   }          
-}
 
-public void updateNonCitizen(JTextField ID,JTextField Password,JTextField Name,JComboBox Gender,JTextField Email,JTextField DOB,JTextField ContactNo ,JTextField IC,JComboBox state){
-    ArrayList<String> tempArray = new ArrayList<>();                        
-    try (FileReader fr = new FileReader(FILEPATHNonCitizen)){
-       BufferedReader br = new BufferedReader(fr);
-       String line;
-       String [] lineArr;
-    while ((line = br.readLine())!=null ){
-       lineArr = line.split(" : ");
-       String userid = lineArr[0];
-       if (ID.getText().equals(userid)){
-           tempArray.add (ID.getText() + " : "+Password.getText()+" : " 
+    public void modifyCitizenDetails(JTextField ID, JTextField Password, JTextField Name, JComboBox Gender, JTextField Email, JTextField DOB, JTextField ContactNo, JTextField IC,  JComboBox state) {
+        String theid = ID.getText();
+        ArrayList<String> tempArray = new ArrayList<>();
+
+        try {
+            try (FileReader fr = new FileReader(FILEPATHCitizen)) {
+                Scanner reader = new Scanner(fr);
+                String line;
+                String[] lineArr;
+
+                while ((line = reader.nextLine()) != null) {
+                    lineArr = line.split(" : ");
+                    if (lineArr[0].equals(theid)) {
+                        tempArray.add(lineArr[0] + " : "+Password.getText()+" : " 
                    +  Name.getText()+" : " 
                    + Gender.getSelectedItem().toString()+" : "+ Email.getText()+" : "+DOB.getText()+" : "+ContactNo.getText()+" : "
-                   +IC.getText()+" : "+ state.getSelectedItem().toString());     
-       }
-       else{
-           tempArray.add(line);
-       }
-       try(PrintWriter pr = new PrintWriter(FILEPATHNonCitizen)){
-            for (String str: tempArray){
-                        pr.println(str);
+                   +IC.getText()+" : "+ state.getSelectedItem().toString());  
+                        JOptionPane.showMessageDialog(null, "Citizen Details Updated!");
+                    } else {
+                        tempArray.add(line);
                     }
-                    pr.close();
-                    
-                }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null,"File is not found!");
-                } 
-   }JOptionPane.showMessageDialog(null,"Your profile is updated!");
-    fr.close();
-   }catch(Exception ex){
-       JOptionPane.showMessageDialog(null,"File is not found!");
-   }          
-}
+                }
+
+                fr.close();
+            } catch (Exception e) {
+
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            try (PrintWriter pr = new PrintWriter(FILEPATHCitizen)) {
+                for (String str : tempArray) {
+                    pr.println(str);
+                }
+                pr.close();
+            } catch (Exception e) {
+
+            }
+        } catch (Exception e) {
+
+        }
+    }
+    
+    public void modifyNonCitizenDetails(JTextField ID, JTextField Password, JTextField Name, JComboBox Gender, JTextField Email, JTextField DOB, JTextField ContactNo, JTextField IC, JComboBox state) {
+        String theid = ID.getText();
+        ArrayList<String> tempArray = new ArrayList<>();
+
+        try {
+            try (FileReader fr = new FileReader(FILEPATHNonCitizen)) {
+                Scanner reader = new Scanner(fr);
+                String line;
+                String[] lineArr;
+
+                while ((line = reader.nextLine()) != null) {
+                    lineArr = line.split(" : ");
+                    if (lineArr[0].equals(theid)) {
+                        tempArray.add(lineArr[0] + " : "+Password.getText()+" : " 
+                   +  Name.getText()+" : " 
+                   + Gender.getSelectedItem().toString()+" : "+ Email.getText()+" : "+DOB.getText()+" : "+ContactNo.getText()+" : "
+                   +IC.getText()+" : "+ state.getSelectedItem().toString());  
+                        JOptionPane.showMessageDialog(null, "Non Citizen Details Updated!");
+                    } else {
+                        tempArray.add(line);
+                    }
+                }
+
+                fr.close();
+            } catch (Exception e) {
+
+            }
+        } catch (Exception e) {
+
+        }
+
+        try {
+            try (PrintWriter pr = new PrintWriter(FILEPATHNonCitizen)) {
+                for (String str : tempArray) {
+                    pr.println(str);
+                }
+                pr.close();
+            } catch (Exception e) {
+
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
 
 String filePath = "Citizen.txt";
 public void deleteCitizen(JTextField UserID){

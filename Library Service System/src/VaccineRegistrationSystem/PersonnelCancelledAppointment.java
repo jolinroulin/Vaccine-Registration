@@ -54,6 +54,7 @@ public class PersonnelCancelledAppointment extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -92,7 +93,7 @@ public class PersonnelCancelledAppointment extends javax.swing.JFrame {
                 .addComponent(lblClose)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel12))

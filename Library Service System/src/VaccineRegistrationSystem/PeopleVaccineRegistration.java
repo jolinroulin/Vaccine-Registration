@@ -62,6 +62,7 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 0));
 

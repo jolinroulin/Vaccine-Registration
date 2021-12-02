@@ -66,7 +66,7 @@ public class PersonnelCompletedAppointment extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 0));
 

@@ -113,6 +113,7 @@ jPanel7.setVisible(true);
         setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -367,9 +368,7 @@ jPanel7.setVisible(true);
                                     .addComponent(lblIC)
                                     .addComponent(lblState)
                                     .addComponent(lblPeopleType)))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel7)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()

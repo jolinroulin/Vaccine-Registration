@@ -71,7 +71,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/mainpage.png"))); // NOI18N
 
@@ -94,7 +94,7 @@ public class PersonnelMain extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(lbl)
-                        .addContainerGap(648, Short.MAX_VALUE))
+                        .addContainerGap(646, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,8 +111,8 @@ public class PersonnelMain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblUser)
                     .addComponent(lbl))
-                .addContainerGap(393, Short.MAX_VALUE))
-            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                .addContainerGap(391, Short.MAX_VALUE))
+            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 102, 255));

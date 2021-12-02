@@ -423,11 +423,8 @@ public class PersonnelManageVaccine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
-        PersonnelMain home = new PersonnelMain();
-        home.setVisible(true);
-        this.setVisible(false);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
+        new PersonnelMain().setVisible(true);
         //        setVisible(false);
     }//GEN-LAST:event_lblCloseMouseClicked
 

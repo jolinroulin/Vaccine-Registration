@@ -442,6 +442,8 @@ public class PersonnelMain extends javax.swing.JFrame {
 
     private void jmilManageApp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageApp1ActionPerformed
         new PersonnelAppointmentCompletion().setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_jmilManageApp1ActionPerformed
 
     private void jmilManageApp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageApp2ActionPerformed

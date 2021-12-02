@@ -248,7 +248,7 @@ public class PeopleMain extends javax.swing.JFrame {
     private void jPeopleProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPeopleProfileMouseClicked
         // TODO add your handling code here:
         new PeopleProfile().setVisible(true);
-        
+        this.dispose();
     }//GEN-LAST:event_jPeopleProfileMouseClicked
 
     private void jPeopleProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPeopleProfileActionPerformed

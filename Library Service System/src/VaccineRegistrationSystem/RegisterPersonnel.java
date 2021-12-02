@@ -422,7 +422,8 @@ public class RegisterPersonnel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLClearActionPerformed
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        setVisible(false);
+        this.dispose();
+        new PersonnelMain().setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void cmbPeopleStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPeopleStateActionPerformed

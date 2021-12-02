@@ -273,7 +273,8 @@ public class PeopleProfile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        setVisible(false);
+       this.dispose();
+        new PeopleMain().setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void txtLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLNameActionPerformed

@@ -356,11 +356,8 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddSlotsActionPerformed
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
-        PersonnelMain home = new PersonnelMain();
-        home.setVisible(true);
-        this.setVisible(false);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
+        new PersonnelMain().setVisible(true);
     }//GEN-LAST:event_lblCloseMouseClicked
 
     private void jComboBoxStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxStateActionPerformed

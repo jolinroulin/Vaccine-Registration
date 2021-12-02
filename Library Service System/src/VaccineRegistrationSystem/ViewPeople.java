@@ -554,12 +554,8 @@ public class ViewPeople extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPeopleUpdateActionPerformed
 
     private void lblClose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClose2MouseClicked
-        PersonnelMain pm = new PersonnelMain();
-        pm.setVisible(true);
-        this.setVisible(false);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        this.dispose();
-        //        setVisible(false);
+       this.dispose();
+        new PersonnelMain().setVisible(true);
 
     }//GEN-LAST:event_lblClose2MouseClicked
 

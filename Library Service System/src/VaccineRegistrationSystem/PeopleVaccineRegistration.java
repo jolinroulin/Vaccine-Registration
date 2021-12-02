@@ -331,9 +331,8 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
         pm.lblPeopleIC.setText(ic);
         pm.lblPeopleName.setText(name);
         pm.lblVacStatusM.setText(status);
-        this.setVisible(false);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
+        new PeopleMain().setVisible(true);
         //        setVisible(false);
        
     }//GEN-LAST:event_lblClose2MouseClicked

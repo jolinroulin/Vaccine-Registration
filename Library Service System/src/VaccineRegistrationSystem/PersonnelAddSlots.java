@@ -27,6 +27,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
      */
     AppointmentSlots as = new AppointmentSlots();
     Centre c = new Centre();
+
     public PersonnelAddSlots() {
         initComponents();
     }
@@ -363,43 +364,39 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
-        PersonnelMain home = new PersonnelMain();
-        home.setVisible(true);
-        this.setVisible(false);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
-//        setVisible(false);
+        new PersonnelMain().setVisible(true);
     }//GEN-LAST:event_lblCloseMouseClicked
 
     private void cmbNewStateSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNewStateSlotsActionPerformed
         String state = cmbNewStateSlots.getSelectedItem().toString();
-        
-        if(state.equals("*None*")){
+
+        if (state.equals("*None*")) {
             JOptionPane.showMessageDialog(null, "Please select the state.");
-        }else if(state.equals("Johor")){
-            try{
+        } else if (state.equals("Johor")) {
+            try {
 //               lblState.setText(state);
-               cmbNewStateCentre.removeAllItems();
+                cmbNewStateCentre.removeAllItems();
                 c.fillComboBoxJohor(cmbNewStateCentre);
-        }catch (Exception ex){
-            JOptionPane.showMessageDialog(null, "Error!");
-        }
-        }else if(state.equals("Kuala Lumpur")){
-            try{
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error!");
+            }
+        } else if (state.equals("Kuala Lumpur")) {
+            try {
 //                lblState.setText(state);
                 cmbNewStateCentre.removeAllItems();
                 c.fillComboBoxKL(cmbNewStateCentre);
-                }catch (Exception ex){
-            JOptionPane.showMessageDialog(null, "Error!");
-        }
-        }else if(state.equals("Penang")){
-                try{
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error!");
+            }
+        } else if (state.equals("Penang")) {
+            try {
 //                lblState.setText(state);
                 cmbNewStateCentre.removeAllItems();
                 c.fillComboBoxPenang(cmbNewStateCentre);
-                }catch (Exception ex){
-            JOptionPane.showMessageDialog(null, "Error!");
-        }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error!");
+            }
         }
     }//GEN-LAST:event_cmbNewStateSlotsActionPerformed
 
@@ -416,23 +413,23 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         String time = cmbTime.getSelectedItem().toString();
         String state = lblState.getText();
         String centre = lblCentre.getText();
-        if("*None*".equals(cmbNewStateSlots.getSelectedItem().toString())){
+        if ("*None*".equals(cmbNewStateSlots.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Please select the state.");
-        }else if(state.equals(" ") && centre.equals(" ") ){
+        } else if (state.equals(" ") && centre.equals(" ")) {
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(!centre.equals(cmbNewStateCentre.getSelectedItem().toString())){
+        } else if (!centre.equals(cmbNewStateCentre.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(!state.equals(cmbNewStateSlots.getSelectedItem().toString())){
+        } else if (!state.equals(cmbNewStateSlots.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(date == null){
+        } else if (date == null) {
             JOptionPane.showMessageDialog(null, "Please select the date.");
-        }else if(time.equals("*None*")){
+        } else if (time.equals("*None*")) {
             JOptionPane.showMessageDialog(null, "Please select the time.");
-        }else{    
+        } else {
             as.addSlot(cmbNewStateSlots, cmbNewStateCentre, DateSlot, cmbTime);
             try {
                 jTableSlot.setModel(new DefaultTableModel());
-                as.viewSlotTable(state, centre,jTableSlot);
+                as.viewSlotTable(state, centre, jTableSlot);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error!");
             }
@@ -446,26 +443,26 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         Date date = DateSlot.getDate();
         String time = cmbTime.getSelectedItem().toString();
 
-        if("*None*".equals(cmbNewStateSlots.getSelectedItem().toString())){
+        if ("*None*".equals(cmbNewStateSlots.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Please select the state.");
-        }else if(state.equals(" ") && centre.equals(" ") ){
+        } else if (state.equals(" ") && centre.equals(" ")) {
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(!centre.equals(cmbNewStateCentre.getSelectedItem().toString())){
+        } else if (!centre.equals(cmbNewStateCentre.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(!state.equals(cmbNewStateSlots.getSelectedItem().toString())){
+        } else if (!state.equals(cmbNewStateSlots.getSelectedItem().toString())) {
             JOptionPane.showMessageDialog(null, "Please click the 'VIEW' button to proceed.");
-        }else if(date == null){
+        } else if (date == null) {
             JOptionPane.showMessageDialog(null, "Please select the date.");
-        }else if(time.equals("*None*")){
+        } else if (time.equals("*None*")) {
             JOptionPane.showMessageDialog(null, "Please select the time.");
-        }else{        
-        as.deleteSlot(state, centre,DateSlot,cmbTime);
-        jTableSlot.setModel(new DefaultTableModel());
-        try {
-            as.viewSlotTable(state, centre,jTableSlot);
-        } catch (IOException ex) {
-            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } else {
+            as.deleteSlot(state, centre, DateSlot, cmbTime);
+            jTableSlot.setModel(new DefaultTableModel());
+            try {
+                as.viewSlotTable(state, centre, jTableSlot);
+            } catch (IOException ex) {
+                Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnDeleteSlotsActionPerformed
 
@@ -487,7 +484,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
 
     private void btnViewSlot1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSlot1ActionPerformed
         String state = cmbNewStateSlots.getSelectedItem().toString();
-        String centre  = cmbNewStateCentre.getSelectedItem().toString();
+        String centre = cmbNewStateCentre.getSelectedItem().toString();
         try {
             jTableSlot.setModel(new DefaultTableModel());
             as.viewSlotTable(cmbNewStateSlots, cmbNewStateCentre, jTableSlot);
@@ -499,7 +496,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewSlot1ActionPerformed
 
     private void jTableSlotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSlotMouseClicked
-        DefaultTableModel tblModel = (DefaultTableModel)jTableSlot.getModel();
+        DefaultTableModel tblModel = (DefaultTableModel) jTableSlot.getModel();
         String date = tblModel.getValueAt(jTableSlot.getSelectedRow(), 0).toString();
         String time = tblModel.getValueAt(jTableSlot.getSelectedRow(), 1).toString();
         try {
@@ -507,9 +504,9 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
             DateSlot.setDate(thedate);
             cmbTime.setSelectedItem(time);
         } catch (ParseException ex) {
-             Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jTableSlotMouseClicked
 
     /**

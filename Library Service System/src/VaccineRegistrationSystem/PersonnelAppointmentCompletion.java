@@ -358,12 +358,8 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
-        PersonnelMain home = new PersonnelMain();
-        home.setVisible(true);
-        this.setVisible(false);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
-        //        setVisible(false);
+        new PersonnelMain().setVisible(true);
     }//GEN-LAST:event_lblCloseMouseClicked
 
     private void jTableAddedAppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAddedAppMouseClicked

@@ -46,7 +46,8 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
         btnviewSlot.setVisible(false);
         jLabel15.setVisible(false);
         cmbTime.setVisible(false);
-        btnAddSlot.setVisible(false);
+        btnDeleteApp.setVisible(false);
+        btnUpdateApp.setVisible(false);
 //        btnViewApp.setVisible(false);
     }
 
@@ -58,7 +59,8 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
         btnviewSlot.setVisible(true);
         jLabel15.setVisible(true);
         cmbTime.setVisible(true);
-        btnAddSlot.setVisible(true);
+        btnDeleteApp.setVisible(true);
+        btnUpdateApp.setVisible(true);
 //        btnViewApp.setVisible(true);
     }
     /**
@@ -77,7 +79,7 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
         lblClose = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        btnAddSlot = new javax.swing.JButton();
+        btnDeleteApp = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAdded = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -94,7 +96,7 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
         lblContactNo = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
-        btn = new javax.swing.JButton();
+        btnUpdateApp = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         cmbNewStateCentre = new javax.swing.JComboBox<>();
@@ -158,12 +160,12 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         jLabel14.setText("IC / Passport Number:");
 
-        btnAddSlot.setBackground(new java.awt.Color(255, 204, 153));
-        btnAddSlot.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnAddSlot.setText("Delete");
-        btnAddSlot.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteApp.setBackground(new java.awt.Color(255, 204, 153));
+        btnDeleteApp.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnDeleteApp.setText("Delete");
+        btnDeleteApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSlotActionPerformed(evt);
+                btnDeleteAppActionPerformed(evt);
             }
         });
 
@@ -229,12 +231,12 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
         lblEmail.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         lblEmail.setText("lblEmail");
 
-        btn.setBackground(new java.awt.Color(255, 204, 153));
-        btn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btn.setText("Update");
-        btn.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateApp.setBackground(new java.awt.Color(255, 204, 153));
+        btnUpdateApp.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnUpdateApp.setText("Modify");
+        btnUpdateApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActionPerformed(evt);
+                btnUpdateAppActionPerformed(evt);
             }
         });
 
@@ -331,9 +333,9 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
                                 .addComponent(btnviewSlot))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
-                        .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUpdateApp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
-                        .addComponent(btnAddSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDeleteApp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator1)))
@@ -381,7 +383,7 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(lblPeopleType))
-                .addGap(39, 39, 39)
+                .addGap(27, 27, 27)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jLabel4)
@@ -396,8 +398,8 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
                     .addComponent(jLabel15))
                 .addGap(67, 67, 67)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn)
-                    .addComponent(btnAddSlot))
+                    .addComponent(btnUpdateApp)
+                    .addComponent(btnDeleteApp))
                 .addGap(31, 31, 31))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
@@ -423,7 +425,7 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -450,39 +452,44 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
         //        setVisible(false);
     }//GEN-LAST:event_lblCloseMouseClicked
 
-    private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
-        try{
-            String ic = lblIC.getText();
-            String name = lblName.getText();
-            String cn = lblContactNo.getText();
-            String email = lblContactNo.getText();
-            String state = lblState.getText();
-            String peopletype = lblPeopleType.getText();
-            String centre = cmbNewStateCentre.getSelectedItem().toString();
-            String slot = cmbTime.getSelectedItem().toString();
-            
+    private void btnDeleteAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAppActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Are you sure to add appointment to this people?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            try {
+                String ic = lblIC.getText();
+                String name = lblName.getText();
+                String cn = lblContactNo.getText();
+                String email = lblContactNo.getText();
+                String state = lblState.getText();
+                String peopletype = lblPeopleType.getText();
+                String centre = cmbNewStateCentre.getSelectedItem().toString();
+                String slot = cmbTime.getSelectedItem().toString();
 
-            FileWriter Writer = new FileWriter("Appointment/vaccineappadded.txt", true);
-            Writer.write(ic + " : " + name + " : " + cn + " : " + email + " : " + state + " : " + peopletype + " : "  + centre + " : " + slot);
-            Writer.write(System.getProperty("line.separator"));
-            Writer.close();
+                FileWriter Writer = new FileWriter("Appointment/vaccineappadded.txt", true);
+                Writer.write(ic + " : " + name + " : " + cn + " : " + email + " : " + state + " : " + peopletype + " : " + centre + " : " + slot);
+                Writer.write(System.getProperty("line.separator"));
+                Writer.close();
 
-            JOptionPane.showMessageDialog(null, "Assigned Successful");
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error");
+                JOptionPane.showMessageDialog(null, "Assigned Successful");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+
+            a.removefromAddedApp(lblIC);
+            jTableAdded.setModel(new DefaultTableModel());
+            try {
+                a.viewAddedPeopleTable(jTableAdded);
+            } catch (IOException ex) {
+                Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            jTableAdded.setModel(new DefaultTableModel());
+            try {
+                a.viewAddedPeopleTable(jTableAdded);
+            } catch (IOException ex) {
+                Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-
-        a.removefromAddedApp(lblIC);
-        jTableAdded.setModel(new DefaultTableModel());
-        try {
-            
-            a.viewAddedPeopleTable(jTableAdded);
-
-   
-        } catch (IOException ex) {
-            Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAddSlotActionPerformed
+    }//GEN-LAST:event_btnDeleteAppActionPerformed
 
     private void txtAssSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAssSearchKeyReleased
         DefaultTableModel table = (DefaultTableModel) jTableAdded.getModel();
@@ -552,9 +559,15 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableAddedMouseClicked
 
-    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActionPerformed
+    private void btnUpdateAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAppActionPerformed
+        as.modifyAddedApp(lblIC, cmbNewStateCentre, cmbTime);
+        jTableAdded.setModel(new DefaultTableModel());
+        try {
+            a.viewAddedPeopleTable(jTableAdded);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error.");
+        }
+    }//GEN-LAST:event_btnUpdateAppActionPerformed
 
     private void cmbNewStateCentreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNewStateCentreItemStateChanged
 
@@ -625,8 +638,8 @@ public class PersonnelManageAppointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn;
-    private javax.swing.JButton btnAddSlot;
+    private javax.swing.JButton btnDeleteApp;
+    private javax.swing.JButton btnUpdateApp;
     private javax.swing.JButton btnviewSlot;
     private javax.swing.JComboBox<String> cmbNewStateCentre;
     private javax.swing.JComboBox<String> cmbTime;

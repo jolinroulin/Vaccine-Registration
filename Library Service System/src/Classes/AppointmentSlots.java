@@ -16,12 +16,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -207,6 +209,51 @@ public void viewPenangSlots(String centre, JComboBox slot){
             }
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "No Record.");
+        }
+    }
+    
+public void modifyAddedApp(JLabel id, JComboBox centre, JComboBox slot){
+        String theid = id.getText();
+        String thecentre = centre.getSelectedItem().toString();
+        String theslot = slot.getSelectedItem().toString();
+
+        ArrayList<String> tempArray = new ArrayList<>();
+
+        try{
+            try (FileReader fr = new FileReader("Appointment/vaccineappadded.txt")){
+                Scanner reader = new Scanner(fr);
+                String line;
+                String[] lineArr;
+
+                while((line=reader.nextLine())!=null){
+                    lineArr = line.split(" : ");
+                    if(lineArr[0].equals(theid)){
+                        tempArray.add(lineArr[0] + " : " + lineArr[1] + " : " + lineArr[2] + " : " + lineArr[3] + " : " + lineArr[4] + " : " + lineArr[5] + " : " + thecentre + " : " + theslot);
+                        JOptionPane.showMessageDialog(null, "Appointment Updated!");
+                    }else{
+                        tempArray.add(line);
+                    }
+                }
+
+                fr.close();
+            }catch(Exception e){
+
+            }
+        }catch(Exception e){
+
+        }
+
+        try{
+            try(PrintWriter pr = new PrintWriter("Appointment/vaccineappadded.txt")){
+                for(String str : tempArray){
+                    pr.println(str);
+                }
+                pr.close();
+            }catch(Exception e){
+
+            }
+        }catch(Exception e){
+
         }
     }
 }

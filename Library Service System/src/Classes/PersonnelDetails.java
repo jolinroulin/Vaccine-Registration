@@ -273,39 +273,41 @@ public void deletePersonnel(JTextField UserID){
     }  
 }
 
-public void updateProfiles(JTextField ID,JTextField Password,JTextField Name,JComboBox Gender,JTextField Email,JTextField DOB,JTextField ContactNo ,JTextField IC,JComboBox  VaccineCentre,JComboBox state){
-    ArrayList<String> tempArray = new ArrayList<>();                        
-    try (FileReader fr = new FileReader(filePath)){
-       BufferedReader br = new BufferedReader(fr);
-       String line;
-       String [] lineArr;
-    while ((line = br.readLine())!=null ){
-       lineArr = line.split(" : ");
-       String userid = lineArr[0];
-       if (ID.getText().equals(userid)){
-           tempArray.add (ID.getText() + " : "+Password.getText()+" : " 
-                   +  Name.getText()+" : " 
-                   + Gender.getSelectedItem().toString()+" : "+ Email.getText()+" : "+DOB.getText()+" : "+ContactNo.getText()+" : "
-                   +IC.getText()+" : "+VaccineCentre.getSelectedItem().toString()+ " : "+ state.getSelectedItem().toString());     
-       }
-       else{
-           tempArray.add(line);
-       }
-       try(PrintWriter pr = new PrintWriter(filePath)){
-            for (String str: tempArray){
+    public void updateProfiles(JTextField ID, JTextField Password, JTextField Name, JComboBox Gender, JTextField Email, JTextField DOB, JTextField ContactNo, JTextField IC, JComboBox VaccineCentre, JComboBox state) {
+        ArrayList<String> tempArray = new ArrayList<>();
+        try (FileReader fr = new FileReader(filePath)) {
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            String[] lineArr;
+            while ((line = br.readLine()) != null) {
+                lineArr = line.split(" : ");
+                String userid = lineArr[0];
+                if (ID.getText().equals(userid)) {
+                    tempArray.add(ID.getText() + " : " + Password.getText() + " : "
+                            + Name.getText() + " : "
+                            + Gender.getSelectedItem().toString() + " : " + Email.getText() + " : " + DOB.getText() + " : " + ContactNo.getText() + " : "
+                            + IC.getText() + " : " + VaccineCentre.getSelectedItem().toString() + " : " + state.getSelectedItem().toString());
+                
+                } else {
+                    tempArray.add(line);
+                }
+                fr.close();
+                try (PrintWriter pr = new PrintWriter(filePath)) {
+                    for (String str : tempArray) {
                         pr.println(str);
                     }
                     pr.close();
-                    
-                }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null,"File is not found!");
-                } 
-   }JOptionPane.showMessageDialog(null,"Your profile is updated!");
-    fr.close();
-   }catch(Exception ex){
-       JOptionPane.showMessageDialog(null,"File is not found!");
-   }          
-}
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "File is not found!");
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Your profile is updated!");
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "File is not found!");
+        }
+    }
 //
 //public void selectRow(JTable TableSearch,JTextField ,JTextField ln,JTextField cn,JTextField email,JTextField street,JTextField city,JTextField state,JTextField postcode,JTextField country){
 //    DefaultTableModel model = (DefaultTableModel)TableSearch.getModel();

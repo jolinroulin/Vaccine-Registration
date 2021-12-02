@@ -461,32 +461,41 @@ public class PersonnelAssignAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTimeActionPerformed
 
     private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
-        try{
-            String ic = lblIC.getText();
-            String name = lblName.getText();
-            String cn = lblContactNo.getText();
-            String email = lblContactNo.getText();
-            String state = lblState.getText();
-            String peopletype = lblPeopleType.getText();
-            String centre = cmbNewStateCentre.getSelectedItem().toString();
-            String slot = cmbTime.getSelectedItem().toString();
+        if (JOptionPane.showConfirmDialog(null, "Are you sure to add appointment to this people?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            try {
+                String ic = lblIC.getText();
+                String name = lblName.getText();
+                String cn = lblContactNo.getText();
+                String email = lblContactNo.getText();
+                String state = lblState.getText();
+                String peopletype = lblPeopleType.getText();
+                String centre = cmbNewStateCentre.getSelectedItem().toString();
+                String slot = cmbTime.getSelectedItem().toString();
 
-            FileWriter Writer = new FileWriter("Appointment/vaccineappadded.txt", true);
-            Writer.write(ic + " : " + name + " : " + cn + " : " + email + " : " + state + " : " + peopletype + " : "  + centre + " : " + slot);
-            Writer.write(System.getProperty("line.separator"));
-            Writer.close();
-            
-            JOptionPane.showMessageDialog(null, "Assigned Successful");
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        
-        a.removefromRegistered(lblIC);
-        jTableRegistered.setModel(new DefaultTableModel());
-        try {
-            a.viewRegisteredPeopleTable(jTableRegistered);
-        } catch (IOException ex) {
-            Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
+                FileWriter Writer = new FileWriter("Appointment/vaccineappadded.txt", true);
+                Writer.write(ic + " : " + name + " : " + cn + " : " + email + " : " + state + " : " + peopletype + " : " + centre + " : " + slot);
+                Writer.write(System.getProperty("line.separator"));
+                Writer.close();
+
+                JOptionPane.showMessageDialog(null, "Assigned Successful");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+
+            a.removefromRegistered(lblIC);
+            jTableRegistered.setModel(new DefaultTableModel());
+            try {
+                a.viewRegisteredPeopleTable(jTableRegistered);
+            } catch (IOException ex) {
+                Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            jTableRegistered.setModel(new DefaultTableModel());
+            try {
+                a.viewRegisteredPeopleTable(jTableRegistered);
+            } catch (IOException ex) {
+                Logger.getLogger(PersonnelAssignAppointment.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnAddSlotActionPerformed
 

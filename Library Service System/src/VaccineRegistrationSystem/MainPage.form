@@ -152,7 +152,7 @@
                                       <Component id="btnAdmin" min="-2" pref="368" max="-2" attributes="0"/>
                                       <Component id="btnUser" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="231" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="225" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
@@ -265,8 +265,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Librarian">
-                <Property name="tabTitle" type="java.lang.String" value="Librarian"/>
+              <JTabbedPaneConstraints tabName="Personnel">
+                <Property name="tabTitle" type="java.lang.String" value="Personnel"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -299,7 +299,7 @@
                           <Component id="lblBackground4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="113" max="32767" attributes="0"/>
+                          <EmptySpace pref="98" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -492,8 +492,8 @@
         <Container class="javax.swing.JPanel" name="jpUser">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Student">
-                <Property name="tabTitle" type="java.lang.String" value="Student"/>
+              <JTabbedPaneConstraints tabName="People">
+                <Property name="tabTitle" type="java.lang.String" value="People"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -526,7 +526,7 @@
                           <Component id="lblBackground5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="111" max="32767" attributes="0"/>
+                          <EmptySpace pref="105" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -535,7 +535,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="71" max="32767" attributes="0"/>
+                          <EmptySpace pref="86" max="32767" attributes="0"/>
                       </Group>
                       <Component id="lblBackground5" alignment="0" max="32767" attributes="0"/>
                   </Group>

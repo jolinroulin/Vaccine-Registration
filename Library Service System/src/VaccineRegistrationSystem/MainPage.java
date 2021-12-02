@@ -183,7 +183,7 @@ public class MainPage extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnUser, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 231, Short.MAX_VALUE))
+                        .addGap(0, 225, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(jLabel2)
@@ -328,7 +328,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(lblBackground4)
                 .addGap(87, 87, 87)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,7 +353,7 @@ public class MainPage extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Librarian", jpPersonnel);
+        jTabbedPane1.addTab("Personnel", jpPersonnel);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -485,14 +485,14 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(lblBackground5)
                 .addGap(89, 89, 89)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
             .addComponent(lblBackground5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -507,7 +507,7 @@ public class MainPage extends javax.swing.JFrame {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Student", jpUser);
+        jTabbedPane1.addTab("People", jpUser);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 130, 1500, 570));
 
@@ -520,7 +520,7 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdminActionPerformed
 
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
-        jTabbedPane1.setSelectedIndex(3);
+        jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnUserActionPerformed
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
@@ -731,7 +731,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jpPersonnel;
     private javax.swing.JPanel jpUser;
     public javax.swing.JLabel lblBackground;
-    private javax.swing.JLabel lblBackground4;
+    public javax.swing.JLabel lblBackground4;
     public javax.swing.JLabel lblBackground5;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblLogo;

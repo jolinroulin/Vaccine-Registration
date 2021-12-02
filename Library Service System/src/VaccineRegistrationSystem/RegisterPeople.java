@@ -334,7 +334,7 @@ public class RegisterPeople extends javax.swing.JFrame {
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         this.dispose();
-        new PersonnelMain().setVisible(true);
+//        new PersonnelMain().setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void btnStdRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStdRegisterActionPerformed

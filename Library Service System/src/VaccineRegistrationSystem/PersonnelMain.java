@@ -422,7 +422,7 @@ public class PersonnelMain extends javax.swing.JFrame {
 
     private void jmiAddPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddPeopleActionPerformed
         new RegisterPeople().setVisible(true);
-        this.dispose();
+//        this.dispose();
     }//GEN-LAST:event_jmiAddPeopleActionPerformed
 
     private void jmilManageCompletionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageCompletionActionPerformed

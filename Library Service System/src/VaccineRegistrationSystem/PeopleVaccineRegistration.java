@@ -90,7 +90,7 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
-                .addGap(260, 260, 260)
+                .addGap(321, 321, 321)
                 .addComponent(lblClose2)
                 .addGap(35, 35, 35))
         );

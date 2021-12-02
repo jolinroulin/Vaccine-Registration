@@ -162,7 +162,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
-        jLabel7.setText("Registered People Details");
+        jLabel7.setText("People Details");
 
         jLabel19.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         jLabel19.setText("Name: ");

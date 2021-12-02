@@ -64,7 +64,7 @@ public class RegisterPersonnel extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 550));
         jPanel1.setRequestFocusEnabled(false);
@@ -392,8 +392,7 @@ public class RegisterPersonnel extends javax.swing.JFrame {
         String personnelState = cmbPeopleState.getSelectedItem().toString();
         
         Personnel personnel = new Personnel(personnelID, personnelPassword, personnelName, personnelGender, personnelEmail, personnelDOB, personnelContactNo, personnelIC, personnelCentre,personnelState);   
-//        Personnel personnel = new Personnel(personnelID, personnelID, personnelName, personnelIC, personnelEmail, personnelIC, personnelContactNo, personnelIC, personnelCentre);        
-//        
+
         PersonnelDetails personnelDetails = new PersonnelDetails();
       
         personnelDetails.addPersonnelToTextFile(personnel);

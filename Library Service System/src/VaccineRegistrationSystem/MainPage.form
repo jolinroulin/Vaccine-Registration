@@ -169,9 +169,9 @@
                           <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="btnAdmin" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Component id="btnUser" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAdmin" min="-2" pref="76" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="btnUser" min="-2" pref="70" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="lblExit" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>

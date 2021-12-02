@@ -25,58 +25,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class ViewPeople extends javax.swing.JFrame {
 
-    
-//    private void ImportPeopleDetailsToTable() {
-//        String filepath = "Citizen.txt";
-//        File file = new File(filepath);
-//        String filepath1 = "NonCitizen.txt";
-//        File file1 = new File(filepath);
-//        try {
-//            BufferedReader br = new BufferedReader(new FileReader(file));
-//            DefaultTableModel model = (DefaultTableModel) jTablePeople.getModel();
-//            BufferedReader br1 = new BufferedReader(new FileReader(file1));
-//            DefaultTableModel model1 = (DefaultTableModel) jTablePeople.getModel();
-//            /*String[] columnsName = firstLine.split(" : ");
-//            
-//            model.setColumnIdentifiers(columnsName);*/
-//            Object[] tableLines = br.lines().toArray();
-//            for (int i = 0; i < tableLines.length; i++) {
-//                String line = tableLines[i].toString().trim();
-//                String[] dataRow = line.split(" : ");
-//                model.addRow(dataRow);
-//            }
-//            Object[] tableLines1 = br.lines().toArray();
-//            for (int i = 0; i < tableLines1.length; i++) {
-//                String line = tableLines1[i].toString().trim();
-//                String[] dataRow = line.split(" : ");
-//                model1.addRow(dataRow);
-//            }
-//            
-//        } catch (Exception ex) {
-//            Logger.getLogger(ViewStaff.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-    
-//    private void saveStudentDetails(){
-//                String filePath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Library Service System\\StudentData.txt";
-//        File file = new File(filePath);
-//        try {
-//            FileWriter fw = new FileWriter(file);
-//            BufferedWriter bw = new BufferedWriter(fw);
-//
-//            for(int i = 0; i < jTablePeople.getRowCount(); i++){
-//                for(int j = 0; j < jTablePeople.getColumnCount(); j++){
-//                    bw.write(jTablePeople.getValueAt(i,j).toString()+ " : " );
-//                }
-//                bw.newLine();
-//            }
-//            bw.close();
-//            fw.close();
-//        }
-//        catch (IOException ex) {
-//            JOptionPane.showMessageDialog(null, "Fail to save in textfile");
-//        }
-//    }
+  
     /**
      * Creates new form ViewStudent
      */
@@ -100,7 +49,7 @@ public class ViewPeople extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        lblClose2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePeople = new javax.swing.JTable();
         txtSearchPeople = new javax.swing.JTextField();
@@ -130,20 +79,21 @@ public class ViewPeople extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel2.setBackground(new java.awt.Color(102, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("People Details");
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Close.png"))); // NOI18N
-        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblClose2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-close-window-30.png"))); // NOI18N
+        lblClose2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblClose2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
+                lblClose2MouseClicked(evt);
             }
         });
 
@@ -156,9 +106,9 @@ public class ViewPeople extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 537, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(39, 39, 39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblClose2)
+                .addGap(71, 71, 71))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,9 +117,9 @@ public class ViewPeople extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16)
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblClose2)
                             .addComponent(jLabel3))))
                 .addContainerGap())
         );
@@ -283,6 +233,7 @@ public class ViewPeople extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel11.setText("People Id:");
 
+        txtId.setEditable(false);
         txtId.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,6 +241,7 @@ public class ViewPeople extends javax.swing.JFrame {
             }
         });
 
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,7 +249,8 @@ public class ViewPeople extends javax.swing.JFrame {
             }
         });
 
-        btnPeopleUpdate.setText("Update");
+        btnPeopleUpdate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnPeopleUpdate.setText("Modify");
         btnPeopleUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPeopleUpdateActionPerformed(evt);
@@ -315,48 +268,41 @@ public class ViewPeople extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel12))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtICPassport, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtContactNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbState, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel12))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtICPassport, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtContactNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cmbState, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(199, 199, 199)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtDOB, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSelectDateStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(btnPeopleUpdate)
-                        .addGap(75, 75, 75)
-                        .addComponent(btnDelete)))
+                            .addComponent(txtDOB, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSelectDateStdDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(164, 164, 164)
@@ -367,6 +313,12 @@ public class ViewPeople extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 81, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(btnPeopleUpdate)
+                .addGap(75, 75, 75)
+                .addComponent(btnDelete)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,11 +371,11 @@ public class ViewPeople extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(cmbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
+                        .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPeopleUpdate)
                             .addComponent(btnDelete))
-                        .addGap(42, 42, 42))))
+                        .addGap(21, 21, 21))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -447,15 +399,10 @@ public class ViewPeople extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        setVisible(false);
-    }//GEN-LAST:event_jLabel16MouseClicked
-
     private void jTablePeopleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePeopleMouseClicked
         //set data to the textfile
         DefaultTableModel tblModel = (DefaultTableModel)jTablePeople.getModel();
 
-        //set data to textfield when row i selected
         String tblId = tblModel.getValueAt(jTablePeople.getSelectedRow(), 0).toString();
         String tblPassword = tblModel.getValueAt(jTablePeople.getSelectedRow(), 1).toString();
         String tblName = tblModel.getValueAt(jTablePeople.getSelectedRow(), 2).toString();
@@ -464,8 +411,8 @@ public class ViewPeople extends javax.swing.JFrame {
         String tblDOB = tblModel.getValueAt(jTablePeople.getSelectedRow(), 5).toString();
         String tblContactNo = tblModel.getValueAt(jTablePeople.getSelectedRow(), 6).toString();
         String tblICPassport = tblModel.getValueAt(jTablePeople.getSelectedRow(), 7).toString();
+        String tblStatus = tblModel.getValueAt(jTablePeople.getSelectedRow(), 8).toString();
         
-      
         txtId.setText(tblId);
         txtPassword.setText(tblPassword);
         cmbGender.setSelectedItem(tblGender);
@@ -474,6 +421,7 @@ public class ViewPeople extends javax.swing.JFrame {
         txtDOB.setText(tblDOB);
         txtContactNumber.setText(tblContactNo);
         txtICPassport.setText(tblICPassport);
+        cmbState.setSelectedItem(tblStatus);
 
 
     }//GEN-LAST:event_jTablePeopleMouseClicked
@@ -525,31 +473,17 @@ public class ViewPeople extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         String tblId = txtId.getText();
-        if (tblId.substring(0,1).equals("2")){
+        if (tblId.substring(0, 1).equals("2")) {
             pd.deleteCitizen(txtId);
             jTablePeople.setModel(new DefaultTableModel());
-        pd.viewPeopleTable(jTablePeople);
-        pd.viewNonTable(jTablePeople);
-        }else if(tblId.substring(0,1).equals("3")){
+            pd.viewPeopleTable(jTablePeople);
+            pd.viewNonTable(jTablePeople);
+        } else if (tblId.substring(0, 1).equals("3")) {
             pd.deleteNonCitizen(txtId);
             jTablePeople.setModel(new DefaultTableModel());
-        pd.viewPeopleTable(jTablePeople);
-        pd.viewNonTable(jTablePeople);
+            pd.viewPeopleTable(jTablePeople);
+            pd.viewNonTable(jTablePeople);
         }
-        /*DefaultTableModel tblModel = (DefaultTableModel)jTablePeople.getModel();
-
-        if(jTablePeople.getSelectedRowCount()==1){
-            tblModel.removeRow(jTablePeople.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "The data is deleted from the table.");
-            saveStudentDetails();
-        }else{
-            if (jTablePeople.getRowCount() == 0){
-                JOptionPane.showMessageDialog(this, "Table is Empty.");
-            }else{
-                JOptionPane.showMessageDialog(this, "Please select single row for delete.");
-            }
-        }
-        */
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnPeopleUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeopleUpdateActionPerformed
@@ -570,23 +504,23 @@ public class ViewPeople extends javax.swing.JFrame {
         pd.viewPeopleTable(jTablePeople);
         pd.viewNonTable(jTablePeople);
         }else if(tblId.substring(0,1).equals("3")){
-            PeopleDetails x = new PeopleDetails();
             pd.updateNonCitizen(txtId, txtPassword, txtName, cmbGender, txtEmail, txtDOB, txtContactNumber,txtICPassport, cmbState);
             jTablePeople.setModel(new DefaultTableModel());
         pd.viewPeopleTable(jTablePeople);
         pd.viewNonTable(jTablePeople);
         }
-        
-//        JOptionPane.showMessageDialog(this, "Update Successfully.");
-// 
-//        }else{
-//            if (jTablePeople.getRowCount() == 0){
-//                JOptionPane.showMessageDialog(this, "Table is Empty.");
-//            }else{
-//                JOptionPane.showMessageDialog(this, "Please select single row for update.");
-//            }
-//        }          
+                 
     }//GEN-LAST:event_btnPeopleUpdateActionPerformed
+
+    private void lblClose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClose2MouseClicked
+        PersonnelMain pm = new PersonnelMain();
+        pm.setVisible(true);
+        this.setVisible(false);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.dispose();
+        //        setVisible(false);
+
+    }//GEN-LAST:event_lblClose2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -634,7 +568,6 @@ public class ViewPeople extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -647,6 +580,7 @@ public class ViewPeople extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablePeople;
+    private javax.swing.JLabel lblClose2;
     private javax.swing.JTextField txtContactNumber;
     private javax.swing.JTextField txtDOB;
     private javax.swing.JTextField txtEmail;

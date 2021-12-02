@@ -1,4 +1,2 @@
 200001 : 2222 : Ken : Male  : Ken@mail.com : 2021-11-08 : 0178289922 : 0123456789 : Johor
 200002 : 2222 : Ken : Male  : Ken@mail.com : 2021-11-08 : 0178289922 : 01012299233 : Johor
-200003 : 2222 : Ke4 : Male  : Ken@mail.com : 2021-11-08 : 0178289921 : 010122-99-222 : Johor
-200004 : sadas : d : Male  : sad : sad : asd : Kuala Lumpur : sad

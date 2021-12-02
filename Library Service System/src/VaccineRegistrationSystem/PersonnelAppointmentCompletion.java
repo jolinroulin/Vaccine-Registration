@@ -8,6 +8,10 @@ package VaccineRegistrationSystem;
 import Classes.Appointment;
 import Classes.Centre;
 import Classes.Vaccine;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -25,10 +29,10 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
     Appointment a = new Appointment();
     Centre c = new Centre();
     Vaccine v = new Vaccine();
-    
+
     public PersonnelAppointmentCompletion() {
         initComponents();
-         jTableAddedApp.setModel(new DefaultTableModel());
+        jTableAddedApp.setModel(new DefaultTableModel());
         try {
             a.viewAddedAppTable(jTableAddedApp);
         } catch (Exception ex) {
@@ -54,7 +58,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAddedApp = new javax.swing.JTable();
-        btnViewSlot1 = new javax.swing.JButton();
+        btnVComplete = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -75,6 +79,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         lblPeopleType = new javax.swing.JLabel();
         lblCentre = new javax.swing.JLabel();
         lblSlot = new javax.swing.JLabel();
+        btnViewCompletedApp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -104,7 +109,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(447, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
@@ -147,12 +152,12 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableAddedApp);
 
-        btnViewSlot1.setBackground(new java.awt.Color(204, 255, 255));
-        btnViewSlot1.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnViewSlot1.setText("Complete");
-        btnViewSlot1.addActionListener(new java.awt.event.ActionListener() {
+        btnVComplete.setBackground(new java.awt.Color(204, 255, 255));
+        btnVComplete.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        btnVComplete.setText("Complete");
+        btnVComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewSlot1ActionPerformed(evt);
+                btnVCompleteActionPerformed(evt);
             }
         });
 
@@ -181,9 +186,9 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         lblContactNo.setText("lblContactNo");
 
         jLabel22.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jLabel22.setText("Vaccine Name:");
+        jLabel22.setText("Vaccine:");
 
-        cmbVaccineName.setFont(new java.awt.Font("Californian FB", 0, 14)); // NOI18N
+        cmbVaccineName.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         jLabel16.setText("Search:");
@@ -219,14 +224,28 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         lblSlot.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         lblSlot.setText("lblSlot");
 
+        btnViewCompletedApp.setBackground(new java.awt.Color(204, 255, 255));
+        btnViewCompletedApp.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnViewCompletedApp.setText("View Completed Vaccination");
+        btnViewCompletedApp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewCompletedAppMouseClicked(evt);
+            }
+        });
+        btnViewCompletedApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCompletedAppActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -245,43 +264,46 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
                                     .addComponent(lblCentre)
                                     .addComponent(lblPeopleType)
                                     .addComponent(lblEmail)
-                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblIC)
-                                        .addComponent(lblName, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblStatus, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblContactNo, javax.swing.GroupLayout.Alignment.LEADING))))
+                                    .addComponent(lblName)
+                                    .addComponent(lblStatus)
+                                    .addComponent(lblContactNo)
+                                    .addComponent(lblIC))))
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnVComplete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel22)
-                                .addGap(39, 39, 39)
-                                .addComponent(cmbVaccineName, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbVaccineName, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(btnViewSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(26, 26, 26)
+                        .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnViewCompletedApp, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewCompletedApp, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(lblIC))
@@ -313,25 +335,24 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
                             .addComponent(lblSlot))
-                        .addGap(18, 18, 18)
+                        .addGap(38, 38, 38)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbVaccineName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addComponent(btnViewSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addGap(41, 41, 41)
+                        .addComponent(btnVComplete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,7 +360,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -350,7 +371,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -406,18 +427,51 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableAddedAppMouseClicked
 
-    private void btnViewSlot1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSlot1ActionPerformed
-        //        String state = cmbNewStateSlots.getSelectedItem().toString();
-        //        String centre  = cmbNewStateCentre.getSelectedItem().toString();
-        //        try {
-            //            jTableSlot.setModel(new DefaultTableModel());
-            //            as.viewSlotTable(cmbNewStateSlots, cmbNewStateCentre, jTableSlot);
-            //            lblState.setText(state);
-            //            lblCentre.setText(centre);
-            //        } catch (IOException ex) {
-            //            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
-    }//GEN-LAST:event_btnViewSlot1ActionPerformed
+    private void btnVCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVCompleteActionPerformed
+        String ID = lblIC.getText();
+        String name = lblName.getText();
+        String phoneno = lblContactNo.getText();
+        String email = lblEmail.getText();
+        String state = lblStatus.getText();
+        String peopletype = lblPeopleType.getText();
+        String centre = lblCentre.getText();
+        String slot = lblSlot.getText();
+        String vaccine = cmbVaccineName.getSelectedItem().toString();
+
+        if ("*None*".equals(vaccine)) {
+            JOptionPane.showMessageDialog(null, "Please select the vaccine.");
+        } else {
+            if (JOptionPane.showConfirmDialog(null, "Vaccination Completed?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                try {
+                    FileWriter Writer = new FileWriter("Appointment/vaccineappcompleted.txt", true);
+                    Writer.write(ID + " : " + name + " : " + phoneno + " : " + email + " : " + state + " : " + peopletype + " : " + centre + " : " + slot + " : " + vaccine);
+                    Writer.write(System.getProperty("line.separator"));
+                    Writer.close();
+                    JOptionPane.showMessageDialog(null, "Status Updated!");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
+                //Delete from old file
+                a.removeFromAdded(lblIC);
+                jTableAddedApp.setModel(new DefaultTableModel());
+                try {
+                    a.viewAddedAppTable(jTableAddedApp);
+                    PersonnelCompletedAppointment cp = new PersonnelCompletedAppointment();
+                    cp.setVisible(true);
+                    this.dispose();
+                } catch (IOException ex) {
+                    Logger.getLogger(PersonnelAppointmentCompletion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                jTableAddedApp.setModel(new DefaultTableModel());
+                try {
+                    a.viewAddedAppTable(jTableAddedApp);
+                } catch (IOException ex) {
+                    Logger.getLogger(PersonnelAppointmentCompletion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnVCompleteActionPerformed
 
     private void txtAssSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAssSearchKeyReleased
         DefaultTableModel table = (DefaultTableModel) jTableAddedApp.getModel();
@@ -426,6 +480,17 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jTableAddedApp.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(search));
     }//GEN-LAST:event_txtAssSearchKeyReleased
+
+    private void btnViewCompletedAppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewCompletedAppMouseClicked
+        // TODO add your handling code here:
+        PersonnelCompletedAppointment pc = new PersonnelCompletedAppointment();
+        pc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnViewCompletedAppMouseClicked
+
+    private void btnViewCompletedAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCompletedAppActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewCompletedAppActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,7 +529,8 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnViewSlot1;
+    private javax.swing.JButton btnVComplete;
+    private javax.swing.JButton btnViewCompletedApp;
     private javax.swing.JComboBox<String> cmbVaccineName;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

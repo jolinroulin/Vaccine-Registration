@@ -370,8 +370,9 @@ public class Appointment {
 
     }
     
-    String[] columnsName2 = {"IC/Passport No.)","Name","Phone No.", "Email", "State", "People Type", "Venue", "Date", "Time"};
-    public void viewAddedAppTable(JTable t) throws FileNotFoundException, IOException{DefaultTableModel model = (DefaultTableModel)t.getModel();
+    String[] columnsName2 = {"IC/Passport No.","Name","Phone No.", "Email", "State", "People Type", "Venue", "Date", "Time"};
+    public void viewAddedAppTable(JTable t) throws FileNotFoundException, IOException{
+        DefaultTableModel model = (DefaultTableModel)t.getModel();
 
         try{
             String filename = "Appointment/vaccineappadded.txt";

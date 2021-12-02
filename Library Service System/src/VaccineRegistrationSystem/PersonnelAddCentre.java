@@ -274,9 +274,9 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Add New Vaccine Centre & Slots");
+        jLabel12.setText("Add New Vaccine Centre");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/borrowbook.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Centre_1.png"))); // NOI18N
         jLabel13.setText("jLabel13");
 
         lblClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-close-window-30.png"))); // NOI18N

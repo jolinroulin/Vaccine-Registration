@@ -120,7 +120,7 @@ public class Centre {
     
         public void deleteKLCentre(JTextField KLCentre){
         if (JOptionPane.showConfirmDialog(null, "Are you sure to delete the centre?", "WARNING",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
-            File newFile = new File(filePath1);
+            File newFile = new File(filePath2);
             String currentLine;
             String kl[];
             String removeTerm = KLCentre.getText();

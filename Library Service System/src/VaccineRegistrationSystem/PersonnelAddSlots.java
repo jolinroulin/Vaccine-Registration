@@ -30,6 +30,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
 
     public PersonnelAddSlots() {
         initComponents();
+        hideContent();
     }
 
     /**
@@ -79,7 +80,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Add Vaccination Slots");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/borrowbook.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/addappointment.png"))); // NOI18N
         jLabel13.setText("jLabel13");
 
         lblClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-close-window-30.png"))); // NOI18N
@@ -253,25 +254,10 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jSeparator1)
                 .addContainerGap())
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblState)
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel17)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCentre)
-                        .addGap(704, 704, 704))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(btnDeleteSlots)
@@ -285,8 +271,25 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                                 .addComponent(jLabel15)
                                 .addGap(34, 34, 34)
                                 .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(139, 139, 139)))))
+                                .addGap(139, 139, 139))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblState)
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblCentre)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(45, 45, 45))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,8 +304,8 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                     .addComponent(cmbNewStateCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnViewSlot1))
                 .addGap(34, 34, 34)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(DateSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,8 +328,8 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(lblCentre))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -345,7 +348,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -356,7 +359,9 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -486,6 +491,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         String state = cmbNewStateSlots.getSelectedItem().toString();
         String centre = cmbNewStateCentre.getSelectedItem().toString();
         try {
+            showContent();
             jTableSlot.setModel(new DefaultTableModel());
             as.viewSlotTable(cmbNewStateSlots, cmbNewStateCentre, jTableSlot);
             lblState.setText(state);
@@ -508,7 +514,37 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jTableSlotMouseClicked
+    public void hideContent(){
+        jSeparator1.setVisible(false);
+        jLabel14.setVisible(false);
+        DateSlot.setVisible(false);
+        jLabel15.setVisible(false);
+        cmbTime.setVisible(false);
+        btnDeleteSlots.setVisible(false);
+        btnAddSlot.setVisible(false);
+        jLabel16.setVisible(false);
+        lblState.setVisible(false);
+        jLabel17.setVisible(false);
+        lblCentre.setVisible(false);
+        jTableSlot.setVisible(false);
 
+    }
+    
+    
+    public void showContent(){
+        jSeparator1.setVisible(true);
+        jLabel14.setVisible(true);
+        DateSlot.setVisible(true);
+        jLabel15.setVisible(true);
+        cmbTime.setVisible(true);
+        btnDeleteSlots.setVisible(true);
+        btnAddSlot.setVisible(true);
+        jLabel16.setVisible(true);
+        lblState.setVisible(true);
+        jLabel17.setVisible(true);
+        lblCentre.setVisible(true);
+        jTableSlot.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */

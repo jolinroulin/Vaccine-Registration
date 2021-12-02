@@ -60,6 +60,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jmiViewVaccine = new javax.swing.JMenuItem();
         jmiStatistics = new javax.swing.JMenu();
+        jmiSummaryReport = new javax.swing.JMenuItem();
         jPeopleProfile = new javax.swing.JMenu();
         jMenuLogOut = new javax.swing.JMenu();
 
@@ -276,6 +277,17 @@ public class PersonnelMain extends javax.swing.JFrame {
                 jmiStatisticsActionPerformed(evt);
             }
         });
+
+        jmiSummaryReport.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmiSummaryReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Centre.png"))); // NOI18N
+        jmiSummaryReport.setText("Summary Report");
+        jmiSummaryReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSummaryReportActionPerformed(evt);
+            }
+        });
+        jmiStatistics.add(jmiSummaryReport);
+
         jMenuBar1.add(jmiStatistics);
 
         jPeopleProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
@@ -398,6 +410,11 @@ public class PersonnelMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiRenew1ActionPerformed
 
+    private void jmiSummaryReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSummaryReportActionPerformed
+        //new PrintReport().setVisible(true);
+        //this.dispose();
+    }//GEN-LAST:event_jmiSummaryReportActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -461,6 +478,7 @@ public class PersonnelMain extends javax.swing.JFrame {
     private javax.swing.JMenu jmiRenew;
     private javax.swing.JMenu jmiRenew1;
     private javax.swing.JMenu jmiStatistics;
+    private javax.swing.JMenuItem jmiSummaryReport;
     private javax.swing.JMenuItem jmiViewPeople;
     private javax.swing.JMenuItem jmiViewPersonnel;
     private javax.swing.JMenuItem jmiViewVaccine;

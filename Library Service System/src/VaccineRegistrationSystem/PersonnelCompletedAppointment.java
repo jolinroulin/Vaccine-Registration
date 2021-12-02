@@ -5,10 +5,6 @@
  */
 package VaccineRegistrationSystem;
 
-import Classes.Appointment;
-import Classes.Centre;
-import Classes.Vaccine;
-import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -17,23 +13,13 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Asus
  */
-public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
+public class PersonnelCompletedAppointment extends javax.swing.JFrame {
 
     /**
-     * Creates new form PersonnelCancelAppointment
+     * Creates new form PersonnelCompletedAppointment
      */
-    Appointment a = new Appointment();
-    Centre c = new Centre();
-    Vaccine v = new Vaccine();
-    
-    public PersonnelAppointmentCompletion() {
+    public PersonnelCompletedAppointment() {
         initComponents();
-         jTableAddedApp.setModel(new DefaultTableModel());
-        try {
-            a.viewAddedAppTable(jTableAddedApp);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error.");
-        }
     }
 
     /**
@@ -53,7 +39,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAddedApp = new javax.swing.JTable();
+        jTableToBeCompleted = new javax.swing.JTable();
         btnViewSlot1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -80,6 +66,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -130,8 +117,8 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         jLabel14.setText("IC / Passport Number:");
 
-        jTableAddedApp.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        jTableAddedApp.setModel(new javax.swing.table.DefaultTableModel(
+        jTableToBeCompleted.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        jTableToBeCompleted.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -139,12 +126,12 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
 
             }
         ));
-        jTableAddedApp.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableToBeCompleted.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableAddedAppMouseClicked(evt);
+                jTableToBeCompletedMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableAddedApp);
+        jScrollPane1.setViewportView(jTableToBeCompleted);
 
         btnViewSlot1.setBackground(new java.awt.Color(204, 255, 255));
         btnViewSlot1.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
@@ -183,6 +170,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jLabel22.setText("Vaccine Name:");
 
         cmbVaccineName.setFont(new java.awt.Font("Californian FB", 0, 14)); // NOI18N
+        cmbVaccineName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel16.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
         jLabel16.setText("Search:");
@@ -256,29 +244,31 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(btnViewSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(51, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(246, 246, 246))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addComponent(jLabel7)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtAssSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -349,7 +339,9 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -365,49 +357,33 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         //        setVisible(false);
     }//GEN-LAST:event_lblCloseMouseClicked
 
-    private void jTableAddedAppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAddedAppMouseClicked
-        DefaultTableModel tblModel = (DefaultTableModel) jTableAddedApp.getModel();
-        String id = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 0).toString();
-        String name = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 1).toString();
-        String phoneno = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 2).toString();
-        String email = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 3).toString();
-        String state = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 4).toString();
-        String peopletype = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 5).toString();
-        String centre = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 6).toString();
-        String date = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 7).toString();
-        String time = tblModel.getValueAt(jTableAddedApp.getSelectedRow(), 8).toString();
-        String slot = date + " : " + time;
-
-        lblIC.setText(id);
-        lblName.setText(name);
-        lblStatus.setText(state);
-        lblContactNo.setText(phoneno);
-        lblEmail.setText(email);
-        lblPeopleType.setText(peopletype);
-        lblCentre.setText(centre);
-        lblSlot.setText(slot);
-        try {
-            if (lblStatus.getText().equals("Johor")) {
-                cmbVaccineName.removeAllItems();
-                String getCentre = lblCentre.getText();
-                v.viewJohorVaccine(getCentre, cmbVaccineName);
-
-            } else if (lblStatus.getText().equals("Kuala Lumpur")) {
-                cmbVaccineName.removeAllItems();
-
-                String getcentre = lblCentre.getText();
-                v.viewKLVaccine(getcentre, cmbVaccineName);
-
-            } else if (lblStatus.getText().equals("Penang")) {
-                cmbVaccineName.removeAllItems();
-
-                String getcentre = lblCentre.getText();
-                v.viewPenangVaccine(getcentre, cmbVaccineName);
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error.");
-        }
-    }//GEN-LAST:event_jTableAddedAppMouseClicked
+    private void jTableToBeCompletedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableToBeCompletedMouseClicked
+        //        DefaultTableModel tblModel = (DefaultTableModel) jTableToBeCompleted.getModel();
+        //        String id = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 0).toString();
+        //        String name = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 1).toString();
+        //        String phoneno = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 2).toString();
+        //        String email = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 3).toString();
+        //        String state = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 4).toString();
+        //        String peopletype = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 5).toString();
+        //        String centre = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 6).toString();
+        //        String date = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 7).toString();
+        //        String time = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 8).toString();
+        //        String slot = date + ", " + time;
+        //        String vac1 = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 9).toString();
+        //        String vac2 = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 10).toString();
+        //        String vac3 = tblModel.getValueAt(jTableToBeCompleted.getSelectedRow(), 11).toString();
+        //        String vac = vac1 + " : " + vac2 + " : " + vac3;
+        //
+        //        lblIC.setText(id);
+        //        lblName.setText(name);
+        //        lblStatus.setText(state);
+        //        lblContactNo.setText(phoneno);
+        //        lblEmail.setText(email);
+        //        lblPeopleType.setText(peopletype);
+        //        lblCentre.setText(centre);
+        //        lblSlot.setText(slot);
+        //        lbl.setText(vac);
+    }//GEN-LAST:event_jTableToBeCompletedMouseClicked
 
     private void btnViewSlot1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSlot1ActionPerformed
         //        String state = cmbNewStateSlots.getSelectedItem().toString();
@@ -423,10 +399,10 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewSlot1ActionPerformed
 
     private void txtAssSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAssSearchKeyReleased
-        DefaultTableModel table = (DefaultTableModel) jTableAddedApp.getModel();
+        DefaultTableModel table = (DefaultTableModel) jTableToBeCompleted.getModel();
         String search = txtAssSearch.getText();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(table);
-        jTableAddedApp.setRowSorter(tr);
+        jTableToBeCompleted.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(search));
     }//GEN-LAST:event_txtAssSearchKeyReleased
 
@@ -447,21 +423,20 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAppointmentCompletion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelCompletedAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAppointmentCompletion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelCompletedAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAppointmentCompletion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelCompletedAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAppointmentCompletion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelCompletedAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonnelAppointmentCompletion().setVisible(true);
+                new PersonnelCompletedAppointment().setVisible(true);
             }
         });
     }
@@ -486,7 +461,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAddedApp;
+    private javax.swing.JTable jTableToBeCompleted;
     private javax.swing.JLabel lblCentre;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblContactNo;

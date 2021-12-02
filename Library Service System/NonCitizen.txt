@@ -1,3 +1,5 @@
 300001 : 3333 : Ray : Male  : Ray@mail.com : 2021-11-08 : 0178289922 : A01001111 : Johor
 300002 : 1444 : Karen : Female : Karen@mail.com : 2021-11-23 : 019222255 : A01001110 : Johor
 300003 : 1121 : Ren : Male  : Ren@mail.com : 2021-11-10 : 0182229992 : A01920211 : Penang 
+300004 : 1211 : Fas : Male  : Fas : 2021-12-16 : 0290312 : A98282323 : Penang 
+300005 : 123 : asad : Male  : asd@ : 2021-12-16 : 99823 : A08989 : Kuala Lumpur

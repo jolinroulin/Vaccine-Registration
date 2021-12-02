@@ -55,6 +55,8 @@ public class PersonnelMain extends javax.swing.JFrame {
         jApp = new javax.swing.JMenu();
         jmiIManageAppointment = new javax.swing.JMenuItem();
         jmilManageApp = new javax.swing.JMenuItem();
+        jmilManageApp1 = new javax.swing.JMenuItem();
+        jmilManageApp2 = new javax.swing.JMenuItem();
         jVaciine = new javax.swing.JMenu();
         jmiManageVaccine = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -238,6 +240,26 @@ public class PersonnelMain extends javax.swing.JFrame {
         });
         jApp.add(jmilManageApp);
 
+        jmilManageApp1.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmilManageApp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
+        jmilManageApp1.setText("Appointment Completion");
+        jmilManageApp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmilManageApp1ActionPerformed(evt);
+            }
+        });
+        jApp.add(jmilManageApp1);
+
+        jmilManageApp2.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jmilManageApp2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bookmark.png"))); // NOI18N
+        jmilManageApp2.setText("Completed Appointment");
+        jmilManageApp2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmilManageApp2ActionPerformed(evt);
+            }
+        });
+        jApp.add(jmilManageApp2);
+
         jMenuBar1.add(jApp);
 
         jVaciine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/vaccine.png"))); // NOI18N
@@ -418,6 +440,14 @@ public class PersonnelMain extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jmiAddPeopleActionPerformed
 
+    private void jmilManageApp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageApp1ActionPerformed
+        new PersonnelAppointmentCompletion().setVisible(true);
+    }//GEN-LAST:event_jmilManageApp1ActionPerformed
+
+    private void jmilManageApp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageApp2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmilManageApp2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -486,6 +516,8 @@ public class PersonnelMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiViewPersonnel;
     private javax.swing.JMenuItem jmiViewVaccine;
     private javax.swing.JMenuItem jmilManageApp;
+    private javax.swing.JMenuItem jmilManageApp1;
+    private javax.swing.JMenuItem jmilManageApp2;
     private javax.swing.JLabel lbl;
     private javax.swing.JLabel lblBackground;
     public javax.swing.JLabel lblUser;

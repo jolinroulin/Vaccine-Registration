@@ -367,7 +367,7 @@ public class RegisterPeople extends javax.swing.JFrame {
             String peopleType = cmbPeopleType.getSelectedItem().toString();
             String peopleState = cmbPeopleState.getSelectedItem().toString();
             if(peopleType.equals("Citizen")){
-                Citizen citizen = new Citizen(peopleID,peoplePassword , peopleName, peopleGender, peopleEmailAddress, peopleDOB, peopleMobileNumber, peopleIC,peopleState );
+                Citizen citizen = new Citizen(peopleID,peoplePassword , peopleName, peopleGender, peopleEmailAddress, peopleDOB, peopleMobileNumber, peopleIC, peopleState );
                 PeopleDetails cDetails = new PeopleDetails();
                 cDetails.addCitizenToTextFile(citizen);
             }else if (peopleType.equals("NonCitizen")){

@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -118,47 +120,61 @@ System.out.println(filePath);
             }  
         }  
     }
-//    public void deleteVacSupply(String state, String centre, JTextField vacname, JTextField vaccode, JDateChooser expdate, JTextField quantity){
-//        if (JOptionPane.showConfirmDialog(null, "Are you sure to remove the Vaccine?", "WARNING",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
-//            String filePath = "Vaccine/" + state + "/" + centre + ".txt";
-//            File newFile = new File(filePath);
-//            String currentLine;
-//            String slot[];
-//            String removeTerm = vacname.getText();
-//            String removeTerm2 = vaccode.getText();
-//
-//            try{
-//                FileWriter fw = new FileWriter (filePath,true);
-//                BufferedWriter bw = new BufferedWriter (fw);
-//                PrintWriter pw = new PrintWriter(bw);
-//
-//                FileReader fr = new FileReader(newFile);
-//                BufferedReader br = new BufferedReader(fr);
-//
-//                while ((currentLine = br.readLine())!=null ){
-//                    slot = currentLine.split(" : ");
-//                    if(!slot[0].equalsIgnoreCase(removeTerm) && !slot[1].equalsIgnoreCase(removeTerm2)){
-//                        new FileOutputStream(filePath).close();
-//                        pw.println(currentLine);
-//                    }
-//                }
-//                pw.flush();
-//                pw.close();
-//
-//                File ct = new File(filePath);
-//                newFile.renameTo(ct);
-//
-//                JOptionPane.showMessageDialog(null,"Record is deleted");
-//                vacname.setText("");
-//                vaccode.setText("");
-//                expdate.setDate(new Date());
-//                quantity.setText("");
-//            }
-//            catch(Exception ex) {
-//                JOptionPane.showMessageDialog(null, "Error");
-//            }  
-//        }  
-//    }
+
+    
+    public void viewJohorVaccine(String centre, JComboBox vaccine){
+        String filePath = "Vaccine/Johor/"+centre+".txt";
+        File file = new File(filePath);
+        try {
+            Scanner scanner = new Scanner(file);
+
+            while(scanner.hasNext()){
+                String[] lines = scanner.nextLine().split("\n");
+                for(int i = 0; i < lines.length; i++){
+                    String line = lines[i].toString();
+                    vaccine.addItem(line);
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "No Record.");
+        }
+    }
+    
+    public void viewKLVaccine(String centre, JComboBox vaccine){
+        String filePath = "Vaccine/Kuala Lumpur/"+centre+".txt";
+        File file = new File(filePath);
+        try {
+            Scanner scanner = new Scanner(file);
+
+            while(scanner.hasNext()){
+                String[] lines = scanner.nextLine().split("\n");
+                for(int i = 0; i < lines.length; i++){
+                    String line = lines[i].toString();
+                    vaccine.addItem(line);
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "No Record.");
+        }
+    }
+    
+    public void viewPenangVaccine(String centre, JComboBox vaccine){
+        String filePath = "Vaccine/Penang/"+centre+".txt";
+        File file = new File(filePath);
+        try {
+            Scanner scanner = new Scanner(file);
+
+            while(scanner.hasNext()){
+                String[] lines = scanner.nextLine().split("\n");
+                for(int i = 0; i < lines.length; i++){
+                    String line = lines[i].toString();
+                    vaccine.addItem(line);
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "No Record.");
+        }
+    }
 
 
 }

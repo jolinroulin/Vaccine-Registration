@@ -271,6 +271,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
             }
         });
 
+        btnDelete.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,7 +279,8 @@ public class ViewPersonnel extends javax.swing.JFrame {
             }
         });
 
-        btnStudentUpdate.setText("Update");
+        btnStudentUpdate.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnStudentUpdate.setText("Modify");
         btnStudentUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStudentUpdateActionPerformed(evt);
@@ -385,7 +387,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(102, 102, 102)
                 .addComponent(btnStudentUpdate)
                 .addGap(56, 56, 56)
                 .addComponent(btnDelete)
@@ -398,8 +400,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(120, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,11 +452,11 @@ public class ViewPersonnel extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIC1)
                             .addComponent(CmbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnStudentUpdate)
-                            .addComponent(btnDelete))
-                        .addGap(61, 61, 61))))
+                            .addComponent(btnDelete))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -561,7 +562,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
     }//GEN-LAST:event_jTablePersonnelMouseClicked
 
     private void btnStudentUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentUpdateActionPerformed
-        p.updateProfiles(txtPID, txtPassword, txtPName, cmbGender , txtEmailAddress, txtDOB, txtMobileNumber, txtIC, CmbVaccineCentre,CmbState);
+        p.modifyPersonnelDetails(txtPID, txtPassword, txtPName, cmbGender , txtEmailAddress, txtDOB, txtMobileNumber, txtIC, CmbVaccineCentre,CmbState);
         jTablePersonnel.setModel(new DefaultTableModel());
         p.viewPersonnelTable(jTablePersonnel);
 //        DefaultTableModel tblModel = (DefaultTableModel)jTablePersonnel.getModel();

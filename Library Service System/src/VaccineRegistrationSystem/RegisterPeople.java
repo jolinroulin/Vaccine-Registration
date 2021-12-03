@@ -24,6 +24,17 @@ public class RegisterPeople extends javax.swing.JFrame {
         initComponents();
         panel.setVisible(false);
         btnClear.setVisible(false);
+       
+        if (jCheckBox2.isSelected()) {
+            txtCPassword.setEchoChar((char) 0);
+        } else {
+            txtCPassword.setEchoChar('*');
+        }
+        
+        if (jCheckBoxp.isSelected()) {
+            txtPassword.setEchoChar((char) 0);
+        } else {
+            txtPassword.setEchoChar('*');}
     }
 
     /**
@@ -148,7 +159,7 @@ public class RegisterPeople extends javax.swing.JFrame {
         jLabel10.setText("Gender:");
 
         cmbStdGender.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
-        cmbStdGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
+        cmbStdGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
         lblIC.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         lblIC.setText("IC Number:");
@@ -222,6 +233,11 @@ public class RegisterPeople extends javax.swing.JFrame {
         });
 
         jCheckBoxp.setText("Show Password");
+        jCheckBoxp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxpMouseClicked(evt);
+            }
+        });
         jCheckBoxp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxpActionPerformed(evt);
@@ -243,6 +259,11 @@ public class RegisterPeople extends javax.swing.JFrame {
         });
 
         jCheckBox2.setText("Show Password");
+        jCheckBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox2MouseClicked(evt);
+            }
+        });
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
@@ -256,8 +277,30 @@ public class RegisterPeople extends javax.swing.JFrame {
             .addGroup(panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel18)
+                        .addGap(37, 37, 37))
+                    .addGroup(panelLayout.createSequentialGroup()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jCheckBoxp)
+                                        .addGroup(panelLayout.createSequentialGroup()
+                                            .addComponent(lblIC1)
+                                            .addGap(126, 126, 126)
+                                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cmbPeopleState, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel15))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panelLayout.createSequentialGroup()
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelLayout.createSequentialGroup()
@@ -276,44 +319,22 @@ public class RegisterPeople extends javax.swing.JFrame {
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel6))
-                                .addGap(57, 57, 57))
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jCheckBoxp)
-                                        .addGroup(panelLayout.createSequentialGroup()
-                                            .addComponent(lblIC1)
-                                            .addGap(126, 126, 126)
-                                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cmbPeopleState, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel18)
-                                .addGap(37, 37, 37)))
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSelectDateStdDOB1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jCheckBox2)
-                                .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addComponent(btnStdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(22, 22, 22))
+                                    .addComponent(jLabel6))))
+                        .addGap(57, 57, 57)))
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel5))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSelectDateStdDOB1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jCheckBox2)
+                        .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(btnStdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,8 +376,8 @@ public class RegisterPeople extends javax.swing.JFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel18)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBoxp)
@@ -417,12 +438,9 @@ public class RegisterPeople extends javax.swing.JFrame {
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addContainerGap(38, Short.MAX_VALUE))))
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -441,26 +459,23 @@ public class RegisterPeople extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStdRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStdRegisterActionPerformed
-
-        if(txtStdName.getText().trim().isEmpty()){
+        String password = txtPassword.getText();
+        String confirmpassword = txtCPassword.getText();
+        if (txtStdName.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please make sure the name is filled.");
-        }
-        else if(txtPassword.getText().trim().isEmpty()){
+        } else if (txtPassword.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please make sure the password is filled.");
-        }
-        else if(txtDOB.getText().trim().isEmpty()){
+        } else if (txtDOB.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please make sure the DOB is filled.");
-        }
-        else if(txtStdEmail.getText().trim().isEmpty()){
+        } else if (txtStdEmail.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please make sure the email is filled.");
-        }
-        else if(txtStdMobileNumber.getText().trim().isEmpty()){
+        } else if (txtStdMobileNumber.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please make sure the mobile number is filled.");
-        }
-        else if(txtUserIC.getText().trim().isEmpty()){
+        } else if (txtUserIC.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please make sure the IC/Passport Number is filled.");
-        }
-        else {
+        }else if(!password.equals(confirmpassword)){
+            JOptionPane.showMessageDialog(null, "Passwords did not match. Please try again.");
+        } else {
             String peopleID = null;
             String peopleName = txtStdName.getText();
             String peopleGender = cmbStdGender.getSelectedItem().toString();
@@ -471,16 +486,16 @@ public class RegisterPeople extends javax.swing.JFrame {
             String peopleIC = txtUserIC.getText();
             String peopleType = cmbPeopleType.getSelectedItem().toString();
             String peopleState = cmbPeopleState.getSelectedItem().toString();
-            if(peopleType.equals("Citizen")){
-                Citizen citizen = new Citizen(peopleID,peoplePassword , peopleName, peopleGender, peopleEmailAddress, peopleDOB, peopleMobileNumber, peopleIC, peopleState );
+            if (peopleType.equals("Citizen")) {
+                Citizen citizen = new Citizen(peopleID, peoplePassword, peopleName, peopleGender, peopleEmailAddress, peopleDOB, peopleMobileNumber, peopleIC, peopleState);
                 PeopleDetails cDetails = new PeopleDetails();
                 cDetails.addCitizenToTextFile(citizen);
-            }else if (peopleType.equals("NonCitizen")){
-                NonCitizen nonCitizen = new NonCitizen(peopleID,peoplePassword , peopleName, peopleGender, peopleEmailAddress, peopleDOB, peopleMobileNumber, peopleIC,peopleState );
+            } else if (peopleType.equals("NonCitizen")) {
+                NonCitizen nonCitizen = new NonCitizen(peopleID, peoplePassword, peopleName, peopleGender, peopleEmailAddress, peopleDOB, peopleMobileNumber, peopleIC, peopleState);
                 PeopleDetails ncDetails = new PeopleDetails();
                 ncDetails.addNonCitizenToTextFile(nonCitizen);
             }
- 
+
             txtStdName.setText("");
             cmbStdGender.setSelectedIndex(0);
             txtUserIC.setText("");
@@ -498,9 +513,9 @@ public class RegisterPeople extends javax.swing.JFrame {
         Object selected = cmbPeopleType.getSelectedItem();
         panel.setVisible(true);
         btnClear.setVisible(true);
-        if (selected.toString().equals("NonCitizen")){
+        if (selected.toString().equals("NonCitizen")) {
             lblIC.setText("Passport Number:");
-        }else{
+        } else {
             lblIC.setText("IC Number:");
         }
     }//GEN-LAST:event_cmbPeopleTypeActionPerformed
@@ -508,14 +523,14 @@ public class RegisterPeople extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
         txtStdName.setText("");
-            cmbStdGender.setSelectedIndex(0);
-            txtUserIC.setText("");
-            txtPassword.setText("");
-            txtDOB.setText("");
-            txtStdEmail.setText("");
-            txtStdMobileNumber.setText("");
-            cmbPeopleType.setSelectedIndex(0);
-            cmbPeopleState.setSelectedIndex(0);
+        cmbStdGender.setSelectedIndex(0);
+        txtUserIC.setText("");
+        txtPassword.setText("");
+        txtDOB.setText("");
+        txtStdEmail.setText("");
+        txtStdMobileNumber.setText("");
+        cmbPeopleType.setSelectedIndex(0);
+        cmbPeopleState.setSelectedIndex(0);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void cmbPeopleStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPeopleStateActionPerformed
@@ -545,17 +560,17 @@ public class RegisterPeople extends javax.swing.JFrame {
 
     private void jCheckBoxpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxpActionPerformed
         // TODO add your handling code here:
-        if(jCheckBox2.isSelected()){
-            txtPassword.setEchoChar((char)0);
-        }else{
+        if (jCheckBox2.isSelected()) {
+            txtPassword.setEchoChar((char) 0);
+        } else {
             txtPassword.setEchoChar('*');
         }
     }//GEN-LAST:event_jCheckBoxpActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        if(jCheckBoxp.isSelected()){
-            txtPassword.setEchoChar((char)0);
-        }else{
+        if (jCheckBoxp.isSelected()) {
+            txtPassword.setEchoChar((char) 0);
+        } else {
             txtPassword.setEchoChar('*');
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
@@ -564,6 +579,23 @@ public class RegisterPeople extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_lblClose2MouseClicked
+
+    private void jCheckBoxpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxpMouseClicked
+
+        if (jCheckBoxp.isSelected()) {
+            txtPassword.setEchoChar((char) 0);
+        } else {
+            txtPassword.setEchoChar('*');}
+    }//GEN-LAST:event_jCheckBoxpMouseClicked
+
+    private void jCheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox2MouseClicked
+        if (jCheckBox2.isSelected()) {
+            txtCPassword.setEchoChar((char) 0);
+        } else {
+            txtCPassword.setEchoChar('*');
+        }
+
+    }//GEN-LAST:event_jCheckBox2MouseClicked
 
     /**
      * @param args the command line arguments

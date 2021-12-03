@@ -5,8 +5,10 @@
  */
 package VaccineRegistrationSystem;
 
+import Classes.Appointment;
 import Classes.User;
 import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.runtime.Debug.id;
 
 /**
  *
@@ -18,6 +20,7 @@ public class PeopleMain extends javax.swing.JFrame {
 //         lblPeopleName.setText(user);
 //    }
     User user = new User();
+    Appointment a  = new Appointment();
     /**
      * Creates new form StudentMain
      */
@@ -219,20 +222,65 @@ public class PeopleMain extends javax.swing.JFrame {
     }//GEN-LAST:event_MyIssueActionPerformed
 
     private void jmiVaccineRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiVaccineRegistrationMouseClicked
-        PeopleVaccineRegistration pv = new PeopleVaccineRegistration();
-        new PeopleVaccineRegistration().setVisible(true);
+//        PeopleVaccineRegistration pv = new PeopleVaccineRegistration();
+//        new PeopleVaccineRegistration().setVisible(true);
+//        String name = lblPeopleName.getText();
+//        String ic = lblPeopleIC.getText();
+//        String status = lblVacStatusM.getText();
+//        
+//        pv.lblName.setText(name);
+//        pv.lblIC1.setText(ic);
+//        pv.lblVacStatus.setText(status);
+//        pv.setVisible(true);
+//        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+//        this.dispose();
+//        if(!"Not Registered".equals(status)){
+//            pv.btnRegister.setVisible(false);
+//        }
+        this.dispose();
         String name = lblPeopleName.getText();
         String ic = lblPeopleIC.getText();
         String status = lblVacStatusM.getText();
-        
-        pv.lblName.setText(name);
-        pv.lblIC1.setText(ic);
-        pv.lblVacStatus.setText(status);
-        pv.setVisible(true);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        this.dispose();
+        PeopleVaccineRegistration vac = new PeopleVaccineRegistration();
+        vac.setVisible(true);
+        vac.lblIC1.setText(ic);
+        vac.lblName.setText(name);
+        vac.lblVacStatus.setText(status);
+       
         if(!"Not Registered".equals(status)){
-            pv.btnRegister.setVisible(false);
+            vac.btnRegister.setVisible(false);
+            if("Vaccination Registered".equals(status)){
+                vac.jLabel4.setVisible(false);
+                vac.jLabel6.setVisible(false);
+                vac.jLabel19.setVisible(false);
+                vac.jLabel20.setVisible(false);
+                vac.lblCentre.setVisible(false);
+                vac.lblSlot.setVisible(false);
+                vac.lblVaccine.setVisible(false);
+                vac.btnCancelApp.setVisible(false);
+            }else if("Appointment Added".equals(status)){
+                if(a.verifyAddedAppointment(ic, name)){
+                    vac.lblCentre.setText(a.getCentre());
+                    vac.lblSlot.setText(a.getSlot());
+                    vac.lblVaccine.setVisible(false);
+                    vac.jLabel20.setVisible(false);
+                }
+            }else if("Vaccination Completed".equals(status)){
+                vac.btnCancelApp.setVisible(false);
+                if(a.verifyCompletedAppointment(ic, name)){
+                    vac.lblCentre.setText(a.getCentre());
+                    vac.lblSlot.setText(a.getSlot());
+                    vac.lblVaccine.setText(a.getVaccine());
+                }
+            }
+        }else if("Not Registered".equals(status)){
+            vac.jLabel4.setVisible(false);
+                vac.jLabel6.setVisible(false);
+                vac.jLabel19.setVisible(false);
+                vac.jLabel20.setVisible(false);
+                vac.lblCentre.setVisible(false);
+                vac.lblSlot.setVisible(false);
+                vac.lblVaccine.setVisible(false);
         }
         
     }//GEN-LAST:event_jmiVaccineRegistrationMouseClicked

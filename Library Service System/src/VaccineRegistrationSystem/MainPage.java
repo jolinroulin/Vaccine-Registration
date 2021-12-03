@@ -379,7 +379,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
-        jLabel12.setText("User Login");
+        jLabel12.setText("People Login");
 
         btnUserLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnUserLogin.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
@@ -422,35 +422,33 @@ public class MainPage extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(btnUserBack, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtUserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtUserUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(94, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGap(95, 95, 95)
+                            .addComponent(btnUserBack, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGap(75, 75, 75)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtUserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                    .addComponent(txtUserUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,46 +534,48 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserPasswordActionPerformed
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
-        String icpassportno = txtUserUsername.getText();
-         String password = txtUserPassword.getText();
-        if (user.verifycitizen(icpassportno, password)){
+String icpassportno = txtUserUsername.getText();
+        String password = txtUserPassword.getText();
+        if (user.verifycitizen(icpassportno, password)) {
             JOptionPane.showMessageDialog(this, "Login Successful!");
             setVisible(false);
             PeopleMain lm = new PeopleMain();
             lm.setVisible(true);
-            lm.lblPeopleName.setText(user.getName());  
-            lm.lblPeopleIC.setText(user.getIC());  
-            if(!a.verifyNotRegistered(user.getIC(), user.getName())){
-                lm.lblVacStatusM.setText("Not Registered");
-            }else if(a.verifyNotRegistered(user.getIC(), user.getName())){
-                lm.lblVacStatusM.setText("Vaccination Registered");
-            }else if(a.verifyAddedApp(user.getIC(), user.getName())){
-                lm.lblVacStatusM.setText("Appointment Added");
-            }else if(a.verifyCancelledApp(user.getIC(), user.getName())){
-                lm.lblVacStatusM.setText("Appointment Cancelled");
-            }else if(a.verifyCompletedApp(user.getIC(), user.getName())){
-                lm.lblVacStatusM.setText("Vaccination Completed");
-            }
-        } else if (user.verifynoncitizen(icpassportno, password)){
-            JOptionPane.showMessageDialog(this, "Login Successful!");
-            setVisible(false);
-            PeopleMain lm = new PeopleMain();
-            lm.setVisible(true);
-            lm.lblPeopleName.setText(user.getName());  
+            lm.lblPeopleName.setText(user.getName());
             lm.lblPeopleIC.setText(user.getIC());
-            if (!a.verifyNotRegistered(user.getIC(), user.getName())) {
-                lm.lblVacStatusM.setText("Not Registered");
-            } else if (a.verifyNotRegistered(user.getIC(), user.getName())) {
-                lm.lblVacStatusM.setText("Vaccination Registered");
-            } else if(a.verifyAddedApp(user.getIC(), user.getName())){
-                lm.lblVacStatusM.setText("Appointment Added");
-            }else if(a.verifyCancelledApp(user.getIC(), user.getName())){
-                lm.lblVacStatusM.setText("Appointment Cancelled");
-            }else if(a.verifyCompletedApp(user.getIC(), user.getName())){
+            if (a.verifyCompletedAppointment(user.getIC(), user.getName())) {
                 lm.lblVacStatusM.setText("Vaccination Completed");
+            } else 
+                if (a.verifyNotRegistered(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Vaccination Registered");
+            } else if (a.verifyAddedAppointment(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Appointment Added");
+            } else if (!a.verifyNotRegistered(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Not Registered");
+            } else {
+                lm.lblVacStatusM.setText("Not Registered");
             }
-        } else{
-            JOptionPane.showMessageDialog(this, "Invalid IC/Passport No. and Password.");
+        } else if (user.verifynoncitizen(icpassportno, password)) {
+            JOptionPane.showMessageDialog(this, "Login Successful!");
+            setVisible(false);
+            PeopleMain lm = new PeopleMain();
+            lm.setVisible(true);
+            lm.lblPeopleName.setText(user.getName());
+            lm.lblPeopleIC.setText(user.getIC());
+            if (a.verifyCompletedAppointment(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Vaccination Completed");
+            } else 
+                if (a.verifyNotRegistered(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Vaccination Registered");
+            } else if (a.verifyAddedAppointment(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Appointment Added");
+            } else if (!a.verifyNotRegistered(user.getIC(), user.getName())) {
+                lm.lblVacStatusM.setText("Not Registered");
+            } else {
+                lm.lblVacStatusM.setText("Not Registered");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid IC/Passport Number and Password.");
         }
 //        try {
 //            PeopleDetails Id = new PeopleDetails();

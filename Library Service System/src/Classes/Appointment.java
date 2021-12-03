@@ -28,15 +28,20 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Appointment {
     
-    public String status;   
+    public String Status;
     public String IC;
-    public String gender;
-    public String contactNo;
-    public String email;
-    public String dob;
-    public String state;
-    public String username;
-    public String peopleType;
+    public String Gender;
+    public String ContactNo;
+    public String Email;
+    public String Dob;
+    public String State;
+    public String Centre;
+    public String Date;
+    public String Time;
+    public String Slot;
+    public String Name;
+    public String PeopleType;
+    public String Vaccine;
     
     public boolean verifyNotRegistered(String id, String name){
         try{
@@ -55,7 +60,7 @@ public class Appointment {
         return false;
     }
     
-    public boolean verifyAddedApp(String id, String name){
+    public boolean verifyAddedAppointment(String id, String name){
         try{
             FileReader fr = new FileReader("Appointment/vaccineappadded.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -63,6 +68,8 @@ public class Appointment {
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
                 if (id.equals(split[0]) && name.equals(split[1])) {
+                    Centre = split[6];
+                    Slot = split[7] + " : " + split[8];
                     return true;
                 }
             }
@@ -72,24 +79,7 @@ public class Appointment {
         return false;
     }
     
-    public boolean verifyCancelledApp(String id, String name){
-        try{
-            FileReader fr = new FileReader("Appointment/vaccineappcancelled.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String record;
-            while ((record = br.readLine()) != null) {
-                String[] split = record.split(" : ");
-                if (id.equals(split[0]) && name.equals(split[1])) {
-                    return true;
-                }
-            }
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        return false;
-    }
-    
-    public boolean verifyCompletedApp(String id, String name){
+    public boolean verifyCompletedAppointment(String id, String name){
         try{
             FileReader fr = new FileReader("Appointment/vaccineappcompleted.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -97,6 +87,9 @@ public class Appointment {
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
                 if (id.equals(split[0]) && name.equals(split[1])) {
+                    Centre = split[6];
+                    Slot = split[7] + " : " + split[8];
+                    Vaccine = split[9];
                     return true;
                 }
             }
@@ -116,13 +109,13 @@ public class Appointment {
                 String[] split = record.split(" : ");
                 if (id.equals(split[7]) && name.equals(split[2])) {
                     IC = split[7];
-                     username= split[2];
-                    gender = split[3];
-                    contactNo= split[6];
-                    email = split[4];
-                    dob = split[5];
-                    state = split[8];
-                    peopleType = "Citizen";
+                    Name= split[2];
+                    Gender = split[3];
+                    ContactNo= split[6];
+                    Email = split[4];
+                    Dob = split[5];
+                    State = split[8];
+                    PeopleType = "Citizen";
                     return true;
                 }
             }
@@ -141,13 +134,13 @@ public class Appointment {
                 String[] split = record.split(" : ");
                 if (id.equals(split[7]) && name.equals(split[2])) {
                     IC = split[7];
-                     username= split[2];
-                    gender = split[3];
-                    contactNo= split[6];
-                    email = split[4];
-                    dob = split[5];
-                    state = split[8];
-                    peopleType = "Non Citizen";
+                    Name= split[2];
+                    Gender = split[3];
+                    ContactNo= split[6];
+                    Email = split[4];
+                    Dob = split[5];
+                    State = split[8];
+                    PeopleType = "Non Citizen";
                     return true;
                 }
             }
@@ -269,13 +262,22 @@ public class Appointment {
             JOptionPane.showMessageDialog(null,"Error");
         }
     }
-    
-    public String getStatus() {
-        return status;
+
+    public String getVaccine() {
+        return Vaccine;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setVaccine(String Vaccine) {
+        this.Vaccine = Vaccine;
+    }
+    
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
     public String getIC() {
@@ -287,61 +289,93 @@ public class Appointment {
     }
 
     public String getGender() {
-        return gender;
+        return Gender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGender(String Gender) {
+        this.Gender = Gender;
     }
 
     public String getContactNo() {
-        return contactNo;
+        return ContactNo;
     }
 
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
+    public void setContactNo(String ContactNo) {
+        this.ContactNo = ContactNo;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
     public String getDob() {
-        return dob;
+        return Dob;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setDob(String Dob) {
+        this.Dob = Dob;
     }
 
     public String getState() {
-        return state;
+        return State;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setState(String State) {
+        this.State = State;
     }
 
-    public String getUsername() {
-        return username;
+    public String getCentre() {
+        return Centre;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCentre(String Centre) {
+        this.Centre = Centre;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String Date) {
+        this.Date = Date;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String Time) {
+        this.Time = Time;
+    }
+
+    public String getSlot() {
+        return Slot;
+    }
+
+    public void setSlot(String Slot) {
+        this.Slot = Slot;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
     public String getPeopleType() {
-        return peopleType;
+        return PeopleType;
     }
 
-    public void setPeopleType(String peopleType) {
-        this.peopleType = peopleType;
+    public void setPeopleType(String PeopleType) {
+        this.PeopleType = PeopleType;
     }
-
+   
     public String[] getColumnsName() {
         return columnsNameAdd;
     }

@@ -2,8 +2,13 @@
 package Classes;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Scanner;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class User {
     private String userId;
@@ -91,6 +96,51 @@ public class User {
         return false;
     }
     
+        public void GetinfoCitizen(JTextField userId,JTextField password,JTextField name,JComboBox gender, 
+                JTextField email, JTextField dateOfBirth,  JTextField contactNo,JTextField IC, JComboBox state,String getIC){
+//        String ic = getIC.getText();
+        boolean icsearch = false;
+        
+        try {
+            FileReader fr = new FileReader("Citizen.txt");
+            Scanner input = new Scanner(fr);
+            String[] line;
+            String pid, ppassword,pname,pgender, pemail, pdateOfBirth, pcontactNo,pic, pstate;
+            while(input.hasNext()){
+                line = input.nextLine().split(" : ");
+                pid  = line[0];
+                ppassword  = line[1];
+                pname  = line[2];
+                pgender  = line[3];
+                pemail  = line[4];
+                pdateOfBirth  = line[5];
+                pcontactNo  = line[6];
+                pic  = line[7];
+                pstate  = line[8];
+
+
+                if(getIC.equals(pic)){
+                   icsearch = true;
+                    userId.setText(pid);
+                    password.setText(ppassword);
+                    name.setText(pname);
+                    gender.setSelectedItem(pgender);
+                    email.setText(pemail);
+                    dateOfBirth.setText(pdateOfBirth);
+                    contactNo.setText(pcontactNo);
+                    IC.setText(pic);
+                    state.setSelectedItem(pstate);
+ 
+                }
+            }
+            if(!icsearch){
+                JOptionPane.showMessageDialog(null, "Invalid Citizen, Please Try Again! ");
+            }   
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Please try again");
+        }
+    }
+
    
     public User(){
     }

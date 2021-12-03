@@ -222,21 +222,7 @@ public class PeopleMain extends javax.swing.JFrame {
     }//GEN-LAST:event_MyIssueActionPerformed
 
     private void jmiVaccineRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiVaccineRegistrationMouseClicked
-//        PeopleVaccineRegistration pv = new PeopleVaccineRegistration();
-//        new PeopleVaccineRegistration().setVisible(true);
-//        String name = lblPeopleName.getText();
-//        String ic = lblPeopleIC.getText();
-//        String status = lblVacStatusM.getText();
-//        
-//        pv.lblName.setText(name);
-//        pv.lblIC1.setText(ic);
-//        pv.lblVacStatus.setText(status);
-//        pv.setVisible(true);
-//        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-//        this.dispose();
-//        if(!"Not Registered".equals(status)){
-//            pv.btnRegister.setVisible(false);
-//        }
+
         this.dispose();
         String name = lblPeopleName.getText();
         String ic = lblPeopleIC.getText();
@@ -295,8 +281,16 @@ public class PeopleMain extends javax.swing.JFrame {
 
     private void jPeopleProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPeopleProfileMouseClicked
         // TODO add your handling code here:
-        new PeopleProfile().setVisible(true);
         this.dispose();
+        String name = lblPeopleName.getText();
+        String ic = lblPeopleIC.getText();
+        String status = lblVacStatusM.getText();
+        PeopleProfile pp = new PeopleProfile();
+        pp.setVisible(true);
+        pp.txtIC.setText(ic);
+        pp.txtName.setText(name);
+        pp.lblVaccinationStatus.setText(status);
+        
     }//GEN-LAST:event_jPeopleProfileMouseClicked
 
     private void jPeopleProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPeopleProfileActionPerformed

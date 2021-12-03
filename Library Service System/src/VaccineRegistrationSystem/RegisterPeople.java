@@ -22,6 +22,8 @@ public class RegisterPeople extends javax.swing.JFrame {
      */
     public RegisterPeople() {
         initComponents();
+        panel.setVisible(false);
+        btnClear.setVisible(false);
     }
 
     /**
@@ -37,30 +39,38 @@ public class RegisterPeople extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtStdName = new javax.swing.JTextField();
-        txtStdEmail = new javax.swing.JTextField();
-        txtStdPassword = new javax.swing.JTextField();
-        txtStdMobileNumber = new javax.swing.JTextField();
-        cmbStdGender = new javax.swing.JComboBox<>();
+        lblClose2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btnStdRegister = new javax.swing.JButton();
-        btnClear = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         cmbPeopleType = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
+        panel = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtStdName = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        cmbStdGender = new javax.swing.JComboBox<>();
         lblIC = new javax.swing.JLabel();
         txtUserIC = new javax.swing.JTextField();
+        txtStdMobileNumber = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtStdEmail = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtDOB = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         lblIC1 = new javax.swing.JLabel();
         cmbPeopleState = new javax.swing.JComboBox<>();
-        txtDOB = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         btnSelectDateStdDOB1 = new javax.swing.JToggleButton();
+        jLabel18 = new javax.swing.JLabel();
+        btnStdRegister = new javax.swing.JButton();
+        jCheckBoxp = new javax.swing.JCheckBox();
+        txtPassword = new javax.swing.JPasswordField();
+        txtCPassword = new javax.swing.JPasswordField();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        btnClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -68,18 +78,19 @@ public class RegisterPeople extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/profile.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Citizen/NonCitizen Registration");
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Close.png"))); // NOI18N
-        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblClose2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-close-window-30.png"))); // NOI18N
+        lblClose2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblClose2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
+                lblClose2MouseClicked(evt);
             }
         });
 
@@ -92,73 +103,26 @@ public class RegisterPeople extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(183, 183, 183)
-                .addComponent(jLabel16)
-                .addGap(32, 32, 32))
+                .addGap(279, 279, 279)
+                .addComponent(lblClose2)
+                .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblClose2))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel4.setText("Name:");
-
-        jLabel10.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel10.setText("Gender:");
-
-        jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel5.setText("Password:");
-
-        jLabel6.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel6.setText("Date of Birth:");
-
-        jLabel7.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel7.setText("Email Address:");
-
-        jLabel8.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel8.setText("Mobile Number:");
-
-        txtStdName.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        txtStdEmail.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        txtStdPassword.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        txtStdMobileNumber.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        cmbStdGender.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        cmbStdGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
-
         jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-
-        btnStdRegister.setBackground(new java.awt.Color(204, 204, 255));
-        btnStdRegister.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnStdRegister.setText("Register");
-        btnStdRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStdRegisterActionPerformed(evt);
-            }
-        });
-
-        btnClear.setBackground(new java.awt.Color(204, 204, 255));
-        btnClear.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnClear.setText("Clear");
-        btnClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearActionPerformed(evt);
-            }
-        });
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
-        cmbPeopleType.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        cmbPeopleType.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         cmbPeopleType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Citizen", "NonCitizen" }));
         cmbPeopleType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,18 +130,63 @@ public class RegisterPeople extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jLabel13.setText("People Type:");
+        jLabel13.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        jLabel13.setText("Choose People Type:");
 
-        lblIC.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        panel.setBackground(new java.awt.Color(204, 204, 255));
+        panel.setForeground(new java.awt.Color(204, 204, 255));
+
+        jLabel14.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        jLabel14.setText("Personnel Information");
+
+        jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel4.setText("Name:");
+
+        txtStdName.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel10.setText("Gender:");
+
+        cmbStdGender.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        cmbStdGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female" }));
+
+        lblIC.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         lblIC.setText("IC Number:");
 
-        txtUserIC.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtUserIC.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
 
-        lblIC1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        txtStdMobileNumber.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel8.setText("Contact Number:");
+
+        jLabel7.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel7.setText("Email Address:");
+
+        txtStdEmail.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        txtStdEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStdEmailActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel6.setText("Date of Birth:");
+
+        txtDOB.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        txtDOB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDOBActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        jLabel15.setText("Location Information");
+
+        lblIC1.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         lblIC1.setText("State:");
 
-        cmbPeopleState.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        cmbPeopleState.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         cmbPeopleState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kuala Lumpur", "Penang" }));
         cmbPeopleState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,20 +194,184 @@ public class RegisterPeople extends javax.swing.JFrame {
             }
         });
 
-        txtDOB.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        txtDOB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDOBActionPerformed(evt);
-            }
-        });
+        jLabel17.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        jLabel17.setText("Password Setup");
+
+        jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel5.setText("Password:");
 
         btnSelectDateStdDOB1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         btnSelectDateStdDOB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Calender.png"))); // NOI18N
-        btnSelectDateStdDOB1.setText("Select Date");
         btnSelectDateStdDOB1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSelectDateStdDOB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectDateStdDOB1ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel18.setText("Confirm Password: ");
+
+        btnStdRegister.setBackground(new java.awt.Color(255, 255, 255));
+        btnStdRegister.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        btnStdRegister.setText("Register");
+        btnStdRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStdRegisterActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxp.setText("Show Password");
+        jCheckBoxp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxpActionPerformed(evt);
+            }
+        });
+
+        txtPassword.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+
+        txtCPassword.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        txtCPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCPasswordActionPerformed(evt);
+            }
+        });
+
+        jCheckBox2.setText("Show Password");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelLayout.createSequentialGroup()
+                                        .addComponent(lblIC)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtUserIC, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelLayout.createSequentialGroup()
+                                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel10))
+                                        .addGap(97, 97, 97)
+                                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6))
+                                .addGap(57, 57, 57))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jCheckBoxp)
+                                        .addGroup(panelLayout.createSequentialGroup()
+                                            .addComponent(lblIC1)
+                                            .addGap(126, 126, 126)
+                                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cmbPeopleState, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel18)
+                                .addGap(37, 37, 37)))
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSelectDateStdDOB1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jCheckBox2)
+                                .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(btnStdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel5))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addGap(27, 27, 27)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIC)
+                            .addComponent(txtUserIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnSelectDateStdDOB1)))
+                .addGap(56, 56, 56)
+                .addComponent(jLabel15)
+                .addGap(31, 31, 31)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIC1)
+                    .addComponent(cmbPeopleState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel17)
+                .addGap(36, 36, 36)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel18)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxp)
+                    .addComponent(jCheckBox2))
+                .addGap(31, 31, 31)
+                .addComponent(btnStdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        btnClear.setBackground(new java.awt.Color(204, 204, 255));
+        btnClear.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
             }
         });
 
@@ -208,118 +381,48 @@ public class RegisterPeople extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(jLabel11)
-                .addGap(131, 131, 131)
+                .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel10))
-                                    .addGap(97, 97, 97)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnStdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                                        .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblIC)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtUserIC, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblIC1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbPeopleState, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(74, 74, 74)
-                                .addComponent(btnSelectDateStdDOB1))))
-                    .addComponent(jLabel12))
-                .addContainerGap(81, Short.MAX_VALUE))
+                        .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(65, 65, 65))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(26, 26, 26)
+                        .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(117, 117, 117))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jLabel11)
+                .addGap(261, 261, 261)
+                .addComponent(jLabel12)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11)
-                        .addGap(133, 133, 133))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtStdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(cmbStdGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtStdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelectDateStdDOB1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtStdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtStdMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
                             .addComponent(cmbPeopleType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIC)
-                            .addComponent(txtUserIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIC1)
-                            .addComponent(cmbPeopleState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(48, 48, 48))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnStdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28))))))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addContainerGap(38, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -330,24 +433,19 @@ public class RegisterPeople extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        this.dispose();
-//        new PersonnelMain().setVisible(true);
-    }//GEN-LAST:event_jLabel16MouseClicked
-
     private void btnStdRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStdRegisterActionPerformed
 
         if(txtStdName.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please make sure the name is filled.");
         }
-        else if(txtStdPassword.getText().trim().isEmpty()){
+        else if(txtPassword.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please make sure the password is filled.");
         }
         else if(txtDOB.getText().trim().isEmpty()){
@@ -366,7 +464,7 @@ public class RegisterPeople extends javax.swing.JFrame {
             String peopleID = null;
             String peopleName = txtStdName.getText();
             String peopleGender = cmbStdGender.getSelectedItem().toString();
-            String peoplePassword = txtStdPassword.getText();
+            String peoplePassword = txtPassword.getText();
             String peopleDOB = txtDOB.getText();
             String peopleEmailAddress = txtStdEmail.getText();
             String peopleMobileNumber = txtStdMobileNumber.getText();
@@ -386,7 +484,7 @@ public class RegisterPeople extends javax.swing.JFrame {
             txtStdName.setText("");
             cmbStdGender.setSelectedIndex(0);
             txtUserIC.setText("");
-            txtStdPassword.setText("");
+            txtPassword.setText("");
             txtDOB.setText("");
             txtStdEmail.setText("");
             txtStdMobileNumber.setText("");
@@ -398,6 +496,8 @@ public class RegisterPeople extends javax.swing.JFrame {
     private void cmbPeopleTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPeopleTypeActionPerformed
         // TODO add your handling code here:
         Object selected = cmbPeopleType.getSelectedItem();
+        panel.setVisible(true);
+        btnClear.setVisible(true);
         if (selected.toString().equals("NonCitizen")){
             lblIC.setText("Passport Number:");
         }else{
@@ -410,7 +510,7 @@ public class RegisterPeople extends javax.swing.JFrame {
         txtStdName.setText("");
             cmbStdGender.setSelectedIndex(0);
             txtUserIC.setText("");
-            txtStdPassword.setText("");
+            txtPassword.setText("");
             txtDOB.setText("");
             txtStdEmail.setText("");
             txtStdMobileNumber.setText("");
@@ -430,6 +530,40 @@ public class RegisterPeople extends javax.swing.JFrame {
     private void txtDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDOBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDOBActionPerformed
+
+    private void txtStdEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStdEmailActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void txtCPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCPasswordActionPerformed
+
+    private void jCheckBoxpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxpActionPerformed
+        // TODO add your handling code here:
+        if(jCheckBox2.isSelected()){
+            txtPassword.setEchoChar((char)0);
+        }else{
+            txtPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBoxpActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        if(jCheckBoxp.isSelected()){
+            txtPassword.setEchoChar((char)0);
+        }else{
+            txtPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void lblClose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClose2MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_lblClose2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -476,12 +610,17 @@ public class RegisterPeople extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbPeopleState;
     private javax.swing.JComboBox<String> cmbPeopleType;
     private javax.swing.JComboBox<String> cmbStdGender;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBoxp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -490,13 +629,16 @@ public class RegisterPeople extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblClose2;
     private javax.swing.JLabel lblIC;
     private javax.swing.JLabel lblIC1;
+    private javax.swing.JPanel panel;
+    private javax.swing.JPasswordField txtCPassword;
     private javax.swing.JTextField txtDOB;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtStdEmail;
     private javax.swing.JTextField txtStdMobileNumber;
     private javax.swing.JTextField txtStdName;
-    private javax.swing.JTextField txtStdPassword;
     private javax.swing.JTextField txtUserIC;
     // End of variables declaration//GEN-END:variables
 }

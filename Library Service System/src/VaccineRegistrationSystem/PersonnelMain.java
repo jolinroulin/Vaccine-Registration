@@ -61,7 +61,6 @@ public class PersonnelMain extends javax.swing.JFrame {
         jmiManageVaccine = new javax.swing.JMenuItem();
         jmiStatistics = new javax.swing.JMenu();
         jmiSummaryReport = new javax.swing.JMenuItem();
-        jPeopleProfile = new javax.swing.JMenu();
         jMenuLogOut = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -297,21 +296,6 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jmiStatistics);
 
-        jPeopleProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
-        jPeopleProfile.setText("Profile");
-        jPeopleProfile.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jPeopleProfile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPeopleProfileMouseClicked(evt);
-            }
-        });
-        jPeopleProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPeopleProfileActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jPeopleProfile);
-
         jMenuLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Logout.png"))); // NOI18N
         jMenuLogOut.setText("LogOut");
         jMenuLogOut.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
@@ -372,15 +356,6 @@ public class PersonnelMain extends javax.swing.JFrame {
     private void jmiStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiStatisticsActionPerformed
         
     }//GEN-LAST:event_jmiStatisticsActionPerformed
-
-    private void jPeopleProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPeopleProfileMouseClicked
-        // TODO add your handling code here:
-        new PersonnelProfile().setVisible(true);
-    }//GEN-LAST:event_jPeopleProfileMouseClicked
-
-    private void jPeopleProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPeopleProfileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPeopleProfileActionPerformed
 
     private void jmilManageAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmilManageAppActionPerformed
         new PersonnelManageAppointment().setVisible(true);
@@ -487,7 +462,6 @@ public class PersonnelMain extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuLogOut;
     private javax.swing.JMenu jMenuPeople;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenu jPeopleProfile;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenu jVaciine;

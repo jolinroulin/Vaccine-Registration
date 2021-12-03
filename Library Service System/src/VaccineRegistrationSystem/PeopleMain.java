@@ -285,7 +285,7 @@ public class PeopleMain extends javax.swing.JFrame {
         String name = lblPeopleName.getText();
         String ic = lblPeopleIC.getText();
         String status = lblVacStatusM.getText();
-        PeopleProfile pp = new PeopleProfile();
+        PeopleEditProfile pp = new PeopleEditProfile();
         pp.setVisible(true);
         pp.txtIC.setText(ic);
         pp.txtName.setText(name);

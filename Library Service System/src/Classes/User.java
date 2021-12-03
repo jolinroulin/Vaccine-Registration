@@ -36,14 +36,14 @@ public class User {
 
     }
 
-    public boolean verifypersonnel(String id, String password) {
+    public boolean verifypersonnel(String id) {
         try {
             FileReader fr = new FileReader("Personnel.txt");
             BufferedReader br = new BufferedReader(fr);
             String record;
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
-                if (id.equals(split[7]) && password.equals(split[1])) {
+                if (id.equals(split[7]) ) {
                     IC = split[7];
 //                    password = split[1];
                     name = split[2];
@@ -63,7 +63,7 @@ public class User {
             String record;
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
-                if (id.equals(split[7]) && Password.equals(split[1])) {
+                if (id.equals(split[7]) ) {
                     userId = split[0];
                     password = split[1];
                     name = split[2];
@@ -82,14 +82,14 @@ public class User {
         return false;
     }
 
-    public boolean verifynoncitizen(String id, String Password) {
+    public boolean verifynoncitizen(String id) {
         try {
             FileReader fr = new FileReader("NonCitizen.txt");
             BufferedReader br = new BufferedReader(fr);
             String record;
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
-                if (id.equals(split[7]) && Password.equals(split[1])) {
+                if (id.equals(split[7])) {
                     userId = split[0];
                     password = split[1];
                     name = split[2];

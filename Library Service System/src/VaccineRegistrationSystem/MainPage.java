@@ -589,7 +589,7 @@ String icpassportno = txtUserUsername.getText();
             } else {
                 lm.lblVacStatusM.setText("Not Registered");
             }
-        } else if (user.verifynoncitizen(icpassportno, password)) {
+        } else if (user.verifynoncitizen(icpassportno)) {
             JOptionPane.showMessageDialog(this, "Login Successful!");
             setVisible(false);
             PeopleMain lm = new PeopleMain();
@@ -663,7 +663,7 @@ String icpassportno = txtUserUsername.getText();
         String personnelUserId = txtCommitteeUsername.getText();
         String personnelPassword = txtPersonnelPassword.getText();
 
-        if(user.verifypersonnel(personnelUserId, personnelPassword)){
+        if(user.verifypersonnel(personnelUserId)){
             JOptionPane.showMessageDialog(this, "User Logged in Sucessfully");
             setVisible(false);
             PersonnelMain lm = new PersonnelMain();

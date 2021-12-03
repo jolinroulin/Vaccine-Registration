@@ -479,7 +479,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         } else if (time.equals("*None*")) {
             JOptionPane.showMessageDialog(null, "Please select the time.");
         } else {
-            as.deleteSlot(state, centre, DateSlot, cmbTime);
+            as.deleteSlot(lblSlotId,state, centre, DateSlot, cmbTime);
             jTableSlot.setModel(new DefaultTableModel());
             try {
                 as.viewSlotTable(state, centre, jTableSlot);
@@ -521,10 +521,13 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
 
     private void jTableSlotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSlotMouseClicked
         DefaultTableModel tblModel = (DefaultTableModel) jTableSlot.getModel();
-        String date = tblModel.getValueAt(jTableSlot.getSelectedRow(), 0).toString();
-        String time = tblModel.getValueAt(jTableSlot.getSelectedRow(), 1).toString();
+        String id = tblModel.getValueAt(jTableSlot.getSelectedRow(), 0).toString();
+        String date = tblModel.getValueAt(jTableSlot.getSelectedRow(), 1).toString();
+        String time = tblModel.getValueAt(jTableSlot.getSelectedRow(), 2).toString();
+
         try {
             java.util.Date thedate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+            lblSlotId.setText(id);
             DateSlot.setDate(thedate);
             cmbTime.setSelectedItem(time);
         } catch (ParseException ex) {
@@ -628,3 +631,4 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     private javax.swing.JLabel lblState;
     // End of variables declaration//GEN-END:variables
 }
+

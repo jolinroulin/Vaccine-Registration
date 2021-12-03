@@ -9,11 +9,13 @@ import com.toedter.calendar.JDateChooser;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,7 +25,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,27 +33,39 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AppointmentSlots {
     public String slot;
-    String[] columnsName = {"Date","Time"};  
+    String[] columnsName = {"Slot Id","Date","Time"};  
     
-    public void addSlot(JComboBox state, JComboBox centre, JDateChooser date, JComboBox time){
+    public void addSlot(JComboBox state, JComboBox centre, JDateChooser date, JComboBox time) {
         String newState = state.getSelectedItem().toString();
         String newCentre = centre.getSelectedItem().toString();
         Date newDate = date.getDate();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
-        String strDate = formatter.format(newDate);  
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = formatter.format(newDate);
         String newTime = time.getSelectedItem().toString();
-        
+
         String filename = "Slot/" + newState + "/" + newCentre + ".txt";
-        
-        try{
+
+        try {
+            File file = new File(filename);
+            InputStreamReader streamReader = new InputStreamReader(new FileInputStream(file));
+            BufferedReader br = new BufferedReader(streamReader);
+            String line = new String();
+            while (br.ready()) {
+                line = br.readLine();
+            }
+            String[] split = line.split(" : ");
+            String id = split[0];
+            int theid = Integer.parseInt(id);
+            int addid = theid + 1;
+
             FileWriter Writer = new FileWriter(filename, true);
-            Writer.write(strDate + " : " + newTime);
+            Writer.write(addid + " : " + strDate + " : " + newTime);
             Writer.write(System.getProperty("line.separator"));
             Writer.close();
             JOptionPane.showMessageDialog(null, "Successfully added.");
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error");
-        }     
+        }
     }
     
     public void viewSlotTable(JComboBox state, JComboBox centre, JTable t) throws FileNotFoundException, IOException{
@@ -97,14 +110,14 @@ public class AppointmentSlots {
         }
     }
         
-    public void deleteSlot(String state, String centre, JDateChooser date, JComboBox time){
+    public void deleteSlot(JLabel Id, String state, String centre, JDateChooser date, JComboBox time){
         if (JOptionPane.showConfirmDialog(null, "Are you sure to remove this slot?", "WARNING",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
             String filePath = "Slot/" + state + "/" + centre + ".txt";
             File newFile = new File(filePath);
             String currentLine;
             String slot[];
-            Date removeTerm = date.getDate();
-            String removeTerm2 = time.getSelectedItem().toString();
+            String id = Id.getText();
+//            String removeTerm2 = time.getSelectedItem().toString();
 
             try{
                 FileWriter fw = new FileWriter (filePath,true);
@@ -116,7 +129,7 @@ public class AppointmentSlots {
 
                 while ((currentLine = br.readLine())!=null ){
                     slot = currentLine.split(" : ");
-                    if(!slot[0].equalsIgnoreCase(removeTerm.toString()) && !slot[1].equalsIgnoreCase(removeTerm2)){
+                    if(!slot[0].equalsIgnoreCase(id.toString())){
                         new FileOutputStream(filePath).close();
                         pw.println(currentLine);
                     }
@@ -150,7 +163,11 @@ public void viewAvailableSlot(JLabel state, JComboBox centre, JComboBox cmbas) t
 //            String[] lines = scanner.nextLine().split(" : ");
             for(int i = 0; i < lines.length; i++){
             String line = lines[i].toString();
-            cmbas.addItem(line);
+            String[] split = line.split(" : ");
+                    String item1 = split[1];
+                    String item2 = split[2];
+                    String additem = item1 + " : " + item2;
+            cmbas.addItem(additem);
             }
         }
         } catch (Exception ex) {
@@ -168,7 +185,11 @@ public void viewPenangSlots(String centre, JComboBox slot){
                 String[] lines = scanner.nextLine().split("\n");
                 for(int i = 0; i < lines.length; i++){
                     String line = lines[i].toString();
-                    slot.addItem(line);
+                    String[] split = line.split(" : ");
+                    String item1 = split[1];
+                    String item2 = split[2];
+                    String additem = item1 + " : " + item2;
+                    slot.addItem(additem);
                 }
             }
         } catch (FileNotFoundException ex) {
@@ -186,7 +207,11 @@ public void viewPenangSlots(String centre, JComboBox slot){
                 String[] lines = scanner.nextLine().split("\n");
                 for(int i = 0; i < lines.length; i++){
                     String line = lines[i].toString();
-                    slot.addItem(line);
+                    String[] split = line.split(" : ");
+                    String item1 = split[1];
+                    String item2 = split[2];
+                    String additem = item1 + " : " + item2;
+                    slot.addItem(additem);
                 }
             }
         } catch (FileNotFoundException ex) {
@@ -204,7 +229,11 @@ public void viewPenangSlots(String centre, JComboBox slot){
                 String[] lines = scanner.nextLine().split("\n");
                 for(int i = 0; i < lines.length; i++){
                     String line = lines[i].toString();
-                    slot.addItem(line);
+                    String[] split = line.split(" : ");
+                    String item1 = split[1];
+                    String item2 = split[2];
+                    String additem = item1 + " : " + item2;
+                    slot.addItem(additem);
                 }
             }
         } catch (FileNotFoundException ex) {

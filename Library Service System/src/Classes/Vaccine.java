@@ -16,6 +16,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JComboBox;
@@ -59,7 +60,7 @@ public class Vaccine {
         }
     }
     
-    public void addVacSupply(String state, String centre, String VacName, String VacCode, JDateChooser ExpDate, int Quantity){
+    public void addVacSupply(String state, String centre, String VacName, String VacCode, JDateChooser ExpDate, String Quantity){
 
         
         Date expdate = ExpDate.getDate();
@@ -176,5 +177,56 @@ System.out.println(filePath);
         }
     }
 
+    
+    public void modifyVaccineSupply(JTextField vacname, JTextField vaccode, JDateChooser expdate, JTextField quantity, JLabel state, JLabel centre){
+        String vn = vacname.getText();
+        String vc = vaccode.getText();
+        Date ed = expdate.getDate();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = formatter.format(ed);
+        String qtt = quantity.getText();
+        String st = state.getText();
+        String ct = centre.getText();
 
+        ArrayList<String> tempArray = new ArrayList<>();
+
+        try{
+            try (FileReader fr = new FileReader("Vaccine/" + st + "/" + ct + ".txt")){
+                Scanner reader = new Scanner(fr);
+                String line;
+                String[] lineArr;
+
+                while((line=reader.nextLine())!=null){
+                    lineArr = line.split(" : ");
+                    if(lineArr[0].equals(vn) && lineArr[1].equals(vc)){
+                        tempArray.add(vn + " : " + vc + " : " + strDate + " : " + qtt);
+                        JOptionPane.showMessageDialog(null, "Modify Vaccine Supply Successful!");
+                    }else{
+                        tempArray.add(line);
+                    }
+                }
+
+                fr.close();
+            }catch(Exception e){
+
+            }
+        }catch(Exception e){
+
+        }
+
+        try{
+            try(PrintWriter pr = new PrintWriter("Vaccine/" + st + "/" + ct + ".txt")){
+                for(String str : tempArray){
+                    pr.println(str);
+                }
+                pr.close();
+            }catch(Exception e){
+
+            }
+        }catch(Exception e){
+
+        }
+    }
+
+    
 }

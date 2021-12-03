@@ -67,6 +67,8 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
         lblCentre = new javax.swing.JLabel();
         btnViewSlot1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        lblSlotId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -234,6 +236,12 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
+        jLabel18.setText("Slot Id:");
+
+        lblSlotId.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
+        lblSlotId.setText("<Slot Id>");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -264,13 +272,21 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                                 .addGap(39, 39, 39)
                                 .addComponent(btnAddSlot))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(40, 40, 40)
-                                .addComponent(DateSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(115, 115, 115)
-                                .addComponent(jLabel15)
-                                .addGap(34, 34, 34)
-                                .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel18)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addGap(40, 40, 40)
+                                        .addComponent(DateSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGap(115, 115, 115)
+                                        .addComponent(jLabel15)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblSlotId)))
                                 .addGap(139, 139, 139))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -326,7 +342,9 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addComponent(lblState)
                     .addComponent(jLabel17)
-                    .addComponent(lblCentre))
+                    .addComponent(lblCentre)
+                    .addComponent(jLabel18)
+                    .addComponent(lblSlotId))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
@@ -594,6 +612,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -605,6 +624,7 @@ public class PersonnelAddSlots extends javax.swing.JFrame {
     private javax.swing.JTable jTableSlot;
     private javax.swing.JLabel lblCentre;
     private javax.swing.JLabel lblClose;
+    private javax.swing.JLabel lblSlotId;
     private javax.swing.JLabel lblState;
     // End of variables declaration//GEN-END:variables
 }

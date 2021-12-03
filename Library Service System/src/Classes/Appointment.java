@@ -5,6 +5,7 @@
  */
 package Classes;
 
+import com.toedter.calendar.JDateChooser;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,12 +15,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -525,8 +529,6 @@ public class Appointment {
             JOptionPane.showMessageDialog(null,"Error");
         }
     }
-    
-    
     public void modify(){
         
     }

@@ -154,7 +154,7 @@ public class Appointment {
         return false;
     }
 
-    String[] columnsName = {"IC","Name","Contact No","Email","State","People Type"};   
+    String[] columnsName = {"IC/Passport No.","Name","Contact No","Email","State","People Type"};   
     public void viewRegisteredPeopleTable(JTable t) throws FileNotFoundException, IOException{
         DefaultTableModel model = (DefaultTableModel)t.getModel();
 
@@ -211,7 +211,7 @@ public class Appointment {
     }
     
     
-    String[] columnsNameAdd = {"IC","Name","Contact No","Email","State","People Type","Centre","Date","Time"};   
+    String[] columnsNameAdd = {"IC/Passport No.","Name","Contact No","Email","State","People Type","Centre","Date","Time"};   
     public void viewAddedPeopleTable(JTable t) throws FileNotFoundException, IOException{
         DefaultTableModel model = (DefaultTableModel)t.getModel();
 

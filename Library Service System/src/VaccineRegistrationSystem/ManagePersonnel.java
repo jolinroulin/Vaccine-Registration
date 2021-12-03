@@ -24,7 +24,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author User
  */
-public class ViewPersonnel extends javax.swing.JFrame {
+public class ManagePersonnel extends javax.swing.JFrame {
     /**
      * Creates new form ViewLibrarian
      */
@@ -32,7 +32,7 @@ public class ViewPersonnel extends javax.swing.JFrame {
        PersonnelDetails p = new PersonnelDetails();
  
 
-    public ViewPersonnel() {
+    public ManagePersonnel() {
         initComponents();
         p.viewPersonnelTable(jTablePersonnel);
 //        viewPersonnelTable(jTablePersonnel);
@@ -553,21 +553,23 @@ public class ViewPersonnel extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagePersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagePersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagePersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewPersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagePersonnel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
            
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewPersonnel().setVisible(true);
+                new ManagePersonnel().setVisible(true);
             }
         });
     }

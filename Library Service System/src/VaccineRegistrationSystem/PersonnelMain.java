@@ -285,7 +285,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         });
 
         jmiSummaryReport.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmiSummaryReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Centre.png"))); // NOI18N
+        jmiSummaryReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/report_1.png"))); // NOI18N
         jmiSummaryReport.setText("Summary Report");
         jmiSummaryReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,12 +324,12 @@ public class PersonnelMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmiViewPersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewPersonnelActionPerformed
-        new ViewPersonnel().setVisible(true);
+        new ManagePersonnel().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jmiViewPersonnelActionPerformed
 
     private void jmiViewPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewPeopleActionPerformed
-        new ViewPeople().setVisible(true);
+        new ManagePeople().setVisible(true);
         new PersonnelAddCentre().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jmiViewPeopleActionPerformed
@@ -382,8 +382,8 @@ public class PersonnelMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiAddslotActionPerformed
 
     private void jmiSummaryReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSummaryReportActionPerformed
-        //new PrintReport().setVisible(true);
-        //this.dispose();
+        new Report().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jmiSummaryReportActionPerformed
 
     private void jmiAddpersonnelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddpersonnelActionPerformed

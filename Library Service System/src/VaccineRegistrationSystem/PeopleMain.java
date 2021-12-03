@@ -49,7 +49,6 @@ public class PeopleMain extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmiVaccineRegistration = new javax.swing.JMenu();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        MyIssue = new javax.swing.JMenu();
         jPeopleProfile = new javax.swing.JMenu();
         jMenuLogOut = new javax.swing.JMenu();
 
@@ -139,22 +138,7 @@ public class PeopleMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jmiVaccineRegistration);
 
-        MyIssue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/vaccinated.png"))); // NOI18N
-        MyIssue.setText("Appointment");
-        MyIssue.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        MyIssue.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MyIssueMouseClicked(evt);
-            }
-        });
-        MyIssue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MyIssueActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(MyIssue);
-
-        jPeopleProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchUser.png"))); // NOI18N
+        jPeopleProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/profile.png"))); // NOI18N
         jPeopleProfile.setText("Profile");
         jPeopleProfile.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jPeopleProfile.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -217,10 +201,6 @@ public class PeopleMain extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jmiVaccineRegistrationActionPerformed
 
-    private void MyIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyIssueActionPerformed
-
-    }//GEN-LAST:event_MyIssueActionPerformed
-
     private void jmiVaccineRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiVaccineRegistrationMouseClicked
 
         this.dispose();
@@ -270,14 +250,6 @@ public class PeopleMain extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jmiVaccineRegistrationMouseClicked
-
-    private void MyIssueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyIssueMouseClicked
-
-//        String user = lblPeopleIC.getText();
-//                StudentIssue lm = new StudentIssue();
-//                lm.setVisible(true);
-//                lm.usernameStudent(user);
-    }//GEN-LAST:event_MyIssueMouseClicked
 
     private void jPeopleProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPeopleProfileMouseClicked
         // TODO add your handling code here:
@@ -359,7 +331,6 @@ public class PeopleMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu MyIssue;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;

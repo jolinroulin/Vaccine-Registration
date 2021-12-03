@@ -1,6 +1,5 @@
 A01001111 : Ray : 0178289922 : Ray@mail.com : Johor : Non Citizen
 A01920211 : Rent : 0182229992 : Ren@mail.com : Kuala Lumpur : Non Citizen
 019222221 : Karn : 0178882222 : Karen@mail.com : Johor : Citizen
-019222221, Karn, 0178882222, Karen@mail.com, Johor, Citizen
 2321323 : Jane : 012992222 : Jane@mail.com : Kuala Lumpur : Non Citizen
 123 : ros : 23423 : asd@a.com : Kuala Lumpur : Non Citizen

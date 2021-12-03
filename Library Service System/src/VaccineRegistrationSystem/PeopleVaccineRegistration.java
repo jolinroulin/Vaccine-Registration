@@ -438,17 +438,6 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
             }
         }
             
-
-//        String state = cmbNewStateSlots.getSelectedItem().toString();
-        //        String centre  = cmbNewStateCentre.getSelectedItem().toString();
-        //        try {
-            //            jTableSlot.setModel(new DefaultTableModel());
-            //            as.viewSlotTable(cmbNewStateSlots, cmbNewStateCentre, jTableSlot);
-            //            lblState.setText(state);
-            //            lblCentre.setText(centre);
-            //        } catch (IOException ex) {
-            //            Logger.getLogger(PersonnelAddSlots.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void lblNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblNameKeyReleased

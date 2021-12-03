@@ -685,9 +685,9 @@ String icpassportno = txtUserUsername.getText();
 
     private void jCheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox2MouseClicked
         if (jCheckBox2.isSelected()) {
-            txtUserPassword.setEchoChar((char) 0);
+            txtPersonnelPassword.setEchoChar((char) 0);
         } else {
-            txtUserPassword.setEchoChar('*');
+            txtPersonnelPassword.setEchoChar('*');
         }
     }//GEN-LAST:event_jCheckBox2MouseClicked
 
@@ -697,10 +697,16 @@ String icpassportno = txtUserUsername.getText();
 
     private void jCheckBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox3MouseClicked
         // TODO add your handling code here:
+                if (jCheckBox3.isSelected()) {
+            txtUserPassword.setEchoChar((char) 0);
+        } else {
+            txtUserPassword.setEchoChar('*');
+        }
     }//GEN-LAST:event_jCheckBox3MouseClicked
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     /**

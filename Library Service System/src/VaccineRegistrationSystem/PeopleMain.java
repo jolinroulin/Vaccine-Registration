@@ -15,12 +15,13 @@ import static jdk.nashorn.internal.runtime.Debug.id;
  * @author User
  */
 public class PeopleMain extends javax.swing.JFrame {
-    
+
 //    void usernameStudent1(String user){
 //         lblPeopleName.setText(user);
 //    }
     User user = new User();
-    Appointment a  = new Appointment();
+    Appointment a = new Appointment();
+
     /**
      * Creates new form StudentMain
      */
@@ -28,8 +29,7 @@ public class PeopleMain extends javax.swing.JFrame {
         initComponents();
 //        lblPeopleName.setText(user.getName());
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -202,10 +202,10 @@ public class PeopleMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLogOutMouseClicked
-       int a = JOptionPane.showConfirmDialog(null, "Do you really want to Log Out?","Select",JOptionPane.YES_NO_OPTION);
-        if(a==0){
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to Log Out?", "Select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
             setVisible(false);
-            new MainPage().setVisible(true); 
+            new MainPage().setVisible(true);
         }
     }//GEN-LAST:event_jMenuLogOutMouseClicked
 
@@ -218,7 +218,7 @@ public class PeopleMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiVaccineRegistrationActionPerformed
 
     private void MyIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyIssueActionPerformed
-        
+
     }//GEN-LAST:event_MyIssueActionPerformed
 
     private void jmiVaccineRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiVaccineRegistrationMouseClicked
@@ -232,10 +232,10 @@ public class PeopleMain extends javax.swing.JFrame {
         vac.lblIC1.setText(ic);
         vac.lblName.setText(name);
         vac.lblVacStatus.setText(status);
-       
-        if(!"Not Registered".equals(status)){
+
+        if (!"Not Registered".equals(status)) {
             vac.btnRegister.setVisible(false);
-            if("Vaccination Registered".equals(status)){
+            if ("Vaccination Registered".equals(status)) {
                 vac.jLabel4.setVisible(false);
                 vac.jLabel6.setVisible(false);
                 vac.jLabel19.setVisible(false);
@@ -244,31 +244,31 @@ public class PeopleMain extends javax.swing.JFrame {
                 vac.lblSlot.setVisible(false);
                 vac.lblVaccine.setVisible(false);
                 vac.btnCancelApp.setVisible(false);
-            }else if("Appointment Added".equals(status)){
-                if(a.verifyAddedAppointment(ic, name)){
+            } else if ("Appointment Added".equals(status)) {
+                if (a.verifyAddedAppointment(ic, name)) {
                     vac.lblCentre.setText(a.getCentre());
                     vac.lblSlot.setText(a.getSlot());
                     vac.lblVaccine.setVisible(false);
                     vac.jLabel20.setVisible(false);
                 }
-            }else if("Vaccination Completed".equals(status)){
+            } else if ("Vaccination Completed".equals(status)) {
                 vac.btnCancelApp.setVisible(false);
-                if(a.verifyCompletedAppointment(ic, name)){
+                if (a.verifyCompletedAppointment(ic, name)) {
                     vac.lblCentre.setText(a.getCentre());
                     vac.lblSlot.setText(a.getSlot());
                     vac.lblVaccine.setText(a.getVaccine());
                 }
             }
-        }else if("Not Registered".equals(status)){
+        } else if ("Not Registered".equals(status)) {
             vac.jLabel4.setVisible(false);
-                vac.jLabel6.setVisible(false);
-                vac.jLabel19.setVisible(false);
-                vac.jLabel20.setVisible(false);
-                vac.lblCentre.setVisible(false);
-                vac.lblSlot.setVisible(false);
-                vac.lblVaccine.setVisible(false);
+            vac.jLabel6.setVisible(false);
+            vac.jLabel19.setVisible(false);
+            vac.jLabel20.setVisible(false);
+            vac.lblCentre.setVisible(false);
+            vac.lblSlot.setVisible(false);
+            vac.lblVaccine.setVisible(false);
         }
-        
+
     }//GEN-LAST:event_jmiVaccineRegistrationMouseClicked
 
     private void MyIssueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyIssueMouseClicked
@@ -291,6 +291,31 @@ public class PeopleMain extends javax.swing.JFrame {
         pp.txtName.setText(name);
         pp.lblVaccinationStatus.setText(status);
         
+
+        if (user.findCitizen(ic)) {
+//            System.out.println(pp.txtId.setText(user.getUserId()));
+            pp.txtId.setText(user.getUserId());
+            pp.txtPassword.setText(user.getPassword());
+            pp.txtName.setText(user.getName());
+            pp.cmbGender.setSelectedItem(user.getGender());
+            pp.txtEmail.setText(user.getEmail());
+            pp.txtDOB.setText(user.getDateOfBirth());
+            pp.txtMobileNumber.setText(user.getContactNo());
+            pp.txtIC.setText(user.getIC());
+            pp.cmbState.setSelectedItem(user.getState());
+        } else if (user.findNonCitizen(ic)) {
+            pp.txtId.setText(user.getUserId());
+            pp.txtPassword.setText(user.getPassword());
+            pp.txtName.setText(user.getName());
+            pp.cmbGender.setSelectedItem(user.getGender());
+            pp.txtEmail.setText(user.getEmail());
+            pp.txtDOB.setText(user.getDateOfBirth());
+            pp.txtMobileNumber.setText(user.getContactNo());
+            pp.txtIC.setText(user.getIC());
+            pp.cmbState.setSelectedItem(user.getState());
+        }
+
+
     }//GEN-LAST:event_jPeopleProfileMouseClicked
 
     private void jPeopleProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPeopleProfileActionPerformed

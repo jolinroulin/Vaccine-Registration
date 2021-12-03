@@ -72,38 +72,38 @@ public class PersonnelDetails {
         return true;
     }
 
-    public Personnel findPersonnelFromTextFile(String memberId) throws IOException {
-        Personnel personnel = null;
-        try {
-
-            FileInputStream fileInputStream = new FileInputStream(FILEPATHMember);
-
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-
-            String readLine;
-
-            while ((readLine = bufferedReader.readLine()) != null) {
-                String[] detailPersonnel = readLine.split(" : ");
-                if (memberId.equals(detailPersonnel[0])) {
-                    //personnel = new Personnel();
-                    personnel.setUserId(detailPersonnel[0]);
-                    personnel.setPassword(detailPersonnel[1]);
-                    personnel.setName(detailPersonnel[2]);
-                    personnel.setGender(detailPersonnel[3]);
-                    personnel.setEmail(detailPersonnel[4]);
-                    personnel.setDateOfBirth(detailPersonnel[5]);
-                    personnel.setContactNo(detailPersonnel[6]);
-                    personnel.setIC(detailPersonnel[7]);
-                    personnel.setCentre(detailPersonnel[8]);
-                    JOptionPane.showMessageDialog(null, "Record is found");
-                }
-            }
-
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Record is not found");
-        }
-        return personnel;
-    }
+//    public Personnel findPersonnelFromTextFile(String memberId) throws IOException {
+//        Personnel personnel = null;
+//        try {
+//
+//            FileInputStream fileInputStream = new FileInputStream(FILEPATHMember);
+//
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+//
+//            String readLine;
+//
+//            while ((readLine = bufferedReader.readLine()) != null) {
+//                String[] detailPersonnel = readLine.split(" : ");
+//                if (memberId.equals(detailPersonnel[0])) {
+//                    //personnel = new Personnel();
+//                    personnel.setUserId(detailPersonnel[0]);
+//                    personnel.setPassword(detailPersonnel[1]);
+//                    personnel.setName(detailPersonnel[2]);
+//                    personnel.setGender(detailPersonnel[3]);
+//                    personnel.setEmail(detailPersonnel[4]);
+//                    personnel.setDateOfBirth(detailPersonnel[5]);
+//                    personnel.setContactNo(detailPersonnel[6]);
+//                    personnel.setIC(detailPersonnel[7]);
+//                    personnel.setCentre(detailPersonnel[8]);
+//                    JOptionPane.showMessageDialog(null, "Record is found");
+//                }
+//            }
+//
+//        } catch (FileNotFoundException ex) {
+//            JOptionPane.showMessageDialog(null, "Record is not found");
+//        }
+//        return personnel;
+//    }
 
     public void validateCharacter(JTextField a, KeyEvent evt) {
         char c = evt.getKeyChar();

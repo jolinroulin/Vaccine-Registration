@@ -68,17 +68,17 @@ public class PersonnelMain extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/mainpage.png"))); // NOI18N
 
         lbl.setFont(new java.awt.Font("Segoe Print", 0, 36)); // NOI18N
 
-        lblUser.setFont(new java.awt.Font("Monotype Corsiva", 0, 48)); // NOI18N
+        lblUser.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         lblUser.setText("  ");
 
-        jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jLabel5.setText("WELCOME ");
+        jLabel5.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
+        jLabel5.setText("Welcome");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,7 +91,7 @@ public class PersonnelMain extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(lbl)
-                        .addContainerGap(646, Short.MAX_VALUE))
+                        .addContainerGap(648, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,8 +108,8 @@ public class PersonnelMain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblUser)
                     .addComponent(lbl))
-                .addContainerGap(391, Short.MAX_VALUE))
-            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addContainerGap(419, Short.MAX_VALUE))
+            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 102, 255));
@@ -118,7 +118,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         jMenuBar1.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
 
         jMenu1.setBackground(new java.awt.Color(153, 102, 255));
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Adminpic.png"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AdminIcon.jpg"))); // NOI18N
         jMenu1.setText("Personnel");
         jMenu1.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
 
@@ -275,7 +275,7 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jVaciine);
 
-        jmiStatistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Statistics.png"))); // NOI18N
+        jmiStatistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/report_1.png"))); // NOI18N
         jmiStatistics.setText("Statistics ");
         jmiStatistics.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jmiStatistics.addActionListener(new java.awt.event.ActionListener() {
@@ -285,7 +285,7 @@ public class PersonnelMain extends javax.swing.JFrame {
         });
 
         jmiSummaryReport.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jmiSummaryReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/report_1.png"))); // NOI18N
+        jmiSummaryReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Statistics.png"))); // NOI18N
         jmiSummaryReport.setText("Summary Report");
         jmiSummaryReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,7 +296,7 @@ public class PersonnelMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jmiStatistics);
 
-        jMenuLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Logout.png"))); // NOI18N
+        jMenuLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logout .png"))); // NOI18N
         jMenuLogOut.setText("LogOut");
         jMenuLogOut.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jMenuLogOut.addMouseListener(new java.awt.event.MouseAdapter() {

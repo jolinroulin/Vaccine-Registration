@@ -93,7 +93,7 @@ public class PersonnelAppointmentCompletion extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Vaccination Completion");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/vaccinated.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/managevaccine.png"))); // NOI18N
         jLabel13.setText("jLabel13");
 
         lblClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-close-window-30.png"))); // NOI18N

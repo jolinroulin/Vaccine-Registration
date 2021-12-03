@@ -56,7 +56,7 @@ public class PeopleMain extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/mainpage.png"))); // NOI18N
 
@@ -93,7 +93,7 @@ public class PeopleMain extends javax.swing.JFrame {
                             .addComponent(lblPeopleName, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPeopleIC, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +153,7 @@ public class PeopleMain extends javax.swing.JFrame {
         });
         jMenuBar1.add(jPeopleProfile);
 
-        jMenuLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Logout.png"))); // NOI18N
+        jMenuLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logout .png"))); // NOI18N
         jMenuLogOut.setText("LogOut");
         jMenuLogOut.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
         jMenuLogOut.addMouseListener(new java.awt.event.MouseAdapter() {

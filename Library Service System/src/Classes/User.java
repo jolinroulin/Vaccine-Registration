@@ -303,7 +303,7 @@ public class User {
 
                 while ((line = reader.nextLine()) != null) {
                     lineArr = line.split(" : ");
-                    if (lineArr[8].equals(ic)) {
+                    if (lineArr[7].equals(ic)) {
                         tempArray.add(id + " : " + p + " : " + na + " : " + ge + " : " + em + " : " + dob + " : " + cn + " : " + ic + " : " +st);
                         JOptionPane.showMessageDialog(null, "Modify Successful!");
                     } else {
@@ -356,7 +356,7 @@ public class User {
 
                 while ((line = reader.nextLine()) != null) {
                     lineArr = line.split(" : ");
-                    if (lineArr[8].equals(ic)) {
+                    if (lineArr[7].equals(ic)) {
                         tempArray.add(id + " : " + p + " : " + na + " : " + ge + " : " + em + " : " + dob + " : " + cn + " : " + ic + " : " +st);
                         JOptionPane.showMessageDialog(null, "Modify Successful!");
                     } else {

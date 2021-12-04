@@ -505,13 +505,13 @@ public class PeopleEditProfile extends javax.swing.JFrame {
         else if(txtMobileNumber.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
-//        else if(!password.equals(confirmpassword)){
-//            JOptionPane.showMessageDialog(null, "Passwords did not match. Please check.");
-//        }
+        else if(!password.equals(confirmpassword)){
+            JOptionPane.showMessageDialog(null, "Passwords did not match. Please check.");
+        }
         else{
         if (u.findCitizen(txtIC.getText())) {
             u.modifyCitizen(txtId, txtPassword, txtName, cmbGender, txtEmail, txtDOB,txtMobileNumber,txtIC, cmbState);
-            JOptionPane.showMessageDialog(null, "Modify Sucessful");
+//            JOptionPane.showMessageDialog(null, "Modify Sucessful");
             PeopleMain main = new PeopleMain();
             String ic = txtIC.getText();
             String name = txtName.getText();
@@ -526,7 +526,7 @@ public class PeopleEditProfile extends javax.swing.JFrame {
             
         } else if (u.findNonCitizen(txtIC.getText())) {
             u.modifyNonCitizen(txtId, txtPassword, txtName, cmbGender, txtEmail, txtDOB,txtMobileNumber,txtIC, cmbState);
-            JOptionPane.showMessageDialog(null, "Modify Sucessful");
+//            JOptionPane.showMessageDialog(null, "Modify Sucessful");
             PeopleMain main = new PeopleMain();
             String ic = txtIC.getText();
             String name = txtName.getText();
@@ -539,6 +539,7 @@ public class PeopleEditProfile extends javax.swing.JFrame {
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
             this.dispose();
         }
+
     }
     }//GEN-LAST:event_btnModifyActionPerformed
 

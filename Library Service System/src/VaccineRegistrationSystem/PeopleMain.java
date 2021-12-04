@@ -240,6 +240,7 @@ public class PeopleMain extends javax.swing.JFrame {
                 }
             }
         } else if ("Not Registered".equals(status)) {
+            vac.btnCancelApp.setVisible(false);            
             vac.jLabel4.setVisible(false);
             vac.jLabel6.setVisible(false);
             vac.jLabel19.setVisible(false);
@@ -247,6 +248,7 @@ public class PeopleMain extends javax.swing.JFrame {
             vac.lblCentre.setVisible(false);
             vac.lblSlot.setVisible(false);
             vac.lblVaccine.setVisible(false);
+
         }
 
     }//GEN-LAST:event_jmiVaccineRegistrationMouseClicked

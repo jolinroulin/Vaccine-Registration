@@ -451,7 +451,63 @@ public class PeopleVaccineRegistration extends javax.swing.JFrame {
     }//GEN-LAST:event_lblIC1KeyReleased
 
     private void btnCancelAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelAppActionPerformed
-        a.removefromAddedApp(lblIC1);
+         String ic = lblIC1.getText();
+        String name = lblName.getText();
+        if(a.findCitizen(ic, name)){
+            String phoneno = a.getContactNo();
+                String email = a.getEmail(); 
+                String state = a.getState();
+                String peopleType =a.getPeopleType();
+            if (JOptionPane.showConfirmDialog(null, "Are you sure to cancel his/her appointment?", "WARNING",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
+                try{
+                    FileWriter Writer = new FileWriter("Appointment/vaccineregistered.txt", true);
+                    Writer.write(ic + ", " + name + ", " + phoneno + ", " + email + ", " + state + ", " + peopleType);
+                    Writer.write(System.getProperty("line.separator"));
+                    Writer.close();
+                    JOptionPane.showMessageDialog(null, "Appointment Cancelled. Your status is changed back as 'Vaccination Registered'.");
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
+                //Delete from old file
+                a.removefromAddedApp(lblIC1);
+                PeopleMain pm = new PeopleMain();
+                String status = "Vaccination Registered";
+                pm.setVisible(true);
+                pm.lblPeopleIC.setText(ic);
+                pm.lblPeopleName.setText(name);
+                pm.lblVacStatusM.setText(status);
+                this.setVisible(false);
+                this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+        }else if(a.findNonCitizen(ic, name)){
+            String phoneno = a.getContactNo();
+                String email = a.getEmail(); 
+                String state = a.getState();
+                String peopleType =a.getPeopleType();
+            if (JOptionPane.showConfirmDialog(null, "Are you sure to cancel his/her appointment?", "WARNING",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
+                try{
+                    FileWriter Writer = new FileWriter("Appointment/vaccineregistered.txt", true);
+                    Writer.write(ic + ", " + name + ", " + phoneno + ", " + email + ", " + state + ", " + peopleType);
+                    Writer.write(System.getProperty("line.separator"));
+                    Writer.close();
+                    JOptionPane.showMessageDialog(null, "Appointment Cancelled. Your status is changed back as 'Vaccination Registered'.");
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
+                //Delete from old file
+                a.removefromAddedApp(lblIC1);
+                PeopleMain pm = new PeopleMain();
+                String status = "Vaccination Registered";
+                pm.setVisible(true);
+                pm.lblPeopleIC.setText(ic);
+                pm.lblPeopleName.setText(name);
+                pm.lblVacStatusM.setText(status);
+                this.setVisible(false);
+                this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_btnCancelAppActionPerformed
 
     /**

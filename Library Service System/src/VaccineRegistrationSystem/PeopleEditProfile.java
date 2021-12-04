@@ -129,7 +129,6 @@ public class PeopleEditProfile extends javax.swing.JFrame {
 
         txtId.setEditable(false);
         txtId.setFont(new java.awt.Font("Cambria Math", 0, 16)); // NOI18N
-        txtId.setEnabled(false);
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
@@ -506,9 +505,10 @@ public class PeopleEditProfile extends javax.swing.JFrame {
         else if(txtMobileNumber.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please make sure all the textfields are filled.");
         }
-        else if(!password.equals(confirmpassword)){
-            JOptionPane.showMessageDialog(null, "Passwords did not match. Please check.");
-        }else{
+//        else if(!password.equals(confirmpassword)){
+//            JOptionPane.showMessageDialog(null, "Passwords did not match. Please check.");
+//        }
+        else{
         if (u.findCitizen(txtIC.getText())) {
             u.modifyCitizen(txtId, txtPassword, txtName, cmbGender, txtEmail, txtDOB,txtMobileNumber,txtIC, cmbState);
             JOptionPane.showMessageDialog(null, "Modify Sucessful");

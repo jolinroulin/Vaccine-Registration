@@ -330,7 +330,6 @@ public class PersonnelMain extends javax.swing.JFrame {
 
     private void jmiViewPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiViewPeopleActionPerformed
         new ManagePeople().setVisible(true);
-        new PersonnelAddCentre().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jmiViewPeopleActionPerformed
 

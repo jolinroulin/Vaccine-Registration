@@ -2,5 +2,5 @@
 300002 : 1444 : Karen : Female : Karen@mail.com : 2021-11-23 : 019222255 : A01001110 : Johor
 300003 : 1121 : Rent : Male  : Ren@mail.com : 2021-11-10 : 0182229992 : A01920211 : Kuala Lumpur
 300004 : 1211 : Kn : Male  : Fas@ : 2021-12-16 : 029031uu : A98282323 : Johor
-300005 : 1213 : Jane : Male  : Jane@mail.com : 2021-12-16 : 012992222 : 2321323 : Kuala Lumpur
 300006 : sad : ros : Male  : asd@a.com : 2021-12-16 : 23423 : 123 : Kuala Lumpur
+300007 : 0000 : Chua : Female : aj@mail.com : 2021-12-16 : 091278937 : A01023 : Kuala Lumpur

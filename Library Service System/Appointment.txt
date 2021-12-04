@@ -1,3 +1,0 @@
-Phizer : 100
-SinoVac : 200
-AstraZeneca : 300

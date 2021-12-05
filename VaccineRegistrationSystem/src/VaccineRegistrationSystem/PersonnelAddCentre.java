@@ -6,8 +6,11 @@
 package VaccineRegistrationSystem;
 
 import Classes.Centre;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -54,9 +57,9 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
         jTableJohor = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableKl = new javax.swing.JTable();
-        btnAddSlots = new javax.swing.JButton();
-        btnAddSlots2 = new javax.swing.JButton();
-        btnAddSlots3 = new javax.swing.JButton();
+        btnDeleteJSlots = new javax.swing.JButton();
+        btnDeleteKl = new javax.swing.JButton();
+        btnDeletePenang = new javax.swing.JButton();
         txtJhrCentre = new javax.swing.JTextField();
         txtNewCentre2 = new javax.swing.JTextField();
         txtKLCentre = new javax.swing.JTextField();
@@ -149,30 +152,30 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTableKl);
 
-        btnAddSlots.setBackground(new java.awt.Color(204, 255, 255));
-        btnAddSlots.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnAddSlots.setText("Delete");
-        btnAddSlots.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteJSlots.setBackground(new java.awt.Color(204, 255, 255));
+        btnDeleteJSlots.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnDeleteJSlots.setText("Delete");
+        btnDeleteJSlots.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSlotsActionPerformed(evt);
+                btnDeleteJSlotsActionPerformed(evt);
             }
         });
 
-        btnAddSlots2.setBackground(new java.awt.Color(204, 255, 255));
-        btnAddSlots2.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnAddSlots2.setText("Delete");
-        btnAddSlots2.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteKl.setBackground(new java.awt.Color(204, 255, 255));
+        btnDeleteKl.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnDeleteKl.setText("Delete");
+        btnDeleteKl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSlots2ActionPerformed(evt);
+                btnDeleteKlActionPerformed(evt);
             }
         });
 
-        btnAddSlots3.setBackground(new java.awt.Color(204, 255, 255));
-        btnAddSlots3.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        btnAddSlots3.setText("Delete");
-        btnAddSlots3.addActionListener(new java.awt.event.ActionListener() {
+        btnDeletePenang.setBackground(new java.awt.Color(204, 255, 255));
+        btnDeletePenang.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        btnDeletePenang.setText("Delete");
+        btnDeletePenang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSlots3ActionPerformed(evt);
+                btnDeletePenangActionPerformed(evt);
             }
         });
 
@@ -228,15 +231,15 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addComponent(txtJhrCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAddSlots)
+                .addComponent(btnDeleteJSlots)
                 .addGap(136, 136, 136)
                 .addComponent(txtKLCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAddSlots2)
+                .addComponent(btnDeleteKl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtPenangCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAddSlots3)
+                .addComponent(btnDeletePenang)
                 .addGap(99, 99, 99))
         );
         jPanel2Layout.setVerticalGroup(
@@ -260,10 +263,10 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddSlots3)
+                    .addComponent(btnDeletePenang)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAddSlots)
-                        .addComponent(btnAddSlots2)
+                        .addComponent(btnDeleteJSlots)
+                        .addComponent(btnDeleteKl)
                         .addComponent(txtJhrCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtKLCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtPenangCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -349,11 +352,21 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotsActionPerformed
+    private void btnDeleteJSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteJSlotsActionPerformed
+       try{
+           File file = new File("Slot/Johor/" + txtJhrCentre.getText() + ".txt");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            boolean bl = br.readLine() == null;
+            if(!bl){
+                JOptionPane.showMessageDialog(null, "Cannot remove centre, slots are added into the centre.");
+            }else{
         c.deleteJohorCentre(txtJhrCentre);
         jTableJohor.setModel(new DefaultTableModel());
-        c.viewJohorCentres(jTableJohor);
-    }//GEN-LAST:event_btnAddSlotsActionPerformed
+        c.viewJohorCentres(jTableJohor);}
+       }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Error");
+       }
+    }//GEN-LAST:event_btnDeleteJSlotsActionPerformed
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
         this.dispose();
@@ -380,6 +393,8 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
                 Writer.close();
                 jTableJohor.setModel(new DefaultTableModel());
                 c.viewJohorCentres(jTableJohor);
+                PrintWriter writer = new PrintWriter("Slot/Johor/"+txtNewCentre2.getText()+".txt", "UTF-8");
+                writer.close();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error");
             }
@@ -390,6 +405,8 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
                 Writer.write(System.getProperty("line.separator"));
                 Writer.close();
                 jTableKl.setModel(new DefaultTableModel());
+                PrintWriter writer = new PrintWriter("Slot/Kuala Lumpur/"+txtNewCentre2.getText()+".txt", "UTF-8");
+                writer.close();
                 c.viewKualaLumpurCentres(jTableKl);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error");
@@ -401,6 +418,8 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
                 Writer.write(System.getProperty("line.separator"));
                 Writer.close();
                 jTablePenang.setModel(new DefaultTableModel());
+                PrintWriter writer = new PrintWriter("Slot/Penang/"+txtNewCentre2.getText()+".txt", "UTF-8");
+                writer.close();
                 c.viewPenangCentres(jTablePenang);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error");
@@ -408,17 +427,28 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnAddActionPerformed
 
-    private void btnAddSlots2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlots2ActionPerformed
+    private void btnDeleteKlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteKlActionPerformed
+        try{
+           File file = new File("Slot/Kuala Lumpur/" + txtKLCentre.getText() + ".txt");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            boolean bl = br.readLine() == null;
+            if(!bl){
+                JOptionPane.showMessageDialog(null, "Cannot remove centre, slots are added into the centre.");
+            }else{
         c.deleteKLCentre(txtKLCentre);
         jTableKl.setModel(new DefaultTableModel());
         c.viewKualaLumpurCentres(jTableKl);
-    }//GEN-LAST:event_btnAddSlots2ActionPerformed
+            }
+       }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Error");
+       }
+    }//GEN-LAST:event_btnDeleteKlActionPerformed
 
-    private void btnAddSlots3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlots3ActionPerformed
+    private void btnDeletePenangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletePenangActionPerformed
         c.deletePenangCentre(txtPenangCentre);
         jTablePenang.setModel(new DefaultTableModel());
         c.viewPenangCentres(jTablePenang);
-    }//GEN-LAST:event_btnAddSlots3ActionPerformed
+    }//GEN-LAST:event_btnDeletePenangActionPerformed
 
     private void txtJhrCentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJhrCentreActionPerformed
         
@@ -480,9 +510,9 @@ public class PersonnelAddCentre extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAdd;
-    private javax.swing.JButton btnAddSlots;
-    private javax.swing.JButton btnAddSlots2;
-    private javax.swing.JButton btnAddSlots3;
+    private javax.swing.JButton btnDeleteJSlots;
+    private javax.swing.JButton btnDeleteKl;
+    private javax.swing.JButton btnDeletePenang;
     private javax.swing.JComboBox<String> jComboBoxState;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;

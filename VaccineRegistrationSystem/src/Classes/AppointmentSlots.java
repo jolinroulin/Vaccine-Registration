@@ -32,9 +32,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Asus
  */
 public class AppointmentSlots {
-    public String slot;
-    String[] columnsName = {"Slot Id","Date","Time"};  
+    public String slotId;
+    public String Date;
+    public String Time;
     
+    public String slot ;
+    String[] columnsName = {"Slot Id","Date","Time"}; 
     public void addSlot(JComboBox state, JComboBox centre, JDateChooser date, JComboBox time) {
         String newState = state.getSelectedItem().toString();
         String newCentre = centre.getSelectedItem().toString();
@@ -45,7 +48,7 @@ public class AppointmentSlots {
 
         String filename = "Slot/" + newState + "/" + newCentre + ".txt";
 
-        try {
+        try{
             File file = new File(filename);
             InputStreamReader streamReader = new InputStreamReader(new FileInputStream(file));
             BufferedReader br = new BufferedReader(streamReader);
@@ -53,17 +56,26 @@ public class AppointmentSlots {
             while (br.ready()) {
                 line = br.readLine();
             }
-            String[] split = line.split(" : ");
-            String id = split[0];
-            int theid = Integer.parseInt(id);
-            int addid = theid + 1;
-
-            FileWriter Writer = new FileWriter(filename, true);
-            Writer.write(addid + " : " + strDate + " : " + newTime);
-            Writer.write(System.getProperty("line.separator"));
-            Writer.close();
-            JOptionPane.showMessageDialog(null, "Successfully added.");
-        } catch (Exception e) {
+            int addid;
+            if(file.length() == 0){
+                addid = 1;
+                FileWriter Writer = new FileWriter(filename, true);
+                Writer.write(addid + " : " + strDate + " : " + newTime);
+                Writer.write(System.getProperty("line.separator"));
+                Writer.close();
+                JOptionPane.showMessageDialog(null, "Successfully added.");
+            }else{
+                String[] split = line.split(" : ");
+                String id = split[0];
+                int theid = Integer.parseInt(id);
+                addid = theid + 1;
+                FileWriter Writer = new FileWriter(filename, true);
+                Writer.write(addid + " : " + strDate + " : " + newTime);
+                Writer.write(System.getProperty("line.separator"));
+                Writer.close();
+                JOptionPane.showMessageDialog(null, "Successfully added.");
+            }
+        }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error");
         }
     }

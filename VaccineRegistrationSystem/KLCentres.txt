@@ -1,3 +1,2 @@
 KLCC,
 KLIA,
-KLIA2,

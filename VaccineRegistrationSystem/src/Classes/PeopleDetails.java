@@ -101,47 +101,48 @@ public class PeopleDetails {
         return true;
     }
 
-
-        public boolean verifyCitizenUser(String studentUsername, String studentPassword) throws IOException{
-        try {
-            
-            FileInputStream fileInputStream = new FileInputStream(FILEPATHCitizen);
-            
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-            
-            String readLine;
-            
-            while((readLine = bufferedReader.readLine()) != null){
-                String[] detailStudent = readLine.split(" : ");
-                if(studentUsername.equals(detailStudent[4]) && studentPassword.equals(detailStudent[1])){
-                    return true;
-                }
-            }
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        return false;
-    }   
-        public boolean verifyNonCitizenUser(String studentUsername, String studentPassword) throws IOException{
-        try {
-            
-            FileInputStream fileInputStream = new FileInputStream(FILEPATHNonCitizen);
-            
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-            
-            String readLine;
-            
-            while((readLine = bufferedReader.readLine()) != null){
-                String[] detailStudent = readLine.split(" : ");
-                if(studentUsername.equals(detailStudent[4]) && studentPassword.equals(detailStudent[1])){
-                    return true;
-                }
-            }
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        return false;
-    }
+//
+//        public boolean verifyCitizenUser(String studentUsername, String studentPassword) throws IOException{
+//        try {
+//            
+//            FileInputStream fileInputStream = new FileInputStream(FILEPATHCitizen);
+//            
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+//            
+//            String readLine;
+//            
+//            while((readLine = bufferedReader.readLine()) != null){
+//                String[] detailStudent = readLine.split(" : ");
+//                if(studentUsername.equals(detailStudent[4]) && studentPassword.equals(detailStudent[1])){
+//                    return true;
+//                }
+//            }
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        return false;
+//    }   
+//        
+//        public boolean verifyNonCitizenUser(String studentUsername, String studentPassword) throws IOException{
+//        try {
+//            
+//            FileInputStream fileInputStream = new FileInputStream(FILEPATHNonCitizen);
+//            
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+//            
+//            String readLine;
+//            
+//            while((readLine = bufferedReader.readLine()) != null){
+//                String[] detailStudent = readLine.split(" : ");
+//                if(studentUsername.equals(detailStudent[4]) && studentPassword.equals(detailStudent[1])){
+//                    return true;
+//                }
+//            }
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(PeopleDetails.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        return false;
+//    }
         String[] columnsName = {"User ID","Password","Name","Gender","Email","DOB","Contact Number","IC","State"}; 
         
 public void viewPeopleTable(JTable Personnel ){

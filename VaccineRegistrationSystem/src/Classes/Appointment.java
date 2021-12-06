@@ -529,13 +529,5 @@ public class Appointment {
             JOptionPane.showMessageDialog(null,"Error");
         }
     }
-    public void modify(){
-        
-    }
-    public void search(){
-        
-    }
-    public void cancel(){
-        
-    }
+
 }

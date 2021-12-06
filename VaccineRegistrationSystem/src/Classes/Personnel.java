@@ -12,7 +12,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class Personnel extends Committee{
+public class Personnel extends User{
     
     private String centre;
 

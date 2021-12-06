@@ -6,8 +6,10 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import static jdk.nashorn.internal.runtime.Debug.id;
 
@@ -43,7 +45,7 @@ public class User {
             String record;
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
-                if (id.equals(split[7]) ) {
+                if (id.equals(split[7])) {
                     IC = split[7];
 //                    password = split[1];
                     name = split[2];
@@ -63,7 +65,7 @@ public class User {
             String record;
             while ((record = br.readLine()) != null) {
                 String[] split = record.split(" : ");
-                if (id.equals(split[7]) ) {
+                if (id.equals(split[7])) {
                     userId = split[0];
                     password = split[1];
                     name = split[2];
@@ -107,8 +109,9 @@ public class User {
         }
         return false;
     }
-    public boolean findCitizen(String id){
-        try{
+
+    public boolean findCitizen(String id) {
+        try {
             FileReader fr = new FileReader("Citizen.txt");
             BufferedReader br = new BufferedReader(fr);
             String record;
@@ -128,14 +131,14 @@ public class User {
                 }
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error");
         }
         return false;
     }
 
-    public boolean findNonCitizen(String id){
-        try{
+    public boolean findNonCitizen(String id) {
+        try {
             FileReader fr = new FileReader("NonCitizen.txt");
             BufferedReader br = new BufferedReader(fr);
             String record;
@@ -155,55 +158,29 @@ public class User {
                 }
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error");
         }
         return false;
     }
 
-//    public void GetinfoCitizen(JTextField userId, JTextField password, JTextField name, JComboBox gender,
-//            JTextField email, JTextField dateOfBirth, JTextField contactNo, JTextField IC, JComboBox state, String getIC) {
-////        String ic = getIC.getText();
-//        boolean icsearch = false;
-//
-//        try {
-//            FileReader fr = new FileReader("Citizen.txt");
-//            Scanner input = new Scanner(fr);
-//            String[] line;
-//            String pid, ppassword, pname, pgender, pemail, pdateOfBirth, pcontactNo, pic, pstate;
-//            while (input.hasNext()) {
-//                line = input.nextLine().split(" : ");
-//                pid = line[0];
-//                ppassword = line[1];
-//                pname = line[2];
-//                pgender = line[3];
-//                pemail = line[4];
-//                pdateOfBirth = line[5];
-//                pcontactNo = line[6];
-//                pic = line[7];
-//                pstate = line[8];
-//
-//                if (getIC.equals(pic)) {
-//                    icsearch = true;
-//                    userId.setText(pid);
-//                    password.setText(ppassword);
-//                    name.setText(pname);
-//                    gender.setSelectedItem(pgender);
-//                    email.setText(pemail);
-//                    dateOfBirth.setText(pdateOfBirth);
-//                    contactNo.setText(pcontactNo);
-//                    IC.setText(pic);
-//                    state.setSelectedItem(pstate);
-//
-//                }
-//            }
-//            if (!icsearch) {
-//                JOptionPane.showMessageDialog(null, "Invalid Citizen, Please Try Again! ");
-//            }
-//        } catch (FileNotFoundException ex) {
-//            JOptionPane.showMessageDialog(null, "Please try again");
-//        }
-//    }
+    public void maskPassword(JCheckBox View, JPasswordField Password) {
+        if (View.isSelected()) {
+            Password.setEchoChar((char) 0);
+        } else {
+            Password.setEchoChar('*');
+        }
+    }
+
+    public void maskPassword(JCheckBox View, JPasswordField NewPass, JPasswordField ConfirmPass) {
+        if (View.isSelected()) {
+            NewPass.setEchoChar((char) 0);
+            ConfirmPass.setEchoChar((char) 0);
+        } else {
+            NewPass.setEchoChar('*');
+            ConfirmPass.setEchoChar('*');
+        }
+    }
 
     public User() {
     }
@@ -291,7 +268,6 @@ public class User {
         String cn = contactNo.getText();
         String ic = IC.getText();
         String st = state.getSelectedItem().toString();
-        
 
         ArrayList<String> tempArray = new ArrayList<>();
 
@@ -304,7 +280,7 @@ public class User {
                 while ((line = reader.nextLine()) != null) {
                     lineArr = line.split(" : ");
                     if (lineArr[7].equals(ic)) {
-                        tempArray.add(id + " : " + p + " : " + na + " : " + ge + " : " + em + " : " + dob + " : " + cn + " : " + ic + " : " +st);
+                        tempArray.add(id + " : " + p + " : " + na + " : " + ge + " : " + em + " : " + dob + " : " + cn + " : " + ic + " : " + st);
                         JOptionPane.showMessageDialog(null, "Modify Successful!");
                     } else {
                         tempArray.add(line);
@@ -344,7 +320,6 @@ public class User {
         String cn = contactNo.getText();
         String ic = IC.getText();
         String st = state.getSelectedItem().toString();
-        
 
         ArrayList<String> tempArray = new ArrayList<>();
 
@@ -357,7 +332,7 @@ public class User {
                 while ((line = reader.nextLine()) != null) {
                     lineArr = line.split(" : ");
                     if (lineArr[7].equals(ic)) {
-                        tempArray.add(id + " : " + p + " : " + na + " : " + ge + " : " + em + " : " + dob + " : " + cn + " : " + ic + " : " +st);
+                        tempArray.add(id + " : " + p + " : " + na + " : " + ge + " : " + em + " : " + dob + " : " + cn + " : " + ic + " : " + st);
                         JOptionPane.showMessageDialog(null, "Modify Successful!");
                     } else {
                         tempArray.add(line);

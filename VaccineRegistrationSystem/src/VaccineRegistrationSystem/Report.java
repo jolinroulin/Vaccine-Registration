@@ -52,7 +52,7 @@ public class Report extends javax.swing.JFrame {
             jTextField1.setText(String.valueOf(totalNumber));
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(PrintReport.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
